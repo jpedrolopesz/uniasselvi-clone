@@ -1,0 +1,16 @@
+{
+  "userId": "usuario-ficticio-baixa-frequencia",
+  "isFictional": true,
+  "displayLabel": "Usuário Fictício — Risco de Evasão",
+  "scenario": "Cenário de risco: baixa frequência, pendência financeira em aberto, documentos pendentes, fora da Sofia, avaliações bloqueadas e sem aulas gravadas disponíveis.",
+  "datasets": {
+    "userData": true,
+    "currentSemester": true,
+    "sofiaDadosAluno": true,
+    "disciplines": true,
+    "financialTitles": true
+  },
+  "subjects": ["GTI03"],
+  "screens": ["home", "calendario", "notas-avaliacoes", "frequencia", "gravacoes"],
+  "notes": "Usuário fictício criado para testes de interface — não representa uma pessoa real. Mesma estrutura de campos dos dados reais, valores ajustados apenas para representar o cenário de risco."
+}

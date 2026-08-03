@@ -1,0 +1,20 @@
+{
+  "users": [
+    {
+      "id": "joao-pedro-lopes-zamonelo",
+      "label": "Joao Pedro Lopes Zamonelo",
+      "isFictional": false
+    },
+    {
+      "id": "usuario-ficticio-baixa-frequencia",
+      "label": "Usuário Fictício — Risco de Evasão",
+      "isFictional": true
+    },
+    {
+      "id": "usuario-ficticio-em-dia",
+      "label": "Usuário Fictício — Em Dia",
+      "isFictional": true
+    }
+  ],
+  "defaultUserId": "joao-pedro-lopes-zamonelo"
+}

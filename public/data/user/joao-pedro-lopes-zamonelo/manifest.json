@@ -1,0 +1,16 @@
+{
+  "userId": "joao-pedro-lopes-zamonelo",
+  "isFictional": false,
+  "displayLabel": "Joao Pedro Lopes Zamonelo",
+  "scenario": "Aluno em situação regular, participando ativamente da Sofia, com avaliações em estados variados (respondida, futura, agendamento de prova) e aulas gravadas disponíveis.",
+  "datasets": {
+    "userData": true,
+    "currentSemester": true,
+    "sofiaDadosAluno": true,
+    "disciplines": true,
+    "financialTitles": true
+  },
+  "subjects": ["GTI03"],
+  "screens": ["home", "calendario", "notas-avaliacoes", "frequencia", "gravacoes"],
+  "notes": "Dados de exemplo (mock) aguardando substituição pelos JSONs reais retornados pelos endpoints da UNIASSELVI."
+}

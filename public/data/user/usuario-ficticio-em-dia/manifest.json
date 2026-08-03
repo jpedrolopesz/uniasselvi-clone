@@ -1,0 +1,16 @@
+{
+  "userId": "usuario-ficticio-em-dia",
+  "isFictional": true,
+  "displayLabel": "Usuário Fictício — Em Dia",
+  "scenario": "Cenário saudável: alta frequência, pagamentos em dia, participação ativa na Sofia, avaliações liberadas, aulas gravadas disponíveis, último semestre do curso.",
+  "datasets": {
+    "userData": true,
+    "currentSemester": true,
+    "sofiaDadosAluno": true,
+    "disciplines": true,
+    "financialTitles": true
+  },
+  "subjects": ["GTI03"],
+  "screens": ["home", "calendario", "notas-avaliacoes", "frequencia", "gravacoes"],
+  "notes": "Usuário fictício criado para testes de interface — não representa uma pessoa real. Mesma estrutura de campos dos dados reais, valores ajustados apenas para representar o cenário saudável."
+}
