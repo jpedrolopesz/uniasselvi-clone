@@ -3,7 +3,7 @@
   "1": "Graphify Skill Docs",
   "2": "Attendance & Calendar Components",
   "3": "Package Dependencies",
-  "4": "formatDateBr",
+  "4": "date-formatters.ts",
   "5": "TypeScript Config",
   "6": "Test Runner Components",
   "7": "User Switcher & Data Loading",

@@ -25,8 +25,8 @@
     "semantic_hash": "20a4299840cf3b229e72d40920263a24"
   },
   "app/disciplinas/[subjectCode]/page.tsx": {
-    "mtime": 1785887645.8534722,
-    "ast_hash": "6eae837f26aa5ca4a74f5550eab13c6d",
+    "mtime": 1785888931.6596603,
+    "ast_hash": "29240587663d31777ac9553724aea3c7",
     "semantic_hash": ""
   },
   "app/layout.tsx": {
@@ -35,8 +35,8 @@
     "semantic_hash": "9e62d22d07a51762c05a17943d8a6ff8"
   },
   "app/page.tsx": {
-    "mtime": 1785885854.0366514,
-    "ast_hash": "29dad82b737c7bcfe751e8076de56773",
+    "mtime": 1785888770.2614717,
+    "ast_hash": "023dedb5851f5f66c369863ac21bd966",
     "semantic_hash": ""
   },
   "components/assessments/AssessmentAction.tsx": {
@@ -135,13 +135,13 @@
     "semantic_hash": "38ac398a24257524249fcacd59a51f4c"
   },
   "components/home/DisciplineCard.tsx": {
-    "mtime": 1785885865.841341,
-    "ast_hash": "a3e4eb1a45331d79554ceee21a3beaa8",
+    "mtime": 1785888770.2635484,
+    "ast_hash": "6202063ad32179d6518073b6e0732ea1",
     "semantic_hash": ""
   },
   "components/home/DisciplineCarousel.tsx": {
-    "mtime": 1785885889.9234054,
-    "ast_hash": "ca231df98c4db5b127f8d4c2d7cbdca1",
+    "mtime": 1785888770.2651107,
+    "ast_hash": "f8d5e219b2172696726c17b6bf0b932a",
     "semantic_hash": ""
   },
   "components/home/JourneyShortcuts.tsx": {
@@ -215,8 +215,8 @@
     "semantic_hash": "37dfa94ff1d4c9279b9a0047211bad61"
   },
   "lib/data/load-subject-data.ts": {
-    "mtime": 1785887279.7905116,
-    "ast_hash": "832550b9120a0da265143e9519b37417",
+    "mtime": 1785890613.954465,
+    "ast_hash": "0f7a11d9565fc68e16b438d146ad367d",
     "semantic_hash": ""
   },
   "lib/data/load-user-data.ts": {
@@ -615,8 +615,8 @@
     "semantic_hash": "a2760511c65806022ad20adf74370ff3"
   },
   "components/icons/index.tsx": {
-    "mtime": 1785887399.1300368,
-    "ast_hash": "40276ccd923d7609913cf34d9391dabd",
+    "mtime": 1785890668.593738,
+    "ast_hash": "83b9a92866add2d5e44ac181111eb6ee",
     "semantic_hash": ""
   },
   "app/disciplinas/[subjectCode]/registro-de-frequencia/page.tsx": {
@@ -625,53 +625,58 @@
     "semantic_hash": ""
   },
   "app/disciplinas/[subjectCode]/trilha-de-aprendizagem/[lessonCode]/page.tsx": {
-    "mtime": 1785887620.765527,
-    "ast_hash": "02ad48564f3edf10689f1fc982d5d0b8",
+    "mtime": 1785890914.7509851,
+    "ast_hash": "fe699e0798cc89cbe38215e0a596cc96",
     "semantic_hash": ""
   },
   "app/disciplinas/[subjectCode]/trilha-de-aprendizagem/page.tsx": {
-    "mtime": 1785887492.9772272,
-    "ast_hash": "b31fadabafb83e003d2571a855262bb2",
+    "mtime": 1785890904.564257,
+    "ast_hash": "b916abdcf8bb74423f2a137f608f8856",
     "semantic_hash": ""
   },
-  "components/learning-path/LessonBody.tsx": {
-    "mtime": 1785887605.4581048,
-    "ast_hash": "212ecb9f52aac051400da4bc1161824c",
+  "components/learning-path/LearningPathView.tsx": {
+    "mtime": 1785891054.8332713,
+    "ast_hash": "57e9630b8b7eb93654a2c6efa53f42e2",
     "semantic_hash": ""
   },
-  "components/learning-path/LessonChatPanel.tsx": {
-    "mtime": 1785887543.4085608,
-    "ast_hash": "7337387faf0838e764ae386dc62617e2",
+  "components/learning-path/LessonChat.tsx": {
+    "mtime": 1785890862.180694,
+    "ast_hash": "0fd645c37187e85526f70b5c944af74a",
     "semantic_hash": ""
   },
-  "components/learning-path/LessonContent.tsx": {
-    "mtime": 1785887533.7595212,
-    "ast_hash": "0985158d279490c4fbf82c002f280402",
+  "components/learning-path/LessonMarkdown.tsx": {
+    "mtime": 1785890813.5674043,
+    "ast_hash": "c4bc9811c3cc52ef2d38d62f88301ff3",
     "semantic_hash": ""
   },
-  "components/learning-path/LessonRow.tsx": {
-    "mtime": 1785887714.1151485,
-    "ast_hash": "3b72478822cb43d309023ee2b347e01d",
+  "components/learning-path/LessonView.tsx": {
+    "mtime": 1785890889.7275357,
+    "ast_hash": "b34e5d60188c4440fbfa39a3c3ab0a12",
     "semantic_hash": ""
   },
-  "components/learning-path/UnitAccordion.tsx": {
-    "mtime": 1785887477.1950765,
-    "ast_hash": "4d2584b14f6c725bc521bf12fceab2db",
+  "components/learning-path/use-learning-path-progress.ts": {
+    "mtime": 1785891021.9963722,
+    "ast_hash": "118a76e0134eccc089c6efc89a83e009",
+    "semantic_hash": ""
+  },
+  "lib/learning-path/progress-storage.ts": {
+    "mtime": 1785891011.5686264,
+    "ast_hash": "067e1a1f407af80d48d14eafe375328f",
     "semantic_hash": ""
   },
   "lib/selectors/learning-path-selectors.ts": {
-    "mtime": 1785887293.59921,
-    "ast_hash": "19defe29fb5d8ab128f930c398f0b376",
+    "mtime": 1785890871.888195,
+    "ast_hash": "47dd88447125d414a5eb5c4673bed18e",
     "semantic_hash": ""
   },
   "lib/types/raw/learning-path.ts": {
-    "mtime": 1785887406.5487652,
-    "ast_hash": "d2df701eb6bfd1a3f9e92cd5bf613ffe",
+    "mtime": 1785890602.9155135,
+    "ast_hash": "3165e4f809a85ed53d8762495a573ea9",
     "semantic_hash": ""
   },
-  "public/data/user/joao-pedro-lopes-zamonelo/subjects/GTI03/learning-path.json": {
-    "mtime": 1785887431.9280918,
-    "ast_hash": "371ec3ca7b5d86bedeb0744c1e2f8424",
+  "public/data/user/joao-pedro-lopes-zamonelo/subjects/MAT24/learning-path.json": {
+    "mtime": 1785890756.318864,
+    "ast_hash": "d326c21620a9c04bca406f173944f014",
     "semantic_hash": ""
   }
 }

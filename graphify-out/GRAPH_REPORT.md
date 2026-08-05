@@ -1,16 +1,16 @@
 # Graph Report - uniasselvi-clone  (2026-08-04)
 
 ## Corpus Check
-- 130 files · ~33,490 words
+- 131 files · ~34,680 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 440 nodes · 858 edges · 25 communities (16 shown, 9 thin omitted)
-- Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 2 edges (avg confidence: 0.7)
+- 453 nodes · 890 edges · 24 communities (15 shown, 9 thin omitted)
+- Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 5 edges (avg confidence: 0.7)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `6b4a6eca`
+- Built from commit: `c0c1f4fd`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -26,6 +26,7 @@
 - User Data Manifest (Joao Pedro)
 - User Data Manifest (Baixa Frequencia)
 - User Data Manifest (Em Dia)
+- app/page.tsx
 - Header Component
 - Root Layout
 - Project README
@@ -37,21 +38,19 @@
 - Next.js Icon
 - Vercel Icon
 - Window Icon
-- RecoverySection.tsx
-- AcademicShortcuts.tsx
-- index.tsx
+- LearningPathView.tsx
 
 ## God Nodes (most connected - your core abstractions)
 1. `Graphify Skill (/graphify Pipeline)` - 29 edges
 2. `resolveActiveUserId()` - 20 edges
-3. `formatDateBr()` - 17 edges
-4. `loadDisciplines()` - 16 edges
+3. `formatDateBr()` - 19 edges
+4. `loadDisciplines()` - 18 edges
 5. `compilerOptions` - 16 edges
-6. `readUserJsonFileOptional()` - 14 edges
-7. `findDisciplineByCode()` - 13 edges
-8. `AppShell()` - 11 edges
-9. `DisciplinePage()` - 10 edges
-10. `toIsoDateKey()` - 10 edges
+6. `findDisciplineByCode()` - 15 edges
+7. `readUserJsonFileOptional()` - 14 edges
+8. `AppShell()` - 12 edges
+9. `useLearningPathProgress()` - 12 edges
+10. `DisciplinePage()` - 10 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Next.js Breaking-Changes Notice` --semantically_similar_to--> `Honesty Rules`  [INFERRED] [semantically similar]
@@ -60,10 +59,10 @@
   app/disciplinas/[subjectCode]/page.tsx → lib/formatters/date-formatters.ts
 - `AttendanceLogPage()` --calls--> `formatDateBr()`  [EXTRACTED]
   app/disciplinas/[subjectCode]/registro-de-frequencia/page.tsx → lib/formatters/date-formatters.ts
-- `LessonPage()` --calls--> `resolveActiveUserId()`  [EXTRACTED]
-  app/disciplinas/[subjectCode]/trilha-de-aprendizagem/[lessonCode]/page.tsx → lib/data/resolve-active-user.ts
-- `LearningPathPage()` --calls--> `loadSubjectLearningPath()`  [EXTRACTED]
-  app/disciplinas/[subjectCode]/trilha-de-aprendizagem/page.tsx → lib/data/load-subject-data.ts
+- `HomePage()` --calls--> `loadDisciplines()`  [EXTRACTED]
+  app/page.tsx → lib/data/load-user-data.ts
+- `HomePage()` --calls--> `resolveActiveUserId()`  [EXTRACTED]
+  app/page.tsx → lib/data/resolve-active-user.ts
 
 ## Import Cycles
 - None detected.
@@ -73,11 +72,11 @@
 - **Graphify Optional Export Targets** — _claude_skills_graphify_references_exports_wiki_export, _claude_skills_graphify_references_exports_neo4j_export, _claude_skills_graphify_references_exports_falkordb_export, _claude_skills_graphify_references_exports_svg_graphml_export, _claude_skills_graphify_references_exports_mcp_server [EXTRACTED 1.00]
 - **Query/Path/Explain Feedback Loop via save-result** — _claude_skills_graphify_references_query_graphify_query, _claude_skills_graphify_references_query_graphify_path, _claude_skills_graphify_references_query_graphify_explain, _claude_skills_graphify_references_query_save_result, _claude_skills_graphify_references_query_reflect_lessons [EXTRACTED 1.00]
 
-## Communities (25 total, 9 thin omitted)
+## Communities (24 total, 9 thin omitted)
 
 ### Community 0 - "load-subject-data.ts"
-Cohesion: 0.12
-Nodes (39): SubjectCalendarPage(), AttendancePage(), AssessmentsPage(), AnswerTestPage(), DisciplinePage(), AttendanceLogPage(), LearningPathPage(), HomePage() (+31 more)
+Cohesion: 0.13
+Nodes (35): SubjectCalendarPage(), AttendancePage(), AssessmentsPage(), AnswerTestPage(), DisciplinePage(), AttendanceLogPage(), LearningPathLessonPage(), LearningPathPage() (+27 more)
 
 ### Community 1 - "Graphify Skill Docs"
 Cohesion: 0.05
@@ -92,8 +91,8 @@ Cohesion: 0.06
 Nodes (32): eslint, eslint-config-next, next, dependencies, next, react, react-dom, devDependencies (+24 more)
 
 ### Community 4 - "formatDateBr"
-Cohesion: 0.09
-Nodes (27): AssessmentAction(), AssessmentActionProps, AssessmentCard(), AssessmentCardProps, AssessmentStatus(), CompletedTestSummary(), SemesterHeader(), RecordedClassesModal() (+19 more)
+Cohesion: 0.12
+Nodes (23): AssessmentAction(), AssessmentActionProps, AssessmentCard(), AssessmentCardProps, AssessmentStatus(), CompletedTestSummary(), RecordedClassesModal(), RecordingItem() (+15 more)
 
 ### Community 5 - "TypeScript Config"
 Cohesion: 0.07
@@ -119,6 +118,10 @@ Nodes (19): datasets, currentSemester, disciplines, financialTitles, sofiaDadosA
 Cohesion: 0.10
 Nodes (19): datasets, currentSemester, disciplines, financialTitles, sofiaDadosAluno, userData, displayLabel, isFictional (+11 more)
 
+### Community 11 - "app/page.tsx"
+Cohesion: 0.10
+Nodes (20): HomePage(), AcademicShortcuts(), AcademicShortcutsProps, STATIC_SHORTCUTS, DisciplineCard(), DisciplineCarousel(), JOURNEY_SHORTCUTS, JourneyShortcuts() (+12 more)
+
 ### Community 12 - "Header Component"
 Cohesion: 0.67
 Nodes (3): Header(), HeaderProps, initialsFromName()
@@ -127,37 +130,29 @@ Nodes (3): Header(), HeaderProps, initialsFromName()
 Cohesion: 0.67
 Nodes (3): create-next-app Bootstrap, Next.js Framework, Vercel Deployment
 
-### Community 23 - "RecoverySection.tsx"
-Cohesion: 0.60
-Nodes (3): RecoverySection(), RecoverySectionProps, FinancialTitleRaw
-
-### Community 24 - "AcademicShortcuts.tsx"
-Cohesion: 0.50
-Nodes (3): AcademicShortcuts(), AcademicShortcutsProps, STATIC_SHORTCUTS
-
-### Community 25 - "index.tsx"
+### Community 25 - "LearningPathView.tsx"
 Cohesion: 0.08
-Nodes (42): LessonPage(), DisciplineCard(), DisciplineStats, gradientForCode(), THUMBNAIL_GRADIENTS, DisciplineCarousel(), ArrowLeftIcon(), BoltIcon() (+34 more)
+Nodes (45): BookOpenIcon(), CheckCircleIcon(), ChevronDownIcon(), ChevronRightIcon(), ClockIcon(), LayersIcon(), LockIcon(), PlayCircleIcon() (+37 more)
 
 ## Knowledge Gaps
-- **144 isolated node(s):** `metadata`, `TestStepperProps`, `TestToolbarProps`, `CalendarDayProps`, `CalendarGridProps` (+139 more)
+- **145 isolated node(s):** `metadata`, `TestStepperProps`, `TestToolbarProps`, `CalendarDayProps`, `CalendarGridProps` (+140 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **9 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `formatDateBr()` connect `formatDateBr` to `load-subject-data.ts`, `Attendance & Calendar Components`?**
-  _High betweenness centrality (0.018) - this node is a cross-community bridge._
-- **Why does `resolveActiveUserId()` connect `load-subject-data.ts` to `index.tsx`?**
-  _High betweenness centrality (0.014) - this node is a cross-community bridge._
+- **Why does `formatDateBr()` connect `formatDateBr` to `load-subject-data.ts`, `Attendance & Calendar Components`, `app/page.tsx`?**
+  _High betweenness centrality (0.022) - this node is a cross-community bridge._
+- **Why does `LearningPathRaw` connect `LearningPathView.tsx` to `load-subject-data.ts`?**
+  _High betweenness centrality (0.015) - this node is a cross-community bridge._
+- **Why does `resolveActiveUserId()` connect `load-subject-data.ts` to `app/page.tsx`?**
+  _High betweenness centrality (0.013) - this node is a cross-community bridge._
 - **What connects `metadata`, `TestStepperProps`, `TestToolbarProps` to the rest of the system?**
-  _144 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _145 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `load-subject-data.ts` be split into smaller, more focused modules?**
-  _Cohesion score 0.12146892655367232 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.13157894736842105 - nodes in this community are weakly interconnected._
 - **Should `Graphify Skill Docs` be split into smaller, more focused modules?**
   _Cohesion score 0.05429864253393665 - nodes in this community are weakly interconnected._
 - **Should `Attendance & Calendar Components` be split into smaller, more focused modules?**
   _Cohesion score 0.11219512195121951 - nodes in this community are weakly interconnected._
-- **Should `Package Dependencies` be split into smaller, more focused modules?**
-  _Cohesion score 0.06060606060606061 - nodes in this community are weakly interconnected._

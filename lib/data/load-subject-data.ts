@@ -4,6 +4,7 @@ import type { RecordingRaw } from "@/lib/types/raw/recordings";
 import type { AssessmentRaw } from "@/lib/types/raw/assessments";
 import type { AttendancesRaw } from "@/lib/types/raw/attendances";
 import type { TestContentRaw, TestInfoRaw } from "@/lib/types/raw/test-content";
+import type { LearningPathRaw } from "@/lib/types/raw/learning-path";
 
 export function loadSubjectCalendarEvents(
   userId: string,
@@ -71,6 +72,18 @@ export function loadSubjectTestContent(
     subjectCode,
     "tests",
     `${testCode}.json`
+  );
+}
+
+export function loadSubjectLearningPath(
+  userId: string,
+  subjectCode: string
+): Promise<LearningPathRaw | null> {
+  return readUserJsonFileOptional<LearningPathRaw>(
+    userId,
+    "subjects",
+    subjectCode,
+    "learning-path.json"
   );
 }
 

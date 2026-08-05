@@ -1,16 +1,16 @@
 # Graph Report - uniasselvi-clone  (2026-08-04)
 
 ## Corpus Check
-- 120 files · ~30,134 words
+- 120 files · ~30,001 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 400 nodes · 745 edges · 26 communities (17 shown, 9 thin omitted)
+- 401 nodes · 733 edges · 26 communities (17 shown, 9 thin omitted)
 - Extraction: 100% EXTRACTED · 0% INFERRED · 0% AMBIGUOUS · INFERRED: 2 edges (avg confidence: 0.7)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `6b4a6eca`
+- Built from commit: `c0c1f4fd`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -19,7 +19,7 @@
 - Graphify Skill Docs
 - Attendance & Calendar Components
 - Package Dependencies
-- formatDateBr
+- date-formatters.ts
 - TypeScript Config
 - Test Runner Components
 - User Switcher & Data Loading
@@ -44,27 +44,27 @@
 
 ## God Nodes (most connected - your core abstractions)
 1. `Graphify Skill (/graphify Pipeline)` - 29 edges
-2. `formatDateBr()` - 17 edges
-3. `resolveActiveUserId()` - 16 edges
-4. `compilerOptions` - 16 edges
-5. `loadDisciplines()` - 14 edges
-6. `readUserJsonFileOptional()` - 13 edges
-7. `findDisciplineByCode()` - 11 edges
-8. `DisciplinePage()` - 10 edges
-9. `AppShell()` - 10 edges
-10. `toIsoDateKey()` - 10 edges
+2. `compilerOptions` - 16 edges
+3. `formatDateBr()` - 15 edges
+4. `readUserJsonFileOptional()` - 14 edges
+5. `resolveActiveUserId()` - 14 edges
+6. `loadDisciplines()` - 12 edges
+7. `AppShell()` - 10 edges
+8. `toIsoDateKey()` - 10 edges
+9. `findDisciplineByCode()` - 9 edges
+10. `HomePage()` - 8 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Next.js Breaking-Changes Notice` --semantically_similar_to--> `Honesty Rules`  [INFERRED] [semantically similar]
   AGENTS.md → .claude/skills/graphify/SKILL.md
-- `DisciplinePage()` --calls--> `formatDateBr()`  [EXTRACTED]
-  app/disciplinas/[subjectCode]/page.tsx → lib/formatters/date-formatters.ts
-- `DisciplinePage()` --calls--> `formatPercent()`  [EXTRACTED]
-  app/disciplinas/[subjectCode]/page.tsx → lib/formatters/number-formatters.ts
-- `AttendanceLogPage()` --calls--> `formatDateBr()`  [EXTRACTED]
-  app/disciplinas/[subjectCode]/registro-de-frequencia/page.tsx → lib/formatters/date-formatters.ts
 - `AssessmentActionProps` --references--> `AssessmentUiState`  [EXTRACTED]
   components/assessments/AssessmentAction.tsx → lib/types/derived/index.ts
+- `AssessmentCardProps` --references--> `AssessmentRaw`  [EXTRACTED]
+  components/assessments/AssessmentCard.tsx → lib/types/raw/assessments.ts
+- `MeetingsPanel()` --calls--> `formatDateBr()`  [EXTRACTED]
+  components/attendance/MeetingsPanel.tsx → lib/formatters/date-formatters.ts
+- `EventsPanelProps` --references--> `CalendarEventRaw`  [EXTRACTED]
+  components/calendar/EventsPanel.tsx → lib/types/raw/calendar-events.ts
 
 ## Import Cycles
 - None detected.
@@ -77,8 +77,8 @@
 ## Communities (26 total, 9 thin omitted)
 
 ### Community 0 - "[subjectCode]/page.tsx"
-Cohesion: 0.13
-Nodes (36): SubjectCalendarPage(), AttendancePage(), AssessmentsPage(), AnswerTestPage(), DisciplinePage(), AttendanceLogPage(), HomePage(), JOURNEY_SHORTCUTS (+28 more)
+Cohesion: 0.11
+Nodes (37): SubjectCalendarPage(), AttendancePage(), AssessmentsPage(), AnswerTestPage(), HomePage(), AttendanceProgress(), JOURNEY_SHORTCUTS, JourneyShortcuts() (+29 more)
 
 ### Community 1 - "Graphify Skill Docs"
 Cohesion: 0.05
@@ -92,9 +92,9 @@ Nodes (28): AttendanceCalendar(), MeetingsPanel(), MeetingsPanelProps, CalendarD
 Cohesion: 0.06
 Nodes (32): eslint, eslint-config-next, next, dependencies, next, react, react-dom, devDependencies (+24 more)
 
-### Community 4 - "formatDateBr"
+### Community 4 - "date-formatters.ts"
 Cohesion: 0.11
-Nodes (24): AssessmentAction(), AssessmentActionProps, AssessmentCard(), AssessmentCardProps, AssessmentStatus(), CompletedTestSummary(), AttendanceProgress(), RecordedClassesModal() (+16 more)
+Nodes (23): AssessmentAction(), AssessmentActionProps, AssessmentCard(), AssessmentCardProps, AssessmentStatus(), CompletedTestSummary(), RecordedClassesModal(), RecordingItem() (+15 more)
 
 ### Community 5 - "TypeScript Config"
 Cohesion: 0.07
@@ -121,8 +121,8 @@ Cohesion: 0.10
 Nodes (19): datasets, currentSemester, disciplines, financialTitles, sofiaDadosAluno, userData, displayLabel, isFictional (+11 more)
 
 ### Community 11 - "user-selectors.ts"
-Cohesion: 0.31
-Nodes (5): SemesterHeader(), displaySemesterLabel(), SofiaParticipationDerived, SofiaDadosAlunoData, SofiaDadosAlunoRaw
+Cohesion: 0.36
+Nodes (4): SemesterHeader(), displaySemesterLabel(), SofiaDadosAlunoData, SofiaDadosAlunoRaw
 
 ### Community 12 - "Header Component"
 Cohesion: 0.67
@@ -152,17 +152,17 @@ Nodes (12): DisciplineCard(), DisciplineStats, gradientForCode(), THUMBNAIL_GRAD
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `formatDateBr()` connect `formatDateBr` to `[subjectCode]/page.tsx`, `Attendance & Calendar Components`?**
-  _High betweenness centrality (0.018) - this node is a cross-community bridge._
+- **Why does `formatDateBr()` connect `date-formatters.ts` to `[subjectCode]/page.tsx`, `Attendance & Calendar Components`?**
+  _High betweenness centrality (0.017) - this node is a cross-community bridge._
 - **What connects `metadata`, `TestStepperProps`, `TestToolbarProps` to the rest of the system?**
   _140 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `[subjectCode]/page.tsx` be split into smaller, more focused modules?**
-  _Cohesion score 0.12727272727272726 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.10987726475745178 - nodes in this community are weakly interconnected._
 - **Should `Graphify Skill Docs` be split into smaller, more focused modules?**
   _Cohesion score 0.05429864253393665 - nodes in this community are weakly interconnected._
 - **Should `Attendance & Calendar Components` be split into smaller, more focused modules?**
   _Cohesion score 0.11219512195121951 - nodes in this community are weakly interconnected._
 - **Should `Package Dependencies` be split into smaller, more focused modules?**
   _Cohesion score 0.06060606060606061 - nodes in this community are weakly interconnected._
-- **Should `formatDateBr` be split into smaller, more focused modules?**
-  _Cohesion score 0.10810810810810811 - nodes in this community are weakly interconnected._
+- **Should `date-formatters.ts` be split into smaller, more focused modules?**
+  _Cohesion score 0.11428571428571428 - nodes in this community are weakly interconnected._
