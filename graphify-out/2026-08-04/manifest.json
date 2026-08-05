@@ -650,8 +650,8 @@
     "semantic_hash": ""
   },
   "components/learning-path/LessonView.tsx": {
-    "mtime": 1785893771.2097118,
-    "ast_hash": "103c31ec5f9de45f8b6f7e2b59d3a309",
+    "mtime": 1785894833.5699065,
+    "ast_hash": "ac2651b748f95e9ce99d4661e46e6962",
     "semantic_hash": ""
   },
   "components/learning-path/use-learning-path-progress.ts": {
@@ -680,8 +680,8 @@
     "semantic_hash": ""
   },
   "components/learning-path/LessonVideos.tsx": {
-    "mtime": 1785893758.6815352,
-    "ast_hash": "fb0d56d2ef581ce9fdc79a9d46dd2a99",
+    "mtime": 1785894822.6343446,
+    "ast_hash": "16a47e4f84f22ea32e86e3bf375cf0f1",
     "semantic_hash": ""
   },
   "components/layout/AppShellChrome.tsx": {

@@ -1,16 +1,16 @@
 # Graph Report - uniasselvi-clone  (2026-08-04)
 
 ## Corpus Check
-- 133 files · ~36,741 words
+- 133 files · ~36,820 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 462 nodes · 905 edges · 24 communities (15 shown, 9 thin omitted)
+- 462 nodes · 896 edges · 24 communities (15 shown, 9 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 5 edges (avg confidence: 0.7)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `93f89c4f`
+- Built from commit: `5cf6afc8`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -42,27 +42,27 @@
 
 ## God Nodes (most connected - your core abstractions)
 1. `Graphify Skill (/graphify Pipeline)` - 29 edges
-2. `resolveActiveUserId()` - 20 edges
+2. `resolveActiveUserId()` - 19 edges
 3. `formatDateBr()` - 19 edges
-4. `loadDisciplines()` - 18 edges
+4. `loadDisciplines()` - 17 edges
 5. `compilerOptions` - 16 edges
-6. `findDisciplineByCode()` - 15 edges
-7. `readUserJsonFileOptional()` - 14 edges
-8. `AppShell()` - 12 edges
-9. `useLearningPathProgress()` - 12 edges
+6. `readUserJsonFileOptional()` - 14 edges
+7. `findDisciplineByCode()` - 14 edges
+8. `useLearningPathProgress()` - 11 edges
+9. `AppShell()` - 10 edges
 10. `DisciplinePage()` - 10 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Next.js Breaking-Changes Notice` --semantically_similar_to--> `Honesty Rules`  [INFERRED] [semantically similar]
   AGENTS.md → .claude/skills/graphify/SKILL.md
+- `LessonViewProps` --references--> `LearningPathRaw`  [EXTRACTED]
+  components/learning-path/LessonView.tsx → lib/types/raw/learning-path.ts
+- `LearningPathViewProps` --references--> `LearningPathRaw`  [EXTRACTED]
+  components/learning-path/LearningPathView.tsx → lib/types/raw/learning-path.ts
 - `DisciplinePage()` --calls--> `formatDateBr()`  [EXTRACTED]
   app/disciplinas/[subjectCode]/page.tsx → lib/formatters/date-formatters.ts
 - `AttendanceLogPage()` --calls--> `formatDateBr()`  [EXTRACTED]
   app/disciplinas/[subjectCode]/registro-de-frequencia/page.tsx → lib/formatters/date-formatters.ts
-- `HomePage()` --calls--> `loadDisciplines()`  [EXTRACTED]
-  app/page.tsx → lib/data/load-user-data.ts
-- `HomePage()` --calls--> `resolveActiveUserId()`  [EXTRACTED]
-  app/page.tsx → lib/data/resolve-active-user.ts
 
 ## Import Cycles
 - None detected.
@@ -76,7 +76,7 @@
 
 ### Community 0 - "load-subject-data.ts"
 Cohesion: 0.15
-Nodes (32): SubjectCalendarPage(), AttendancePage(), AssessmentsPage(), AnswerTestPage(), DisciplinePage(), AttendanceLogPage(), LearningPathLessonPage(), LearningPathPage() (+24 more)
+Nodes (31): SubjectCalendarPage(), AttendancePage(), AssessmentsPage(), AnswerTestPage(), DisciplinePage(), AttendanceLogPage(), LearningPathPage(), AttendanceProgress() (+23 more)
 
 ### Community 1 - "Graphify Skill Docs"
 Cohesion: 0.05
@@ -135,7 +135,7 @@ Cohesion: 0.07
 Nodes (47): BookOpenIcon(), CheckCircleIcon(), ChevronDownIcon(), ChevronRightIcon(), ClockIcon(), LayersIcon(), LockIcon(), PlayCircleIcon() (+39 more)
 
 ## Knowledge Gaps
-- **148 isolated node(s):** `metadata`, `TestStepperProps`, `TestToolbarProps`, `CalendarDayProps`, `CalendarGridProps` (+143 more)
+- **148 isolated node(s):** `AppShellProps`, `AppShellChromeProps`, `HeaderProps`, `PageContainerProps`, `MENU_ITEMS` (+143 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **9 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
@@ -148,11 +148,11 @@ _Questions this graph is uniquely positioned to answer:_
   _High betweenness centrality (0.015) - this node is a cross-community bridge._
 - **Why does `resolveActiveUserId()` connect `load-subject-data.ts` to `app/page.tsx`?**
   _High betweenness centrality (0.012) - this node is a cross-community bridge._
-- **What connects `metadata`, `TestStepperProps`, `TestToolbarProps` to the rest of the system?**
+- **What connects `AppShellProps`, `AppShellChromeProps`, `HeaderProps` to the rest of the system?**
   _148 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Should `load-subject-data.ts` be split into smaller, more focused modules?**
+  _Cohesion score 0.14856711915535445 - nodes in this community are weakly interconnected._
 - **Should `Graphify Skill Docs` be split into smaller, more focused modules?**
   _Cohesion score 0.05429864253393665 - nodes in this community are weakly interconnected._
 - **Should `formatDateBr` be split into smaller, more focused modules?**
   _Cohesion score 0.0861952861952862 - nodes in this community are weakly interconnected._
-- **Should `Package Dependencies` be split into smaller, more focused modules?**
-  _Cohesion score 0.06060606060606061 - nodes in this community are weakly interconnected._

@@ -12,7 +12,7 @@ export function RecordedClassesModal({ recordings }: { recordings: RecordingRaw[
       <button
         type="button"
         onClick={() => setIsOpen(true)}
-        className="rounded-full bg-brand-yellow px-4 py-2 text-sm font-semibold text-black transition hover:bg-brand-yellow-dark"
+            className="rounded-full border border-border-subtle bg-bg-card px-5 py-2.5 text-sm font-medium text-white transition hover:bg-bg-card-hover"
       >
         Aulas gravadas
       </button>

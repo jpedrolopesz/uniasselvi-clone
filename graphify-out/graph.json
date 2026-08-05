@@ -157,10 +157,21 @@
       "norm_label": "[subjectcode]/page.tsx"
     },
     {
+      "label": "DISCIPLINE_HERO_IMAGES",
+      "file_type": "code",
+      "source_file": "app/disciplinas/[subjectCode]/page.tsx",
+      "source_location": "L24",
+      "_origin": "ast",
+      "id": "app_disciplinas_subjectcode_page_discipline_hero_images",
+      "community": 0,
+      "community_name": "load-subject-data.ts",
+      "norm_label": "discipline_hero_images"
+    },
+    {
       "label": "DisciplinePage()",
       "file_type": "code",
       "source_file": "app/disciplinas/[subjectCode]/page.tsx",
-      "source_location": "L23",
+      "source_location": "L28",
       "_origin": "ast",
       "id": "app_disciplinas_subjectcode_page_disciplinepage",
       "community": 0,
@@ -296,7 +307,7 @@
       "_origin": "ast",
       "id": "components_assessments_assessmentaction",
       "community": 4,
-      "community_name": "AssessmentCard.tsx",
+      "community_name": "formatDateBr",
       "norm_label": "assessmentaction.tsx"
     },
     {
@@ -307,7 +318,7 @@
       "_origin": "ast",
       "id": "components_assessments_assessmentaction_assessmentactionprops",
       "community": 4,
-      "community_name": "AssessmentCard.tsx",
+      "community_name": "formatDateBr",
       "norm_label": "assessmentactionprops"
     },
     {
@@ -318,7 +329,7 @@
       "_origin": "ast",
       "id": "components_assessments_assessmentaction_assessmentaction",
       "community": 4,
-      "community_name": "AssessmentCard.tsx",
+      "community_name": "formatDateBr",
       "norm_label": "assessmentaction()"
     },
     {
@@ -329,7 +340,7 @@
       "_origin": "ast",
       "id": "components_assessments_assessmentcard",
       "community": 4,
-      "community_name": "AssessmentCard.tsx",
+      "community_name": "formatDateBr",
       "norm_label": "assessmentcard.tsx"
     },
     {
@@ -340,7 +351,7 @@
       "_origin": "ast",
       "id": "components_assessments_assessmentcard_assessmentcardprops",
       "community": 4,
-      "community_name": "AssessmentCard.tsx",
+      "community_name": "formatDateBr",
       "norm_label": "assessmentcardprops"
     },
     {
@@ -351,7 +362,7 @@
       "_origin": "ast",
       "id": "components_assessments_assessmentcard_assessmentcard",
       "community": 4,
-      "community_name": "AssessmentCard.tsx",
+      "community_name": "formatDateBr",
       "norm_label": "assessmentcard()"
     },
     {
@@ -362,7 +373,7 @@
       "_origin": "ast",
       "id": "components_assessments_assessmentstatus",
       "community": 4,
-      "community_name": "AssessmentCard.tsx",
+      "community_name": "formatDateBr",
       "norm_label": "assessmentstatus.tsx"
     },
     {
@@ -373,7 +384,7 @@
       "_origin": "ast",
       "id": "components_assessments_assessmentstatus_assessmentstatus",
       "community": 4,
-      "community_name": "AssessmentCard.tsx",
+      "community_name": "formatDateBr",
       "norm_label": "assessmentstatus()"
     },
     {
@@ -383,7 +394,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_assessments_completedtestsummary",
-      "community": 2,
+      "community": 4,
       "community_name": "formatDateBr",
       "norm_label": "completedtestsummary.tsx"
     },
@@ -394,7 +405,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "components_assessments_completedtestsummary_completedtestsummary",
-      "community": 2,
+      "community": 4,
       "community_name": "formatDateBr",
       "norm_label": "completedtestsummary()"
     },
@@ -549,7 +560,7 @@
       "_origin": "ast",
       "id": "components_attendance_attendancecalendar",
       "community": 2,
-      "community_name": "formatDateBr",
+      "community_name": "AttendanceCalendar.tsx",
       "norm_label": "attendancecalendar.tsx"
     },
     {
@@ -560,7 +571,7 @@
       "_origin": "ast",
       "id": "components_attendance_attendancecalendar_attendancecalendar",
       "community": 2,
-      "community_name": "formatDateBr",
+      "community_name": "AttendanceCalendar.tsx",
       "norm_label": "attendancecalendar()"
     },
     {
@@ -593,7 +604,7 @@
       "_origin": "ast",
       "id": "components_attendance_meetingspanel",
       "community": 2,
-      "community_name": "formatDateBr",
+      "community_name": "AttendanceCalendar.tsx",
       "norm_label": "meetingspanel.tsx"
     },
     {
@@ -604,7 +615,7 @@
       "_origin": "ast",
       "id": "components_attendance_meetingspanel_meetingspanelprops",
       "community": 2,
-      "community_name": "formatDateBr",
+      "community_name": "AttendanceCalendar.tsx",
       "norm_label": "meetingspanelprops"
     },
     {
@@ -615,7 +626,7 @@
       "_origin": "ast",
       "id": "components_attendance_meetingspanel_meetingspanel",
       "community": 2,
-      "community_name": "formatDateBr",
+      "community_name": "AttendanceCalendar.tsx",
       "norm_label": "meetingspanel()"
     },
     {
@@ -626,7 +637,7 @@
       "_origin": "ast",
       "id": "components_calendar_calendarday",
       "community": 2,
-      "community_name": "formatDateBr",
+      "community_name": "AttendanceCalendar.tsx",
       "norm_label": "calendarday.tsx"
     },
     {
@@ -637,7 +648,7 @@
       "_origin": "ast",
       "id": "components_calendar_calendarday_calendardayprops",
       "community": 2,
-      "community_name": "formatDateBr",
+      "community_name": "AttendanceCalendar.tsx",
       "norm_label": "calendardayprops"
     },
     {
@@ -648,7 +659,7 @@
       "_origin": "ast",
       "id": "components_calendar_calendarday_calendarday",
       "community": 2,
-      "community_name": "formatDateBr",
+      "community_name": "AttendanceCalendar.tsx",
       "norm_label": "calendarday()"
     },
     {
@@ -659,7 +670,7 @@
       "_origin": "ast",
       "id": "components_calendar_calendargrid",
       "community": 2,
-      "community_name": "formatDateBr",
+      "community_name": "AttendanceCalendar.tsx",
       "norm_label": "calendargrid.tsx"
     },
     {
@@ -670,7 +681,7 @@
       "_origin": "ast",
       "id": "components_calendar_calendargrid_calendargridprops",
       "community": 2,
-      "community_name": "formatDateBr",
+      "community_name": "AttendanceCalendar.tsx",
       "norm_label": "calendargridprops"
     },
     {
@@ -681,7 +692,7 @@
       "_origin": "ast",
       "id": "components_calendar_calendargrid_calendargrid",
       "community": 2,
-      "community_name": "formatDateBr",
+      "community_name": "AttendanceCalendar.tsx",
       "norm_label": "calendargrid()"
     },
     {
@@ -692,7 +703,7 @@
       "_origin": "ast",
       "id": "components_calendar_calendarmonthnavigation",
       "community": 2,
-      "community_name": "formatDateBr",
+      "community_name": "AttendanceCalendar.tsx",
       "norm_label": "calendarmonthnavigation.tsx"
     },
     {
@@ -703,7 +714,7 @@
       "_origin": "ast",
       "id": "components_calendar_calendarmonthnavigation_calendarmonthnavigationprops",
       "community": 2,
-      "community_name": "formatDateBr",
+      "community_name": "AttendanceCalendar.tsx",
       "norm_label": "calendarmonthnavigationprops"
     },
     {
@@ -714,7 +725,7 @@
       "_origin": "ast",
       "id": "components_calendar_calendarmonthnavigation_calendarmonthnavigation",
       "community": 2,
-      "community_name": "formatDateBr",
+      "community_name": "AttendanceCalendar.tsx",
       "norm_label": "calendarmonthnavigation()"
     },
     {
@@ -725,7 +736,7 @@
       "_origin": "ast",
       "id": "components_calendar_eventspanel",
       "community": 2,
-      "community_name": "formatDateBr",
+      "community_name": "AttendanceCalendar.tsx",
       "norm_label": "eventspanel.tsx"
     },
     {
@@ -736,7 +747,7 @@
       "_origin": "ast",
       "id": "components_calendar_eventspanel_eventspanelprops",
       "community": 2,
-      "community_name": "formatDateBr",
+      "community_name": "AttendanceCalendar.tsx",
       "norm_label": "eventspanelprops"
     },
     {
@@ -747,7 +758,7 @@
       "_origin": "ast",
       "id": "components_calendar_eventspanel_eventspanel",
       "community": 2,
-      "community_name": "formatDateBr",
+      "community_name": "AttendanceCalendar.tsx",
       "norm_label": "eventspanel()"
     },
     {
@@ -758,7 +769,7 @@
       "_origin": "ast",
       "id": "components_calendar_subjectcalendarview",
       "community": 2,
-      "community_name": "formatDateBr",
+      "community_name": "AttendanceCalendar.tsx",
       "norm_label": "subjectcalendarview.tsx"
     },
     {
@@ -769,7 +780,7 @@
       "_origin": "ast",
       "id": "components_calendar_subjectcalendarview_subjectcalendarview",
       "community": 2,
-      "community_name": "formatDateBr",
+      "community_name": "AttendanceCalendar.tsx",
       "norm_label": "subjectcalendarview()"
     },
     {
@@ -966,8 +977,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_home_semesterheader",
-      "community": 4,
-      "community_name": "AssessmentCard.tsx",
+      "community": 23,
+      "community_name": "app/page.tsx",
       "norm_label": "semesterheader.tsx"
     },
     {
@@ -977,8 +988,8 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "components_home_semesterheader_semesterheader",
-      "community": 4,
-      "community_name": "AssessmentCard.tsx",
+      "community": 23,
+      "community_name": "app/page.tsx",
       "norm_label": "semesterheader()"
     },
     {
@@ -1637,7 +1648,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_recordings_recordedclassesmodal",
-      "community": 2,
+      "community": 4,
       "community_name": "formatDateBr",
       "norm_label": "recordedclassesmodal.tsx"
     },
@@ -1648,7 +1659,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "components_recordings_recordedclassesmodal_recordedclassesmodal",
-      "community": 2,
+      "community": 4,
       "community_name": "formatDateBr",
       "norm_label": "recordedclassesmodal()"
     },
@@ -1659,7 +1670,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_recordings_recordingitem",
-      "community": 2,
+      "community": 4,
       "community_name": "formatDateBr",
       "norm_label": "recordingitem.tsx"
     },
@@ -1670,7 +1681,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "components_recordings_recordingitem_recordingitem",
-      "community": 2,
+      "community": 4,
       "community_name": "formatDateBr",
       "norm_label": "recordingitem()"
     },
@@ -2033,7 +2044,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_formatters_date_formatters",
-      "community": 2,
+      "community": 4,
       "community_name": "formatDateBr",
       "norm_label": "date-formatters.ts"
     },
@@ -2044,7 +2055,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "lib_formatters_date_formatters_dateparts",
-      "community": 2,
+      "community": 4,
       "community_name": "formatDateBr",
       "norm_label": "dateparts"
     },
@@ -2055,7 +2066,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "lib_formatters_date_formatters_parsedateparts",
-      "community": 2,
+      "community": 4,
       "community_name": "formatDateBr",
       "norm_label": "parsedateparts()"
     },
@@ -2066,7 +2077,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "lib_formatters_date_formatters_pad2",
-      "community": 2,
+      "community": 4,
       "community_name": "formatDateBr",
       "norm_label": "pad2()"
     },
@@ -2077,7 +2088,7 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "lib_formatters_date_formatters_formatdatebr",
-      "community": 2,
+      "community": 4,
       "community_name": "formatDateBr",
       "norm_label": "formatdatebr()"
     },
@@ -2088,7 +2099,7 @@
       "source_location": "L56",
       "_origin": "ast",
       "id": "lib_formatters_date_formatters_formatdatetimebr",
-      "community": 2,
+      "community": 4,
       "community_name": "formatDateBr",
       "norm_label": "formatdatetimebr()"
     },
@@ -2100,7 +2111,7 @@
       "_origin": "ast",
       "id": "lib_formatters_date_formatters_toisodatekey",
       "community": 2,
-      "community_name": "formatDateBr",
+      "community_name": "AttendanceCalendar.tsx",
       "norm_label": "toisodatekey()"
     },
     {
@@ -2110,8 +2121,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_formatters_number_formatters",
-      "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community": 4,
+      "community_name": "formatDateBr",
       "norm_label": "number-formatters.ts"
     },
     {
@@ -2122,7 +2133,7 @@
       "_origin": "ast",
       "id": "lib_formatters_number_formatters_formatweight",
       "community": 4,
-      "community_name": "AssessmentCard.tsx",
+      "community_name": "formatDateBr",
       "norm_label": "formatweight()"
     },
     {
@@ -2143,8 +2154,8 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "lib_formatters_number_formatters_formatcurrencybrl",
-      "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community": 4,
+      "community_name": "formatDateBr",
       "norm_label": "formatcurrencybrl()"
     },
     {
@@ -2155,7 +2166,7 @@
       "_origin": "ast",
       "id": "lib_formatters_time_formatters",
       "community": 2,
-      "community_name": "formatDateBr",
+      "community_name": "AttendanceCalendar.tsx",
       "norm_label": "time-formatters.ts"
     },
     {
@@ -2166,7 +2177,7 @@
       "_origin": "ast",
       "id": "lib_formatters_time_formatters_formathourminute",
       "community": 2,
-      "community_name": "formatDateBr",
+      "community_name": "AttendanceCalendar.tsx",
       "norm_label": "formathourminute()"
     },
     {
@@ -2177,7 +2188,7 @@
       "_origin": "ast",
       "id": "lib_formatters_time_formatters_formatduration",
       "community": 2,
-      "community_name": "formatDateBr",
+      "community_name": "AttendanceCalendar.tsx",
       "norm_label": "formatduration()"
     },
     {
@@ -2265,7 +2276,7 @@
       "_origin": "ast",
       "id": "lib_selectors_assessment_selectors",
       "community": 4,
-      "community_name": "AssessmentCard.tsx",
+      "community_name": "formatDateBr",
       "norm_label": "assessment-selectors.ts"
     },
     {
@@ -2276,7 +2287,7 @@
       "_origin": "ast",
       "id": "lib_selectors_assessment_selectors_derivegradeandpublished",
       "community": 4,
-      "community_name": "AssessmentCard.tsx",
+      "community_name": "formatDateBr",
       "norm_label": "derivegradeandpublished()"
     },
     {
@@ -2287,7 +2298,7 @@
       "_origin": "ast",
       "id": "lib_selectors_assessment_selectors_deriveassessmentuistate",
       "community": 4,
-      "community_name": "AssessmentCard.tsx",
+      "community_name": "formatDateBr",
       "norm_label": "deriveassessmentuistate()"
     },
     {
@@ -2298,7 +2309,7 @@
       "_origin": "ast",
       "id": "lib_selectors_attendance_selectors",
       "community": 2,
-      "community_name": "formatDateBr",
+      "community_name": "AttendanceCalendar.tsx",
       "norm_label": "attendance-selectors.ts"
     },
     {
@@ -2309,7 +2320,7 @@
       "_origin": "ast",
       "id": "lib_selectors_attendance_selectors_getmarkedattendancedaykeys",
       "community": 2,
-      "community_name": "formatDateBr",
+      "community_name": "AttendanceCalendar.tsx",
       "norm_label": "getmarkedattendancedaykeys()"
     },
     {
@@ -2320,7 +2331,7 @@
       "_origin": "ast",
       "id": "lib_selectors_attendance_selectors_getmeetingsforday",
       "community": 2,
-      "community_name": "formatDateBr",
+      "community_name": "AttendanceCalendar.tsx",
       "norm_label": "getmeetingsforday()"
     },
     {
@@ -2331,7 +2342,7 @@
       "_origin": "ast",
       "id": "lib_selectors_attendance_selectors_getdiaryentryforday",
       "community": 2,
-      "community_name": "formatDateBr",
+      "community_name": "AttendanceCalendar.tsx",
       "norm_label": "getdiaryentryforday()"
     },
     {
@@ -2342,7 +2353,7 @@
       "_origin": "ast",
       "id": "lib_selectors_calendar_selectors",
       "community": 2,
-      "community_name": "formatDateBr",
+      "community_name": "AttendanceCalendar.tsx",
       "norm_label": "calendar-selectors.ts"
     },
     {
@@ -2353,7 +2364,7 @@
       "_origin": "ast",
       "id": "lib_selectors_calendar_selectors_geteventsforday",
       "community": 2,
-      "community_name": "formatDateBr",
+      "community_name": "AttendanceCalendar.tsx",
       "norm_label": "geteventsforday()"
     },
     {
@@ -2364,7 +2375,7 @@
       "_origin": "ast",
       "id": "lib_selectors_calendar_selectors_getmarkeddaykeys",
       "community": 2,
-      "community_name": "formatDateBr",
+      "community_name": "AttendanceCalendar.tsx",
       "norm_label": "getmarkeddaykeys()"
     },
     {
@@ -2375,7 +2386,7 @@
       "_origin": "ast",
       "id": "lib_selectors_calendar_selectors_monthgridcell",
       "community": 2,
-      "community_name": "formatDateBr",
+      "community_name": "AttendanceCalendar.tsx",
       "norm_label": "monthgridcell"
     },
     {
@@ -2386,7 +2397,7 @@
       "_origin": "ast",
       "id": "lib_selectors_calendar_selectors_pad2",
       "community": 2,
-      "community_name": "formatDateBr",
+      "community_name": "AttendanceCalendar.tsx",
       "norm_label": "pad2()"
     },
     {
@@ -2397,7 +2408,7 @@
       "_origin": "ast",
       "id": "lib_selectors_calendar_selectors_buildmonthgrid",
       "community": 2,
-      "community_name": "formatDateBr",
+      "community_name": "AttendanceCalendar.tsx",
       "norm_label": "buildmonthgrid()"
     },
     {
@@ -2408,7 +2419,7 @@
       "_origin": "ast",
       "id": "lib_selectors_calendar_selectors_month_labels_pt",
       "community": 2,
-      "community_name": "formatDateBr",
+      "community_name": "AttendanceCalendar.tsx",
       "norm_label": "month_labels_pt"
     },
     {
@@ -2419,7 +2430,7 @@
       "_origin": "ast",
       "id": "lib_selectors_calendar_selectors_weekday_labels_pt",
       "community": 2,
-      "community_name": "formatDateBr",
+      "community_name": "AttendanceCalendar.tsx",
       "norm_label": "weekday_labels_pt"
     },
     {
@@ -2583,8 +2594,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_selectors_user_selectors",
-      "community": 4,
-      "community_name": "AssessmentCard.tsx",
+      "community": 23,
+      "community_name": "app/page.tsx",
       "norm_label": "user-selectors.ts"
     },
     {
@@ -2594,8 +2605,8 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "lib_selectors_user_selectors_derivesofiaparticipation",
-      "community": 4,
-      "community_name": "AssessmentCard.tsx",
+      "community": 23,
+      "community_name": "app/page.tsx",
       "norm_label": "derivesofiaparticipation()"
     },
     {
@@ -2605,8 +2616,8 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "lib_selectors_user_selectors_displaysemesterlabel",
-      "community": 4,
-      "community_name": "AssessmentCard.tsx",
+      "community": 23,
+      "community_name": "app/page.tsx",
       "norm_label": "displaysemesterlabel()"
     },
     {
@@ -2617,7 +2628,7 @@
       "_origin": "ast",
       "id": "lib_types_derived_index",
       "community": 4,
-      "community_name": "AssessmentCard.tsx",
+      "community_name": "formatDateBr",
       "norm_label": "index.ts"
     },
     {
@@ -2627,8 +2638,8 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "lib_types_derived_index_sofiaparticipationderived",
-      "community": 4,
-      "community_name": "AssessmentCard.tsx",
+      "community": 23,
+      "community_name": "app/page.tsx",
       "norm_label": "sofiaparticipationderived"
     },
     {
@@ -2639,7 +2650,7 @@
       "_origin": "ast",
       "id": "lib_types_derived_index_assessmentactionkind",
       "community": 4,
-      "community_name": "AssessmentCard.tsx",
+      "community_name": "formatDateBr",
       "norm_label": "assessmentactionkind"
     },
     {
@@ -2650,7 +2661,7 @@
       "_origin": "ast",
       "id": "lib_types_derived_index_assessmentuistate",
       "community": 4,
-      "community_name": "AssessmentCard.tsx",
+      "community_name": "formatDateBr",
       "norm_label": "assessmentuistate"
     },
     {
@@ -2661,7 +2672,7 @@
       "_origin": "ast",
       "id": "lib_types_derived_index_calendarmarkedday",
       "community": 4,
-      "community_name": "AssessmentCard.tsx",
+      "community_name": "formatDateBr",
       "norm_label": "calendarmarkedday"
     },
     {
@@ -2672,7 +2683,7 @@
       "_origin": "ast",
       "id": "lib_types_raw_assessments",
       "community": 4,
-      "community_name": "AssessmentCard.tsx",
+      "community_name": "formatDateBr",
       "norm_label": "assessments.ts"
     },
     {
@@ -2683,7 +2694,7 @@
       "_origin": "ast",
       "id": "lib_types_raw_assessments_scheduledetailraw",
       "community": 4,
-      "community_name": "AssessmentCard.tsx",
+      "community_name": "formatDateBr",
       "norm_label": "scheduledetailraw"
     },
     {
@@ -2694,7 +2705,7 @@
       "_origin": "ast",
       "id": "lib_types_raw_assessments_assessmentraw",
       "community": 4,
-      "community_name": "AssessmentCard.tsx",
+      "community_name": "formatDateBr",
       "norm_label": "assessmentraw"
     },
     {
@@ -2705,7 +2716,7 @@
       "_origin": "ast",
       "id": "lib_types_raw_attendances",
       "community": 2,
-      "community_name": "formatDateBr",
+      "community_name": "AttendanceCalendar.tsx",
       "norm_label": "attendances.ts"
     },
     {
@@ -2716,7 +2727,7 @@
       "_origin": "ast",
       "id": "lib_types_raw_attendances_frequencydiaryraw",
       "community": 2,
-      "community_name": "formatDateBr",
+      "community_name": "AttendanceCalendar.tsx",
       "norm_label": "frequencydiaryraw"
     },
     {
@@ -2727,7 +2738,7 @@
       "_origin": "ast",
       "id": "lib_types_raw_attendances_meetingraw",
       "community": 2,
-      "community_name": "formatDateBr",
+      "community_name": "AttendanceCalendar.tsx",
       "norm_label": "meetingraw"
     },
     {
@@ -2738,7 +2749,7 @@
       "_origin": "ast",
       "id": "lib_types_raw_attendances_attendancesraw",
       "community": 2,
-      "community_name": "formatDateBr",
+      "community_name": "AttendanceCalendar.tsx",
       "norm_label": "attendancesraw"
     },
     {
@@ -2749,7 +2760,7 @@
       "_origin": "ast",
       "id": "lib_types_raw_calendar_events",
       "community": 2,
-      "community_name": "formatDateBr",
+      "community_name": "AttendanceCalendar.tsx",
       "norm_label": "calendar-events.ts"
     },
     {
@@ -2760,7 +2771,7 @@
       "_origin": "ast",
       "id": "lib_types_raw_calendar_events_calendareventraw",
       "community": 2,
-      "community_name": "formatDateBr",
+      "community_name": "AttendanceCalendar.tsx",
       "norm_label": "calendareventraw"
     },
     {
@@ -2957,7 +2968,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_types_raw_recordings",
-      "community": 2,
+      "community": 4,
       "community_name": "formatDateBr",
       "norm_label": "recordings.ts"
     },
@@ -2968,7 +2979,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "lib_types_raw_recordings_recordingraw",
-      "community": 2,
+      "community": 4,
       "community_name": "formatDateBr",
       "norm_label": "recordingraw"
     },
@@ -2979,8 +2990,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_types_raw_sofia_dados_aluno",
-      "community": 4,
-      "community_name": "AssessmentCard.tsx",
+      "community": 23,
+      "community_name": "app/page.tsx",
       "norm_label": "sofia-dados-aluno.ts"
     },
     {
@@ -2990,8 +3001,8 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "lib_types_raw_sofia_dados_aluno_sofiadadosalunodata",
-      "community": 4,
-      "community_name": "AssessmentCard.tsx",
+      "community": 23,
+      "community_name": "app/page.tsx",
       "norm_label": "sofiadadosalunodata"
     },
     {
@@ -3001,8 +3012,8 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "lib_types_raw_sofia_dados_aluno_sofiadadosalunoraw",
-      "community": 4,
-      "community_name": "AssessmentCard.tsx",
+      "community": 23,
+      "community_name": "app/page.tsx",
       "norm_label": "sofiadadosalunoraw"
     },
     {
@@ -6371,7 +6382,18 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "app/disciplinas/[subjectCode]/page.tsx",
-      "source_location": "L23",
+      "source_location": "L24",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "app_disciplinas_subjectcode_page",
+      "target": "app_disciplinas_subjectcode_page_discipline_hero_images",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "app/disciplinas/[subjectCode]/page.tsx",
+      "source_location": "L28",
       "weight": 1.0,
       "_origin": "ast",
       "source": "app_disciplinas_subjectcode_page",
@@ -6383,7 +6405,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/disciplinas/[subjectCode]/page.tsx",
-      "source_location": "L15",
+      "source_location": "L16",
       "weight": 1.0,
       "_origin": "ast",
       "source": "app_disciplinas_subjectcode_page",
@@ -6395,7 +6417,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/disciplinas/[subjectCode]/page.tsx",
-      "source_location": "L15",
+      "source_location": "L16",
       "weight": 1.0,
       "_origin": "ast",
       "source": "app_disciplinas_subjectcode_page",
@@ -6407,7 +6429,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/disciplinas/[subjectCode]/page.tsx",
-      "source_location": "L15",
+      "source_location": "L16",
       "weight": 1.0,
       "_origin": "ast",
       "source": "app_disciplinas_subjectcode_page",
@@ -6419,7 +6441,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/disciplinas/[subjectCode]/page.tsx",
-      "source_location": "L15",
+      "source_location": "L16",
       "weight": 1.0,
       "_origin": "ast",
       "source": "app_disciplinas_subjectcode_page",
@@ -6431,7 +6453,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/disciplinas/[subjectCode]/page.tsx",
-      "source_location": "L15",
+      "source_location": "L16",
       "weight": 1.0,
       "_origin": "ast",
       "source": "app_disciplinas_subjectcode_page",
@@ -6443,7 +6465,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/disciplinas/[subjectCode]/page.tsx",
-      "source_location": "L15",
+      "source_location": "L16",
       "weight": 1.0,
       "_origin": "ast",
       "source": "app_disciplinas_subjectcode_page",
@@ -6455,7 +6477,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/disciplinas/[subjectCode]/page.tsx",
-      "source_location": "L2",
+      "source_location": "L3",
       "weight": 1.0,
       "_origin": "ast",
       "source": "app_disciplinas_subjectcode_page",
@@ -6467,7 +6489,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/disciplinas/[subjectCode]/page.tsx",
-      "source_location": "L2",
+      "source_location": "L3",
       "weight": 1.0,
       "_origin": "ast",
       "source": "app_disciplinas_subjectcode_page",
@@ -6479,7 +6501,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/disciplinas/[subjectCode]/page.tsx",
-      "source_location": "L3",
+      "source_location": "L4",
       "weight": 1.0,
       "_origin": "ast",
       "source": "app_disciplinas_subjectcode_page",
@@ -6491,7 +6513,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/disciplinas/[subjectCode]/page.tsx",
-      "source_location": "L3",
+      "source_location": "L4",
       "weight": 1.0,
       "_origin": "ast",
       "source": "app_disciplinas_subjectcode_page",
@@ -6503,7 +6525,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/disciplinas/[subjectCode]/page.tsx",
-      "source_location": "L4",
+      "source_location": "L5",
       "weight": 1.0,
       "_origin": "ast",
       "source": "app_disciplinas_subjectcode_page",
@@ -6515,7 +6537,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/disciplinas/[subjectCode]/page.tsx",
-      "source_location": "L4",
+      "source_location": "L5",
       "weight": 1.0,
       "_origin": "ast",
       "source": "app_disciplinas_subjectcode_page",
@@ -6527,7 +6549,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/disciplinas/[subjectCode]/page.tsx",
-      "source_location": "L7",
+      "source_location": "L8",
       "weight": 1.0,
       "_origin": "ast",
       "source": "app_disciplinas_subjectcode_page",
@@ -6539,7 +6561,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/disciplinas/[subjectCode]/page.tsx",
-      "source_location": "L7",
+      "source_location": "L8",
       "weight": 1.0,
       "_origin": "ast",
       "source": "app_disciplinas_subjectcode_page",
@@ -6551,7 +6573,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/disciplinas/[subjectCode]/page.tsx",
-      "source_location": "L7",
+      "source_location": "L8",
       "weight": 1.0,
       "_origin": "ast",
       "source": "app_disciplinas_subjectcode_page",
@@ -6563,7 +6585,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/disciplinas/[subjectCode]/page.tsx",
-      "source_location": "L7",
+      "source_location": "L8",
       "weight": 1.0,
       "_origin": "ast",
       "source": "app_disciplinas_subjectcode_page",
@@ -6575,7 +6597,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/disciplinas/[subjectCode]/page.tsx",
-      "source_location": "L6",
+      "source_location": "L7",
       "weight": 1.0,
       "_origin": "ast",
       "source": "app_disciplinas_subjectcode_page",
@@ -6587,7 +6609,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/disciplinas/[subjectCode]/page.tsx",
-      "source_location": "L6",
+      "source_location": "L7",
       "weight": 1.0,
       "_origin": "ast",
       "source": "app_disciplinas_subjectcode_page",
@@ -6599,7 +6621,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/disciplinas/[subjectCode]/page.tsx",
-      "source_location": "L6",
+      "source_location": "L7",
       "weight": 1.0,
       "_origin": "ast",
       "source": "app_disciplinas_subjectcode_page",
@@ -6611,7 +6633,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/disciplinas/[subjectCode]/page.tsx",
-      "source_location": "L5",
+      "source_location": "L6",
       "weight": 1.0,
       "_origin": "ast",
       "source": "app_disciplinas_subjectcode_page",
@@ -6623,7 +6645,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/disciplinas/[subjectCode]/page.tsx",
-      "source_location": "L5",
+      "source_location": "L6",
       "weight": 1.0,
       "_origin": "ast",
       "source": "app_disciplinas_subjectcode_page",
@@ -6635,7 +6657,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/disciplinas/[subjectCode]/page.tsx",
-      "source_location": "L13",
+      "source_location": "L14",
       "weight": 1.0,
       "_origin": "ast",
       "source": "app_disciplinas_subjectcode_page",
@@ -6647,7 +6669,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/disciplinas/[subjectCode]/page.tsx",
-      "source_location": "L13",
+      "source_location": "L14",
       "weight": 1.0,
       "_origin": "ast",
       "source": "app_disciplinas_subjectcode_page",
@@ -6659,7 +6681,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/disciplinas/[subjectCode]/page.tsx",
-      "source_location": "L14",
+      "source_location": "L15",
       "weight": 1.0,
       "_origin": "ast",
       "source": "app_disciplinas_subjectcode_page",
@@ -6671,7 +6693,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/disciplinas/[subjectCode]/page.tsx",
-      "source_location": "L14",
+      "source_location": "L15",
       "weight": 1.0,
       "_origin": "ast",
       "source": "app_disciplinas_subjectcode_page",
@@ -6683,7 +6705,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/disciplinas/[subjectCode]/page.tsx",
-      "source_location": "L12",
+      "source_location": "L13",
       "weight": 1.0,
       "_origin": "ast",
       "source": "app_disciplinas_subjectcode_page",
@@ -6695,7 +6717,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "app/disciplinas/[subjectCode]/page.tsx",
-      "source_location": "L12",
+      "source_location": "L13",
       "weight": 1.0,
       "_origin": "ast",
       "source": "app_disciplinas_subjectcode_page",
@@ -6708,7 +6730,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/disciplinas/[subjectCode]/page.tsx",
-      "source_location": "L38",
+      "source_location": "L43",
       "weight": 1.0,
       "_origin": "ast",
       "source": "app_disciplinas_subjectcode_page_disciplinepage",
@@ -6720,7 +6742,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/disciplinas/[subjectCode]/page.tsx",
-      "source_location": "L39",
+      "source_location": "L44",
       "weight": 1.0,
       "_origin": "ast",
       "source": "app_disciplinas_subjectcode_page_disciplinepage",
@@ -6732,7 +6754,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/disciplinas/[subjectCode]/page.tsx",
-      "source_location": "L37",
+      "source_location": "L42",
       "weight": 1.0,
       "_origin": "ast",
       "source": "app_disciplinas_subjectcode_page_disciplinepage",
@@ -6744,7 +6766,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/disciplinas/[subjectCode]/page.tsx",
-      "source_location": "L35",
+      "source_location": "L40",
       "weight": 1.0,
       "_origin": "ast",
       "source": "app_disciplinas_subjectcode_page_disciplinepage",
@@ -6756,7 +6778,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/disciplinas/[subjectCode]/page.tsx",
-      "source_location": "L36",
+      "source_location": "L41",
       "weight": 1.0,
       "_origin": "ast",
       "source": "app_disciplinas_subjectcode_page_disciplinepage",
@@ -6768,7 +6790,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/disciplinas/[subjectCode]/page.tsx",
-      "source_location": "L32",
+      "source_location": "L37",
       "weight": 1.0,
       "_origin": "ast",
       "source": "app_disciplinas_subjectcode_page_disciplinepage",
@@ -6780,7 +6802,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/disciplinas/[subjectCode]/page.tsx",
-      "source_location": "L123",
+      "source_location": "L134",
       "weight": 1.0,
       "_origin": "ast",
       "source": "app_disciplinas_subjectcode_page_disciplinepage",
@@ -6792,7 +6814,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/disciplinas/[subjectCode]/page.tsx",
-      "source_location": "L158",
+      "source_location": "L175",
       "weight": 1.0,
       "_origin": "ast",
       "source": "app_disciplinas_subjectcode_page_disciplinepage",
@@ -6804,7 +6826,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/disciplinas/[subjectCode]/page.tsx",
-      "source_location": "L42",
+      "source_location": "L47",
       "weight": 1.0,
       "_origin": "ast",
       "source": "app_disciplinas_subjectcode_page_disciplinepage",
@@ -15952,5 +15974,5 @@
       "source_file": ".claude/skills/graphify/references/query.md"
     }
   ],
-  "built_at_commit": "93f89c4fcda3299bf5f0718a615c8b187c845fee"
+  "built_at_commit": "5cf6afc857bf9a39e3196f353e72497f69737d50"
 }

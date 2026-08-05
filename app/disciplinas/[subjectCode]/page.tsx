@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { AppShell } from "@/components/layout/AppShell";
 import { EmptyState } from "@/components/layout/EmptyState";
 import { RecordedClassesModal } from "@/components/recordings/RecordedClassesModal";
@@ -19,6 +20,10 @@ import {
   PlayCircleIcon,
   TargetIcon,
 } from "@/components/icons";
+
+const DISCIPLINE_HERO_IMAGES: Record<string, string> = {
+  GTI03: "modelagem-e-gestao-de-processo-de-negocio.png",
+};
 
 export default async function DisciplinePage({
   params,
@@ -57,6 +62,10 @@ export default async function DisciplinePage({
 
   const frequency = attendances?.frequency;
   const schedule = discipline.desc_week_day || discipline.meet_type;
+  const heroImageFile = DISCIPLINE_HERO_IMAGES[discipline.code];
+  const heroImageSrc = heroImageFile
+    ? `/data/user/${activeUserId}/subjects/images/${heroImageFile}`
+    : undefined;
   const instructor =
     (typeof discipline.mediator === "object" && discipline.mediator?.person_name) ||
     (typeof discipline.regent === "object" && discipline.regent?.person_name) ||
@@ -81,10 +90,12 @@ export default async function DisciplinePage({
         <div className="grid gap-10 rounded-3xl bg-bg-card p-6 md:p-10 lg:grid-cols-[1.4fr_1fr] lg:items-center">
           <div className="flex flex-col gap-5">
             <div className="flex flex-wrap items-center gap-2">
+              
               <span className="inline-flex w-fit items-center gap-1.5 rounded-full bg-black/40 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-brand-yellow">
                 <BookOpenIcon className="h-3.5 w-3.5" />
                 {discipline.offer_type_description}
               </span>
+             
               {discipline.current_subject === true && (
                 <span className="rounded-full bg-accent-green/20 px-3 py-1 text-xs font-semibold uppercase text-accent-green">
                   Em andamento
@@ -132,24 +143,30 @@ export default async function DisciplinePage({
             )}
 
             <div className="mt-1 flex flex-wrap items-center gap-3">
-              <Link
-                href={`/disciplinas/${discipline.code}/calendario`}
-                className="rounded-full bg-brand-yellow px-6 py-3 text-sm font-semibold text-black transition hover:bg-brand-yellow-dark"
-              >
-                Continuar disciplina
-              </Link>
+              
               <Link
                 href={`/disciplinas/${discipline.code}/trilha-de-aprendizagem`}
-                className="rounded-full border border-border-subtle px-6 py-3 text-sm font-semibold text-white transition hover:bg-bg-card-hover"
+                className="rounded-full border border-border-subtle px-6 py-3 text-sm font-semibold text-white transition hover:bg-yellow-300/75"
               >
                 Trilha de aprendizagem
               </Link>
-              {userData?.course_name && (
-                <span className="inline-flex items-center gap-2 text-sm font-semibold text-white">
-                  <BookOpenIcon className="h-5 w-5 text-brand-yellow" />
-                  {userData.course_name}
-                </span>
-              )}
+            <Link
+            href={`/disciplinas/${discipline.code}/notas-avaliacoes`}
+            className="rounded-full border border-border-subtle bg-bg-card px-5 py-2.5 text-sm font-medium text-white transition hover:bg-bg-yellow-hover"
+          >
+            Notas e avaliações
+          </Link>
+
+              <RecordedClassesModal recordings={recordings} />
+
+               <Link
+            href={`/disciplinas/${discipline.code}/registro-de-frequencia`}
+            className="rounded-full border border-border-subtle bg-bg-card px-5 py-2.5 text-sm font-medium text-white transition hover:bg-bg-card-hover"
+          >
+            Registro de Frequência
+          </Link>
+             
+           
             </div>
 
             {frequency !== undefined && (
@@ -169,33 +186,34 @@ export default async function DisciplinePage({
           </div>
 
           <div className="relative hidden aspect-[4/3] items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-brand-yellow/15 via-black to-bg-card lg:flex">
-            <span className="text-7xl font-black tracking-tight text-brand-yellow/25">
-              {discipline.code}
-            </span>
-            <BookOpenIcon className="absolute h-20 w-20 text-brand-yellow/60" />
+            {heroImageSrc ? (
+              <Image
+                src={heroImageSrc}
+                alt={discipline.description}
+                fill
+                className="object-contain"
+                priority
+              />
+            ) : (
+              <>
+                <span className="text-7xl font-black tracking-tight text-brand-yellow/25">
+                  {discipline.code}
+                </span>
+                <BookOpenIcon className="absolute h-20 w-20 text-brand-yellow/60" />
+              </>
+            )}
           </div>
         </div>
 
         <div className="flex flex-wrap items-center gap-3">
-          <Link
-            href={`/disciplinas/${discipline.code}/notas-avaliacoes`}
-            className="rounded-full border border-border-subtle bg-bg-card px-5 py-2.5 text-sm font-medium text-white transition hover:bg-bg-card-hover"
-          >
-            Notas e avaliações
-          </Link>
+        
           <Link
             href={`/disciplinas/${discipline.code}/frequencia`}
             className="rounded-full border border-border-subtle bg-bg-card px-5 py-2.5 text-sm font-medium text-white transition hover:bg-bg-card-hover"
           >
             Calendário
           </Link>
-          <Link
-            href={`/disciplinas/${discipline.code}/registro-de-frequencia`}
-            className="rounded-full border border-border-subtle bg-bg-card px-5 py-2.5 text-sm font-medium text-white transition hover:bg-bg-card-hover"
-          >
-            Registro de Frequência
-          </Link>
-          <RecordedClassesModal recordings={recordings} />
+         
         </div>
       </div>
     </AppShell>
