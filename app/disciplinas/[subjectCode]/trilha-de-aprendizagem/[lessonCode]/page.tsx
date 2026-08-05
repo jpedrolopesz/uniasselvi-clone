@@ -25,9 +25,11 @@ export default async function LearningPathLessonPage({
   const discipline = disciplines ? findDisciplineByCode(disciplines, subjectCode) : undefined;
 
   return (
-    <AppShell activeUserId={activeUserId}>
+    <AppShell activeUserId={activeUserId} fullBleed>
       {learningPath === null ? (
-        <EmptyState message="A trilha de aprendizagem ainda não está disponível para esta disciplina." />
+        <div className="p-6">
+          <EmptyState message="A trilha de aprendizagem ainda não está disponível para esta disciplina." />
+        </div>
       ) : (
         <LessonView
           path={learningPath}

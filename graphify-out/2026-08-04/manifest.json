@@ -160,9 +160,9 @@
     "semantic_hash": "b2276a6e2dbd6ccd55b82da5b8d08263"
   },
   "components/layout/AppShell.tsx": {
-    "mtime": 1785708274.6337974,
-    "ast_hash": "2d3f4ccfea21e64220bc50421c4ec068",
-    "semantic_hash": "2d3f4ccfea21e64220bc50421c4ec068"
+    "mtime": 1785893858.1420262,
+    "ast_hash": "da830a86872ffebea9c26f3fce396e3e",
+    "semantic_hash": ""
   },
   "components/layout/EmptyState.tsx": {
     "mtime": 1785708422.8085296,
@@ -170,19 +170,19 @@
     "semantic_hash": "32abaafb976a63c485b1ad73f33688f5"
   },
   "components/layout/Header.tsx": {
-    "mtime": 1785708230.8462913,
-    "ast_hash": "28132aa39d69c14e18338ba0ecf8456d",
-    "semantic_hash": "28132aa39d69c14e18338ba0ecf8456d"
+    "mtime": 1785894376.5330515,
+    "ast_hash": "3c2560aab3af28185383b826c5783aa0",
+    "semantic_hash": ""
   },
   "components/layout/PageContainer.tsx": {
-    "mtime": 1785708242.4194934,
-    "ast_hash": "be923c46dfd8c0bfc9a537bab7ae21b5",
-    "semantic_hash": "be923c46dfd8c0bfc9a537bab7ae21b5"
+    "mtime": 1785891940.7308123,
+    "ast_hash": "3175cd2daba8d4a359688938342df497",
+    "semantic_hash": ""
   },
   "components/layout/Sidebar.tsx": {
-    "mtime": 1785708237.6179347,
-    "ast_hash": "c2260757706cdfb195fdbe1e18650d13",
-    "semantic_hash": "c2260757706cdfb195fdbe1e18650d13"
+    "mtime": 1785893813.9706178,
+    "ast_hash": "dc4293ad14efa7178cab6dd80f3f3a58",
+    "semantic_hash": ""
   },
   "components/layout/SubpageHeader.tsx": {
     "mtime": 1785708416.4336526,
@@ -215,8 +215,8 @@
     "semantic_hash": "37dfa94ff1d4c9279b9a0047211bad61"
   },
   "lib/data/load-subject-data.ts": {
-    "mtime": 1785888705.3836887,
-    "ast_hash": "7c1eab7e97130165eacdb728087326ad",
+    "mtime": 1785890613.954465,
+    "ast_hash": "0f7a11d9565fc68e16b438d146ad367d",
     "semantic_hash": ""
   },
   "lib/data/load-user-data.ts": {
@@ -615,13 +615,83 @@
     "semantic_hash": "a2760511c65806022ad20adf74370ff3"
   },
   "components/icons/index.tsx": {
-    "mtime": 1785888705.3786166,
-    "ast_hash": "66ea3dad433a50f72688544eb4e0c06d",
+    "mtime": 1785890668.593738,
+    "ast_hash": "83b9a92866add2d5e44ac181111eb6ee",
     "semantic_hash": ""
   },
   "app/disciplinas/[subjectCode]/registro-de-frequencia/page.tsx": {
     "mtime": 1785885418.9478073,
     "ast_hash": "0f0f714da9f0b7b4d16ffb33ac88519d",
+    "semantic_hash": ""
+  },
+  "app/disciplinas/[subjectCode]/trilha-de-aprendizagem/[lessonCode]/page.tsx": {
+    "mtime": 1785892064.5259292,
+    "ast_hash": "79fba79bb18d354e386fb816464852fb",
+    "semantic_hash": ""
+  },
+  "app/disciplinas/[subjectCode]/trilha-de-aprendizagem/page.tsx": {
+    "mtime": 1785890904.564257,
+    "ast_hash": "b916abdcf8bb74423f2a137f608f8856",
+    "semantic_hash": ""
+  },
+  "components/learning-path/LearningPathView.tsx": {
+    "mtime": 1785891054.8332713,
+    "ast_hash": "57e9630b8b7eb93654a2c6efa53f42e2",
+    "semantic_hash": ""
+  },
+  "components/learning-path/LessonChat.tsx": {
+    "mtime": 1785890862.180694,
+    "ast_hash": "0fd645c37187e85526f70b5c944af74a",
+    "semantic_hash": ""
+  },
+  "components/learning-path/LessonMarkdown.tsx": {
+    "mtime": 1785890813.5674043,
+    "ast_hash": "c4bc9811c3cc52ef2d38d62f88301ff3",
+    "semantic_hash": ""
+  },
+  "components/learning-path/LessonView.tsx": {
+    "mtime": 1785893771.2097118,
+    "ast_hash": "103c31ec5f9de45f8b6f7e2b59d3a309",
+    "semantic_hash": ""
+  },
+  "components/learning-path/use-learning-path-progress.ts": {
+    "mtime": 1785891021.9963722,
+    "ast_hash": "118a76e0134eccc089c6efc89a83e009",
+    "semantic_hash": ""
+  },
+  "lib/learning-path/progress-storage.ts": {
+    "mtime": 1785891011.5686264,
+    "ast_hash": "067e1a1f407af80d48d14eafe375328f",
+    "semantic_hash": ""
+  },
+  "lib/selectors/learning-path-selectors.ts": {
+    "mtime": 1785890871.888195,
+    "ast_hash": "47dd88447125d414a5eb5c4673bed18e",
+    "semantic_hash": ""
+  },
+  "lib/types/raw/learning-path.ts": {
+    "mtime": 1785892974.5703864,
+    "ast_hash": "5a011649ebf78e0f5cb3f05d1183172f",
+    "semantic_hash": ""
+  },
+  "public/data/user/joao-pedro-lopes-zamonelo/subjects/MAT24/learning-path.json": {
+    "mtime": 1785893707.5567226,
+    "ast_hash": "30271b8bb892cb806024a4df04334a5a",
+    "semantic_hash": ""
+  },
+  "components/learning-path/LessonVideos.tsx": {
+    "mtime": 1785893758.6815352,
+    "ast_hash": "fb0d56d2ef581ce9fdc79a9d46dd2a99",
+    "semantic_hash": ""
+  },
+  "components/layout/AppShellChrome.tsx": {
+    "mtime": 1785893845.742969,
+    "ast_hash": "c5f0f15e85e4826aa94741b8d7d16a3f",
+    "semantic_hash": ""
+  },
+  "public/assets/logo/logo-uniasselvi.png": {
+    "mtime": 1785894199.0730426,
+    "ast_hash": "defda6aa297e0905a68189a7aeaf12eb",
     "semantic_hash": ""
   }
 }

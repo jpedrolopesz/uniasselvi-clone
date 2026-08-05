@@ -1,17 +1,16 @@
 {
   "0": "load-subject-data.ts",
   "1": "Graphify Skill Docs",
-  "2": "Attendance & Calendar Components",
+  "2": "formatDateBr",
   "3": "Package Dependencies",
-  "4": "formatDateBr",
+  "4": "AssessmentCard.tsx",
   "5": "TypeScript Config",
-  "6": "Test Runner Components",
+  "6": "TestRunner.tsx",
   "7": "User Switcher & Data Loading",
   "8": "User Data Manifest (Joao Pedro)",
   "9": "User Data Manifest (Baixa Frequencia)",
   "10": "User Data Manifest (Em Dia)",
-  "11": "app/page.tsx",
-  "12": "Header Component",
+  "12": "AppShellChrome.tsx",
   "13": "Root Layout",
   "14": "Project README",
   "15": "ESLint Config",
@@ -22,5 +21,6 @@
   "20": "Next.js Icon",
   "21": "Vercel Icon",
   "22": "Window Icon",
+  "23": "app/page.tsx",
   "25": "LearningPathView.tsx"
 }

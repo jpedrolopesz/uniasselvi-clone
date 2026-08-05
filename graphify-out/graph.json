@@ -273,7 +273,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "app_page",
-      "community": 11,
+      "community": 23,
       "community_name": "app/page.tsx",
       "norm_label": "app/page.tsx"
     },
@@ -284,7 +284,7 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "app_page_homepage",
-      "community": 11,
+      "community": 23,
       "community_name": "app/page.tsx",
       "norm_label": "homepage()"
     },
@@ -296,7 +296,7 @@
       "_origin": "ast",
       "id": "components_assessments_assessmentaction",
       "community": 4,
-      "community_name": "formatDateBr",
+      "community_name": "AssessmentCard.tsx",
       "norm_label": "assessmentaction.tsx"
     },
     {
@@ -307,7 +307,7 @@
       "_origin": "ast",
       "id": "components_assessments_assessmentaction_assessmentactionprops",
       "community": 4,
-      "community_name": "formatDateBr",
+      "community_name": "AssessmentCard.tsx",
       "norm_label": "assessmentactionprops"
     },
     {
@@ -318,7 +318,7 @@
       "_origin": "ast",
       "id": "components_assessments_assessmentaction_assessmentaction",
       "community": 4,
-      "community_name": "formatDateBr",
+      "community_name": "AssessmentCard.tsx",
       "norm_label": "assessmentaction()"
     },
     {
@@ -329,7 +329,7 @@
       "_origin": "ast",
       "id": "components_assessments_assessmentcard",
       "community": 4,
-      "community_name": "formatDateBr",
+      "community_name": "AssessmentCard.tsx",
       "norm_label": "assessmentcard.tsx"
     },
     {
@@ -340,7 +340,7 @@
       "_origin": "ast",
       "id": "components_assessments_assessmentcard_assessmentcardprops",
       "community": 4,
-      "community_name": "formatDateBr",
+      "community_name": "AssessmentCard.tsx",
       "norm_label": "assessmentcardprops"
     },
     {
@@ -351,7 +351,7 @@
       "_origin": "ast",
       "id": "components_assessments_assessmentcard_assessmentcard",
       "community": 4,
-      "community_name": "formatDateBr",
+      "community_name": "AssessmentCard.tsx",
       "norm_label": "assessmentcard()"
     },
     {
@@ -362,7 +362,7 @@
       "_origin": "ast",
       "id": "components_assessments_assessmentstatus",
       "community": 4,
-      "community_name": "formatDateBr",
+      "community_name": "AssessmentCard.tsx",
       "norm_label": "assessmentstatus.tsx"
     },
     {
@@ -373,7 +373,7 @@
       "_origin": "ast",
       "id": "components_assessments_assessmentstatus_assessmentstatus",
       "community": 4,
-      "community_name": "formatDateBr",
+      "community_name": "AssessmentCard.tsx",
       "norm_label": "assessmentstatus()"
     },
     {
@@ -383,7 +383,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_assessments_completedtestsummary",
-      "community": 4,
+      "community": 2,
       "community_name": "formatDateBr",
       "norm_label": "completedtestsummary.tsx"
     },
@@ -394,7 +394,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "components_assessments_completedtestsummary_completedtestsummary",
-      "community": 4,
+      "community": 2,
       "community_name": "formatDateBr",
       "norm_label": "completedtestsummary()"
     },
@@ -406,7 +406,7 @@
       "_origin": "ast",
       "id": "components_assessments_testinfocard",
       "community": 6,
-      "community_name": "Test Runner Components",
+      "community_name": "TestRunner.tsx",
       "norm_label": "testinfocard.tsx"
     },
     {
@@ -417,7 +417,7 @@
       "_origin": "ast",
       "id": "components_assessments_testinfocard_testinfocard",
       "community": 6,
-      "community_name": "Test Runner Components",
+      "community_name": "TestRunner.tsx",
       "norm_label": "testinfocard()"
     },
     {
@@ -428,7 +428,7 @@
       "_origin": "ast",
       "id": "components_assessments_testquestioncard",
       "community": 6,
-      "community_name": "Test Runner Components",
+      "community_name": "TestRunner.tsx",
       "norm_label": "testquestioncard.tsx"
     },
     {
@@ -439,7 +439,7 @@
       "_origin": "ast",
       "id": "components_assessments_testquestioncard_testquestioncardprops",
       "community": 6,
-      "community_name": "Test Runner Components",
+      "community_name": "TestRunner.tsx",
       "norm_label": "testquestioncardprops"
     },
     {
@@ -450,7 +450,7 @@
       "_origin": "ast",
       "id": "components_assessments_testquestioncard_testquestioncard",
       "community": 6,
-      "community_name": "Test Runner Components",
+      "community_name": "TestRunner.tsx",
       "norm_label": "testquestioncard()"
     },
     {
@@ -461,7 +461,7 @@
       "_origin": "ast",
       "id": "components_assessments_testrunner",
       "community": 6,
-      "community_name": "Test Runner Components",
+      "community_name": "TestRunner.tsx",
       "norm_label": "testrunner.tsx"
     },
     {
@@ -472,7 +472,7 @@
       "_origin": "ast",
       "id": "components_assessments_testrunner_testrunner",
       "community": 6,
-      "community_name": "Test Runner Components",
+      "community_name": "TestRunner.tsx",
       "norm_label": "testrunner()"
     },
     {
@@ -483,7 +483,7 @@
       "_origin": "ast",
       "id": "components_assessments_teststepper",
       "community": 6,
-      "community_name": "Test Runner Components",
+      "community_name": "TestRunner.tsx",
       "norm_label": "teststepper.tsx"
     },
     {
@@ -494,7 +494,7 @@
       "_origin": "ast",
       "id": "components_assessments_teststepper_teststepperprops",
       "community": 6,
-      "community_name": "Test Runner Components",
+      "community_name": "TestRunner.tsx",
       "norm_label": "teststepperprops"
     },
     {
@@ -505,7 +505,7 @@
       "_origin": "ast",
       "id": "components_assessments_teststepper_teststepper",
       "community": 6,
-      "community_name": "Test Runner Components",
+      "community_name": "TestRunner.tsx",
       "norm_label": "teststepper()"
     },
     {
@@ -516,7 +516,7 @@
       "_origin": "ast",
       "id": "components_assessments_testtoolbar",
       "community": 6,
-      "community_name": "Test Runner Components",
+      "community_name": "TestRunner.tsx",
       "norm_label": "testtoolbar.tsx"
     },
     {
@@ -527,7 +527,7 @@
       "_origin": "ast",
       "id": "components_assessments_testtoolbar_testtoolbarprops",
       "community": 6,
-      "community_name": "Test Runner Components",
+      "community_name": "TestRunner.tsx",
       "norm_label": "testtoolbarprops"
     },
     {
@@ -538,7 +538,7 @@
       "_origin": "ast",
       "id": "components_assessments_testtoolbar_testtoolbar",
       "community": 6,
-      "community_name": "Test Runner Components",
+      "community_name": "TestRunner.tsx",
       "norm_label": "testtoolbar()"
     },
     {
@@ -549,7 +549,7 @@
       "_origin": "ast",
       "id": "components_attendance_attendancecalendar",
       "community": 2,
-      "community_name": "Attendance & Calendar Components",
+      "community_name": "formatDateBr",
       "norm_label": "attendancecalendar.tsx"
     },
     {
@@ -560,7 +560,7 @@
       "_origin": "ast",
       "id": "components_attendance_attendancecalendar_attendancecalendar",
       "community": 2,
-      "community_name": "Attendance & Calendar Components",
+      "community_name": "formatDateBr",
       "norm_label": "attendancecalendar()"
     },
     {
@@ -593,7 +593,7 @@
       "_origin": "ast",
       "id": "components_attendance_meetingspanel",
       "community": 2,
-      "community_name": "Attendance & Calendar Components",
+      "community_name": "formatDateBr",
       "norm_label": "meetingspanel.tsx"
     },
     {
@@ -604,7 +604,7 @@
       "_origin": "ast",
       "id": "components_attendance_meetingspanel_meetingspanelprops",
       "community": 2,
-      "community_name": "Attendance & Calendar Components",
+      "community_name": "formatDateBr",
       "norm_label": "meetingspanelprops"
     },
     {
@@ -615,7 +615,7 @@
       "_origin": "ast",
       "id": "components_attendance_meetingspanel_meetingspanel",
       "community": 2,
-      "community_name": "Attendance & Calendar Components",
+      "community_name": "formatDateBr",
       "norm_label": "meetingspanel()"
     },
     {
@@ -626,7 +626,7 @@
       "_origin": "ast",
       "id": "components_calendar_calendarday",
       "community": 2,
-      "community_name": "Attendance & Calendar Components",
+      "community_name": "formatDateBr",
       "norm_label": "calendarday.tsx"
     },
     {
@@ -637,7 +637,7 @@
       "_origin": "ast",
       "id": "components_calendar_calendarday_calendardayprops",
       "community": 2,
-      "community_name": "Attendance & Calendar Components",
+      "community_name": "formatDateBr",
       "norm_label": "calendardayprops"
     },
     {
@@ -648,7 +648,7 @@
       "_origin": "ast",
       "id": "components_calendar_calendarday_calendarday",
       "community": 2,
-      "community_name": "Attendance & Calendar Components",
+      "community_name": "formatDateBr",
       "norm_label": "calendarday()"
     },
     {
@@ -659,7 +659,7 @@
       "_origin": "ast",
       "id": "components_calendar_calendargrid",
       "community": 2,
-      "community_name": "Attendance & Calendar Components",
+      "community_name": "formatDateBr",
       "norm_label": "calendargrid.tsx"
     },
     {
@@ -670,7 +670,7 @@
       "_origin": "ast",
       "id": "components_calendar_calendargrid_calendargridprops",
       "community": 2,
-      "community_name": "Attendance & Calendar Components",
+      "community_name": "formatDateBr",
       "norm_label": "calendargridprops"
     },
     {
@@ -681,7 +681,7 @@
       "_origin": "ast",
       "id": "components_calendar_calendargrid_calendargrid",
       "community": 2,
-      "community_name": "Attendance & Calendar Components",
+      "community_name": "formatDateBr",
       "norm_label": "calendargrid()"
     },
     {
@@ -692,7 +692,7 @@
       "_origin": "ast",
       "id": "components_calendar_calendarmonthnavigation",
       "community": 2,
-      "community_name": "Attendance & Calendar Components",
+      "community_name": "formatDateBr",
       "norm_label": "calendarmonthnavigation.tsx"
     },
     {
@@ -703,7 +703,7 @@
       "_origin": "ast",
       "id": "components_calendar_calendarmonthnavigation_calendarmonthnavigationprops",
       "community": 2,
-      "community_name": "Attendance & Calendar Components",
+      "community_name": "formatDateBr",
       "norm_label": "calendarmonthnavigationprops"
     },
     {
@@ -714,7 +714,7 @@
       "_origin": "ast",
       "id": "components_calendar_calendarmonthnavigation_calendarmonthnavigation",
       "community": 2,
-      "community_name": "Attendance & Calendar Components",
+      "community_name": "formatDateBr",
       "norm_label": "calendarmonthnavigation()"
     },
     {
@@ -725,7 +725,7 @@
       "_origin": "ast",
       "id": "components_calendar_eventspanel",
       "community": 2,
-      "community_name": "Attendance & Calendar Components",
+      "community_name": "formatDateBr",
       "norm_label": "eventspanel.tsx"
     },
     {
@@ -736,7 +736,7 @@
       "_origin": "ast",
       "id": "components_calendar_eventspanel_eventspanelprops",
       "community": 2,
-      "community_name": "Attendance & Calendar Components",
+      "community_name": "formatDateBr",
       "norm_label": "eventspanelprops"
     },
     {
@@ -747,7 +747,7 @@
       "_origin": "ast",
       "id": "components_calendar_eventspanel_eventspanel",
       "community": 2,
-      "community_name": "Attendance & Calendar Components",
+      "community_name": "formatDateBr",
       "norm_label": "eventspanel()"
     },
     {
@@ -758,7 +758,7 @@
       "_origin": "ast",
       "id": "components_calendar_subjectcalendarview",
       "community": 2,
-      "community_name": "Attendance & Calendar Components",
+      "community_name": "formatDateBr",
       "norm_label": "subjectcalendarview.tsx"
     },
     {
@@ -769,7 +769,7 @@
       "_origin": "ast",
       "id": "components_calendar_subjectcalendarview_subjectcalendarview",
       "community": 2,
-      "community_name": "Attendance & Calendar Components",
+      "community_name": "formatDateBr",
       "norm_label": "subjectcalendarview()"
     },
     {
@@ -812,7 +812,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_home_academicshortcuts",
-      "community": 11,
+      "community": 23,
       "community_name": "app/page.tsx",
       "norm_label": "academicshortcuts.tsx"
     },
@@ -823,7 +823,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "components_home_academicshortcuts_academicshortcutsprops",
-      "community": 11,
+      "community": 23,
       "community_name": "app/page.tsx",
       "norm_label": "academicshortcutsprops"
     },
@@ -834,7 +834,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "components_home_academicshortcuts_static_shortcuts",
-      "community": 11,
+      "community": 23,
       "community_name": "app/page.tsx",
       "norm_label": "static_shortcuts"
     },
@@ -845,7 +845,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "components_home_academicshortcuts_academicshortcuts",
-      "community": 11,
+      "community": 23,
       "community_name": "app/page.tsx",
       "norm_label": "academicshortcuts()"
     },
@@ -856,7 +856,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_home_disciplinecard",
-      "community": 11,
+      "community": 23,
       "community_name": "app/page.tsx",
       "norm_label": "disciplinecard.tsx"
     },
@@ -867,7 +867,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "components_home_disciplinecard_disciplinecard",
-      "community": 11,
+      "community": 23,
       "community_name": "app/page.tsx",
       "norm_label": "disciplinecard()"
     },
@@ -878,7 +878,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_home_disciplinecarousel",
-      "community": 11,
+      "community": 23,
       "community_name": "app/page.tsx",
       "norm_label": "disciplinecarousel.tsx"
     },
@@ -889,7 +889,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "components_home_disciplinecarousel_disciplinecarousel",
-      "community": 11,
+      "community": 23,
       "community_name": "app/page.tsx",
       "norm_label": "disciplinecarousel()"
     },
@@ -900,7 +900,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_home_journeyshortcuts",
-      "community": 11,
+      "community": 23,
       "community_name": "app/page.tsx",
       "norm_label": "journeyshortcuts.tsx"
     },
@@ -911,7 +911,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_home_journeyshortcuts_journey_shortcuts",
-      "community": 11,
+      "community": 23,
       "community_name": "app/page.tsx",
       "norm_label": "journey_shortcuts"
     },
@@ -922,7 +922,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "components_home_journeyshortcuts_journeyshortcuts",
-      "community": 11,
+      "community": 23,
       "community_name": "app/page.tsx",
       "norm_label": "journeyshortcuts()"
     },
@@ -933,7 +933,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_home_recoverysection",
-      "community": 11,
+      "community": 23,
       "community_name": "app/page.tsx",
       "norm_label": "recoverysection.tsx"
     },
@@ -944,7 +944,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "components_home_recoverysection_recoverysectionprops",
-      "community": 11,
+      "community": 23,
       "community_name": "app/page.tsx",
       "norm_label": "recoverysectionprops"
     },
@@ -955,7 +955,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "components_home_recoverysection_recoverysection",
-      "community": 11,
+      "community": 23,
       "community_name": "app/page.tsx",
       "norm_label": "recoverysection()"
     },
@@ -966,8 +966,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_home_semesterheader",
-      "community": 11,
-      "community_name": "app/page.tsx",
+      "community": 4,
+      "community_name": "AssessmentCard.tsx",
       "norm_label": "semesterheader.tsx"
     },
     {
@@ -977,8 +977,8 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "components_home_semesterheader_semesterheader",
-      "community": 11,
-      "community_name": "app/page.tsx",
+      "community": 4,
+      "community_name": "AssessmentCard.tsx",
       "norm_label": "semesterheader()"
     },
     {
@@ -1139,7 +1139,7 @@
       "label": "AppShellProps",
       "file_type": "code",
       "source_file": "components/layout/AppShell.tsx",
-      "source_location": "L9",
+      "source_location": "L7",
       "_origin": "ast",
       "id": "components_layout_appshell_appshellprops",
       "community": 0,
@@ -1156,6 +1156,39 @@
       "community": 0,
       "community_name": "load-subject-data.ts",
       "norm_label": "appshell()"
+    },
+    {
+      "label": "AppShellChrome.tsx",
+      "file_type": "code",
+      "source_file": "components/layout/AppShellChrome.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "components_layout_appshellchrome",
+      "community": 12,
+      "community_name": "AppShellChrome.tsx",
+      "norm_label": "appshellchrome.tsx"
+    },
+    {
+      "label": "AppShellChromeProps",
+      "file_type": "code",
+      "source_file": "components/layout/AppShellChrome.tsx",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "components_layout_appshellchrome_appshellchromeprops",
+      "community": 12,
+      "community_name": "AppShellChrome.tsx",
+      "norm_label": "appshellchromeprops"
+    },
+    {
+      "label": "AppShellChrome()",
+      "file_type": "code",
+      "source_file": "components/layout/AppShellChrome.tsx",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "components_layout_appshellchrome_appshellchrome",
+      "community": 12,
+      "community_name": "AppShellChrome.tsx",
+      "norm_label": "appshellchrome()"
     },
     {
       "label": "EmptyState.tsx",
@@ -1187,40 +1220,40 @@
       "_origin": "ast",
       "id": "components_layout_header",
       "community": 12,
-      "community_name": "Header Component",
+      "community_name": "AppShellChrome.tsx",
       "norm_label": "header.tsx"
     },
     {
       "label": "initialsFromName()",
       "file_type": "code",
       "source_file": "components/layout/Header.tsx",
-      "source_location": "L1",
+      "source_location": "L4",
       "_origin": "ast",
       "id": "components_layout_header_initialsfromname",
       "community": 12,
-      "community_name": "Header Component",
+      "community_name": "AppShellChrome.tsx",
       "norm_label": "initialsfromname()"
     },
     {
       "label": "HeaderProps",
       "file_type": "code",
       "source_file": "components/layout/Header.tsx",
-      "source_location": "L8",
+      "source_location": "L11",
       "_origin": "ast",
       "id": "components_layout_header_headerprops",
       "community": 12,
-      "community_name": "Header Component",
+      "community_name": "AppShellChrome.tsx",
       "norm_label": "headerprops"
     },
     {
       "label": "Header()",
       "file_type": "code",
       "source_file": "components/layout/Header.tsx",
-      "source_location": "L14",
+      "source_location": "L18",
       "_origin": "ast",
       "id": "components_layout_header_header",
       "community": 12,
-      "community_name": "Header Component",
+      "community_name": "AppShellChrome.tsx",
       "norm_label": "header()"
     },
     {
@@ -1230,19 +1263,30 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_layout_pagecontainer",
-      "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community": 12,
+      "community_name": "AppShellChrome.tsx",
       "norm_label": "pagecontainer.tsx"
+    },
+    {
+      "label": "PageContainerProps",
+      "file_type": "code",
+      "source_file": "components/layout/PageContainer.tsx",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "components_layout_pagecontainer_pagecontainerprops",
+      "community": 12,
+      "community_name": "AppShellChrome.tsx",
+      "norm_label": "pagecontainerprops"
     },
     {
       "label": "PageContainer()",
       "file_type": "code",
       "source_file": "components/layout/PageContainer.tsx",
-      "source_location": "L3",
+      "source_location": "L9",
       "_origin": "ast",
       "id": "components_layout_pagecontainer_pagecontainer",
-      "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community": 12,
+      "community_name": "AppShellChrome.tsx",
       "norm_label": "pagecontainer()"
     },
     {
@@ -1252,8 +1296,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_layout_sidebar",
-      "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community": 12,
+      "community_name": "AppShellChrome.tsx",
       "norm_label": "sidebar.tsx"
     },
     {
@@ -1263,19 +1307,30 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "components_layout_sidebar_menu_items",
-      "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community": 12,
+      "community_name": "AppShellChrome.tsx",
       "norm_label": "menu_items"
+    },
+    {
+      "label": "SidebarProps",
+      "file_type": "code",
+      "source_file": "components/layout/Sidebar.tsx",
+      "source_location": "L19",
+      "_origin": "ast",
+      "id": "components_layout_sidebar_sidebarprops",
+      "community": 12,
+      "community_name": "AppShellChrome.tsx",
+      "norm_label": "sidebarprops"
     },
     {
       "label": "Sidebar()",
       "file_type": "code",
       "source_file": "components/layout/Sidebar.tsx",
-      "source_location": "L19",
+      "source_location": "L24",
       "_origin": "ast",
       "id": "components_layout_sidebar_sidebar",
-      "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community": 12,
+      "community_name": "AppShellChrome.tsx",
       "norm_label": "sidebar()"
     },
     {
@@ -1466,6 +1521,39 @@
       "norm_label": "lessonmarkdown()"
     },
     {
+      "label": "LessonVideos.tsx",
+      "file_type": "code",
+      "source_file": "components/learning-path/LessonVideos.tsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "components_learning_path_lessonvideos",
+      "community": 25,
+      "community_name": "LearningPathView.tsx",
+      "norm_label": "lessonvideos.tsx"
+    },
+    {
+      "label": "VideoPlayer()",
+      "file_type": "code",
+      "source_file": "components/learning-path/LessonVideos.tsx",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "components_learning_path_lessonvideos_videoplayer",
+      "community": 25,
+      "community_name": "LearningPathView.tsx",
+      "norm_label": "videoplayer()"
+    },
+    {
+      "label": "LessonVideos()",
+      "file_type": "code",
+      "source_file": "components/learning-path/LessonVideos.tsx",
+      "source_location": "L31",
+      "_origin": "ast",
+      "id": "components_learning_path_lessonvideos_lessonvideos",
+      "community": 25,
+      "community_name": "LearningPathView.tsx",
+      "norm_label": "lessonvideos()"
+    },
+    {
       "label": "LessonView.tsx",
       "file_type": "code",
       "source_file": "components/learning-path/LessonView.tsx",
@@ -1480,7 +1568,7 @@
       "label": "LessonViewProps",
       "file_type": "code",
       "source_file": "components/learning-path/LessonView.tsx",
-      "source_location": "L15",
+      "source_location": "L16",
       "_origin": "ast",
       "id": "components_learning_path_lessonview_lessonviewprops",
       "community": 25,
@@ -1491,7 +1579,7 @@
       "label": "LessonView()",
       "file_type": "code",
       "source_file": "components/learning-path/LessonView.tsx",
-      "source_location": "L22",
+      "source_location": "L23",
       "_origin": "ast",
       "id": "components_learning_path_lessonview_lessonview",
       "community": 25,
@@ -1549,7 +1637,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_recordings_recordedclassesmodal",
-      "community": 4,
+      "community": 2,
       "community_name": "formatDateBr",
       "norm_label": "recordedclassesmodal.tsx"
     },
@@ -1560,7 +1648,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "components_recordings_recordedclassesmodal_recordedclassesmodal",
-      "community": 4,
+      "community": 2,
       "community_name": "formatDateBr",
       "norm_label": "recordedclassesmodal()"
     },
@@ -1571,7 +1659,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_recordings_recordingitem",
-      "community": 4,
+      "community": 2,
       "community_name": "formatDateBr",
       "norm_label": "recordingitem.tsx"
     },
@@ -1582,7 +1670,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "components_recordings_recordingitem_recordingitem",
-      "community": 4,
+      "community": 2,
       "community_name": "formatDateBr",
       "norm_label": "recordingitem()"
     },
@@ -1802,7 +1890,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "lib_data_load_user_data_loadcurrentsemester",
-      "community": 11,
+      "community": 23,
       "community_name": "app/page.tsx",
       "norm_label": "loadcurrentsemester()"
     },
@@ -1835,7 +1923,7 @@
       "source_location": "L36",
       "_origin": "ast",
       "id": "lib_data_load_user_data_loadfinancialtitles",
-      "community": 11,
+      "community": 23,
       "community_name": "app/page.tsx",
       "norm_label": "loadfinancialtitles()"
     },
@@ -1945,7 +2033,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_formatters_date_formatters",
-      "community": 4,
+      "community": 2,
       "community_name": "formatDateBr",
       "norm_label": "date-formatters.ts"
     },
@@ -1956,7 +2044,7 @@
       "source_location": "L8",
       "_origin": "ast",
       "id": "lib_formatters_date_formatters_dateparts",
-      "community": 4,
+      "community": 2,
       "community_name": "formatDateBr",
       "norm_label": "dateparts"
     },
@@ -1967,7 +2055,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "lib_formatters_date_formatters_parsedateparts",
-      "community": 4,
+      "community": 2,
       "community_name": "formatDateBr",
       "norm_label": "parsedateparts()"
     },
@@ -1978,7 +2066,7 @@
       "source_location": "L46",
       "_origin": "ast",
       "id": "lib_formatters_date_formatters_pad2",
-      "community": 4,
+      "community": 2,
       "community_name": "formatDateBr",
       "norm_label": "pad2()"
     },
@@ -1989,7 +2077,7 @@
       "source_location": "L49",
       "_origin": "ast",
       "id": "lib_formatters_date_formatters_formatdatebr",
-      "community": 4,
+      "community": 2,
       "community_name": "formatDateBr",
       "norm_label": "formatdatebr()"
     },
@@ -2000,7 +2088,7 @@
       "source_location": "L56",
       "_origin": "ast",
       "id": "lib_formatters_date_formatters_formatdatetimebr",
-      "community": 4,
+      "community": 2,
       "community_name": "formatDateBr",
       "norm_label": "formatdatetimebr()"
     },
@@ -2012,7 +2100,7 @@
       "_origin": "ast",
       "id": "lib_formatters_date_formatters_toisodatekey",
       "community": 2,
-      "community_name": "Attendance & Calendar Components",
+      "community_name": "formatDateBr",
       "norm_label": "toisodatekey()"
     },
     {
@@ -2034,7 +2122,7 @@
       "_origin": "ast",
       "id": "lib_formatters_number_formatters_formatweight",
       "community": 4,
-      "community_name": "formatDateBr",
+      "community_name": "AssessmentCard.tsx",
       "norm_label": "formatweight()"
     },
     {
@@ -2067,7 +2155,7 @@
       "_origin": "ast",
       "id": "lib_formatters_time_formatters",
       "community": 2,
-      "community_name": "Attendance & Calendar Components",
+      "community_name": "formatDateBr",
       "norm_label": "time-formatters.ts"
     },
     {
@@ -2078,7 +2166,7 @@
       "_origin": "ast",
       "id": "lib_formatters_time_formatters_formathourminute",
       "community": 2,
-      "community_name": "Attendance & Calendar Components",
+      "community_name": "formatDateBr",
       "norm_label": "formathourminute()"
     },
     {
@@ -2089,7 +2177,7 @@
       "_origin": "ast",
       "id": "lib_formatters_time_formatters_formatduration",
       "community": 2,
-      "community_name": "Attendance & Calendar Components",
+      "community_name": "formatDateBr",
       "norm_label": "formatduration()"
     },
     {
@@ -2177,7 +2265,7 @@
       "_origin": "ast",
       "id": "lib_selectors_assessment_selectors",
       "community": 4,
-      "community_name": "formatDateBr",
+      "community_name": "AssessmentCard.tsx",
       "norm_label": "assessment-selectors.ts"
     },
     {
@@ -2188,7 +2276,7 @@
       "_origin": "ast",
       "id": "lib_selectors_assessment_selectors_derivegradeandpublished",
       "community": 4,
-      "community_name": "formatDateBr",
+      "community_name": "AssessmentCard.tsx",
       "norm_label": "derivegradeandpublished()"
     },
     {
@@ -2199,7 +2287,7 @@
       "_origin": "ast",
       "id": "lib_selectors_assessment_selectors_deriveassessmentuistate",
       "community": 4,
-      "community_name": "formatDateBr",
+      "community_name": "AssessmentCard.tsx",
       "norm_label": "deriveassessmentuistate()"
     },
     {
@@ -2210,7 +2298,7 @@
       "_origin": "ast",
       "id": "lib_selectors_attendance_selectors",
       "community": 2,
-      "community_name": "Attendance & Calendar Components",
+      "community_name": "formatDateBr",
       "norm_label": "attendance-selectors.ts"
     },
     {
@@ -2221,7 +2309,7 @@
       "_origin": "ast",
       "id": "lib_selectors_attendance_selectors_getmarkedattendancedaykeys",
       "community": 2,
-      "community_name": "Attendance & Calendar Components",
+      "community_name": "formatDateBr",
       "norm_label": "getmarkedattendancedaykeys()"
     },
     {
@@ -2232,7 +2320,7 @@
       "_origin": "ast",
       "id": "lib_selectors_attendance_selectors_getmeetingsforday",
       "community": 2,
-      "community_name": "Attendance & Calendar Components",
+      "community_name": "formatDateBr",
       "norm_label": "getmeetingsforday()"
     },
     {
@@ -2243,7 +2331,7 @@
       "_origin": "ast",
       "id": "lib_selectors_attendance_selectors_getdiaryentryforday",
       "community": 2,
-      "community_name": "Attendance & Calendar Components",
+      "community_name": "formatDateBr",
       "norm_label": "getdiaryentryforday()"
     },
     {
@@ -2254,7 +2342,7 @@
       "_origin": "ast",
       "id": "lib_selectors_calendar_selectors",
       "community": 2,
-      "community_name": "Attendance & Calendar Components",
+      "community_name": "formatDateBr",
       "norm_label": "calendar-selectors.ts"
     },
     {
@@ -2265,7 +2353,7 @@
       "_origin": "ast",
       "id": "lib_selectors_calendar_selectors_geteventsforday",
       "community": 2,
-      "community_name": "Attendance & Calendar Components",
+      "community_name": "formatDateBr",
       "norm_label": "geteventsforday()"
     },
     {
@@ -2276,7 +2364,7 @@
       "_origin": "ast",
       "id": "lib_selectors_calendar_selectors_getmarkeddaykeys",
       "community": 2,
-      "community_name": "Attendance & Calendar Components",
+      "community_name": "formatDateBr",
       "norm_label": "getmarkeddaykeys()"
     },
     {
@@ -2287,7 +2375,7 @@
       "_origin": "ast",
       "id": "lib_selectors_calendar_selectors_monthgridcell",
       "community": 2,
-      "community_name": "Attendance & Calendar Components",
+      "community_name": "formatDateBr",
       "norm_label": "monthgridcell"
     },
     {
@@ -2298,7 +2386,7 @@
       "_origin": "ast",
       "id": "lib_selectors_calendar_selectors_pad2",
       "community": 2,
-      "community_name": "Attendance & Calendar Components",
+      "community_name": "formatDateBr",
       "norm_label": "pad2()"
     },
     {
@@ -2309,7 +2397,7 @@
       "_origin": "ast",
       "id": "lib_selectors_calendar_selectors_buildmonthgrid",
       "community": 2,
-      "community_name": "Attendance & Calendar Components",
+      "community_name": "formatDateBr",
       "norm_label": "buildmonthgrid()"
     },
     {
@@ -2320,7 +2408,7 @@
       "_origin": "ast",
       "id": "lib_selectors_calendar_selectors_month_labels_pt",
       "community": 2,
-      "community_name": "Attendance & Calendar Components",
+      "community_name": "formatDateBr",
       "norm_label": "month_labels_pt"
     },
     {
@@ -2331,7 +2419,7 @@
       "_origin": "ast",
       "id": "lib_selectors_calendar_selectors_weekday_labels_pt",
       "community": 2,
-      "community_name": "Attendance & Calendar Components",
+      "community_name": "formatDateBr",
       "norm_label": "weekday_labels_pt"
     },
     {
@@ -2363,7 +2451,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "lib_selectors_discipline_selectors_sortdisciplinesbyprogress",
-      "community": 11,
+      "community": 23,
       "community_name": "app/page.tsx",
       "norm_label": "sortdisciplinesbyprogress()"
     },
@@ -2495,8 +2583,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_selectors_user_selectors",
-      "community": 11,
-      "community_name": "app/page.tsx",
+      "community": 4,
+      "community_name": "AssessmentCard.tsx",
       "norm_label": "user-selectors.ts"
     },
     {
@@ -2506,8 +2594,8 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "lib_selectors_user_selectors_derivesofiaparticipation",
-      "community": 11,
-      "community_name": "app/page.tsx",
+      "community": 4,
+      "community_name": "AssessmentCard.tsx",
       "norm_label": "derivesofiaparticipation()"
     },
     {
@@ -2517,8 +2605,8 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "lib_selectors_user_selectors_displaysemesterlabel",
-      "community": 11,
-      "community_name": "app/page.tsx",
+      "community": 4,
+      "community_name": "AssessmentCard.tsx",
       "norm_label": "displaysemesterlabel()"
     },
     {
@@ -2529,7 +2617,7 @@
       "_origin": "ast",
       "id": "lib_types_derived_index",
       "community": 4,
-      "community_name": "formatDateBr",
+      "community_name": "AssessmentCard.tsx",
       "norm_label": "index.ts"
     },
     {
@@ -2540,7 +2628,7 @@
       "_origin": "ast",
       "id": "lib_types_derived_index_sofiaparticipationderived",
       "community": 4,
-      "community_name": "formatDateBr",
+      "community_name": "AssessmentCard.tsx",
       "norm_label": "sofiaparticipationderived"
     },
     {
@@ -2551,7 +2639,7 @@
       "_origin": "ast",
       "id": "lib_types_derived_index_assessmentactionkind",
       "community": 4,
-      "community_name": "formatDateBr",
+      "community_name": "AssessmentCard.tsx",
       "norm_label": "assessmentactionkind"
     },
     {
@@ -2562,7 +2650,7 @@
       "_origin": "ast",
       "id": "lib_types_derived_index_assessmentuistate",
       "community": 4,
-      "community_name": "formatDateBr",
+      "community_name": "AssessmentCard.tsx",
       "norm_label": "assessmentuistate"
     },
     {
@@ -2573,7 +2661,7 @@
       "_origin": "ast",
       "id": "lib_types_derived_index_calendarmarkedday",
       "community": 4,
-      "community_name": "formatDateBr",
+      "community_name": "AssessmentCard.tsx",
       "norm_label": "calendarmarkedday"
     },
     {
@@ -2584,7 +2672,7 @@
       "_origin": "ast",
       "id": "lib_types_raw_assessments",
       "community": 4,
-      "community_name": "formatDateBr",
+      "community_name": "AssessmentCard.tsx",
       "norm_label": "assessments.ts"
     },
     {
@@ -2595,7 +2683,7 @@
       "_origin": "ast",
       "id": "lib_types_raw_assessments_scheduledetailraw",
       "community": 4,
-      "community_name": "formatDateBr",
+      "community_name": "AssessmentCard.tsx",
       "norm_label": "scheduledetailraw"
     },
     {
@@ -2606,7 +2694,7 @@
       "_origin": "ast",
       "id": "lib_types_raw_assessments_assessmentraw",
       "community": 4,
-      "community_name": "formatDateBr",
+      "community_name": "AssessmentCard.tsx",
       "norm_label": "assessmentraw"
     },
     {
@@ -2617,7 +2705,7 @@
       "_origin": "ast",
       "id": "lib_types_raw_attendances",
       "community": 2,
-      "community_name": "Attendance & Calendar Components",
+      "community_name": "formatDateBr",
       "norm_label": "attendances.ts"
     },
     {
@@ -2628,7 +2716,7 @@
       "_origin": "ast",
       "id": "lib_types_raw_attendances_frequencydiaryraw",
       "community": 2,
-      "community_name": "Attendance & Calendar Components",
+      "community_name": "formatDateBr",
       "norm_label": "frequencydiaryraw"
     },
     {
@@ -2639,7 +2727,7 @@
       "_origin": "ast",
       "id": "lib_types_raw_attendances_meetingraw",
       "community": 2,
-      "community_name": "Attendance & Calendar Components",
+      "community_name": "formatDateBr",
       "norm_label": "meetingraw"
     },
     {
@@ -2650,7 +2738,7 @@
       "_origin": "ast",
       "id": "lib_types_raw_attendances_attendancesraw",
       "community": 2,
-      "community_name": "Attendance & Calendar Components",
+      "community_name": "formatDateBr",
       "norm_label": "attendancesraw"
     },
     {
@@ -2661,7 +2749,7 @@
       "_origin": "ast",
       "id": "lib_types_raw_calendar_events",
       "community": 2,
-      "community_name": "Attendance & Calendar Components",
+      "community_name": "formatDateBr",
       "norm_label": "calendar-events.ts"
     },
     {
@@ -2672,7 +2760,7 @@
       "_origin": "ast",
       "id": "lib_types_raw_calendar_events_calendareventraw",
       "community": 2,
-      "community_name": "Attendance & Calendar Components",
+      "community_name": "formatDateBr",
       "norm_label": "calendareventraw"
     },
     {
@@ -2704,7 +2792,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_types_raw_disciplines",
-      "community": 11,
+      "community": 23,
       "community_name": "app/page.tsx",
       "norm_label": "disciplines.ts"
     },
@@ -2715,7 +2803,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "lib_types_raw_disciplines_disciplinepersonraw",
-      "community": 11,
+      "community": 23,
       "community_name": "app/page.tsx",
       "norm_label": "disciplinepersonraw"
     },
@@ -2726,7 +2814,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "lib_types_raw_disciplines_disciplineraw",
-      "community": 11,
+      "community": 23,
       "community_name": "app/page.tsx",
       "norm_label": "disciplineraw"
     },
@@ -2737,7 +2825,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_types_raw_financial_titles",
-      "community": 11,
+      "community": 23,
       "community_name": "app/page.tsx",
       "norm_label": "financial-titles.ts"
     },
@@ -2748,7 +2836,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "lib_types_raw_financial_titles_financialtitleraw",
-      "community": 11,
+      "community": 23,
       "community_name": "app/page.tsx",
       "norm_label": "financialtitleraw"
     },
@@ -2775,10 +2863,21 @@
       "norm_label": "learningpathlessonkind"
     },
     {
-      "label": "LearningPathLessonRaw",
+      "label": "LearningPathVideoRaw",
       "file_type": "code",
       "source_file": "lib/types/raw/learning-path.ts",
       "source_location": "L9",
+      "_origin": "ast",
+      "id": "lib_types_raw_learning_path_learningpathvideoraw",
+      "community": 25,
+      "community_name": "LearningPathView.tsx",
+      "norm_label": "learningpathvideoraw"
+    },
+    {
+      "label": "LearningPathLessonRaw",
+      "file_type": "code",
+      "source_file": "lib/types/raw/learning-path.ts",
+      "source_location": "L15",
       "_origin": "ast",
       "id": "lib_types_raw_learning_path_learningpathlessonraw",
       "community": 25,
@@ -2789,7 +2888,7 @@
       "label": "LearningPathSectionRaw",
       "file_type": "code",
       "source_file": "lib/types/raw/learning-path.ts",
-      "source_location": "L21",
+      "source_location": "L29",
       "_origin": "ast",
       "id": "lib_types_raw_learning_path_learningpathsectionraw",
       "community": 25,
@@ -2800,7 +2899,7 @@
       "label": "LearningPathRaw",
       "file_type": "code",
       "source_file": "lib/types/raw/learning-path.ts",
-      "source_location": "L28",
+      "source_location": "L36",
       "_origin": "ast",
       "id": "lib_types_raw_learning_path_learningpathraw",
       "community": 25,
@@ -2858,7 +2957,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_types_raw_recordings",
-      "community": 4,
+      "community": 2,
       "community_name": "formatDateBr",
       "norm_label": "recordings.ts"
     },
@@ -2869,7 +2968,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "lib_types_raw_recordings_recordingraw",
-      "community": 4,
+      "community": 2,
       "community_name": "formatDateBr",
       "norm_label": "recordingraw"
     },
@@ -2880,8 +2979,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_types_raw_sofia_dados_aluno",
-      "community": 11,
-      "community_name": "app/page.tsx",
+      "community": 4,
+      "community_name": "AssessmentCard.tsx",
       "norm_label": "sofia-dados-aluno.ts"
     },
     {
@@ -2891,8 +2990,8 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "lib_types_raw_sofia_dados_aluno_sofiadadosalunodata",
-      "community": 11,
-      "community_name": "app/page.tsx",
+      "community": 4,
+      "community_name": "AssessmentCard.tsx",
       "norm_label": "sofiadadosalunodata"
     },
     {
@@ -2902,8 +3001,8 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "lib_types_raw_sofia_dados_aluno_sofiadadosalunoraw",
-      "community": 11,
-      "community_name": "app/page.tsx",
+      "community": 4,
+      "community_name": "AssessmentCard.tsx",
       "norm_label": "sofiadadosalunoraw"
     },
     {
@@ -2914,7 +3013,7 @@
       "_origin": "ast",
       "id": "lib_types_raw_test_content",
       "community": 6,
-      "community_name": "Test Runner Components",
+      "community_name": "TestRunner.tsx",
       "norm_label": "test-content.ts"
     },
     {
@@ -2925,7 +3024,7 @@
       "_origin": "ast",
       "id": "lib_types_raw_test_content_testalternativeraw",
       "community": 6,
-      "community_name": "Test Runner Components",
+      "community_name": "TestRunner.tsx",
       "norm_label": "testalternativeraw"
     },
     {
@@ -2936,7 +3035,7 @@
       "_origin": "ast",
       "id": "lib_types_raw_test_content_testquestionraw",
       "community": 6,
-      "community_name": "Test Runner Components",
+      "community_name": "TestRunner.tsx",
       "norm_label": "testquestionraw"
     },
     {
@@ -2947,7 +3046,7 @@
       "_origin": "ast",
       "id": "lib_types_raw_test_content_testinforaw",
       "community": 6,
-      "community_name": "Test Runner Components",
+      "community_name": "TestRunner.tsx",
       "norm_label": "testinforaw"
     },
     {
@@ -2958,7 +3057,7 @@
       "_origin": "ast",
       "id": "lib_types_raw_test_content_testcontentraw",
       "community": 6,
-      "community_name": "Test Runner Components",
+      "community_name": "TestRunner.tsx",
       "norm_label": "testcontentraw"
     },
     {
@@ -9429,7 +9528,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "components/layout/AppShell.tsx",
-      "source_location": "L5",
+      "source_location": "L3",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_layout_appshell",
@@ -9453,7 +9552,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "components/layout/AppShell.tsx",
-      "source_location": "L5",
+      "source_location": "L3",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_layout_appshell",
@@ -9910,8 +10009,20 @@
       "relation": "imports_from",
       "context": "import",
       "confidence": "EXTRACTED",
+      "source_file": "components/learning-path/LessonVideos.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "components_learning_path_lessonvideos",
+      "target": "components_icons_index",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "components/learning-path/LessonView.tsx",
-      "source_location": "L13",
+      "source_location": "L14",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_learning_path_lessonview",
@@ -9923,7 +10034,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "components/learning-path/LessonView.tsx",
-      "source_location": "L13",
+      "source_location": "L14",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_learning_path_lessonview",
@@ -9959,7 +10070,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "components/learning-path/LessonView.tsx",
-      "source_location": "L13",
+      "source_location": "L14",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_learning_path_lessonview",
@@ -9975,6 +10086,18 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_learning_path_learningpathview",
+      "target": "components_icons_index_playcircleicon",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/learning-path/LessonVideos.tsx",
+      "source_location": "L2",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "components_learning_path_lessonvideos",
       "target": "components_icons_index_playcircleicon",
       "confidence_score": 1.0
     },
@@ -10019,7 +10142,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "components/learning-path/LessonView.tsx",
-      "source_location": "L13",
+      "source_location": "L14",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_learning_path_lessonview",
@@ -10055,7 +10178,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "components/learning-path/LessonView.tsx",
-      "source_location": "L13",
+      "source_location": "L14",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_learning_path_lessonview",
@@ -10113,7 +10236,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "components/layout/AppShell.tsx",
-      "source_location": "L9",
+      "source_location": "L7",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_layout_appshell",
@@ -10129,7 +10252,7 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_layout_appshell",
-      "target": "components_layout_header",
+      "target": "components_layout_appshellchrome",
       "confidence_score": 1.0
     },
     {
@@ -10141,7 +10264,7 @@
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_layout_appshell",
-      "target": "components_layout_header_header",
+      "target": "components_layout_appshellchrome_appshellchrome",
       "confidence_score": 1.0
     },
     {
@@ -10150,54 +10273,6 @@
       "confidence": "EXTRACTED",
       "source_file": "components/layout/AppShell.tsx",
       "source_location": "L4",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_layout_appshell",
-      "target": "components_layout_pagecontainer",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "components/layout/AppShell.tsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_layout_appshell",
-      "target": "components_layout_pagecontainer_pagecontainer",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "components/layout/AppShell.tsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_layout_appshell",
-      "target": "components_layout_sidebar",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "components/layout/AppShell.tsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_layout_appshell",
-      "target": "components_layout_sidebar_sidebar",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "components/layout/AppShell.tsx",
-      "source_location": "L6",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_layout_appshell",
@@ -10209,7 +10284,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "components/layout/AppShell.tsx",
-      "source_location": "L6",
+      "source_location": "L4",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_layout_appshell",
@@ -10221,7 +10296,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "components/layout/AppShell.tsx",
-      "source_location": "L7",
+      "source_location": "L5",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_layout_appshell",
@@ -10233,7 +10308,7 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "components/layout/AppShell.tsx",
-      "source_location": "L7",
+      "source_location": "L5",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_layout_appshell",
@@ -10267,6 +10342,100 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "components/layout/AppShellChrome.tsx",
+      "source_location": "L16",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "components_layout_appshellchrome",
+      "target": "components_layout_appshellchrome_appshellchrome",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/layout/AppShellChrome.tsx",
+      "source_location": "L8",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "components_layout_appshellchrome",
+      "target": "components_layout_appshellchrome_appshellchromeprops",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/layout/AppShellChrome.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "components_layout_appshellchrome",
+      "target": "components_layout_header",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/layout/AppShellChrome.tsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "components_layout_appshellchrome",
+      "target": "components_layout_header_header",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/layout/AppShellChrome.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "components_layout_appshellchrome",
+      "target": "components_layout_pagecontainer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/layout/AppShellChrome.tsx",
+      "source_location": "L6",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "components_layout_appshellchrome",
+      "target": "components_layout_pagecontainer_pagecontainer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/layout/AppShellChrome.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "components_layout_appshellchrome",
+      "target": "components_layout_sidebar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/layout/AppShellChrome.tsx",
+      "source_location": "L5",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "components_layout_appshellchrome",
+      "target": "components_layout_sidebar_sidebar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "components/layout/EmptyState.tsx",
       "source_location": "L1",
       "weight": 1.0,
@@ -10279,7 +10448,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "components/layout/Header.tsx",
-      "source_location": "L14",
+      "source_location": "L18",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_layout_header",
@@ -10290,7 +10459,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "components/layout/Header.tsx",
-      "source_location": "L8",
+      "source_location": "L11",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_layout_header",
@@ -10301,7 +10470,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "components/layout/Header.tsx",
-      "source_location": "L1",
+      "source_location": "L4",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_layout_header",
@@ -10313,7 +10482,7 @@
       "context": "call",
       "confidence": "EXTRACTED",
       "source_file": "components/layout/Header.tsx",
-      "source_location": "L33",
+      "source_location": "L47",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_layout_header_header",
@@ -10324,11 +10493,22 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "components/layout/PageContainer.tsx",
-      "source_location": "L3",
+      "source_location": "L9",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_layout_pagecontainer",
       "target": "components_layout_pagecontainer_pagecontainer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/layout/PageContainer.tsx",
+      "source_location": "L3",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "components_layout_pagecontainer",
+      "target": "components_layout_pagecontainer_pagecontainerprops",
       "confidence_score": 1.0
     },
     {
@@ -10346,11 +10526,22 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "components/layout/Sidebar.tsx",
-      "source_location": "L19",
+      "source_location": "L24",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_layout_sidebar",
       "target": "components_layout_sidebar_sidebar",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/layout/Sidebar.tsx",
+      "source_location": "L19",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "components_layout_sidebar",
+      "target": "components_layout_sidebar_sidebarprops",
       "confidence_score": 1.0
     },
     {
@@ -10691,8 +10882,78 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "components/learning-path/LessonVideos.tsx",
+      "source_location": "L31",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "components_learning_path_lessonvideos",
+      "target": "components_learning_path_lessonvideos_lessonvideos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/learning-path/LessonVideos.tsx",
+      "source_location": "L7",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "components_learning_path_lessonvideos",
+      "target": "components_learning_path_lessonvideos_videoplayer",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/learning-path/LessonVideos.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "components_learning_path_lessonvideos",
+      "target": "lib_types_raw_learning_path",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/learning-path/LessonVideos.tsx",
+      "source_location": "L1",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "components_learning_path_lessonvideos",
+      "target": "lib_types_raw_learning_path_learningpathvideoraw",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
       "source_file": "components/learning-path/LessonView.tsx",
-      "source_location": "L22",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "components_learning_path_lessonview",
+      "target": "components_learning_path_lessonvideos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "components/learning-path/LessonView.tsx",
+      "source_location": "L13",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "components_learning_path_lessonview",
+      "target": "components_learning_path_lessonvideos_lessonvideos",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "components/learning-path/LessonView.tsx",
+      "source_location": "L23",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_learning_path_lessonview",
@@ -10703,7 +10964,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "components/learning-path/LessonView.tsx",
-      "source_location": "L15",
+      "source_location": "L16",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_learning_path_lessonview",
@@ -10799,7 +11060,7 @@
       "context": "field",
       "confidence": "EXTRACTED",
       "source_file": "components/learning-path/LessonView.tsx",
-      "source_location": "L16",
+      "source_location": "L17",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_learning_path_lessonview_lessonviewprops",
@@ -10812,7 +11073,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "components/learning-path/LessonView.tsx",
-      "source_location": "L24",
+      "source_location": "L25",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_learning_path_lessonview_lessonview",
@@ -10824,7 +11085,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "components/learning-path/LessonView.tsx",
-      "source_location": "L25",
+      "source_location": "L26",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_learning_path_lessonview_lessonview",
@@ -10836,7 +11097,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "components/learning-path/LessonView.tsx",
-      "source_location": "L102",
+      "source_location": "L107",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_learning_path_lessonview_lessonview",
@@ -13303,7 +13564,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "lib/types/raw/learning-path.ts",
-      "source_location": "L9",
+      "source_location": "L15",
       "weight": 1.0,
       "_origin": "ast",
       "source": "lib_types_raw_learning_path",
@@ -13314,7 +13575,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "lib/types/raw/learning-path.ts",
-      "source_location": "L28",
+      "source_location": "L36",
       "weight": 1.0,
       "_origin": "ast",
       "source": "lib_types_raw_learning_path",
@@ -13325,11 +13586,22 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "lib/types/raw/learning-path.ts",
-      "source_location": "L21",
+      "source_location": "L29",
       "weight": 1.0,
       "_origin": "ast",
       "source": "lib_types_raw_learning_path",
       "target": "lib_types_raw_learning_path_learningpathsectionraw",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "lib/types/raw/learning-path.ts",
+      "source_location": "L9",
+      "weight": 1.0,
+      "_origin": "ast",
+      "source": "lib_types_raw_learning_path",
+      "target": "lib_types_raw_learning_path_learningpathvideoraw",
       "confidence_score": 1.0
     },
     {
@@ -15680,5 +15952,5 @@
       "source_file": ".claude/skills/graphify/references/query.md"
     }
   ],
-  "built_at_commit": "c0c1f4fdb61732d329f7a763b1c38a208c61d753"
+  "built_at_commit": "93f89c4fcda3299bf5f0718a615c8b187c845fee"
 }

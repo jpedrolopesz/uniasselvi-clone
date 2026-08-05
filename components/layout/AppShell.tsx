@@ -1,7 +1,5 @@
 import type { ReactNode } from "react";
-import { Header } from "@/components/layout/Header";
-import { Sidebar } from "@/components/layout/Sidebar";
-import { PageContainer } from "@/components/layout/PageContainer";
+import { AppShellChrome } from "@/components/layout/AppShellChrome";
 import { UserSwitcher } from "@/components/dev/UserSwitcher";
 import { loadUserData } from "@/lib/data/load-user-data";
 import { loadUserIndex } from "@/lib/data/load-user-index";
@@ -9,6 +7,8 @@ import { loadUserIndex } from "@/lib/data/load-user-index";
 interface AppShellProps {
   activeUserId: string;
   children: ReactNode;
+  /** Modo imersivo (ex.: leitor da trilha): ocupa a altura da viewport, esconde a Sidebar e deixa o conteúdo controlar sua própria rolagem. */
+  fullBleed?: boolean;
 }
 
 /**
@@ -17,26 +17,25 @@ interface AppShellProps {
  * que o parâmetro `?u=` funcione mesmo na primeira renderização — layouts do
  * App Router não recebem searchParams.
  */
-export async function AppShell({ activeUserId, children }: AppShellProps) {
+export async function AppShell({ activeUserId, children, fullBleed = false }: AppShellProps) {
   const [userData, userIndex] = await Promise.all([
     loadUserData(activeUserId),
     loadUserIndex(),
   ]);
 
   return (
-    <div className="flex min-h-screen flex-col">
-      <Header
+    <>
+      <AppShellChrome
         fullName={userData?.full_name ?? "Aluno"}
         courseName={userData?.course_name ?? "-"}
         subscriptionCode={userData?.subscription_code ?? "-"}
-      />
-      <div className="flex flex-1">
-        <Sidebar />
-        <PageContainer>{children}</PageContainer>
-      </div>
+        fullBleed={fullBleed}
+      >
+        {children}
+      </AppShellChrome>
       {process.env.NODE_ENV === "development" && (
         <UserSwitcher users={userIndex.users} activeUserId={activeUserId} />
       )}
-    </div>
+    </>
   );
 }

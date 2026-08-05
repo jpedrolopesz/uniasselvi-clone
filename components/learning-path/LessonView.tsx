@@ -10,6 +10,7 @@ import {
 import { useLearningPathProgress } from "@/components/learning-path/use-learning-path-progress";
 import { LessonChat } from "@/components/learning-path/LessonChat";
 import { LessonMarkdown } from "@/components/learning-path/LessonMarkdown";
+import { LessonVideos } from "@/components/learning-path/LessonVideos";
 import { CheckCircleIcon, ChevronRightIcon, ClockIcon, TerminalIcon } from "@/components/icons";
 
 interface LessonViewProps {
@@ -27,11 +28,13 @@ export function LessonView({ path, subjectCode, lessonId, disciplineName }: Less
 
   if (!nav.lesson) {
     return (
-      <div className="rounded-2xl bg-bg-card p-8 text-center">
-        <p className="text-white">Lição não encontrada.</p>
-        <Link href={trilhaHref} className="mt-3 inline-block text-sm text-brand-yellow hover:underline">
-          Voltar para a trilha
-        </Link>
+      <div className="flex flex-1 items-center justify-center p-8 text-center">
+        <div>
+          <p className="text-white">Lição não encontrada.</p>
+          <Link href={trilhaHref} className="mt-3 inline-block text-sm text-brand-yellow hover:underline">
+            Voltar para a trilha
+          </Link>
+        </div>
       </div>
     );
   }
@@ -39,19 +42,21 @@ export function LessonView({ path, subjectCode, lessonId, disciplineName }: Less
   const { lesson, prev, next } = nav;
 
   if (!mounted) {
-    return <div className="h-96 animate-pulse rounded-2xl bg-bg-card" />;
+    return <div className="m-4 flex-1 animate-pulse rounded-2xl bg-bg-card" />;
   }
 
   if (lesson.status === "locked") {
     return (
-      <div className="rounded-2xl bg-bg-card p-8 text-center">
-        <p className="text-white">Esta lição ainda está bloqueada.</p>
-        <p className="mt-1 text-sm text-text-secondary">
-          Conclua as lições anteriores da trilha para desbloqueá-la.
-        </p>
-        <Link href={trilhaHref} className="mt-4 inline-block text-sm text-brand-yellow hover:underline">
-          Voltar para a trilha
-        </Link>
+      <div className="flex flex-1 items-center justify-center p-8 text-center">
+        <div>
+          <p className="text-white">Esta lição ainda está bloqueada.</p>
+          <p className="mt-1 text-sm text-text-secondary">
+            Conclua as lições anteriores da trilha para desbloqueá-la.
+          </p>
+          <Link href={trilhaHref} className="mt-4 inline-block text-sm text-brand-yellow hover:underline">
+            Voltar para a trilha
+          </Link>
+        </div>
       </div>
     );
   }
@@ -65,8 +70,8 @@ export function LessonView({ path, subjectCode, lessonId, disciplineName }: Less
   }
 
   return (
-    <div className="flex flex-col gap-4">
-      <div className="flex flex-wrap items-center justify-between gap-3">
+    <div className="flex min-h-0 flex-1 flex-col">
+      <div className="flex shrink-0 flex-wrap items-center justify-between gap-3 border-b border-border-subtle px-6 py-4">
         <div className="flex flex-wrap items-center gap-1.5 text-sm">
           <Link href={trilhaHref} className="text-text-secondary transition hover:text-white">
             ‹ {disciplineName}
@@ -97,15 +102,25 @@ export function LessonView({ path, subjectCode, lessonId, disciplineName }: Less
         </div>
       </div>
 
-      <div className="grid gap-4 lg:grid-cols-[360px_1fr] lg:items-start">
-        <div className="h-[520px] lg:sticky lg:top-6">
+      <div className="flex min-h-0 flex-1 flex-col gap-4 p-4 md:gap-6 md:p-6 lg:flex-row">
+        <div className="h-105 min-h-0 shrink-0 lg:h-auto lg:w-95">
           <LessonChat lessonTitle={lesson.title} lessonSummary={getLessonSummary(lesson.content)} />
         </div>
 
-        <div className="flex flex-col gap-6 rounded-2xl bg-bg-card p-6 md:p-8">
-          <LessonMarkdown content={lesson.content} />
+        <div className="flex min-h-0 flex-1 flex-col overflow-hidden rounded-2xl bg-bg-card">
+          {lesson.videos && lesson.videos.length > 0 ? (
+            <div className="min-h-0 flex-1">
+              <LessonVideos videos={lesson.videos} fill />
+            </div>
+          ) : (
+            <div className="min-h-0 flex-1 overflow-y-auto p-6 md:p-10">
+              <div className="mx-auto max-w-3xl">
+                <LessonMarkdown content={lesson.content} />
+              </div>
+            </div>
+          )}
 
-          <div className="flex flex-wrap items-center justify-between gap-3 border-t border-border-subtle pt-5">
+          <div className="flex shrink-0 flex-wrap items-center justify-between gap-3 border-t border-border-subtle px-6 py-4 md:px-10">
             {prev ? (
               <Link
                 href={`/disciplinas/${subjectCode}/trilha-de-aprendizagem/${prev.id}`}
