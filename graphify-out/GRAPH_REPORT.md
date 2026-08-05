@@ -1,16 +1,16 @@
 # Graph Report - uniasselvi-clone  (2026-08-04)
 
 ## Corpus Check
-- 133 files · ~109,159 words
+- 133 files · ~111,050 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 463 nodes · 906 edges · 24 communities (15 shown, 9 thin omitted)
+- 463 nodes · 897 edges · 24 communities (15 shown, 9 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 5 edges (avg confidence: 0.7)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `5cf6afc8`
+- Built from commit: `373de5ed`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -42,27 +42,27 @@
 
 ## God Nodes (most connected - your core abstractions)
 1. `Graphify Skill (/graphify Pipeline)` - 29 edges
-2. `resolveActiveUserId()` - 20 edges
-3. `formatDateBr()` - 19 edges
-4. `loadDisciplines()` - 18 edges
+2. `resolveActiveUserId()` - 19 edges
+3. `formatDateBr()` - 18 edges
+4. `loadDisciplines()` - 17 edges
 5. `compilerOptions` - 16 edges
-6. `findDisciplineByCode()` - 15 edges
-7. `readUserJsonFileOptional()` - 14 edges
+6. `readUserJsonFileOptional()` - 14 edges
+7. `findDisciplineByCode()` - 14 edges
 8. `AppShell()` - 12 edges
 9. `useLearningPathProgress()` - 12 edges
-10. `DisciplinePage()` - 10 edges
+10. `toIsoDateKey()` - 10 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Next.js Breaking-Changes Notice` --semantically_similar_to--> `Honesty Rules`  [INFERRED] [semantically similar]
   AGENTS.md → .claude/skills/graphify/SKILL.md
-- `DisciplinePage()` --calls--> `formatDateBr()`  [EXTRACTED]
-  app/disciplinas/[subjectCode]/page.tsx → lib/formatters/date-formatters.ts
 - `AttendanceLogPage()` --calls--> `formatDateBr()`  [EXTRACTED]
   app/disciplinas/[subjectCode]/registro-de-frequencia/page.tsx → lib/formatters/date-formatters.ts
 - `HomePage()` --calls--> `loadDisciplines()`  [EXTRACTED]
   app/page.tsx → lib/data/load-user-data.ts
 - `HomePage()` --calls--> `resolveActiveUserId()`  [EXTRACTED]
   app/page.tsx → lib/data/resolve-active-user.ts
+- `AssessmentActionProps` --references--> `AssessmentUiState`  [EXTRACTED]
+  components/assessments/AssessmentAction.tsx → lib/types/derived/index.ts
 
 ## Import Cycles
 - None detected.
@@ -76,7 +76,7 @@
 
 ### Community 0 - "load-subject-data.ts"
 Cohesion: 0.16
-Nodes (33): SubjectCalendarPage(), AttendancePage(), AssessmentsPage(), AnswerTestPage(), DISCIPLINE_HERO_IMAGES, DisciplinePage(), AttendanceLogPage(), LearningPathLessonPage() (+25 more)
+Nodes (30): SubjectCalendarPage(), AttendancePage(), AssessmentsPage(), AnswerTestPage(), DISCIPLINE_HERO_IMAGES, AttendanceLogPage(), LearningPathLessonPage(), LearningPathPage() (+22 more)
 
 ### Community 1 - "Graphify Skill Docs"
 Cohesion: 0.05
@@ -91,8 +91,8 @@ Cohesion: 0.06
 Nodes (32): eslint, eslint-config-next, next, dependencies, next, react, react-dom, devDependencies (+24 more)
 
 ### Community 4 - "formatDateBr"
-Cohesion: 0.12
-Nodes (22): AssessmentAction(), AssessmentActionProps, AssessmentCard(), AssessmentCardProps, AssessmentStatus(), CompletedTestSummary(), RecordedClassesModal(), RecordingItem() (+14 more)
+Cohesion: 0.11
+Nodes (24): AssessmentAction(), AssessmentActionProps, AssessmentCard(), AssessmentCardProps, AssessmentStatus(), CompletedTestSummary(), AttendanceProgress(), RecordedClassesModal() (+16 more)
 
 ### Community 5 - "TypeScript Config"
 Cohesion: 0.07
@@ -143,7 +143,7 @@ Nodes (47): BookOpenIcon(), CheckCircleIcon(), ChevronDownIcon(), ChevronRightIc
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `formatDateBr()` connect `formatDateBr` to `load-subject-data.ts`, `AttendanceCalendar.tsx`, `app/page.tsx`?**
-  _High betweenness centrality (0.022) - this node is a cross-community bridge._
+  _High betweenness centrality (0.021) - this node is a cross-community bridge._
 - **Why does `LearningPathRaw` connect `LearningPathView.tsx` to `load-subject-data.ts`?**
   _High betweenness centrality (0.015) - this node is a cross-community bridge._
 - **Why does `resolveActiveUserId()` connect `load-subject-data.ts` to `app/page.tsx`?**

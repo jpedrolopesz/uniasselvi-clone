@@ -8,6 +8,14 @@ export function ChevronRightIcon(props: SVGProps<SVGSVGElement>) {
   );
 }
 
+export function ChevronLeftIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} {...props}>
+      <path d="m15 6-6 6 6 6" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
 export function BookOpenIcon(props: SVGProps<SVGSVGElement>) {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} {...props}>
@@ -109,6 +117,120 @@ export function LayersIcon(props: SVGProps<SVGSVGElement>) {
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} {...props}>
       <path d="m12 3 9 5-9 5-9-5 9-5Z" strokeLinejoin="round" />
       <path d="m3 13 9 5 9-5" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+export function PlusIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} {...props}>
+      <path d="M12 5v14M5 12h14" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+export function TrashIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} {...props}>
+      <path
+        d="M5 7h14M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2m-9 0 1 13a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2l1-13"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
+
+export function CalendarIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} {...props}>
+      <rect x="3" y="5" width="18" height="16" rx="2" />
+      <path d="M3 10h18M8 3v4M16 3v4" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+export function BriefcaseIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} {...props}>
+      <rect x="3" y="7" width="18" height="13" rx="2" />
+      <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+export function LibraryIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} {...props}>
+      <path d="M4 4h4v17H4zM10 4h4v17h-4z" strokeLinejoin="round" />
+      <path d="m16 5 3.5 16-3.9.9L12 6" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+export function HeadsetIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} {...props}>
+      <path d="M4 13v-1a8 8 0 0 1 16 0v1" strokeLinecap="round" />
+      <rect x="3" y="13" width="4" height="6" rx="1.5" />
+      <rect x="17" y="13" width="4" height="6" rx="1.5" />
+      <path d="M19 19v1a2 2 0 0 1-2 2h-3" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+export function WalletIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} {...props}>
+      <path d="M3 7a2 2 0 0 1 2-2h13a1 1 0 0 1 1 1v2" strokeLinecap="round" />
+      <rect x="3" y="7" width="18" height="13" rx="2" />
+      <path d="M15 13.5h3" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+export function GiftIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} {...props}>
+      <rect x="3" y="9" width="18" height="4" rx="1" />
+      <path d="M5 13h14v8H5zM12 9v12" strokeLinecap="round" />
+      <path d="M12 9c0-2.5-1.5-4.5-3.5-4.5S6 7 8 9m4 0c0-2.5 1.5-4.5 3.5-4.5S18 7 16 9" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+export function MegaphoneIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} {...props}>
+      <path d="M3 11v2a2 2 0 0 0 2 2h1l10 5V4L6 9H5a2 2 0 0 0-2 2Z" strokeLinejoin="round" />
+      <path d="M19 9.5a3 3 0 0 1 0 5M9 15v4a2 2 0 0 1-4 0v-4" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+export function GlobeIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} {...props}>
+      <circle cx="12" cy="12" r="9" />
+      <path d="M3 12h18M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18Z" strokeLinecap="round" />
+    </svg>
+  );
+}
+
+export function MessageIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} {...props}>
+      <path d="M4 4h16v12H9l-5 4z" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M8 10h.01M12 10h.01M16 10h.01" strokeLinecap="round" strokeWidth={2.5} />
+    </svg>
+  );
+}
+
+export function FileTextIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} {...props}>
+      <path d="M6 2.5h8l4 4V21H6z" strokeLinejoin="round" />
+      <path d="M14 2.5v4h4M9 12h6M9 16h6" strokeLinecap="round" />
     </svg>
   );
 }

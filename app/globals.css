@@ -13,6 +13,8 @@
   --color-accent-green: #2fb872;
   --color-accent-red: #e5484d;
   --color-accent-cyan: #22d3ee;
+  --color-accent-purple: #a78bfa;
+  --color-accent-orange: #fb923c;
 }
 
 @theme inline {
@@ -28,6 +30,8 @@
   --color-accent-green: var(--color-accent-green);
   --color-accent-red: var(--color-accent-red);
   --color-accent-cyan: var(--color-accent-cyan);
+  --color-accent-purple: var(--color-accent-purple);
+  --color-accent-orange: var(--color-accent-orange);
 }
 
 body {

@@ -25,6 +25,12 @@ export function AcademicShortcuts({ primarySubjectCode }: AcademicShortcutsProps
           </Link>
         </>
       ) : null}
+      <Link
+        href="/calendario-de-estudos"
+        className="rounded-full bg-bg-card px-4 py-2 text-sm font-medium text-white transition hover:bg-bg-card-hover"
+      >
+        Calendário de Estudos
+      </Link>
       {STATIC_SHORTCUTS.map((label) => (
         <button
           key={label}

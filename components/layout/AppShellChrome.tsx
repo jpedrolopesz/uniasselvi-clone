@@ -21,6 +21,7 @@ export function AppShellChrome({
   children,
 }: AppShellChromeProps) {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
 
   return (
     <div className={`flex flex-col ${fullBleed ? "h-screen overflow-hidden" : "min-h-screen"}`}>
@@ -32,7 +33,12 @@ export function AppShellChrome({
       />
       <div className={`flex flex-1 ${fullBleed ? "min-h-0" : ""}`}>
         {!fullBleed && (
-          <Sidebar isOpen={isSidebarOpen} onClose={() => setIsSidebarOpen(false)} />
+          <Sidebar
+            isOpen={isSidebarOpen}
+            onClose={() => setIsSidebarOpen(false)}
+            isCollapsed={isSidebarCollapsed}
+            onToggleCollapsed={() => setIsSidebarCollapsed((collapsed) => !collapsed)}
+          />
         )}
         <PageContainer fullBleed={fullBleed}>{children}</PageContainer>
       </div>

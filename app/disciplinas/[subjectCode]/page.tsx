@@ -10,7 +10,7 @@ import {
   loadSubjectAttendances,
   loadSubjectRecordings,
 } from "@/lib/data/load-subject-data";
-import { findDisciplineByCode } from "@/lib/selectors/discipline-selectors";
+import { findDisciplineByCode, getDisciplineHeroImageSrc } from "@/lib/selectors/discipline-selectors";
 import { formatDateBr } from "@/lib/formatters/date-formatters";
 import { formatPercent } from "@/lib/formatters/number-formatters";
 import {
@@ -20,10 +20,6 @@ import {
   PlayCircleIcon,
   TargetIcon,
 } from "@/components/icons";
-
-const DISCIPLINE_HERO_IMAGES: Record<string, string> = {
-  GTI03: "modelagem-e-gestao-de-processo-de-negocio.png",
-};
 
 export default async function DisciplinePage({
   params,
@@ -62,10 +58,7 @@ export default async function DisciplinePage({
 
   const frequency = attendances?.frequency;
   const schedule = discipline.desc_week_day || discipline.meet_type;
-  const heroImageFile = DISCIPLINE_HERO_IMAGES[discipline.code];
-  const heroImageSrc = heroImageFile
-    ? `/data/user/${activeUserId}/subjects/images/${heroImageFile}`
-    : undefined;
+  const heroImageSrc = getDisciplineHeroImageSrc(activeUserId, discipline.code);
   const instructor =
     (typeof discipline.mediator === "object" && discipline.mediator?.person_name) ||
     (typeof discipline.regent === "object" && discipline.regent?.person_name) ||
@@ -185,13 +178,13 @@ export default async function DisciplinePage({
             )}
           </div>
 
-          <div className="relative hidden aspect-[4/3] items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-brand-yellow/15 via-black to-bg-card lg:flex">
+          <div className="relative hidden aspect-[3/3] items-center justify-center overflow-hidden rounded-2xl bg-gradient-to-br from-brand-yellow/15 via-black to-bg-card lg:flex">
             {heroImageSrc ? (
               <Image
                 src={heroImageSrc}
                 alt={discipline.description}
                 fill
-                className="object-contain"
+                className="object-fill"
                 priority
               />
             ) : (

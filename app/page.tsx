@@ -26,12 +26,21 @@ export default async function HomePage({
   const primarySubject =
     disciplines.find((discipline) => discipline.current_subject === true) ?? disciplines[0];
 
+  const now = new Date();
+  const todayIsoDate = `${now.getUTCFullYear()}-${String(now.getUTCMonth() + 1).padStart(2, "0")}-${String(
+    now.getUTCDate()
+  ).padStart(2, "0")}`;
+
   return (
     <AppShell activeUserId={activeUserId}>
       <div className="flex flex-col gap-8">
         <SemesterHeader semesterValue={currentSemester?.value ?? null} />
         <AcademicShortcuts primarySubjectCode={primarySubject?.code ?? null} />
-        <DisciplineCarousel disciplines={disciplines} />
+        <DisciplineCarousel
+          disciplines={disciplines}
+          activeUserId={activeUserId}
+          todayIsoDate={todayIsoDate}
+        />
         <JourneyShortcuts />
         <RecoverySection financialTitles={financialTitles} />
       </div>
