@@ -65,7 +65,7 @@
       "_origin": "ast",
       "id": "app_disciplinas_subjectcode_calendario_page",
       "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community_name": "[subjectCode]/page.tsx",
       "norm_label": "calendario/page.tsx"
     },
     {
@@ -76,7 +76,7 @@
       "_origin": "ast",
       "id": "app_disciplinas_subjectcode_calendario_page_subjectcalendarpage",
       "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community_name": "[subjectCode]/page.tsx",
       "norm_label": "subjectcalendarpage()"
     },
     {
@@ -87,7 +87,7 @@
       "_origin": "ast",
       "id": "app_disciplinas_subjectcode_frequencia_page",
       "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community_name": "[subjectCode]/page.tsx",
       "norm_label": "frequencia/page.tsx"
     },
     {
@@ -98,7 +98,7 @@
       "_origin": "ast",
       "id": "app_disciplinas_subjectcode_frequencia_page_attendancepage",
       "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community_name": "[subjectCode]/page.tsx",
       "norm_label": "attendancepage()"
     },
     {
@@ -109,7 +109,7 @@
       "_origin": "ast",
       "id": "app_disciplinas_subjectcode_notas_avaliacoes_testcode_page",
       "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community_name": "[subjectCode]/page.tsx",
       "norm_label": "[testcode]/page.tsx"
     },
     {
@@ -120,7 +120,7 @@
       "_origin": "ast",
       "id": "app_disciplinas_subjectcode_notas_avaliacoes_testcode_page_answertestpage",
       "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community_name": "[subjectCode]/page.tsx",
       "norm_label": "answertestpage()"
     },
     {
@@ -131,7 +131,7 @@
       "_origin": "ast",
       "id": "app_disciplinas_subjectcode_notas_avaliacoes_page",
       "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community_name": "[subjectCode]/page.tsx",
       "norm_label": "notas-avaliacoes/page.tsx"
     },
     {
@@ -142,7 +142,7 @@
       "_origin": "ast",
       "id": "app_disciplinas_subjectcode_notas_avaliacoes_page_assessmentspage",
       "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community_name": "[subjectCode]/page.tsx",
       "norm_label": "assessmentspage()"
     },
     {
@@ -153,7 +153,7 @@
       "_origin": "ast",
       "id": "app_disciplinas_subjectcode_page",
       "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community_name": "[subjectCode]/page.tsx",
       "norm_label": "[subjectcode]/page.tsx"
     },
     {
@@ -164,7 +164,7 @@
       "_origin": "ast",
       "id": "app_disciplinas_subjectcode_page_disciplinepage",
       "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community_name": "[subjectCode]/page.tsx",
       "norm_label": "disciplinepage()"
     },
     {
@@ -175,7 +175,7 @@
       "_origin": "ast",
       "id": "app_disciplinas_subjectcode_registro_de_frequencia_page",
       "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community_name": "[subjectCode]/page.tsx",
       "norm_label": "registro-de-frequencia/page.tsx"
     },
     {
@@ -186,52 +186,8 @@
       "_origin": "ast",
       "id": "app_disciplinas_subjectcode_registro_de_frequencia_page_attendancelogpage",
       "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community_name": "[subjectCode]/page.tsx",
       "norm_label": "attendancelogpage()"
-    },
-    {
-      "label": "[lessonCode]/page.tsx",
-      "file_type": "code",
-      "source_file": "app/disciplinas/[subjectCode]/trilha-de-aprendizagem/[lessonCode]/page.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "app_disciplinas_subjectcode_trilha_de_aprendizagem_lessoncode_page",
-      "community": 25,
-      "community_name": "index.tsx",
-      "norm_label": "[lessoncode]/page.tsx"
-    },
-    {
-      "label": "LessonPage()",
-      "file_type": "code",
-      "source_file": "app/disciplinas/[subjectCode]/trilha-de-aprendizagem/[lessonCode]/page.tsx",
-      "source_location": "L10",
-      "_origin": "ast",
-      "id": "app_disciplinas_subjectcode_trilha_de_aprendizagem_lessoncode_page_lessonpage",
-      "community": 25,
-      "community_name": "index.tsx",
-      "norm_label": "lessonpage()"
-    },
-    {
-      "label": "trilha-de-aprendizagem/page.tsx",
-      "file_type": "code",
-      "source_file": "app/disciplinas/[subjectCode]/trilha-de-aprendizagem/page.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "app_disciplinas_subjectcode_trilha_de_aprendizagem_page",
-      "community": 0,
-      "community_name": "load-subject-data.ts",
-      "norm_label": "trilha-de-aprendizagem/page.tsx"
-    },
-    {
-      "label": "LearningPathPage()",
-      "file_type": "code",
-      "source_file": "app/disciplinas/[subjectCode]/trilha-de-aprendizagem/page.tsx",
-      "source_location": "L10",
-      "_origin": "ast",
-      "id": "app_disciplinas_subjectcode_trilha_de_aprendizagem_page_learningpathpage",
-      "community": 0,
-      "community_name": "load-subject-data.ts",
-      "norm_label": "learningpathpage()"
     },
     {
       "label": "layout.tsx",
@@ -274,7 +230,7 @@
       "_origin": "ast",
       "id": "app_page",
       "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community_name": "[subjectCode]/page.tsx",
       "norm_label": "app/page.tsx"
     },
     {
@@ -285,7 +241,7 @@
       "_origin": "ast",
       "id": "app_page_homepage",
       "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community_name": "[subjectCode]/page.tsx",
       "norm_label": "homepage()"
     },
     {
@@ -570,8 +526,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_attendance_attendanceprogress",
-      "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community": 4,
+      "community_name": "formatDateBr",
       "norm_label": "attendanceprogress.tsx"
     },
     {
@@ -581,8 +537,8 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "components_attendance_attendanceprogress_attendanceprogress",
-      "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community": 4,
+      "community_name": "formatDateBr",
       "norm_label": "attendanceprogress()"
     },
     {
@@ -857,7 +813,7 @@
       "_origin": "ast",
       "id": "components_home_disciplinecard",
       "community": 25,
-      "community_name": "index.tsx",
+      "community_name": "DisciplineCard.tsx",
       "norm_label": "disciplinecard.tsx"
     },
     {
@@ -868,7 +824,7 @@
       "_origin": "ast",
       "id": "components_home_disciplinecard_disciplinestats",
       "community": 25,
-      "community_name": "index.tsx",
+      "community_name": "DisciplineCard.tsx",
       "norm_label": "disciplinestats"
     },
     {
@@ -879,7 +835,7 @@
       "_origin": "ast",
       "id": "components_home_disciplinecard_thumbnail_gradients",
       "community": 25,
-      "community_name": "index.tsx",
+      "community_name": "DisciplineCard.tsx",
       "norm_label": "thumbnail_gradients"
     },
     {
@@ -890,7 +846,7 @@
       "_origin": "ast",
       "id": "components_home_disciplinecard_gradientforcode",
       "community": 25,
-      "community_name": "index.tsx",
+      "community_name": "DisciplineCard.tsx",
       "norm_label": "gradientforcode()"
     },
     {
@@ -901,7 +857,7 @@
       "_origin": "ast",
       "id": "components_home_disciplinecard_disciplinecard",
       "community": 25,
-      "community_name": "index.tsx",
+      "community_name": "DisciplineCard.tsx",
       "norm_label": "disciplinecard()"
     },
     {
@@ -912,7 +868,7 @@
       "_origin": "ast",
       "id": "components_home_disciplinecarousel",
       "community": 25,
-      "community_name": "index.tsx",
+      "community_name": "DisciplineCard.tsx",
       "norm_label": "disciplinecarousel.tsx"
     },
     {
@@ -923,7 +879,7 @@
       "_origin": "ast",
       "id": "components_home_disciplinecarousel_disciplinecarousel",
       "community": 25,
-      "community_name": "index.tsx",
+      "community_name": "DisciplineCard.tsx",
       "norm_label": "disciplinecarousel()"
     },
     {
@@ -934,7 +890,7 @@
       "_origin": "ast",
       "id": "components_home_journeyshortcuts",
       "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community_name": "[subjectCode]/page.tsx",
       "norm_label": "journeyshortcuts.tsx"
     },
     {
@@ -945,7 +901,7 @@
       "_origin": "ast",
       "id": "components_home_journeyshortcuts_journey_shortcuts",
       "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community_name": "[subjectCode]/page.tsx",
       "norm_label": "journey_shortcuts"
     },
     {
@@ -956,7 +912,7 @@
       "_origin": "ast",
       "id": "components_home_journeyshortcuts_journeyshortcuts",
       "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community_name": "[subjectCode]/page.tsx",
       "norm_label": "journeyshortcuts()"
     },
     {
@@ -999,8 +955,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "components_home_semesterheader",
-      "community": 4,
-      "community_name": "formatDateBr",
+      "community": 11,
+      "community_name": "user-selectors.ts",
       "norm_label": "semesterheader.tsx"
     },
     {
@@ -1010,8 +966,8 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "components_home_semesterheader_semesterheader",
-      "community": 4,
-      "community_name": "formatDateBr",
+      "community": 11,
+      "community_name": "user-selectors.ts",
       "norm_label": "semesterheader()"
     },
     {
@@ -1022,7 +978,7 @@
       "_origin": "ast",
       "id": "components_icons_index",
       "community": 25,
-      "community_name": "index.tsx",
+      "community_name": "DisciplineCard.tsx",
       "norm_label": "index.tsx"
     },
     {
@@ -1033,7 +989,7 @@
       "_origin": "ast",
       "id": "components_icons_index_chevronrighticon",
       "community": 25,
-      "community_name": "index.tsx",
+      "community_name": "DisciplineCard.tsx",
       "norm_label": "chevronrighticon()"
     },
     {
@@ -1044,7 +1000,7 @@
       "_origin": "ast",
       "id": "components_icons_index_bookopenicon",
       "community": 25,
-      "community_name": "index.tsx",
+      "community_name": "DisciplineCard.tsx",
       "norm_label": "bookopenicon()"
     },
     {
@@ -1055,7 +1011,7 @@
       "_origin": "ast",
       "id": "components_icons_index_clockicon",
       "community": 25,
-      "community_name": "index.tsx",
+      "community_name": "DisciplineCard.tsx",
       "norm_label": "clockicon()"
     },
     {
@@ -1066,7 +1022,7 @@
       "_origin": "ast",
       "id": "components_icons_index_playcircleicon",
       "community": 25,
-      "community_name": "index.tsx",
+      "community_name": "DisciplineCard.tsx",
       "norm_label": "playcircleicon()"
     },
     {
@@ -1077,118 +1033,8 @@
       "_origin": "ast",
       "id": "components_icons_index_targeticon",
       "community": 25,
-      "community_name": "index.tsx",
+      "community_name": "DisciplineCard.tsx",
       "norm_label": "targeticon()"
-    },
-    {
-      "label": "CheckCircleIcon()",
-      "file_type": "code",
-      "source_file": "components/icons/index.tsx",
-      "source_location": "L51",
-      "_origin": "ast",
-      "id": "components_icons_index_checkcircleicon",
-      "community": 25,
-      "community_name": "index.tsx",
-      "norm_label": "checkcircleicon()"
-    },
-    {
-      "label": "PlayIcon()",
-      "file_type": "code",
-      "source_file": "components/icons/index.tsx",
-      "source_location": "L65",
-      "_origin": "ast",
-      "id": "components_icons_index_playicon",
-      "community": 25,
-      "community_name": "index.tsx",
-      "norm_label": "playicon()"
-    },
-    {
-      "label": "LockIcon()",
-      "file_type": "code",
-      "source_file": "components/icons/index.tsx",
-      "source_location": "L73",
-      "_origin": "ast",
-      "id": "components_icons_index_lockicon",
-      "community": 25,
-      "community_name": "index.tsx",
-      "norm_label": "lockicon()"
-    },
-    {
-      "label": "LayersIcon()",
-      "file_type": "code",
-      "source_file": "components/icons/index.tsx",
-      "source_location": "L82",
-      "_origin": "ast",
-      "id": "components_icons_index_layersicon",
-      "community": 25,
-      "community_name": "index.tsx",
-      "norm_label": "layersicon()"
-    },
-    {
-      "label": "ArrowLeftIcon()",
-      "file_type": "code",
-      "source_file": "components/icons/index.tsx",
-      "source_location": "L92",
-      "_origin": "ast",
-      "id": "components_icons_index_arrowlefticon",
-      "community": 25,
-      "community_name": "index.tsx",
-      "norm_label": "arrowlefticon()"
-    },
-    {
-      "label": "DocumentIcon()",
-      "file_type": "code",
-      "source_file": "components/icons/index.tsx",
-      "source_location": "L100",
-      "_origin": "ast",
-      "id": "components_icons_index_documenticon",
-      "community": 25,
-      "community_name": "index.tsx",
-      "norm_label": "documenticon()"
-    },
-    {
-      "label": "SendIcon()",
-      "file_type": "code",
-      "source_file": "components/icons/index.tsx",
-      "source_location": "L109",
-      "_origin": "ast",
-      "id": "components_icons_index_sendicon",
-      "community": 25,
-      "community_name": "index.tsx",
-      "norm_label": "sendicon()"
-    },
-    {
-      "label": "BoltIcon()",
-      "file_type": "code",
-      "source_file": "components/icons/index.tsx",
-      "source_location": "L117",
-      "_origin": "ast",
-      "id": "components_icons_index_bolticon",
-      "community": 25,
-      "community_name": "index.tsx",
-      "norm_label": "bolticon()"
-    },
-    {
-      "label": "TerminalIcon()",
-      "file_type": "code",
-      "source_file": "components/icons/index.tsx",
-      "source_location": "L125",
-      "_origin": "ast",
-      "id": "components_icons_index_terminalicon",
-      "community": 25,
-      "community_name": "index.tsx",
-      "norm_label": "terminalicon()"
-    },
-    {
-      "label": "SpeakerIcon()",
-      "file_type": "code",
-      "source_file": "components/icons/index.tsx",
-      "source_location": "L135",
-      "_origin": "ast",
-      "id": "components_icons_index_speakericon",
-      "community": 25,
-      "community_name": "index.tsx",
-      "norm_label": "speakericon()"
     },
     {
       "label": "AppShell.tsx",
@@ -1198,7 +1044,7 @@
       "_origin": "ast",
       "id": "components_layout_appshell",
       "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community_name": "[subjectCode]/page.tsx",
       "norm_label": "appshell.tsx"
     },
     {
@@ -1209,7 +1055,7 @@
       "_origin": "ast",
       "id": "components_layout_appshell_appshellprops",
       "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community_name": "[subjectCode]/page.tsx",
       "norm_label": "appshellprops"
     },
     {
@@ -1220,7 +1066,7 @@
       "_origin": "ast",
       "id": "components_layout_appshell_appshell",
       "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community_name": "[subjectCode]/page.tsx",
       "norm_label": "appshell()"
     },
     {
@@ -1231,7 +1077,7 @@
       "_origin": "ast",
       "id": "components_layout_emptystate",
       "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community_name": "[subjectCode]/page.tsx",
       "norm_label": "emptystate.tsx"
     },
     {
@@ -1242,7 +1088,7 @@
       "_origin": "ast",
       "id": "components_layout_emptystate_emptystate",
       "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community_name": "[subjectCode]/page.tsx",
       "norm_label": "emptystate()"
     },
     {
@@ -1297,7 +1143,7 @@
       "_origin": "ast",
       "id": "components_layout_pagecontainer",
       "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community_name": "[subjectCode]/page.tsx",
       "norm_label": "pagecontainer.tsx"
     },
     {
@@ -1308,7 +1154,7 @@
       "_origin": "ast",
       "id": "components_layout_pagecontainer_pagecontainer",
       "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community_name": "[subjectCode]/page.tsx",
       "norm_label": "pagecontainer()"
     },
     {
@@ -1319,7 +1165,7 @@
       "_origin": "ast",
       "id": "components_layout_sidebar",
       "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community_name": "[subjectCode]/page.tsx",
       "norm_label": "sidebar.tsx"
     },
     {
@@ -1330,7 +1176,7 @@
       "_origin": "ast",
       "id": "components_layout_sidebar_menu_items",
       "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community_name": "[subjectCode]/page.tsx",
       "norm_label": "menu_items"
     },
     {
@@ -1341,7 +1187,7 @@
       "_origin": "ast",
       "id": "components_layout_sidebar_sidebar",
       "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community_name": "[subjectCode]/page.tsx",
       "norm_label": "sidebar()"
     },
     {
@@ -1352,7 +1198,7 @@
       "_origin": "ast",
       "id": "components_layout_subpageheader",
       "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community_name": "[subjectCode]/page.tsx",
       "norm_label": "subpageheader.tsx"
     },
     {
@@ -1363,7 +1209,7 @@
       "_origin": "ast",
       "id": "components_layout_subpageheader_subpageheaderprops",
       "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community_name": "[subjectCode]/page.tsx",
       "norm_label": "subpageheaderprops"
     },
     {
@@ -1374,162 +1220,8 @@
       "_origin": "ast",
       "id": "components_layout_subpageheader_subpageheader",
       "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community_name": "[subjectCode]/page.tsx",
       "norm_label": "subpageheader()"
-    },
-    {
-      "label": "LessonBody.tsx",
-      "file_type": "code",
-      "source_file": "components/learning-path/LessonBody.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "components_learning_path_lessonbody",
-      "community": 25,
-      "community_name": "index.tsx",
-      "norm_label": "lessonbody.tsx"
-    },
-    {
-      "label": "NextAction",
-      "file_type": "code",
-      "source_file": "components/learning-path/LessonBody.tsx",
-      "source_location": "L9",
-      "_origin": "ast",
-      "id": "components_learning_path_lessonbody_nextaction",
-      "community": 25,
-      "community_name": "index.tsx",
-      "norm_label": "nextaction"
-    },
-    {
-      "label": "LessonBody()",
-      "file_type": "code",
-      "source_file": "components/learning-path/LessonBody.tsx",
-      "source_location": "L14",
-      "_origin": "ast",
-      "id": "components_learning_path_lessonbody_lessonbody",
-      "community": 25,
-      "community_name": "index.tsx",
-      "norm_label": "lessonbody()"
-    },
-    {
-      "label": "LessonChatPanel.tsx",
-      "file_type": "code",
-      "source_file": "components/learning-path/LessonChatPanel.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "components_learning_path_lessonchatpanel",
-      "community": 25,
-      "community_name": "index.tsx",
-      "norm_label": "lessonchatpanel.tsx"
-    },
-    {
-      "label": "SUGGESTIONS",
-      "file_type": "code",
-      "source_file": "components/learning-path/LessonChatPanel.tsx",
-      "source_location": "L6",
-      "_origin": "ast",
-      "id": "components_learning_path_lessonchatpanel_suggestions",
-      "community": 25,
-      "community_name": "index.tsx",
-      "norm_label": "suggestions"
-    },
-    {
-      "label": "LessonChatPanel()",
-      "file_type": "code",
-      "source_file": "components/learning-path/LessonChatPanel.tsx",
-      "source_location": "L8",
-      "_origin": "ast",
-      "id": "components_learning_path_lessonchatpanel_lessonchatpanel",
-      "community": 25,
-      "community_name": "index.tsx",
-      "norm_label": "lessonchatpanel()"
-    },
-    {
-      "label": "LessonContent.tsx",
-      "file_type": "code",
-      "source_file": "components/learning-path/LessonContent.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "components_learning_path_lessoncontent",
-      "community": 25,
-      "community_name": "index.tsx",
-      "norm_label": "lessoncontent.tsx"
-    },
-    {
-      "label": "renderInlineCode()",
-      "file_type": "code",
-      "source_file": "components/learning-path/LessonContent.tsx",
-      "source_location": "L4",
-      "_origin": "ast",
-      "id": "components_learning_path_lessoncontent_renderinlinecode",
-      "community": 25,
-      "community_name": "index.tsx",
-      "norm_label": "renderinlinecode()"
-    },
-    {
-      "label": "LessonContent()",
-      "file_type": "code",
-      "source_file": "components/learning-path/LessonContent.tsx",
-      "source_location": "L19",
-      "_origin": "ast",
-      "id": "components_learning_path_lessoncontent_lessoncontent",
-      "community": 25,
-      "community_name": "index.tsx",
-      "norm_label": "lessoncontent()"
-    },
-    {
-      "label": "LessonRow.tsx",
-      "file_type": "code",
-      "source_file": "components/learning-path/LessonRow.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "components_learning_path_lessonrow",
-      "community": 25,
-      "community_name": "index.tsx",
-      "norm_label": "lessonrow.tsx"
-    },
-    {
-      "label": "LessonRow()",
-      "file_type": "code",
-      "source_file": "components/learning-path/LessonRow.tsx",
-      "source_location": "L5",
-      "_origin": "ast",
-      "id": "components_learning_path_lessonrow_lessonrow",
-      "community": 25,
-      "community_name": "index.tsx",
-      "norm_label": "lessonrow()"
-    },
-    {
-      "label": "UnitAccordion.tsx",
-      "file_type": "code",
-      "source_file": "components/learning-path/UnitAccordion.tsx",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "components_learning_path_unitaccordion",
-      "community": 25,
-      "community_name": "index.tsx",
-      "norm_label": "unitaccordion.tsx"
-    },
-    {
-      "label": "defaultExpandedCode()",
-      "file_type": "code",
-      "source_file": "components/learning-path/UnitAccordion.tsx",
-      "source_location": "L9",
-      "_origin": "ast",
-      "id": "components_learning_path_unitaccordion_defaultexpandedcode",
-      "community": 25,
-      "community_name": "index.tsx",
-      "norm_label": "defaultexpandedcode()"
-    },
-    {
-      "label": "UnitAccordion()",
-      "file_type": "code",
-      "source_file": "components/learning-path/UnitAccordion.tsx",
-      "source_location": "L16",
-      "_origin": "ast",
-      "id": "components_learning_path_unitaccordion_unitaccordion",
-      "community": 25,
-      "community_name": "index.tsx",
-      "norm_label": "unitaccordion()"
     },
     {
       "label": "RecordedClassesModal.tsx",
@@ -1682,84 +1374,73 @@
       "_origin": "ast",
       "id": "lib_data_load_subject_data",
       "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community_name": "[subjectCode]/page.tsx",
       "norm_label": "load-subject-data.ts"
     },
     {
       "label": "loadSubjectCalendarEvents()",
       "file_type": "code",
       "source_file": "lib/data/load-subject-data.ts",
-      "source_location": "L9",
+      "source_location": "L8",
       "_origin": "ast",
       "id": "lib_data_load_subject_data_loadsubjectcalendarevents",
       "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community_name": "[subjectCode]/page.tsx",
       "norm_label": "loadsubjectcalendarevents()"
     },
     {
       "label": "loadSubjectRecordings()",
       "file_type": "code",
       "source_file": "lib/data/load-subject-data.ts",
-      "source_location": "L21",
+      "source_location": "L20",
       "_origin": "ast",
       "id": "lib_data_load_subject_data_loadsubjectrecordings",
       "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community_name": "[subjectCode]/page.tsx",
       "norm_label": "loadsubjectrecordings()"
     },
     {
       "label": "loadSubjectAssessments()",
       "file_type": "code",
       "source_file": "lib/data/load-subject-data.ts",
-      "source_location": "L33",
+      "source_location": "L32",
       "_origin": "ast",
       "id": "lib_data_load_subject_data_loadsubjectassessments",
       "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community_name": "[subjectCode]/page.tsx",
       "norm_label": "loadsubjectassessments()"
     },
     {
       "label": "loadSubjectAttendances()",
       "file_type": "code",
       "source_file": "lib/data/load-subject-data.ts",
-      "source_location": "L45",
+      "source_location": "L44",
       "_origin": "ast",
       "id": "lib_data_load_subject_data_loadsubjectattendances",
       "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community_name": "[subjectCode]/page.tsx",
       "norm_label": "loadsubjectattendances()"
-    },
-    {
-      "label": "loadSubjectLearningPath()",
-      "file_type": "code",
-      "source_file": "lib/data/load-subject-data.ts",
-      "source_location": "L57",
-      "_origin": "ast",
-      "id": "lib_data_load_subject_data_loadsubjectlearningpath",
-      "community": 25,
-      "community_name": "index.tsx",
-      "norm_label": "loadsubjectlearningpath()"
     },
     {
       "label": "loadSubjectTestContent()",
       "file_type": "code",
       "source_file": "lib/data/load-subject-data.ts",
-      "source_location": "L76",
+      "source_location": "L63",
       "_origin": "ast",
       "id": "lib_data_load_subject_data_loadsubjecttestcontent",
       "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community_name": "[subjectCode]/page.tsx",
       "norm_label": "loadsubjecttestcontent()"
     },
     {
       "label": "isEnvelopedTestContent()",
       "file_type": "code",
       "source_file": "lib/data/load-subject-data.ts",
-      "source_location": "L90",
+      "source_location": "L77",
       "_origin": "ast",
       "id": "lib_data_load_subject_data_isenvelopedtestcontent",
       "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community_name": "[subjectCode]/page.tsx",
       "norm_label": "isenvelopedtestcontent()"
     },
     {
@@ -1770,7 +1451,7 @@
       "_origin": "ast",
       "id": "lib_data_load_user_data",
       "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community_name": "[subjectCode]/page.tsx",
       "norm_label": "load-user-data.ts"
     },
     {
@@ -1781,7 +1462,7 @@
       "_origin": "ast",
       "id": "lib_data_load_user_data_loaduserdata",
       "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community_name": "[subjectCode]/page.tsx",
       "norm_label": "loaduserdata()"
     },
     {
@@ -1792,7 +1473,7 @@
       "_origin": "ast",
       "id": "lib_data_load_user_data_loadcurrentsemester",
       "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community_name": "[subjectCode]/page.tsx",
       "norm_label": "loadcurrentsemester()"
     },
     {
@@ -1803,7 +1484,7 @@
       "_origin": "ast",
       "id": "lib_data_load_user_data_loadsofiadadosaluno",
       "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community_name": "[subjectCode]/page.tsx",
       "norm_label": "loadsofiadadosaluno()"
     },
     {
@@ -1814,7 +1495,7 @@
       "_origin": "ast",
       "id": "lib_data_load_user_data_loaddisciplines",
       "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community_name": "[subjectCode]/page.tsx",
       "norm_label": "loaddisciplines()"
     },
     {
@@ -1825,7 +1506,7 @@
       "_origin": "ast",
       "id": "lib_data_load_user_data_loadfinancialtitles",
       "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community_name": "[subjectCode]/page.tsx",
       "norm_label": "loadfinancialtitles()"
     },
     {
@@ -1847,7 +1528,7 @@
       "_origin": "ast",
       "id": "lib_data_load_user_index_loaduserindex",
       "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community_name": "[subjectCode]/page.tsx",
       "norm_label": "loaduserindex()"
     },
     {
@@ -1902,7 +1583,7 @@
       "_origin": "ast",
       "id": "lib_data_read_json_file_readuserjsonfileoptional",
       "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community_name": "[subjectCode]/page.tsx",
       "norm_label": "readuserjsonfileoptional()"
     },
     {
@@ -1913,7 +1594,7 @@
       "_origin": "ast",
       "id": "lib_data_resolve_active_user",
       "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community_name": "[subjectCode]/page.tsx",
       "norm_label": "resolve-active-user.ts"
     },
     {
@@ -1924,7 +1605,7 @@
       "_origin": "ast",
       "id": "lib_data_resolve_active_user_resolveactiveuserid",
       "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community_name": "[subjectCode]/page.tsx",
       "norm_label": "resolveactiveuserid()"
     },
     {
@@ -2033,8 +1714,8 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "lib_formatters_number_formatters_formatpercent",
-      "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community": 4,
+      "community_name": "formatDateBr",
       "norm_label": "formatpercent()"
     },
     {
@@ -2254,7 +1935,7 @@
       "_origin": "ast",
       "id": "lib_selectors_discipline_selectors",
       "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community_name": "[subjectCode]/page.tsx",
       "norm_label": "discipline-selectors.ts"
     },
     {
@@ -2265,7 +1946,7 @@
       "_origin": "ast",
       "id": "lib_selectors_discipline_selectors_finddisciplinebycode",
       "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community_name": "[subjectCode]/page.tsx",
       "norm_label": "finddisciplinebycode()"
     },
     {
@@ -2276,52 +1957,8 @@
       "_origin": "ast",
       "id": "lib_selectors_discipline_selectors_sortdisciplinesbyprogress",
       "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community_name": "[subjectCode]/page.tsx",
       "norm_label": "sortdisciplinesbyprogress()"
-    },
-    {
-      "label": "learning-path-selectors.ts",
-      "file_type": "code",
-      "source_file": "lib/selectors/learning-path-selectors.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "lib_selectors_learning_path_selectors",
-      "community": 25,
-      "community_name": "index.tsx",
-      "norm_label": "learning-path-selectors.ts"
-    },
-    {
-      "label": "LessonLocation",
-      "file_type": "code",
-      "source_file": "lib/selectors/learning-path-selectors.ts",
-      "source_location": "L3",
-      "_origin": "ast",
-      "id": "lib_selectors_learning_path_selectors_lessonlocation",
-      "community": 25,
-      "community_name": "index.tsx",
-      "norm_label": "lessonlocation"
-    },
-    {
-      "label": "findLessonByCode()",
-      "file_type": "code",
-      "source_file": "lib/selectors/learning-path-selectors.ts",
-      "source_location": "L11",
-      "_origin": "ast",
-      "id": "lib_selectors_learning_path_selectors_findlessonbycode",
-      "community": 25,
-      "community_name": "index.tsx",
-      "norm_label": "findlessonbycode()"
-    },
-    {
-      "label": "getUnitProgress()",
-      "file_type": "code",
-      "source_file": "lib/selectors/learning-path-selectors.ts",
-      "source_location": "L29",
-      "_origin": "ast",
-      "id": "lib_selectors_learning_path_selectors_getunitprogress",
-      "community": 25,
-      "community_name": "index.tsx",
-      "norm_label": "getunitprogress()"
     },
     {
       "label": "user-selectors.ts",
@@ -2330,8 +1967,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_selectors_user_selectors",
-      "community": 4,
-      "community_name": "formatDateBr",
+      "community": 11,
+      "community_name": "user-selectors.ts",
       "norm_label": "user-selectors.ts"
     },
     {
@@ -2341,8 +1978,8 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "lib_selectors_user_selectors_derivesofiaparticipation",
-      "community": 4,
-      "community_name": "formatDateBr",
+      "community": 11,
+      "community_name": "user-selectors.ts",
       "norm_label": "derivesofiaparticipation()"
     },
     {
@@ -2352,8 +1989,8 @@
       "source_location": "L15",
       "_origin": "ast",
       "id": "lib_selectors_user_selectors_displaysemesterlabel",
-      "community": 4,
-      "community_name": "formatDateBr",
+      "community": 11,
+      "community_name": "user-selectors.ts",
       "norm_label": "displaysemesterlabel()"
     },
     {
@@ -2374,8 +2011,8 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "lib_types_derived_index_sofiaparticipationderived",
-      "community": 4,
-      "community_name": "formatDateBr",
+      "community": 11,
+      "community_name": "user-selectors.ts",
       "norm_label": "sofiaparticipationderived"
     },
     {
@@ -2518,7 +2155,7 @@
       "_origin": "ast",
       "id": "lib_types_raw_current_semester",
       "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community_name": "[subjectCode]/page.tsx",
       "norm_label": "current-semester.ts"
     },
     {
@@ -2529,7 +2166,7 @@
       "_origin": "ast",
       "id": "lib_types_raw_current_semester_currentsemesterraw",
       "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community_name": "[subjectCode]/page.tsx",
       "norm_label": "currentsemesterraw"
     },
     {
@@ -2540,7 +2177,7 @@
       "_origin": "ast",
       "id": "lib_types_raw_disciplines",
       "community": 25,
-      "community_name": "index.tsx",
+      "community_name": "DisciplineCard.tsx",
       "norm_label": "disciplines.ts"
     },
     {
@@ -2551,7 +2188,7 @@
       "_origin": "ast",
       "id": "lib_types_raw_disciplines_disciplinepersonraw",
       "community": 25,
-      "community_name": "index.tsx",
+      "community_name": "DisciplineCard.tsx",
       "norm_label": "disciplinepersonraw"
     },
     {
@@ -2562,7 +2199,7 @@
       "_origin": "ast",
       "id": "lib_types_raw_disciplines_disciplineraw",
       "community": 25,
-      "community_name": "index.tsx",
+      "community_name": "DisciplineCard.tsx",
       "norm_label": "disciplineraw"
     },
     {
@@ -2586,83 +2223,6 @@
       "community": 23,
       "community_name": "RecoverySection.tsx",
       "norm_label": "financialtitleraw"
-    },
-    {
-      "label": "learning-path.ts",
-      "file_type": "code",
-      "source_file": "lib/types/raw/learning-path.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "lib_types_raw_learning_path",
-      "community": 25,
-      "community_name": "index.tsx",
-      "norm_label": "learning-path.ts"
-    },
-    {
-      "label": "LessonStatusRaw",
-      "file_type": "code",
-      "source_file": "lib/types/raw/learning-path.ts",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "lib_types_raw_learning_path_lessonstatusraw",
-      "community": 25,
-      "community_name": "index.tsx",
-      "norm_label": "lessonstatusraw"
-    },
-    {
-      "label": "LessonKindRaw",
-      "file_type": "code",
-      "source_file": "lib/types/raw/learning-path.ts",
-      "source_location": "L2",
-      "_origin": "ast",
-      "id": "lib_types_raw_learning_path_lessonkindraw",
-      "community": 25,
-      "community_name": "index.tsx",
-      "norm_label": "lessonkindraw"
-    },
-    {
-      "label": "LessonSectionRaw",
-      "file_type": "code",
-      "source_file": "lib/types/raw/learning-path.ts",
-      "source_location": "L4",
-      "_origin": "ast",
-      "id": "lib_types_raw_learning_path_lessonsectionraw",
-      "community": 25,
-      "community_name": "index.tsx",
-      "norm_label": "lessonsectionraw"
-    },
-    {
-      "label": "LessonRaw",
-      "file_type": "code",
-      "source_file": "lib/types/raw/learning-path.ts",
-      "source_location": "L9",
-      "_origin": "ast",
-      "id": "lib_types_raw_learning_path_lessonraw",
-      "community": 25,
-      "community_name": "index.tsx",
-      "norm_label": "lessonraw"
-    },
-    {
-      "label": "LearningUnitRaw",
-      "file_type": "code",
-      "source_file": "lib/types/raw/learning-path.ts",
-      "source_location": "L21",
-      "_origin": "ast",
-      "id": "lib_types_raw_learning_path_learningunitraw",
-      "community": 25,
-      "community_name": "index.tsx",
-      "norm_label": "learningunitraw"
-    },
-    {
-      "label": "LearningPathRaw",
-      "file_type": "code",
-      "source_file": "lib/types/raw/learning-path.ts",
-      "source_location": "L28",
-      "_origin": "ast",
-      "id": "lib_types_raw_learning_path_learningpathraw",
-      "community": 25,
-      "community_name": "index.tsx",
-      "norm_label": "learningpathraw"
     },
     {
       "label": "local.ts",
@@ -2737,8 +2297,8 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "lib_types_raw_sofia_dados_aluno",
-      "community": 4,
-      "community_name": "formatDateBr",
+      "community": 11,
+      "community_name": "user-selectors.ts",
       "norm_label": "sofia-dados-aluno.ts"
     },
     {
@@ -2748,8 +2308,8 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "lib_types_raw_sofia_dados_aluno_sofiadadosalunodata",
-      "community": 4,
-      "community_name": "formatDateBr",
+      "community": 11,
+      "community_name": "user-selectors.ts",
       "norm_label": "sofiadadosalunodata"
     },
     {
@@ -2759,8 +2319,8 @@
       "source_location": "L11",
       "_origin": "ast",
       "id": "lib_types_raw_sofia_dados_aluno_sofiadadosalunoraw",
-      "community": 4,
-      "community_name": "formatDateBr",
+      "community": 11,
+      "community_name": "user-selectors.ts",
       "norm_label": "sofiadadosalunoraw"
     },
     {
@@ -2826,7 +2386,7 @@
       "_origin": "ast",
       "id": "lib_types_raw_user_data",
       "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community_name": "[subjectCode]/page.tsx",
       "norm_label": "user-data.ts"
     },
     {
@@ -2837,7 +2397,7 @@
       "_origin": "ast",
       "id": "lib_types_raw_user_data_poleinfo",
       "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community_name": "[subjectCode]/page.tsx",
       "norm_label": "poleinfo"
     },
     {
@@ -2848,7 +2408,7 @@
       "_origin": "ast",
       "id": "lib_types_raw_user_data_userdataraw",
       "community": 0,
-      "community_name": "load-subject-data.ts",
+      "community_name": "[subjectCode]/page.tsx",
       "norm_label": "userdataraw"
     },
     {
@@ -6858,496 +6418,6 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "app/disciplinas/[subjectCode]/trilha-de-aprendizagem/[lessonCode]/page.tsx",
-      "source_location": "L10",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_disciplinas_subjectcode_trilha_de_aprendizagem_lessoncode_page",
-      "target": "app_disciplinas_subjectcode_trilha_de_aprendizagem_lessoncode_page_lessonpage",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/disciplinas/[subjectCode]/trilha-de-aprendizagem/[lessonCode]/page.tsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_disciplinas_subjectcode_trilha_de_aprendizagem_lessoncode_page",
-      "target": "components_icons_index",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/disciplinas/[subjectCode]/trilha-de-aprendizagem/[lessonCode]/page.tsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_disciplinas_subjectcode_trilha_de_aprendizagem_lessoncode_page",
-      "target": "components_icons_index_arrowlefticon",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/disciplinas/[subjectCode]/trilha-de-aprendizagem/[lessonCode]/page.tsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_disciplinas_subjectcode_trilha_de_aprendizagem_lessoncode_page",
-      "target": "components_icons_index_checkcircleicon",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/disciplinas/[subjectCode]/trilha-de-aprendizagem/[lessonCode]/page.tsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_disciplinas_subjectcode_trilha_de_aprendizagem_lessoncode_page",
-      "target": "components_icons_index_documenticon",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/disciplinas/[subjectCode]/trilha-de-aprendizagem/[lessonCode]/page.tsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_disciplinas_subjectcode_trilha_de_aprendizagem_lessoncode_page",
-      "target": "components_layout_emptystate",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/disciplinas/[subjectCode]/trilha-de-aprendizagem/[lessonCode]/page.tsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_disciplinas_subjectcode_trilha_de_aprendizagem_lessoncode_page",
-      "target": "components_layout_emptystate_emptystate",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/disciplinas/[subjectCode]/trilha-de-aprendizagem/[lessonCode]/page.tsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_disciplinas_subjectcode_trilha_de_aprendizagem_lessoncode_page",
-      "target": "components_learning_path_lessonbody",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/disciplinas/[subjectCode]/trilha-de-aprendizagem/[lessonCode]/page.tsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_disciplinas_subjectcode_trilha_de_aprendizagem_lessoncode_page",
-      "target": "components_learning_path_lessonbody_lessonbody",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/disciplinas/[subjectCode]/trilha-de-aprendizagem/[lessonCode]/page.tsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_disciplinas_subjectcode_trilha_de_aprendizagem_lessoncode_page",
-      "target": "components_learning_path_lessonchatpanel",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/disciplinas/[subjectCode]/trilha-de-aprendizagem/[lessonCode]/page.tsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_disciplinas_subjectcode_trilha_de_aprendizagem_lessoncode_page",
-      "target": "components_learning_path_lessonchatpanel_lessonchatpanel",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/disciplinas/[subjectCode]/trilha-de-aprendizagem/[lessonCode]/page.tsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_disciplinas_subjectcode_trilha_de_aprendizagem_lessoncode_page",
-      "target": "lib_data_load_subject_data",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/disciplinas/[subjectCode]/trilha-de-aprendizagem/[lessonCode]/page.tsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_disciplinas_subjectcode_trilha_de_aprendizagem_lessoncode_page",
-      "target": "lib_data_load_subject_data_loadsubjectlearningpath",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/disciplinas/[subjectCode]/trilha-de-aprendizagem/[lessonCode]/page.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_disciplinas_subjectcode_trilha_de_aprendizagem_lessoncode_page",
-      "target": "lib_data_resolve_active_user",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/disciplinas/[subjectCode]/trilha-de-aprendizagem/[lessonCode]/page.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_disciplinas_subjectcode_trilha_de_aprendizagem_lessoncode_page",
-      "target": "lib_data_resolve_active_user_resolveactiveuserid",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/disciplinas/[subjectCode]/trilha-de-aprendizagem/[lessonCode]/page.tsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_disciplinas_subjectcode_trilha_de_aprendizagem_lessoncode_page",
-      "target": "lib_selectors_learning_path_selectors",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/disciplinas/[subjectCode]/trilha-de-aprendizagem/[lessonCode]/page.tsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_disciplinas_subjectcode_trilha_de_aprendizagem_lessoncode_page",
-      "target": "lib_selectors_learning_path_selectors_findlessonbycode",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "app/disciplinas/[subjectCode]/trilha-de-aprendizagem/[lessonCode]/page.tsx",
-      "source_location": "L21",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_disciplinas_subjectcode_trilha_de_aprendizagem_lessoncode_page_lessonpage",
-      "target": "lib_data_load_subject_data_loadsubjectlearningpath"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "app/disciplinas/[subjectCode]/trilha-de-aprendizagem/[lessonCode]/page.tsx",
-      "source_location": "L19",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_disciplinas_subjectcode_trilha_de_aprendizagem_lessoncode_page_lessonpage",
-      "target": "lib_data_resolve_active_user_resolveactiveuserid"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "app/disciplinas/[subjectCode]/trilha-de-aprendizagem/[lessonCode]/page.tsx",
-      "source_location": "L23",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_disciplinas_subjectcode_trilha_de_aprendizagem_lessoncode_page_lessonpage",
-      "target": "lib_selectors_learning_path_selectors_findlessonbycode"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "app/disciplinas/[subjectCode]/trilha-de-aprendizagem/page.tsx",
-      "source_location": "L10",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_disciplinas_subjectcode_trilha_de_aprendizagem_page",
-      "target": "app_disciplinas_subjectcode_trilha_de_aprendizagem_page_learningpathpage",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/disciplinas/[subjectCode]/trilha-de-aprendizagem/page.tsx",
-      "source_location": "L1",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_disciplinas_subjectcode_trilha_de_aprendizagem_page",
-      "target": "components_layout_appshell",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/disciplinas/[subjectCode]/trilha-de-aprendizagem/page.tsx",
-      "source_location": "L1",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_disciplinas_subjectcode_trilha_de_aprendizagem_page",
-      "target": "components_layout_appshell_appshell",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/disciplinas/[subjectCode]/trilha-de-aprendizagem/page.tsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_disciplinas_subjectcode_trilha_de_aprendizagem_page",
-      "target": "components_layout_emptystate",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/disciplinas/[subjectCode]/trilha-de-aprendizagem/page.tsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_disciplinas_subjectcode_trilha_de_aprendizagem_page",
-      "target": "components_layout_emptystate_emptystate",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/disciplinas/[subjectCode]/trilha-de-aprendizagem/page.tsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_disciplinas_subjectcode_trilha_de_aprendizagem_page",
-      "target": "components_layout_subpageheader",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/disciplinas/[subjectCode]/trilha-de-aprendizagem/page.tsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_disciplinas_subjectcode_trilha_de_aprendizagem_page",
-      "target": "components_layout_subpageheader_subpageheader",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/disciplinas/[subjectCode]/trilha-de-aprendizagem/page.tsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_disciplinas_subjectcode_trilha_de_aprendizagem_page",
-      "target": "components_learning_path_unitaccordion",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/disciplinas/[subjectCode]/trilha-de-aprendizagem/page.tsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_disciplinas_subjectcode_trilha_de_aprendizagem_page",
-      "target": "components_learning_path_unitaccordion_unitaccordion",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/disciplinas/[subjectCode]/trilha-de-aprendizagem/page.tsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_disciplinas_subjectcode_trilha_de_aprendizagem_page",
-      "target": "lib_data_load_subject_data",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/disciplinas/[subjectCode]/trilha-de-aprendizagem/page.tsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_disciplinas_subjectcode_trilha_de_aprendizagem_page",
-      "target": "lib_data_load_subject_data_loadsubjectlearningpath",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/disciplinas/[subjectCode]/trilha-de-aprendizagem/page.tsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_disciplinas_subjectcode_trilha_de_aprendizagem_page",
-      "target": "lib_data_load_user_data",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/disciplinas/[subjectCode]/trilha-de-aprendizagem/page.tsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_disciplinas_subjectcode_trilha_de_aprendizagem_page",
-      "target": "lib_data_load_user_data_loaddisciplines",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/disciplinas/[subjectCode]/trilha-de-aprendizagem/page.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_disciplinas_subjectcode_trilha_de_aprendizagem_page",
-      "target": "lib_data_resolve_active_user",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/disciplinas/[subjectCode]/trilha-de-aprendizagem/page.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_disciplinas_subjectcode_trilha_de_aprendizagem_page",
-      "target": "lib_data_resolve_active_user_resolveactiveuserid",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/disciplinas/[subjectCode]/trilha-de-aprendizagem/page.tsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_disciplinas_subjectcode_trilha_de_aprendizagem_page",
-      "target": "lib_selectors_discipline_selectors",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "app/disciplinas/[subjectCode]/trilha-de-aprendizagem/page.tsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_disciplinas_subjectcode_trilha_de_aprendizagem_page",
-      "target": "lib_selectors_discipline_selectors_finddisciplinebycode",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "app/disciplinas/[subjectCode]/trilha-de-aprendizagem/page.tsx",
-      "source_location": "L23",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_disciplinas_subjectcode_trilha_de_aprendizagem_page_learningpathpage",
-      "target": "lib_data_load_subject_data_loadsubjectlearningpath"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "app/disciplinas/[subjectCode]/trilha-de-aprendizagem/page.tsx",
-      "source_location": "L22",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_disciplinas_subjectcode_trilha_de_aprendizagem_page_learningpathpage",
-      "target": "lib_data_load_user_data_loaddisciplines"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "app/disciplinas/[subjectCode]/trilha-de-aprendizagem/page.tsx",
-      "source_location": "L19",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_disciplinas_subjectcode_trilha_de_aprendizagem_page_learningpathpage",
-      "target": "lib_data_resolve_active_user_resolveactiveuserid"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "app/disciplinas/[subjectCode]/trilha-de-aprendizagem/page.tsx",
-      "source_location": "L26",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "app_disciplinas_subjectcode_trilha_de_aprendizagem_page_learningpathpage",
-      "target": "lib_selectors_discipline_selectors_finddisciplinebycode"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "app/layout.tsx",
       "source_location": "L4",
       "weight": 1.0,
@@ -9800,44 +8870,11 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "components/icons/index.tsx",
-      "source_location": "L92",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_icons_index",
-      "target": "components_icons_index_arrowlefticon",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "components/icons/index.tsx",
-      "source_location": "L117",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_icons_index",
-      "target": "components_icons_index_bolticon",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "components/icons/index.tsx",
       "source_location": "L11",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_icons_index",
       "target": "components_icons_index_bookopenicon",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "components/icons/index.tsx",
-      "source_location": "L51",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_icons_index",
-      "target": "components_icons_index_checkcircleicon",
       "confidence_score": 1.0
     },
     {
@@ -9866,39 +8903,6 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "components/icons/index.tsx",
-      "source_location": "L100",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_icons_index",
-      "target": "components_icons_index_documenticon",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "components/icons/index.tsx",
-      "source_location": "L82",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_icons_index",
-      "target": "components_icons_index_layersicon",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "components/icons/index.tsx",
-      "source_location": "L73",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_icons_index",
-      "target": "components_icons_index_lockicon",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "components/icons/index.tsx",
       "source_location": "L32",
       "weight": 1.0,
       "_origin": "ast",
@@ -9910,259 +8914,11 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "components/icons/index.tsx",
-      "source_location": "L65",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_icons_index",
-      "target": "components_icons_index_playicon",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "components/icons/index.tsx",
-      "source_location": "L109",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_icons_index",
-      "target": "components_icons_index_sendicon",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "components/icons/index.tsx",
-      "source_location": "L135",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_icons_index",
-      "target": "components_icons_index_speakericon",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "components/icons/index.tsx",
       "source_location": "L41",
       "weight": 1.0,
       "_origin": "ast",
       "source": "components_icons_index",
       "target": "components_icons_index_targeticon",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "components/icons/index.tsx",
-      "source_location": "L125",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_icons_index",
-      "target": "components_icons_index_terminalicon",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "components/learning-path/LessonBody.tsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_learning_path_lessonbody",
-      "target": "components_icons_index",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "components/learning-path/LessonChatPanel.tsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_learning_path_lessonchatpanel",
-      "target": "components_icons_index",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "components/learning-path/LessonRow.tsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_learning_path_lessonrow",
-      "target": "components_icons_index",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "components/learning-path/UnitAccordion.tsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_learning_path_unitaccordion",
-      "target": "components_icons_index",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "components/learning-path/LessonBody.tsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_learning_path_lessonbody",
-      "target": "components_icons_index_chevronrighticon",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "components/learning-path/UnitAccordion.tsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_learning_path_unitaccordion",
-      "target": "components_icons_index_chevronrighticon",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "components/learning-path/UnitAccordion.tsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_learning_path_unitaccordion",
-      "target": "components_icons_index_clockicon",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "components/learning-path/UnitAccordion.tsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_learning_path_unitaccordion",
-      "target": "components_icons_index_targeticon",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "components/learning-path/LessonRow.tsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_learning_path_lessonrow",
-      "target": "components_icons_index_checkcircleicon",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "components/learning-path/LessonBody.tsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_learning_path_lessonbody",
-      "target": "components_icons_index_playicon",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "components/learning-path/LessonRow.tsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_learning_path_lessonrow",
-      "target": "components_icons_index_playicon",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "components/learning-path/LessonRow.tsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_learning_path_lessonrow",
-      "target": "components_icons_index_lockicon",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "components/learning-path/UnitAccordion.tsx",
-      "source_location": "L7",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_learning_path_unitaccordion",
-      "target": "components_icons_index_layersicon",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "components/learning-path/LessonChatPanel.tsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_learning_path_lessonchatpanel",
-      "target": "components_icons_index_sendicon",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "components/learning-path/LessonChatPanel.tsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_learning_path_lessonchatpanel",
-      "target": "components_icons_index_bolticon",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "components/learning-path/LessonRow.tsx",
-      "source_location": "L3",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_learning_path_lessonrow",
-      "target": "components_icons_index_terminalicon",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "components/learning-path/LessonChatPanel.tsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_learning_path_lessonchatpanel",
-      "target": "components_icons_index_speakericon",
       "confidence_score": 1.0
     },
     {
@@ -10445,309 +9201,6 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "components/learning-path/LessonBody.tsx",
-      "source_location": "L14",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_learning_path_lessonbody",
-      "target": "components_learning_path_lessonbody_lessonbody",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "components/learning-path/LessonBody.tsx",
-      "source_location": "L9",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_learning_path_lessonbody",
-      "target": "components_learning_path_lessonbody_nextaction",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "components/learning-path/LessonBody.tsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_learning_path_lessonbody",
-      "target": "components_learning_path_lessoncontent",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "components/learning-path/LessonBody.tsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_learning_path_lessonbody",
-      "target": "components_learning_path_lessoncontent_lessoncontent",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "components/learning-path/LessonBody.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_learning_path_lessonbody",
-      "target": "lib_types_raw_learning_path",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "components/learning-path/LessonBody.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_learning_path_lessonbody",
-      "target": "lib_types_raw_learning_path_lessonsectionraw",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "components/learning-path/LessonChatPanel.tsx",
-      "source_location": "L8",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_learning_path_lessonchatpanel",
-      "target": "components_learning_path_lessonchatpanel_lessonchatpanel",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "components/learning-path/LessonChatPanel.tsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_learning_path_lessonchatpanel",
-      "target": "components_learning_path_lessonchatpanel_suggestions",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "components/learning-path/LessonContent.tsx",
-      "source_location": "L19",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_learning_path_lessoncontent",
-      "target": "components_learning_path_lessoncontent_lessoncontent",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "components/learning-path/LessonContent.tsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_learning_path_lessoncontent",
-      "target": "components_learning_path_lessoncontent_renderinlinecode",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "components/learning-path/LessonContent.tsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_learning_path_lessoncontent",
-      "target": "lib_types_raw_learning_path",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "components/learning-path/LessonContent.tsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_learning_path_lessoncontent",
-      "target": "lib_types_raw_learning_path_lessonsectionraw",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "components/learning-path/LessonContent.tsx",
-      "source_location": "L26",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_learning_path_lessoncontent_lessoncontent",
-      "target": "components_learning_path_lessoncontent_renderinlinecode",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "components/learning-path/LessonRow.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_learning_path_lessonrow",
-      "target": "components_learning_path_lessonrow_lessonrow",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "components/learning-path/LessonRow.tsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_learning_path_lessonrow",
-      "target": "lib_types_raw_learning_path",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "components/learning-path/LessonRow.tsx",
-      "source_location": "L2",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_learning_path_lessonrow",
-      "target": "lib_types_raw_learning_path_lessonraw",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "components/learning-path/UnitAccordion.tsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_learning_path_unitaccordion",
-      "target": "components_learning_path_lessonrow",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "components/learning-path/UnitAccordion.tsx",
-      "source_location": "L6",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_learning_path_unitaccordion",
-      "target": "components_learning_path_lessonrow_lessonrow",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "components/learning-path/UnitAccordion.tsx",
-      "source_location": "L9",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_learning_path_unitaccordion",
-      "target": "components_learning_path_unitaccordion_defaultexpandedcode",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "components/learning-path/UnitAccordion.tsx",
-      "source_location": "L16",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_learning_path_unitaccordion",
-      "target": "components_learning_path_unitaccordion_unitaccordion",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "components/learning-path/UnitAccordion.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_learning_path_unitaccordion",
-      "target": "lib_selectors_learning_path_selectors",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "components/learning-path/UnitAccordion.tsx",
-      "source_location": "L5",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_learning_path_unitaccordion",
-      "target": "lib_selectors_learning_path_selectors_getunitprogress",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "components/learning-path/UnitAccordion.tsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_learning_path_unitaccordion",
-      "target": "lib_types_raw_learning_path",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "components/learning-path/UnitAccordion.tsx",
-      "source_location": "L4",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_learning_path_unitaccordion",
-      "target": "lib_types_raw_learning_path_learningunitraw",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "source_file": "components/learning-path/UnitAccordion.tsx",
-      "source_location": "L24",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_learning_path_unitaccordion_unitaccordion",
-      "target": "components_learning_path_unitaccordion_defaultexpandedcode",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "components/learning-path/UnitAccordion.tsx",
-      "source_location": "L42",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "components_learning_path_unitaccordion_unitaccordion",
-      "target": "lib_selectors_learning_path_selectors_getunitprogress"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "components/recordings/RecordedClassesModal.tsx",
       "source_location": "L7",
       "weight": 1.0,
@@ -11005,7 +9458,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "lib/data/load-subject-data.ts",
-      "source_location": "L90",
+      "source_location": "L77",
       "weight": 1.0,
       "_origin": "ast",
       "source": "lib_data_load_subject_data",
@@ -11016,7 +9469,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "lib/data/load-subject-data.ts",
-      "source_location": "L33",
+      "source_location": "L32",
       "weight": 1.0,
       "_origin": "ast",
       "source": "lib_data_load_subject_data",
@@ -11027,7 +9480,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "lib/data/load-subject-data.ts",
-      "source_location": "L45",
+      "source_location": "L44",
       "weight": 1.0,
       "_origin": "ast",
       "source": "lib_data_load_subject_data",
@@ -11038,7 +9491,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "lib/data/load-subject-data.ts",
-      "source_location": "L9",
+      "source_location": "L8",
       "weight": 1.0,
       "_origin": "ast",
       "source": "lib_data_load_subject_data",
@@ -11049,18 +9502,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "lib/data/load-subject-data.ts",
-      "source_location": "L57",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "lib_data_load_subject_data",
-      "target": "lib_data_load_subject_data_loadsubjectlearningpath",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/data/load-subject-data.ts",
-      "source_location": "L21",
+      "source_location": "L20",
       "weight": 1.0,
       "_origin": "ast",
       "source": "lib_data_load_subject_data",
@@ -11071,7 +9513,7 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "lib/data/load-subject-data.ts",
-      "source_location": "L76",
+      "source_location": "L63",
       "weight": 1.0,
       "_origin": "ast",
       "source": "lib_data_load_subject_data",
@@ -11179,30 +9621,6 @@
       "context": "import",
       "confidence": "EXTRACTED",
       "source_file": "lib/data/load-subject-data.ts",
-      "source_location": "L7",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "lib_data_load_subject_data",
-      "target": "lib_types_raw_learning_path",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/data/load-subject-data.ts",
-      "source_location": "L7",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "lib_data_load_subject_data",
-      "target": "lib_types_raw_learning_path_learningpathraw",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/data/load-subject-data.ts",
       "source_location": "L3",
       "weight": 1.0,
       "_origin": "ast",
@@ -11264,7 +9682,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/data/load-subject-data.ts",
-      "source_location": "L13",
+      "source_location": "L12",
       "weight": 1.0,
       "_origin": "ast",
       "source": "lib_data_load_subject_data_loadsubjectcalendarevents",
@@ -11276,7 +9694,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/data/load-subject-data.ts",
-      "source_location": "L25",
+      "source_location": "L24",
       "weight": 1.0,
       "_origin": "ast",
       "source": "lib_data_load_subject_data_loadsubjectrecordings",
@@ -11288,7 +9706,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/data/load-subject-data.ts",
-      "source_location": "L37",
+      "source_location": "L36",
       "weight": 1.0,
       "_origin": "ast",
       "source": "lib_data_load_subject_data_loadsubjectassessments",
@@ -11300,7 +9718,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/data/load-subject-data.ts",
-      "source_location": "L49",
+      "source_location": "L48",
       "weight": 1.0,
       "_origin": "ast",
       "source": "lib_data_load_subject_data_loadsubjectattendances",
@@ -11312,19 +9730,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/data/load-subject-data.ts",
-      "source_location": "L61",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "lib_data_load_subject_data_loadsubjectlearningpath",
-      "target": "lib_data_read_json_file_readuserjsonfileoptional"
-    },
-    {
-      "relation": "calls",
-      "context": "call",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "lib/data/load-subject-data.ts",
-      "source_location": "L81",
+      "source_location": "L68",
       "weight": 1.0,
       "_origin": "ast",
       "source": "lib_data_load_subject_data_loadsubjecttestcontent",
@@ -12425,111 +10831,6 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "lib/selectors/learning-path-selectors.ts",
-      "source_location": "L11",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "lib_selectors_learning_path_selectors",
-      "target": "lib_selectors_learning_path_selectors_findlessonbycode",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/selectors/learning-path-selectors.ts",
-      "source_location": "L29",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "lib_selectors_learning_path_selectors",
-      "target": "lib_selectors_learning_path_selectors_getunitprogress",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/selectors/learning-path-selectors.ts",
-      "source_location": "L3",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "lib_selectors_learning_path_selectors",
-      "target": "lib_selectors_learning_path_selectors_lessonlocation",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports_from",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/selectors/learning-path-selectors.ts",
-      "source_location": "L1",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "lib_selectors_learning_path_selectors",
-      "target": "lib_types_raw_learning_path",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/selectors/learning-path-selectors.ts",
-      "source_location": "L1",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "lib_selectors_learning_path_selectors",
-      "target": "lib_types_raw_learning_path_learningpathraw",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/selectors/learning-path-selectors.ts",
-      "source_location": "L1",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "lib_selectors_learning_path_selectors",
-      "target": "lib_types_raw_learning_path_learningunitraw",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "imports",
-      "context": "import",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/selectors/learning-path-selectors.ts",
-      "source_location": "L1",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "lib_selectors_learning_path_selectors",
-      "target": "lib_types_raw_learning_path_lessonraw",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "context": "field",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/selectors/learning-path-selectors.ts",
-      "source_location": "L4",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "lib_selectors_learning_path_selectors_lessonlocation",
-      "target": "lib_types_raw_learning_path_learningunitraw",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "references",
-      "context": "field",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/selectors/learning-path-selectors.ts",
-      "source_location": "L5",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "lib_selectors_learning_path_selectors_lessonlocation",
-      "target": "lib_types_raw_learning_path_lessonraw",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
       "source_file": "lib/selectors/user-selectors.ts",
       "source_location": "L5",
       "weight": 1.0,
@@ -12749,72 +11050,6 @@
       "_origin": "ast",
       "source": "lib_types_raw_financial_titles",
       "target": "lib_types_raw_financial_titles_financialtitleraw",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/types/raw/learning-path.ts",
-      "source_location": "L28",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "lib_types_raw_learning_path",
-      "target": "lib_types_raw_learning_path_learningpathraw",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/types/raw/learning-path.ts",
-      "source_location": "L21",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "lib_types_raw_learning_path",
-      "target": "lib_types_raw_learning_path_learningunitraw",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/types/raw/learning-path.ts",
-      "source_location": "L2",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "lib_types_raw_learning_path",
-      "target": "lib_types_raw_learning_path_lessonkindraw",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/types/raw/learning-path.ts",
-      "source_location": "L9",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "lib_types_raw_learning_path",
-      "target": "lib_types_raw_learning_path_lessonraw",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/types/raw/learning-path.ts",
-      "source_location": "L4",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "lib_types_raw_learning_path",
-      "target": "lib_types_raw_learning_path_lessonsectionraw",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "lib/types/raw/learning-path.ts",
-      "source_location": "L1",
-      "weight": 1.0,
-      "_origin": "ast",
-      "source": "lib_types_raw_learning_path",
-      "target": "lib_types_raw_learning_path_lessonstatusraw",
       "confidence_score": 1.0
     },
     {

@@ -1,5 +1,5 @@
 {
-  "0": "load-subject-data.ts",
+  "0": "[subjectCode]/page.tsx",
   "1": "Graphify Skill Docs",
   "2": "Attendance & Calendar Components",
   "3": "Package Dependencies",
@@ -10,6 +10,7 @@
   "8": "User Data Manifest (Joao Pedro)",
   "9": "User Data Manifest (Baixa Frequencia)",
   "10": "User Data Manifest (Em Dia)",
+  "11": "user-selectors.ts",
   "12": "Header Component",
   "13": "Root Layout",
   "14": "Project README",
@@ -23,5 +24,5 @@
   "22": "Window Icon",
   "23": "RecoverySection.tsx",
   "24": "AcademicShortcuts.tsx",
-  "25": "index.tsx"
+  "25": "DisciplineCard.tsx"
 }
