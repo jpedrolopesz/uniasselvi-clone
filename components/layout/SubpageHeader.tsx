@@ -2,8 +2,9 @@ import Link from "next/link";
 
 interface SubpageHeaderProps {
   title: string;
-  disciplineName: string;
-  disciplineCode: string;
+  /** Omitidos em páginas que não pertencem a uma disciplina específica (ex.: Calendário de Estudos). */
+  disciplineName?: string;
+  disciplineCode?: string;
   backHref: string;
 }
 
@@ -22,7 +23,14 @@ export function SubpageHeader({
         ‹ Voltar
       </Link>
       <h1 className="text-xl font-bold uppercase tracking-tight text-white">
-        {title} <span className="text-text-secondary">|</span> {disciplineName} ({disciplineCode})
+        {title}
+        {disciplineName && (
+          <>
+            {" "}
+            <span className="text-text-secondary">|</span> {disciplineName}
+            {disciplineCode && ` (${disciplineCode})`}
+          </>
+        )}
       </h1>
     </div>
   );

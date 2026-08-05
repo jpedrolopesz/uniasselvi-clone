@@ -21,7 +21,7 @@ import {
 import { MONTH_LABELS_PT } from "@/lib/selectors/calendar-selectors";
 import { formatDateBr } from "@/lib/formatters/date-formatters";
 import type { StudyPlannerViewMode } from "@/components/study-planner/view-mode";
-import { PlannerHeader } from "@/components/study-planner/PlannerHeader";
+import { SparklesIcon } from "@/components/icons";
 import { AssistantPanel } from "@/components/study-planner/AssistantPanel";
 import { CalendarToolbar } from "@/components/study-planner/CalendarToolbar";
 import { MonthGridView } from "@/components/study-planner/MonthGridView";
@@ -138,10 +138,19 @@ export function StudyPlannerView({ seedActivities, subjects }: StudyPlannerViewP
   }
 
   return (
-    <div className="flex min-h-0 flex-1 flex-col">
-      <PlannerHeader onOpenAssistant={() => setIsAssistantOpen(true)} />
+    <div className="flex flex-col gap-4">
+      <div className="flex justify-end lg:hidden">
+        <button
+          type="button"
+          onClick={() => setIsAssistantOpen(true)}
+          className="flex items-center gap-2 rounded-full bg-bg-card px-4 py-2 text-sm font-medium text-white transition hover:bg-bg-card-hover"
+        >
+          <SparklesIcon className="h-4 w-4 text-brand-yellow" />
+          Assistente Sofia
+        </button>
+      </div>
 
-      <div className="flex min-h-0 flex-1 flex-col gap-4 p-4 md:gap-6 md:p-6 lg:flex-row">
+      <div className="flex h-[75vh] min-h-140 flex-col gap-4 md:gap-6 lg:flex-row">
         <div className="hidden min-h-0 lg:block lg:w-95 lg:shrink-0">
           <AssistantPanel
             activities={activities}

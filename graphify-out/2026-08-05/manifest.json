@@ -25,8 +25,8 @@
     "semantic_hash": "20a4299840cf3b229e72d40920263a24"
   },
   "app/disciplinas/[subjectCode]/page.tsx": {
-    "mtime": 1785934556.9243333,
-    "ast_hash": "5d4c265c5e8f865afed40331f0161d60",
+    "mtime": 1785897654.3802278,
+    "ast_hash": "6b3414cc55c4459975fec85ab2549630",
     "semantic_hash": ""
   },
   "app/layout.tsx": {
@@ -35,8 +35,8 @@
     "semantic_hash": "9e62d22d07a51762c05a17943d8a6ff8"
   },
   "app/page.tsx": {
-    "mtime": 1785934530.9063203,
-    "ast_hash": "530b940638ffe209cb9cdbd02e5be8b7",
+    "mtime": 1785888770.2614717,
+    "ast_hash": "023dedb5851f5f66c369863ac21bd966",
     "semantic_hash": ""
   },
   "components/assessments/AssessmentAction.tsx": {
@@ -130,18 +130,18 @@
     "semantic_hash": "6ac8c931adefe58e55401bc86100b4d4"
   },
   "components/home/AcademicShortcuts.tsx": {
-    "mtime": 1785898669.3504395,
-    "ast_hash": "9afe153365820d2511c9e2bb78065b1e",
-    "semantic_hash": ""
+    "mtime": 1785708329.0505378,
+    "ast_hash": "38ac398a24257524249fcacd59a51f4c",
+    "semantic_hash": "38ac398a24257524249fcacd59a51f4c"
   },
   "components/home/DisciplineCard.tsx": {
-    "mtime": 1785934491.3366923,
-    "ast_hash": "1ce31eb5d04f090b257f52308c33f1aa",
+    "mtime": 1785888770.2635484,
+    "ast_hash": "6202063ad32179d6518073b6e0732ea1",
     "semantic_hash": ""
   },
   "components/home/DisciplineCarousel.tsx": {
-    "mtime": 1785934503.9177475,
-    "ast_hash": "66943b206c4ac5c997994ab1cd7c4c4a",
+    "mtime": 1785888770.2651107,
+    "ast_hash": "f8d5e219b2172696726c17b6bf0b932a",
     "semantic_hash": ""
   },
   "components/home/JourneyShortcuts.tsx": {
@@ -180,8 +180,8 @@
     "semantic_hash": ""
   },
   "components/layout/Sidebar.tsx": {
-    "mtime": 1785933074.6889477,
-    "ast_hash": "8094277809ca3a4e4d47320b3791ce71",
+    "mtime": 1785893813.9706178,
+    "ast_hash": "dc4293ad14efa7178cab6dd80f3f3a58",
     "semantic_hash": ""
   },
   "components/layout/SubpageHeader.tsx": {
@@ -270,9 +270,9 @@
     "semantic_hash": "8303785b0be0c2c8ae7919cfa07bf61a"
   },
   "lib/selectors/discipline-selectors.ts": {
-    "mtime": 1785934437.7648292,
-    "ast_hash": "a43463fa41b5b796d82d5dc938931833",
-    "semantic_hash": ""
+    "mtime": 1785711592.5038912,
+    "ast_hash": "b0956e0949f8a5d530214b00f22ec3dd",
+    "semantic_hash": "b0956e0949f8a5d530214b00f22ec3dd"
   },
   "lib/selectors/user-selectors.ts": {
     "mtime": 1785707758.952729,
@@ -615,8 +615,8 @@
     "semantic_hash": "a2760511c65806022ad20adf74370ff3"
   },
   "components/icons/index.tsx": {
-    "mtime": 1785934451.5690918,
-    "ast_hash": "72cc7ec95b7a8e01b4752950e952942c",
+    "mtime": 1785890668.593738,
+    "ast_hash": "83b9a92866add2d5e44ac181111eb6ee",
     "semantic_hash": ""
   },
   "app/disciplinas/[subjectCode]/registro-de-frequencia/page.tsx": {
@@ -685,8 +685,8 @@
     "semantic_hash": ""
   },
   "components/layout/AppShellChrome.tsx": {
-    "mtime": 1785932086.2176073,
-    "ast_hash": "0575ca75a65e65ac184939b79485b416",
+    "mtime": 1785893845.742969,
+    "ast_hash": "c5f0f15e85e4826aa94741b8d7d16a3f",
     "semantic_hash": ""
   },
   "public/assets/logo/logo-uniasselvi.png": {
@@ -697,151 +697,6 @@
   "public/data/user/joao-pedro-lopes-zamonelo/subjects/images/modelagem-e-gestao-de-processo-de-negocio.png": {
     "mtime": 1785897496.0454233,
     "ast_hash": "04278418143b8deb8225040ab2d8e519",
-    "semantic_hash": ""
-  },
-  "app/calendario-de-estudos/page.tsx": {
-    "mtime": 1785898654.9569027,
-    "ast_hash": "b3a528ddd4faa524a02f3f14bb3f80be",
-    "semantic_hash": ""
-  },
-  "components/study-planner/ActivityBlock.tsx": {
-    "mtime": 1785898408.4855652,
-    "ast_hash": "99ea0027efcfada5a8a8d0e9d0206d1d",
-    "semantic_hash": ""
-  },
-  "components/study-planner/ActivityFormModal.tsx": {
-    "mtime": 1785898560.749401,
-    "ast_hash": "d227481d945a6b2dc0d6e0265fad8690",
-    "semantic_hash": ""
-  },
-  "components/study-planner/AssistantPanel.tsx": {
-    "mtime": 1785898374.1122832,
-    "ast_hash": "7d699c9e6970050b414183d506807e5d",
-    "semantic_hash": ""
-  },
-  "components/study-planner/CalendarToolbar.tsx": {
-    "mtime": 1785898391.1082363,
-    "ast_hash": "6ac2c46ef29bf7a37ffce970552bb3ed",
-    "semantic_hash": ""
-  },
-  "components/study-planner/DayGridView.tsx": {
-    "mtime": 1785898459.5278895,
-    "ast_hash": "8f8c30609c48f2874b13a9eea4e3391e",
-    "semantic_hash": ""
-  },
-  "components/study-planner/MonthGridView.tsx": {
-    "mtime": 1785898507.914505,
-    "ast_hash": "c63d7c84cc68592d959d26a012a03d5a",
-    "semantic_hash": ""
-  },
-  "components/study-planner/PlannerHeader.tsx": {
-    "mtime": 1785898602.0592587,
-    "ast_hash": "115eb3b1bbce4d51b7b547ce40dadee5",
-    "semantic_hash": ""
-  },
-  "components/study-planner/StudyPlannerView.tsx": {
-    "mtime": 1785898635.7775915,
-    "ast_hash": "a2ae54b59e18dc1161b19461db9e1d3d",
-    "semantic_hash": ""
-  },
-  "components/study-planner/SuggestionCard.tsx": {
-    "mtime": 1785898347.011291,
-    "ast_hash": "2b4216a82ed7db9aac2b35b24aca3972",
-    "semantic_hash": ""
-  },
-  "components/study-planner/TimeGridColumn.tsx": {
-    "mtime": 1785898442.9449465,
-    "ast_hash": "b22d363b1f23f1b87a1fcf37feb26d37",
-    "semantic_hash": ""
-  },
-  "components/study-planner/TimeGutter.tsx": {
-    "mtime": 1785898453.438536,
-    "ast_hash": "96c10496092c94401fae14361d2c5cec",
-    "semantic_hash": ""
-  },
-  "components/study-planner/WeekGridView.tsx": {
-    "mtime": 1785898478.9816787,
-    "ast_hash": "9c9b597e9e16654cfe3c8832c2204281",
-    "semantic_hash": ""
-  },
-  "components/study-planner/chat-types.ts": {
-    "mtime": 1785898352.7567148,
-    "ast_hash": "14c813d40614063f3c17045324285411",
-    "semantic_hash": ""
-  },
-  "components/study-planner/hour-grid.ts": {
-    "mtime": 1785898434.5442462,
-    "ast_hash": "6738d4ed480fccbf13ab7c443aa10d87",
-    "semantic_hash": ""
-  },
-  "components/study-planner/view-mode.ts": {
-    "mtime": 1785898394.333309,
-    "ast_hash": "9fd96d6c289e7d385e63a2d78ab8bd37",
-    "semantic_hash": ""
-  },
-  "lib/data/load-study-planner-data.ts": {
-    "mtime": 1785898270.5872889,
-    "ast_hash": "9b0909bd3be1f563985fc08b7db60c60",
-    "semantic_hash": ""
-  },
-  "lib/study-planner/ai-assistant.ts": {
-    "mtime": 1785898234.832624,
-    "ast_hash": "680ac88ae496a51dc9eddb0077fd6d5b",
-    "semantic_hash": ""
-  },
-  "lib/study-planner/calendar-logic.ts": {
-    "mtime": 1785898511.2543418,
-    "ast_hash": "1481b6ee2c7511c67088753be360c684",
-    "semantic_hash": ""
-  },
-  "lib/study-planner/category-meta.ts": {
-    "mtime": 1785898065.2849998,
-    "ast_hash": "7be7a43e766475aa8921ce5d53c57e51",
-    "semantic_hash": ""
-  },
-  "lib/study-planner/date-utils.ts": {
-    "mtime": 1785898661.1696107,
-    "ast_hash": "9b2320f3afd4fd7c85eb194ab6d571b5",
-    "semantic_hash": ""
-  },
-  "lib/study-planner/seed-activities.ts": {
-    "mtime": 1785898263.0068643,
-    "ast_hash": "2f7c35d1da6cb6f3c51c721c711911c7",
-    "semantic_hash": ""
-  },
-  "lib/types/study-activity.ts": {
-    "mtime": 1785898050.8483334,
-    "ast_hash": "c152b83b8f289faead21e49cc77b6de5",
-    "semantic_hash": ""
-  },
-  "public/data/user/joao-pedro-lopes-zamonelo/subjects/images/estudo-contemporaneo-e-transversal-relacoes-etenico-raciais-cultura-e-direitos-humanos.png": {
-    "mtime": 1785934351.8223414,
-    "ast_hash": "161f682b6d0efc24f7139dba5e03c738",
-    "semantic_hash": ""
-  },
-  "public/data/user/joao-pedro-lopes-zamonelo/subjects/images/experiencia-profissional-desafios-comtemporaneos.png": {
-    "mtime": 1785933789.533719,
-    "ast_hash": "38746ed48e4a26418a7b5cafbf49e89e",
-    "semantic_hash": ""
-  },
-  "public/data/user/joao-pedro-lopes-zamonelo/subjects/images/experiencia-profissional-mineracao-e-analise-de-dados.png": {
-    "mtime": 1785934227.1904714,
-    "ast_hash": "fc1841accfe5a2c0cc48fcbf0814bbcc",
-    "semantic_hash": ""
-  },
-  "public/data/user/joao-pedro-lopes-zamonelo/subjects/images/mineracao-de-dados.png": {
-    "mtime": 1785933497.9465935,
-    "ast_hash": "53b6c8137caa46efe82c6734793cae6c",
-    "semantic_hash": ""
-  },
-  "public/data/user/joao-pedro-lopes-zamonelo/subjects/images/probabilidade-e-estatistica.png": {
-    "mtime": 1785933224.6294594,
-    "ast_hash": "4d43f405dacf926f15844ea84d63c2f2",
-    "semantic_hash": ""
-  },
-  "public/data/user/joao-pedro-lopes-zamonelo/subjects/images/sistemas-aplicacoes-distribuidas.png": {
-    "mtime": 1785933644.025996,
-    "ast_hash": "d0b8989fc5e9a86bae78c709837bcd73",
     "semantic_hash": ""
   }
 }

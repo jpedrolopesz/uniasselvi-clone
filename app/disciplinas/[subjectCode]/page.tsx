@@ -15,6 +15,7 @@ import { formatDateBr } from "@/lib/formatters/date-formatters";
 import { formatPercent } from "@/lib/formatters/number-formatters";
 import {
   BookOpenIcon,
+  CalendarIcon,
   ChevronRightIcon,
   ClockIcon,
   PlayCircleIcon,
@@ -158,8 +159,14 @@ export default async function DisciplinePage({
           >
             Registro de Frequência
           </Link>
-             
-           
+
+              <Link
+                href={`/calendario-de-estudos?subjectCode=${discipline.code}`}
+                className="inline-flex items-center gap-1.5 rounded-full border border-border-subtle bg-bg-card px-5 py-2.5 text-sm font-medium text-white transition hover:bg-bg-card-hover"
+              >
+                <CalendarIcon className="h-4 w-4" />
+                Calendário de Estudos
+              </Link>
             </div>
 
             {frequency !== undefined && (
@@ -196,17 +203,6 @@ export default async function DisciplinePage({
               </>
             )}
           </div>
-        </div>
-
-        <div className="flex flex-wrap items-center gap-3">
-        
-          <Link
-            href={`/disciplinas/${discipline.code}/frequencia`}
-            className="rounded-full border border-border-subtle bg-bg-card px-5 py-2.5 text-sm font-medium text-white transition hover:bg-bg-card-hover"
-          >
-            Calendário
-          </Link>
-         
         </div>
       </div>
     </AppShell>

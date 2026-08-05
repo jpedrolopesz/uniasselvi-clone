@@ -24,7 +24,7 @@ export function DisciplineCard({ discipline, activeUserId, todayIsoDate }: Disci
       href={`/disciplinas/${discipline.code}`}
       className="group flex w-80 shrink-0 flex-col overflow-hidden rounded-2xl bg-bg-card transition hover:bg-bg-card-hover"
     >
-      <div className="relative aspect-3/2 w-full shrink-0 overflow-hidden">
+      <div className="relative aspect-4/3 w-full shrink-0 overflow-hidden">
         {heroImageSrc ? (
           <Image
             src={heroImageSrc}
