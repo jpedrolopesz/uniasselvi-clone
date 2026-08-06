@@ -1,0 +1,396 @@
+{
+  "name": "vitru-router-multi-agent",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "vitru/v1/chat",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        -32,
+        0
+      ],
+      "id": "1d933a7f-f39c-48a6-84fb-cabf23e333d0",
+      "name": "Webhook"
+    },
+    {
+      "parameters": {
+        "jsCode": "const body = $input.first().json.body ?? {};\n\nconst request = {\n  channel: String(body.channel ?? \"\").trim(),\n  agent: String(body.agent ?? \"\").trim(),\n  userId: String(body.userId ?? \"\").trim(),\n  conversationId: String(body.conversationId ?? \"\").trim(),\n  message: String(body.message ?? \"\").trim(),\n};\n\nconst errors = [];\n\nif (!request.channel) {\n  errors.push(\"channel é obrigatório\");\n} else if (![\"portal\", \"whatsapp\"].includes(request.channel)) {\n  errors.push(\"channel deve ser portal ou whatsapp\");\n}\n\nif (!request.agent) {\n  errors.push(\"agent é obrigatório\");\n} else if (![\"universal\", \"study_planner\"].includes(request.agent)) {\n  errors.push(\"agent deve ser universal ou study_planner\");\n}\n\nif (!request.userId) {\n  errors.push(\"userId é obrigatório\");\n}\n\nif (!request.conversationId) {\n  errors.push(\"conversationId é obrigatório\");\n}\n\nif (!request.message) {\n  errors.push(\"message é obrigatória\");\n} else if (request.message.length > 4000) {\n  errors.push(\"message deve ter no máximo 4000 caracteres\");\n}\n\nreturn [\n  {\n    json: {\n      isValid: errors.length === 0,\n      errors,\n      request,\n    },\n  },\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        208,
+        0
+      ],
+      "id": "716038f6-4a40-46e3-9aa3-77e7ccb9edbc",
+      "name": "Validate Input"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "d2599d60-a797-4154-a0e4-9ec170d3b289",
+              "leftValue": "={{ $json.isValid }}",
+              "rightValue": "",
+              "operator": {
+                "type": "boolean",
+                "operation": "true",
+                "singleValue": true
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [
+        416,
+        0
+      ],
+      "id": "fa83fd5b-1163-4f7f-be15-9e981fce60c1",
+      "name": "Is Valid?"
+    },
+    {
+      "parameters": {
+        "mode": "rules",
+        "rules": {
+          "values": [
+            {
+              "outputKey": "universal",
+              "renameOutput": true,
+              "conditions": {
+                "options": {
+                  "caseSensitive": false,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.request.agent }}",
+                    "rightValue": "universal",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            },
+            {
+              "outputKey": "study_planner",
+              "renameOutput": true,
+              "conditions": {
+                "options": {
+                  "caseSensitive": false,
+                  "leftValue": "",
+                  "typeValidation": "strict",
+                  "version": 3
+                },
+                "conditions": [
+                  {
+                    "leftValue": "={{ $json.request.agent }}",
+                    "rightValue": "study_planner",
+                    "operator": {
+                      "type": "string",
+                      "operation": "equals"
+                    }
+                  }
+                ],
+                "combinator": "and"
+              }
+            }
+          ]
+        },
+        "options": {
+          "fallbackOutput": "none"
+        }
+      },
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 3.4,
+      "position": [
+        528,
+        -128
+      ],
+      "id": "74746f6c-bb76-4c18-93c6-650ef9e3ab70",
+      "name": "Route Agent"
+    },
+    {
+      "parameters": {
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [
+        1056,
+        -128
+      ],
+      "id": "9c904ead-d9f6-4e53-ab88-61996eaf2f1f",
+      "name": "Respond Success"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "={{\n  {\n    ok: false,\n    error: {\n      code: \"INVALID_REQUEST\",\n      message: \"Os dados enviados são inválidos.\",\n      details: $json.errors\n    }\n  }\n}}",
+        "options": {
+          "responseCode": 400
+        }
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [
+        624,
+        96
+      ],
+      "id": "8ccf5f6d-3f53-4df4-b340-262611b40aaf",
+      "name": "Respond Invalid Request"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.request.message }}",
+        "messages": {
+          "messageValues": [
+            {
+              "message": "Você é o Vitru, assistente acadêmico da plataforma Uniasselvi.  Neste momento, você está operando em modo inicial de desenvolvimento.  Responda sempre em português do Brasil, de forma clara, educada e objetiva. Não invente notas, avaliações, horários, disciplinas ou outros dados do aluno. Não afirme que criou, alterou, agendou ou excluiu alguma informação. Quando não tiver dados suficientes, informe claramente essa limitação. Não solicite nem revele CPF completo, credenciais, senhas ou dados de outros alunos. Mantenha a resposta com no máximo 500 palavras."
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.9,
+      "position": [
+        784,
+        -352
+      ],
+      "id": "51dbdf65-dc90-4808-ab2c-6d217c58986e",
+      "name": "Generate Universal Response",
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "promptType": "define",
+        "text": "={{ $json.request.message }}",
+        "messages": {
+          "messageValues": [
+            {
+            "message": "Você é o Vitru · Calendário, agente acadêmico inteligente da plataforma Uniasselvi. Responda sempre em português do Brasil, de forma clara, objetiva, acolhedora e proativa. Sua fonte principal serão os dados acadêmicos autenticados fornecidos pela plataforma: disciplinas, atividades, provas, datas de abertura e encerramento, prazos e horários disponíveis. Quando esses dados estiverem presentes no contexto, identifique prioridades e informe ao aluno o que foi liberado, o que está próximo do prazo, quantos dias restam e quais datas ou horários estão disponíveis. Não peça ao aluno informações que já estejam no contexto da plataforma. Nunca invente disciplinas, atividades, provas, datas, prazos, disponibilidade ou dados pessoais. Enquanto a integração com a plataforma ainda não fornecer esses dados, diga apenas que não consegue consultar a agenda acadêmica naquele momento. Se o aluno pedir um plano pessoal de estudos, e somente nesse caso, pergunte o que ele deseja estudar, quais horários possui e quantas horas por dia quer dedicar; então proponha um cronograma. Diferencie orientação acadêmica de alteração do calendário. Nunca afirme que agendou, alterou ou excluiu algo sem confirmação explícita do aluno e sem retorno positivo de uma ferramenta autorizada. Não solicite nem revele CPF completo, credenciais, senhas ou dados de outros alunos. Mantenha a resposta com no máximo 500 palavras."
+            }
+          ]
+        },
+        "batching": {}
+      },
+      "type": "@n8n/n8n-nodes-langchain.chainLlm",
+      "typeVersion": 1.9,
+      "position": [
+        784,
+        -112
+      ],
+      "id": "f122b7ba-c54a-42cc-9260-d875bb7ce672",
+      "name": "Generate Study Planner Response",
+      "onError": "continueErrorOutput"
+    },
+    {
+      "parameters": {
+        "model": "=amazon.nova-micro-v1:0",
+        "options": {
+          "maxTokensToSample": 500,
+          "temperature": 0.2
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.lmChatAwsBedrock",
+      "typeVersion": 1.1,
+      "position": [
+        656,
+        -112
+      ],
+      "id": "cfce9739-1d68-41c3-87c0-61f2ebf4e5e8",
+      "name": "AWS Bedrock Nova Micro",
+      "credentials": {
+        "aws": {
+          "name": "AWS Bedrock - Vitru Development"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "jsCode": "const modelResult = $input.first().json;\nconst request = $(\"Validate Input\").first().json.request;\n\nconst replyText = String(\n  modelResult.text ??\n  modelResult.output ??\n  modelResult.response ??\n  \"\"\n).trim();\n\nif (!replyText) {\n  throw new Error(\"O Bedrock não retornou uma resposta textual.\");\n}\n\nreturn [\n  {\n    json: {\n      ok: true,\n      data: {\n        conversationId: request.conversationId,\n        messageId: `msg-${Date.now()}`,\n        agent: request.agent,\n        replyText,\n        suggestions: [],\n        confirmation: null,\n      },\n      meta: {\n        channel: request.channel,\n        mocked: false,\n        provider: \"amazon-bedrock\",\n        model: \"amazon.nova-micro-v1:0\",\n        version: \"v1\",\n      },\n    },\n  },\n];"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        880,
+        -384
+      ],
+      "id": "2b8c22a5-887c-4953-b418-2fee45bea5c8",
+      "name": "Build Vitru Response"
+    },
+    {
+      "parameters": {
+        "respondWith": "json",
+        "responseBody": "{\n  \"ok\": false,\n  \"error\": {\n    \"code\": \"AI_UNAVAILABLE\",\n    \"message\": \"O Vitru está temporariamente indisponível. Tente novamente em alguns instantes.\"\n  }\n}",
+        "options": {
+          "responseCode": 503
+        }
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [
+        816,
+        -208
+      ],
+      "id": "53003805-1530-4c89-aa5a-71cfe92531d5",
+      "name": "Respond AI Unavailable"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Validate Input",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Validate Input": {
+      "main": [
+        [
+          {
+            "node": "Is Valid?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Is Valid?": {
+      "main": [
+        [
+          {
+            "node": "Route Agent",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond Invalid Request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Route Agent": {
+      "main": [
+        [
+          {
+            "node": "Generate Universal Response",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Generate Study Planner Response",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AWS Bedrock Nova Micro": {
+      "ai_languageModel": [
+        [
+          {
+            "node": "Generate Universal Response",
+            "type": "ai_languageModel",
+            "index": 0
+          },
+          {
+            "node": "Generate Study Planner Response",
+            "type": "ai_languageModel",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build Vitru Response": {
+      "main": [
+        [
+          {
+            "node": "Respond Success",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Universal Response": {
+      "main": [
+        [
+          {
+            "node": "Build Vitru Response",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond AI Unavailable",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Generate Study Planner Response": {
+      "main": [
+        [
+          {
+            "node": "Build Vitru Response",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Respond AI Unavailable",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate",
+    "availableInMCP": false
+  },
+  "nodeGroups": [],
+  "tags": []
+}

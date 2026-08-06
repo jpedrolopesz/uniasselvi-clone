@@ -5,6 +5,7 @@ import type { AssessmentRaw } from "@/lib/types/raw/assessments";
 import type { AttendancesRaw } from "@/lib/types/raw/attendances";
 import type { TestContentRaw, TestInfoRaw } from "@/lib/types/raw/test-content";
 import type { LearningPathRaw } from "@/lib/types/raw/learning-path";
+import type { ExamScheduleOptionRaw } from "@/lib/types/raw/exam-schedule-options";
 
 export function loadSubjectCalendarEvents(
   userId: string,
@@ -84,6 +85,26 @@ export function loadSubjectLearningPath(
     "subjects",
     subjectCode,
     "learning-path.json"
+  );
+}
+
+/**
+ * Lista de datas/locais disponíveis para agendar uma prova ainda não
+ * agendada. Só existe como fixture proposta (ver lib/types/raw/exam-schedule-options.ts)
+ * — não há endpoint real mapeado no projeto para este caso.
+ */
+export function loadExamScheduleOptions(
+  userId: string,
+  subjectCode: string,
+  testCode: string
+): Promise<ExamScheduleOptionRaw[] | null> {
+  return readUserJsonFileOptional<ExamScheduleOptionRaw[]>(
+    userId,
+    "subjects",
+    subjectCode,
+    "tests",
+    testCode,
+    "schedule-options.json"
   );
 }
 

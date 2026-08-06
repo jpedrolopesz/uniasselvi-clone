@@ -14,7 +14,9 @@ export function AssessmentCard({ assessment, subjectCode }: AssessmentCardProps)
   const testHref =
     uiState.actionKind === "responder-online" && assessment.test_code
       ? `/disciplinas/${subjectCode}/notas-avaliacoes/${assessment.test_code}`
-      : undefined;
+      : uiState.actionKind === "agendar-prova" && assessment.test_code
+        ? `/disciplinas/${subjectCode}/notas-avaliacoes/${assessment.test_code}/agendamento`
+        : undefined;
 
   return (
     <div className="flex flex-col gap-3 rounded-xl bg-bg-card p-4">

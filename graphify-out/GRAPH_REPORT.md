@@ -1,28 +1,28 @@
 # Graph Report - uniasselvi-clone  (2026-08-05)
 
 ## Corpus Check
-- 156 files · ~526,544 words
+- 181 files · ~533,939 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 591 nodes · 1297 edges · 30 communities (21 shown, 9 thin omitted)
-- Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 16 edges (avg confidence: 0.77)
+- 694 nodes · 1546 edges · 30 communities (19 shown, 11 thin omitted)
+- Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 18 edges (avg confidence: 0.77)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `4b668ec9`
+- Built from commit: `e820c465`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
-- load-subject-data.ts
+- agendamento/page.tsx
 - Graphify Skill Docs
-- AttendanceCalendar.tsx
-- Package Dependencies
-- date-formatters.ts
+- Decisões fundamentais do Vitru
+- devDependencies
+- exam-schedule-selectors.ts
 - TypeScript Config
 - TestRunner.tsx
-- User Switcher & Data Loading
+- load-user-index.ts
 - User Data Manifest (Joao Pedro)
 - User Data Manifest (Baixa Frequencia)
 - User Data Manifest (Em Dia)
@@ -38,37 +38,36 @@
 - Next.js Icon
 - Vercel Icon
 - Window Icon
-- DisciplineCard.tsx
+- ExamScheduleView.tsx
 - index.tsx
-- LessonView.tsx
-- use-learning-path-progress.ts
-- LessonChat.tsx
-- learning-path-selectors.ts
-- LearningPathView.tsx
+- n8n do Vitru
+- infra/README.md
+- discipline-selectors.ts
+- workflows/README.md
 
 ## God Nodes (most connected - your core abstractions)
 1. `Graphify Skill (/graphify Pipeline)` - 29 edges
-2. `StudyActivity` - 20 edges
-3. `resolveActiveUserId()` - 19 edges
-4. `formatDateBr()` - 18 edges
-5. `loadDisciplines()` - 17 edges
-6. `compilerOptions` - 16 edges
-7. `findDisciplineByCode()` - 15 edges
-8. `getAssistantResponse()` - 15 edges
-9. `readUserJsonFileOptional()` - 14 edges
-10. `AppShell()` - 13 edges
+2. `resolveActiveUserId()` - 22 edges
+3. `formatDateBr()` - 22 edges
+4. `loadDisciplines()` - 20 edges
+5. `StudyActivity` - 20 edges
+6. `findDisciplineByCode()` - 17 edges
+7. `compilerOptions` - 16 edges
+8. `readUserJsonFileOptional()` - 15 edges
+9. `toIsoDateKey()` - 15 edges
+10. `getAssistantResponse()` - 15 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Next.js Breaking-Changes Notice` --semantically_similar_to--> `Honesty Rules`  [INFERRED] [semantically similar]
   AGENTS.md → .claude/skills/graphify/SKILL.md
-- `DisciplineCard()` --calls--> `getDisciplineHeroImageSrc()`  [EXTRACTED]
-  components/home/DisciplineCard.tsx → lib/selectors/discipline-selectors.ts
-- `ActivityBlockProps` --references--> `StudyActivity`  [EXTRACTED]
-  components/study-planner/ActivityBlock.tsx → lib/types/study-activity.ts
-- `DayGridViewProps` --references--> `StudyActivity`  [EXTRACTED]
-  components/study-planner/DayGridView.tsx → lib/types/study-activity.ts
-- `MonthGridViewProps` --references--> `StudyActivity`  [EXTRACTED]
-  components/study-planner/MonthGridView.tsx → lib/types/study-activity.ts
+- `StudyCalendarPage()` --calls--> `buildSeedActivities()`  [EXTRACTED]
+  app/calendario-de-estudos/page.tsx → lib/study-planner/seed-activities.ts
+- `ExamSchedulePage()` --calls--> `loadClassmates()`  [EXTRACTED]
+  app/disciplinas/[subjectCode]/notas-avaliacoes/[testCode]/agendamento/page.tsx → lib/data/load-classmates.ts
+- `ExamSchedulePage()` --calls--> `groupRelatedStudents()`  [EXTRACTED]
+  app/disciplinas/[subjectCode]/notas-avaliacoes/[testCode]/agendamento/page.tsx → lib/exam-schedule/group-related-students.ts
+- `ExamSchedulePage()` --calls--> `buildScheduledSession()`  [EXTRACTED]
+  app/disciplinas/[subjectCode]/notas-avaliacoes/[testCode]/agendamento/page.tsx → lib/selectors/exam-schedule-selectors.ts
 
 ## Import Cycles
 - None detected.
@@ -78,39 +77,39 @@
 - **Graphify Optional Export Targets** — _claude_skills_graphify_references_exports_wiki_export, _claude_skills_graphify_references_exports_neo4j_export, _claude_skills_graphify_references_exports_falkordb_export, _claude_skills_graphify_references_exports_svg_graphml_export, _claude_skills_graphify_references_exports_mcp_server [EXTRACTED 1.00]
 - **Query/Path/Explain Feedback Loop via save-result** — _claude_skills_graphify_references_query_graphify_query, _claude_skills_graphify_references_query_graphify_path, _claude_skills_graphify_references_query_graphify_explain, _claude_skills_graphify_references_query_save_result, _claude_skills_graphify_references_query_reflect_lessons [EXTRACTED 1.00]
 
-## Communities (30 total, 9 thin omitted)
+## Communities (30 total, 11 thin omitted)
 
-### Community 0 - "load-subject-data.ts"
-Cohesion: 0.08
-Nodes (52): StudyCalendarPage(), SubjectCalendarPage(), AttendancePage(), AssessmentsPage(), AnswerTestPage(), DisciplinePage(), AttendanceLogPage(), LearningPathLessonPage() (+44 more)
+### Community 0 - "agendamento/page.tsx"
+Cohesion: 0.13
+Nodes (39): StudyCalendarPage(), SubjectCalendarPage(), AssessmentsPage(), ExamSchedulePage(), AnswerTestPage(), DisciplinePage(), AttendanceLogPage(), LearningPathLessonPage() (+31 more)
 
 ### Community 1 - "Graphify Skill Docs"
 Cohesion: 0.05
 Nodes (52): Graphify Skill Trigger (/graphify), /graphify add <url>, --watch Background Watcher, FalkorDB Export (--falkordb/--falkordb-push), MCP Stdio Server (--mcp), Neo4j Export (--neo4j/--neo4j-push), SVG/GraphML Export, Token Reduction Benchmark (+44 more)
 
-### Community 2 - "AttendanceCalendar.tsx"
-Cohesion: 0.11
-Nodes (28): AttendanceCalendar(), MeetingsPanel(), MeetingsPanelProps, CalendarDay(), CalendarDayProps, CalendarGrid(), CalendarGridProps, CalendarMonthNavigation() (+20 more)
+### Community 2 - "Decisões fundamentais do Vitru"
+Cohesion: 0.13
+Nodes (13): AWS, Ações que exigem confirmação, Dados no WhatsApp, Decisões fundamentais do Vitru, Evolução, Identidade e canais, Identificação e confirmação, MVP (+5 more)
 
-### Community 3 - "Package Dependencies"
+### Community 3 - "devDependencies"
 Cohesion: 0.06
-Nodes (32): eslint, eslint-config-next, next, dependencies, next, react, react-dom, devDependencies (+24 more)
+Nodes (35): eslint, eslint-config-next, next, dependencies, next, react, react-dom, devDependencies (+27 more)
 
-### Community 4 - "date-formatters.ts"
-Cohesion: 0.09
-Nodes (27): AssessmentAction(), AssessmentActionProps, AssessmentCard(), AssessmentCardProps, AssessmentStatus(), CompletedTestSummary(), SemesterHeader(), RecordedClassesModal() (+19 more)
+### Community 4 - "exam-schedule-selectors.ts"
+Cohesion: 0.06
+Nodes (55): AssessmentAction(), AssessmentActionProps, AssessmentCard(), AssessmentCardProps, AssessmentStatus(), CompletedTestSummary(), AttendanceProgress(), CalendarDay() (+47 more)
 
 ### Community 5 - "TypeScript Config"
 Cohesion: 0.07
 Nodes (28): dom, dom.iterable, esnext, **/*.mts, .next/dev/types/**/*.ts, next-env.d.ts, .next/types/**/*.ts, node_modules (+20 more)
 
 ### Community 6 - "TestRunner.tsx"
-Cohesion: 0.17
+Cohesion: 0.18
 Nodes (12): TestInfoCard(), TestQuestionCard(), TestQuestionCardProps, TestRunner(), TestStepper(), TestStepperProps, TestToolbar(), TestToolbarProps (+4 more)
 
-### Community 7 - "User Switcher & Data Loading"
-Cohesion: 0.16
-Nodes (11): UserSwitcher(), UserSwitcherProps, ACTIVE_USER_COOKIE, DataInvalidError, DataNotFoundError, loadUserManifest(), readUserJsonFile(), USER_DATA_ROOT (+3 more)
+### Community 7 - "load-user-index.ts"
+Cohesion: 0.13
+Nodes (14): UserSwitcher(), UserSwitcherProps, ACTIVE_USER_COOKIE, DataInvalidError, DataNotFoundError, loadClassmates(), loadUserManifest(), readUserJsonFile() (+6 more)
 
 ### Community 8 - "User Data Manifest (Joao Pedro)"
 Cohesion: 0.10
@@ -126,7 +125,7 @@ Nodes (19): datasets, currentSemester, disciplines, financialTitles, sofiaDadosA
 
 ### Community 11 - "StudyPlannerView.tsx"
 Cohesion: 0.06
-Nodes (82): PlusIcon(), TrashIcon(), ActivityBlock(), ActivityBlockProps, ActivityFormDraft, ActivityFormModal(), ActivityFormModalProps, AssistantPanel() (+74 more)
+Nodes (81): CheckCircleIcon(), PlusIcon(), ActivityBlock(), ActivityBlockProps, ActivityFormDraft, ActivityFormModal(), ActivityFormModalProps, AssistantPanel() (+73 more)
 
 ### Community 12 - "AppShellChrome.tsx"
 Cohesion: 0.24
@@ -136,53 +135,41 @@ Nodes (8): AppShellChrome(), AppShellChromeProps, Header(), HeaderProps, initial
 Cohesion: 0.67
 Nodes (3): create-next-app Bootstrap, Next.js Framework, Vercel Deployment
 
-### Community 23 - "DisciplineCard.tsx"
-Cohesion: 0.24
-Nodes (9): DisciplineCard(), DisciplineCardProps, DisciplineCarousel(), DisciplineCarouselProps, ChevronLeftIcon(), ClockIcon(), DISCIPLINE_STATUS_LABELS, formatWeekdayLabel() (+1 more)
+### Community 23 - "ExamScheduleView.tsx"
+Cohesion: 0.07
+Nodes (43): CityComparisonNotice(), ClassmatesSection(), ClassmatesSectionProps, initials(), StudentConnectionCard(), ExamDateCalendarProps, buildAddressLine(), buildMapQuery() (+35 more)
 
 ### Community 24 - "index.tsx"
-Cohesion: 0.23
-Nodes (14): BookOpenIcon(), BriefcaseIcon(), CalendarIcon(), ChevronRightIcon(), FileTextIcon(), GiftIcon(), GlobeIcon(), HeadsetIcon() (+6 more)
+Cohesion: 0.06
+Nodes (59): BookOpenIcon(), BriefcaseIcon(), CalendarIcon(), ChevronDownIcon(), ChevronRightIcon(), ClockIcon(), FileTextIcon(), GiftIcon() (+51 more)
 
-### Community 25 - "LessonView.tsx"
-Cohesion: 0.18
-Nodes (11): PlayCircleIcon(), TerminalIcon(), LearningPathViewProps, LessonMarkdown(), renderInline(), LessonVideos(), LessonViewProps, LearningPathLessonKind (+3 more)
+### Community 26 - "n8n do Vitru"
+Cohesion: 0.29
+Nodes (6): Limites deste ambiente, n8n do Vitru, Operação, Preparação, Serviços, Workflows
 
-### Community 26 - "use-learning-path-progress.ts"
-Cohesion: 0.36
-Nodes (10): subscribeNoop(), useHasHydrated(), useLearningPathProgress(), EMPTY_IDS, getServerCompletedLessonIdsSnapshot(), getStoredCompletedLessonIdsSnapshot(), markLessonCompletedInStorage(), readSnapshot() (+2 more)
-
-### Community 27 - "LessonChat.tsx"
-Cohesion: 0.18
-Nodes (8): SendIcon(), SparklesIcon(), ChatMessage, LessonChat(), LessonChatProps, QUICK_PROMPTS, PlannerHeader(), PlannerHeaderProps
-
-### Community 28 - "learning-path-selectors.ts"
-Cohesion: 0.27
-Nodes (10): LessonView(), buildLessonStatuses(), findLessonNavigation(), flattenLessons(), getLessonSummary(), groupSectionsWithProgress(), LessonStatus, LessonWithStatus (+2 more)
-
-### Community 29 - "LearningPathView.tsx"
-Cohesion: 0.22
-Nodes (7): CheckCircleIcon(), ChevronDownIcon(), LayersIcon(), LockIcon(), TargetIcon(), LearningPathView(), findCurrentLesson()
+### Community 28 - "discipline-selectors.ts"
+Cohesion: 0.08
+Nodes (30): HomePage(), AcademicShortcuts(), AcademicShortcutsProps, STATIC_SHORTCUTS, DisciplineCard(), DisciplineCardProps, DisciplineCarousel(), DisciplineCarouselProps (+22 more)
 
 ## Knowledge Gaps
-- **163 isolated node(s):** `AcademicShortcutsProps`, `STATIC_SHORTCUTS`, `DisciplineCardProps`, `DisciplineCarouselProps`, `AppShellChromeProps` (+158 more)
+- **186 isolated node(s):** `metadata`, `TestStepperProps`, `TestToolbarProps`, `CalendarDayProps`, `CalendarGridProps` (+181 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **9 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **11 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `formatDateBr()` connect `date-formatters.ts` to `load-subject-data.ts`, `AttendanceCalendar.tsx`, `StudyPlannerView.tsx`?**
-  _High betweenness centrality (0.027) - this node is a cross-community bridge._
-- **Why does `StudyActivity` connect `StudyPlannerView.tsx` to `AttendanceCalendar.tsx`?**
-  _High betweenness centrality (0.016) - this node is a cross-community bridge._
-- **What connects `AcademicShortcutsProps`, `STATIC_SHORTCUTS`, `DisciplineCardProps` to the rest of the system?**
-  _163 weakly-connected nodes found - possible documentation gaps or missing edges._
-- **Should `load-subject-data.ts` be split into smaller, more focused modules?**
-  _Cohesion score 0.08291139240506329 - nodes in this community are weakly interconnected._
+- **Why does `formatDateBr()` connect `exam-schedule-selectors.ts` to `agendamento/page.tsx`, `StudyPlannerView.tsx`?**
+  _High betweenness centrality (0.029) - this node is a cross-community bridge._
+- **Why does `EmptyState()` connect `agendamento/page.tsx` to `ExamScheduleView.tsx`?**
+  _High betweenness centrality (0.015) - this node is a cross-community bridge._
+- **Why does `StudyActivity` connect `StudyPlannerView.tsx` to `exam-schedule-selectors.ts`?**
+  _High betweenness centrality (0.012) - this node is a cross-community bridge._
+- **What connects `metadata`, `TestStepperProps`, `TestToolbarProps` to the rest of the system?**
+  _186 weakly-connected nodes found - possible documentation gaps or missing edges._
+- **Should `agendamento/page.tsx` be split into smaller, more focused modules?**
+  _Cohesion score 0.12542372881355932 - nodes in this community are weakly interconnected._
 - **Should `Graphify Skill Docs` be split into smaller, more focused modules?**
   _Cohesion score 0.05429864253393665 - nodes in this community are weakly interconnected._
-- **Should `AttendanceCalendar.tsx` be split into smaller, more focused modules?**
-  _Cohesion score 0.11265969802555169 - nodes in this community are weakly interconnected._
-- **Should `Package Dependencies` be split into smaller, more focused modules?**
-  _Cohesion score 0.06060606060606061 - nodes in this community are weakly interconnected._
+- **Should `Decisões fundamentais do Vitru` be split into smaller, more focused modules?**
+  _Cohesion score 0.13333333333333333 - nodes in this community are weakly interconnected._

@@ -7,7 +7,12 @@ interface CalendarGridProps {
   markedDayKeys: Set<string>;
   selectedIsoDate: string | null;
   onSelectDay: (isoDate: string) => void;
+  /** Dias sem opção de agendamento (fora da janela, no passado ou lotados) — desabilitados, nunca selecionáveis. */
+  disabledDayKeys?: Set<string>;
+  dayAriaLabel?: (isoDate: string, day: number, isDisabled: boolean) => string;
 }
+
+const EMPTY_DISABLED_KEYS: Set<string> = new Set();
 
 export function CalendarGrid({
   year,
@@ -15,6 +20,8 @@ export function CalendarGrid({
   markedDayKeys,
   selectedIsoDate,
   onSelectDay,
+  disabledDayKeys = EMPTY_DISABLED_KEYS,
+  dayAriaLabel,
 }: CalendarGridProps) {
   const cells = buildMonthGrid(year, month);
 
@@ -26,16 +33,23 @@ export function CalendarGrid({
         ))}
       </div>
       <div className="grid grid-cols-7 gap-1">
-        {cells.map((cell) => (
-          <CalendarDay
-            key={cell.isoDate}
-            day={cell.day}
-            isCurrentMonth={cell.isCurrentMonth}
-            isMarked={markedDayKeys.has(cell.isoDate)}
-            isSelected={cell.isoDate === selectedIsoDate}
-            onSelect={() => onSelectDay(cell.isoDate)}
-          />
-        ))}
+        {cells.map((cell) => {
+          const isDisabled = disabledDayKeys.has(cell.isoDate);
+          return (
+            <CalendarDay
+              key={cell.isoDate}
+              day={cell.day}
+              isCurrentMonth={cell.isCurrentMonth}
+              isMarked={markedDayKeys.has(cell.isoDate)}
+              isSelected={cell.isoDate === selectedIsoDate}
+              isDisabled={isDisabled}
+              ariaLabel={dayAriaLabel?.(cell.isoDate, cell.day, isDisabled)}
+              onSelect={() => {
+                if (!isDisabled) onSelectDay(cell.isoDate);
+              }}
+            />
+          );
+        })}
       </div>
     </div>
   );

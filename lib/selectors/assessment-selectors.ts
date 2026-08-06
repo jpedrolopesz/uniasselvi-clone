@@ -7,7 +7,11 @@ import { formatDateBr } from "@/lib/formatters/date-formatters";
  * com can_answer=false renderizando o botão desabilitado. `is_online` também
  * não determina sozinho o texto do botão (havia is_online=false com o texto
  * "Responder on-line" mesmo assim). A regra usada aqui:
- *  - need_schedule=true  -> ação "Agendar prova", habilitada conforme has_schedule/allow_after_period
+ *  - need_schedule=true  -> ação "Agendar prova"/"Ver agendamento", sempre
+ *    habilitada quando show_button=true (a página de agendamento trata os
+ *    dois estados — ainda não agendada ou já agendada/gerenciável — então
+ *    `has_schedule=true` não é mais motivo para desabilitar o botão aqui,
+ *    diferente da leitura original antes de essa página existir)
  *  - caso contrário       -> ação "Responder on-line", habilitada por can_answer
  *
  * `grade` e `answers_published_date` só existem no dado real quando a
@@ -30,8 +34,8 @@ export function deriveAssessmentUiState(
   if (assessment.need_schedule) {
     return {
       actionKind: "agendar-prova",
-      actionLabel: "Agendar prova",
-      isActionEnabled: assessment.show_button && !assessment.has_schedule,
+      actionLabel: assessment.has_schedule ? "Ver agendamento" : "Agendar prova",
+      isActionEnabled: assessment.show_button,
       ...gradeAndPublished,
     };
   }

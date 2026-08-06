@@ -1,0 +1,56 @@
+[
+  {
+    "id": "opt-1",
+    "data": "15/08/2026",
+    "hora_inicio": "08:00:00",
+    "hora_fim": "10:00:00",
+    "capacity": 30,
+    "available_slots": 30,
+    "location": {
+      "id": "loc-chapeco",
+      "nome": "Polo Chapecó Centro",
+      "endereco": "Rua Marechal Deodoro",
+      "numero": "480",
+      "bairro": "Centro",
+      "cidade": "Chapecó",
+      "sigla": "SC",
+      "cep": "89802-210"
+    }
+  },
+  {
+    "id": "opt-2",
+    "data": "16/08/2026",
+    "hora_inicio": "14:00:00",
+    "hora_fim": "16:00:00",
+    "capacity": 20,
+    "available_slots": 0,
+    "location": {
+      "id": "loc-chapeco",
+      "nome": "Polo Chapecó Centro",
+      "endereco": "Rua Marechal Deodoro",
+      "numero": "480",
+      "bairro": "Centro",
+      "cidade": "Chapecó",
+      "sigla": "SC",
+      "cep": "89802-210"
+    }
+  },
+  {
+    "id": "opt-3",
+    "data": "22/08/2026",
+    "hora_inicio": "09:00:00",
+    "hora_fim": "11:00:00",
+    "capacity": 25,
+    "available_slots": 3,
+    "location": {
+      "id": "loc-blumenau",
+      "nome": "Unidade Blumenau",
+      "endereco": "Rua das Missões",
+      "numero": "121",
+      "bairro": "Centro",
+      "cidade": "Blumenau",
+      "sigla": "SC",
+      "cep": "89010-000"
+    }
+  }
+]

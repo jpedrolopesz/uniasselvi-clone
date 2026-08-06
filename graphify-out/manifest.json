@@ -9,11 +9,6 @@
     "ast_hash": "0353c8408d20ee528cd6abe4d41ab387",
     "semantic_hash": "0353c8408d20ee528cd6abe4d41ab387"
   },
-  "app/disciplinas/[subjectCode]/frequencia/page.tsx": {
-    "mtime": 1785708581.7044008,
-    "ast_hash": "b4960c8cf130e3b0e8480341189f4fd3",
-    "semantic_hash": "b4960c8cf130e3b0e8480341189f4fd3"
-  },
   "app/disciplinas/[subjectCode]/notas-avaliacoes/[testCode]/page.tsx": {
     "mtime": 1785716702.9572067,
     "ast_hash": "5e70495646b4d05154eb64746cc9987c",
@@ -25,8 +20,8 @@
     "semantic_hash": "20a4299840cf3b229e72d40920263a24"
   },
   "app/disciplinas/[subjectCode]/page.tsx": {
-    "mtime": 1785934556.9243333,
-    "ast_hash": "5d4c265c5e8f865afed40331f0161d60",
+    "mtime": 1785936337.7222595,
+    "ast_hash": "7333ce890ebd8306ab104cda089816f0",
     "semantic_hash": ""
   },
   "app/layout.tsx": {
@@ -45,9 +40,9 @@
     "semantic_hash": "4f025827950f89faedb4ff4b86aeff3e"
   },
   "components/assessments/AssessmentCard.tsx": {
-    "mtime": 1785717455.676373,
-    "ast_hash": "3b9dbd28066605140a8ab5d18621c62d",
-    "semantic_hash": "3b9dbd28066605140a8ab5d18621c62d"
+    "mtime": 1785937456.722931,
+    "ast_hash": "6ebe13f7e8b23c081c376cf50e8fae0e",
+    "semantic_hash": ""
   },
   "components/assessments/AssessmentStatus.tsx": {
     "mtime": 1785708521.4262304,
@@ -84,30 +79,20 @@
     "ast_hash": "97c60db208601f0ef4616165730f0c69",
     "semantic_hash": "97c60db208601f0ef4616165730f0c69"
   },
-  "components/attendance/AttendanceCalendar.tsx": {
-    "mtime": 1785708572.180476,
-    "ast_hash": "0cebe4f3b9f5164ebdc5e98bb9ea9fa3",
-    "semantic_hash": "0cebe4f3b9f5164ebdc5e98bb9ea9fa3"
-  },
   "components/attendance/AttendanceProgress.tsx": {
     "mtime": 1785708554.0816672,
     "ast_hash": "168023a009437967c244489438c1d6e5",
     "semantic_hash": "168023a009437967c244489438c1d6e5"
   },
-  "components/attendance/MeetingsPanel.tsx": {
-    "mtime": 1785708562.3004167,
-    "ast_hash": "116886d52159816d13a81959bfd96b6d",
-    "semantic_hash": "116886d52159816d13a81959bfd96b6d"
-  },
   "components/calendar/CalendarDay.tsx": {
-    "mtime": 1785708464.7056022,
-    "ast_hash": "aa18d6793179729f2ed99615e0ffb2a8",
-    "semantic_hash": "aa18d6793179729f2ed99615e0ffb2a8"
+    "mtime": 1785937158.167393,
+    "ast_hash": "c5445d2a3037b82e6a40b51eaf362fec",
+    "semantic_hash": ""
   },
   "components/calendar/CalendarGrid.tsx": {
-    "mtime": 1785708486.9805558,
-    "ast_hash": "f5dcc37faac955d38d018f783904523b",
-    "semantic_hash": "f5dcc37faac955d38d018f783904523b"
+    "mtime": 1785937169.440838,
+    "ast_hash": "2003487d31eb3128ab131bdedff993c4",
+    "semantic_hash": ""
   },
   "components/calendar/CalendarMonthNavigation.tsx": {
     "mtime": 1785708480.1238117,
@@ -135,8 +120,8 @@
     "semantic_hash": ""
   },
   "components/home/DisciplineCard.tsx": {
-    "mtime": 1785934491.3366923,
-    "ast_hash": "1ce31eb5d04f090b257f52308c33f1aa",
+    "mtime": 1785934807.1919293,
+    "ast_hash": "3af2af06ecb370c4e72411413e56979c",
     "semantic_hash": ""
   },
   "components/home/DisciplineCarousel.tsx": {
@@ -185,9 +170,9 @@
     "semantic_hash": ""
   },
   "components/layout/SubpageHeader.tsx": {
-    "mtime": 1785708416.4336526,
-    "ast_hash": "eeffae4b0655233e8830a31b47f7fb66",
-    "semantic_hash": "eeffae4b0655233e8830a31b47f7fb66"
+    "mtime": 1785935743.6859174,
+    "ast_hash": "7193bafaa2dfa5e486c2ce0786783ee1",
+    "semantic_hash": ""
   },
   "components/recordings/RecordedClassesModal.tsx": {
     "mtime": 1785896071.1663973,
@@ -215,8 +200,8 @@
     "semantic_hash": "37dfa94ff1d4c9279b9a0047211bad61"
   },
   "lib/data/load-subject-data.ts": {
-    "mtime": 1785890613.954465,
-    "ast_hash": "0f7a11d9565fc68e16b438d146ad367d",
+    "mtime": 1785937107.4039388,
+    "ast_hash": "b1df3ed1e0486a557d18c1cb59cc06a3",
     "semantic_hash": ""
   },
   "lib/data/load-user-data.ts": {
@@ -255,14 +240,9 @@
     "semantic_hash": "158765ad96acc552940a74a6a2e80f46"
   },
   "lib/selectors/assessment-selectors.ts": {
-    "mtime": 1785717436.1417465,
-    "ast_hash": "0f79d2ff9315a38e85d791fc31748060",
-    "semantic_hash": "0f79d2ff9315a38e85d791fc31748060"
-  },
-  "lib/selectors/attendance-selectors.ts": {
-    "mtime": 1785707789.5775785,
-    "ast_hash": "6e570b178bb6461ccecb8c91721fb9e1",
-    "semantic_hash": "6e570b178bb6461ccecb8c91721fb9e1"
+    "mtime": 1785938344.5391383,
+    "ast_hash": "5fe6fe24c75dfc846f358863d57088cc",
+    "semantic_hash": ""
   },
   "lib/selectors/calendar-selectors.ts": {
     "mtime": 1785708457.1821766,
@@ -280,9 +260,9 @@
     "semantic_hash": "498d089f8bd3c90fc829b00cc1285058"
   },
   "lib/types/derived/index.ts": {
-    "mtime": 1785707723.974635,
-    "ast_hash": "66ff8189afcc0b320f7082d387bf7333",
-    "semantic_hash": "66ff8189afcc0b320f7082d387bf7333"
+    "mtime": 1785937211.9267764,
+    "ast_hash": "9f31ca97289b04ee8f68e130eedd8321",
+    "semantic_hash": ""
   },
   "lib/types/raw/assessments.ts": {
     "mtime": 1785717423.0260718,
@@ -345,9 +325,9 @@
     "semantic_hash": "9b77af189a21a7a64e4bd7a426f64176"
   },
   "package.json": {
-    "mtime": 1785707551.7698977,
-    "ast_hash": "e0dd4431c07c55d68c1df9e04d453569",
-    "semantic_hash": "e0dd4431c07c55d68c1df9e04d453569"
+    "mtime": 1785937598.219298,
+    "ast_hash": "135ad148a7da83b36bfd78e741a644f5",
+    "semantic_hash": ""
   },
   "postcss.config.mjs": {
     "mtime": 1785707551.7683434,
@@ -445,9 +425,9 @@
     "semantic_hash": "eb1420c4b50f0d5bf06127d3b56fdd91"
   },
   "public/data/user/usuario-ficticio-baixa-frequencia/subjects/GTI03/assessments.json": {
-    "mtime": 1785717512.3800335,
-    "ast_hash": "f564da58d1f181d01fed6ab8dc6b69bc",
-    "semantic_hash": "f564da58d1f181d01fed6ab8dc6b69bc"
+    "mtime": 1785937545.3531797,
+    "ast_hash": "f14fb42f7dc23f2f316511d9135fd292",
+    "semantic_hash": ""
   },
   "public/data/user/usuario-ficticio-baixa-frequencia/subjects/GTI03/attendances.json": {
     "mtime": 1785708067.5343163,
@@ -700,8 +680,8 @@
     "semantic_hash": ""
   },
   "app/calendario-de-estudos/page.tsx": {
-    "mtime": 1785898654.9569027,
-    "ast_hash": "b3a528ddd4faa524a02f3f14bb3f80be",
+    "mtime": 1785936306.765184,
+    "ast_hash": "d864a400022019a912d5298413b2d278",
     "semantic_hash": ""
   },
   "components/study-planner/ActivityBlock.tsx": {
@@ -734,14 +714,9 @@
     "ast_hash": "c63d7c84cc68592d959d26a012a03d5a",
     "semantic_hash": ""
   },
-  "components/study-planner/PlannerHeader.tsx": {
-    "mtime": 1785898602.0592587,
-    "ast_hash": "115eb3b1bbce4d51b7b547ce40dadee5",
-    "semantic_hash": ""
-  },
   "components/study-planner/StudyPlannerView.tsx": {
-    "mtime": 1785898635.7775915,
-    "ast_hash": "a2ae54b59e18dc1161b19461db9e1d3d",
+    "mtime": 1785935795.090737,
+    "ast_hash": "49f85a2e61a37cc708d505acde8e7ca1",
     "semantic_hash": ""
   },
   "components/study-planner/SuggestionCard.tsx": {
@@ -842,6 +817,161 @@
   "public/data/user/joao-pedro-lopes-zamonelo/subjects/images/sistemas-aplicacoes-distribuidas.png": {
     "mtime": 1785933644.025996,
     "ast_hash": "d0b8989fc5e9a86bae78c709837bcd73",
+    "semantic_hash": ""
+  },
+  "app/disciplinas/[subjectCode]/notas-avaliacoes/[testCode]/agendamento/page.tsx": {
+    "mtime": 1785938538.74658,
+    "ast_hash": "77c1ef1fa5bdc30364c7647ce2b40c54",
+    "semantic_hash": ""
+  },
+  "components/exam-schedule/CityComparisonNotice.tsx": {
+    "mtime": 1785937311.2690122,
+    "ast_hash": "4e878c2d1b61228b400baa0e6fe391e4",
+    "semantic_hash": ""
+  },
+  "components/exam-schedule/ClassmatesSection.tsx": {
+    "mtime": 1785937330.8880618,
+    "ast_hash": "53b59e8321ac41ff3974d0451e80d7cb",
+    "semantic_hash": ""
+  },
+  "components/exam-schedule/ExamDateCalendar.tsx": {
+    "mtime": 1785937288.9965417,
+    "ast_hash": "6465cb29feb83cccee09dea05cfc231e",
+    "semantic_hash": ""
+  },
+  "components/exam-schedule/ExamLocationCard.tsx": {
+    "mtime": 1785937303.8687875,
+    "ast_hash": "1d2e638fccf5ff4c7b7328c045a9000c",
+    "semantic_hash": ""
+  },
+  "components/exam-schedule/ExamScheduleHeader.tsx": {
+    "mtime": 1785938514.6744757,
+    "ast_hash": "512be0ec0e54feea12cdbdcf23302544",
+    "semantic_hash": ""
+  },
+  "components/exam-schedule/ExamScheduleSummary.tsx": {
+    "mtime": 1785937341.2143059,
+    "ast_hash": "9acdeb22f66addf7918bff0a86a003fa",
+    "semantic_hash": ""
+  },
+  "components/exam-schedule/ExamScheduleView.tsx": {
+    "mtime": 1785939256.15854,
+    "ast_hash": "0b770e54517883f539f0084712ff00f6",
+    "semantic_hash": ""
+  },
+  "lib/data/load-classmates.ts": {
+    "mtime": 1785937130.7216873,
+    "ast_hash": "57723490b90d1c2d80462e1676e7f7ac",
+    "semantic_hash": ""
+  },
+  "lib/data/read-shared-json-file.ts": {
+    "mtime": 1785937124.565349,
+    "ast_hash": "f30daa9581adf126e5eb4317d7f9ab6e",
+    "semantic_hash": ""
+  },
+  "lib/exam-schedule/group-related-students.test.ts": {
+    "mtime": 1785937657.199143,
+    "ast_hash": "f9c07ad8c6291cced9c42d9c46a9e1fd",
+    "semantic_hash": ""
+  },
+  "lib/exam-schedule/group-related-students.ts": {
+    "mtime": 1785936990.8260076,
+    "ast_hash": "ad75e4099640936d739234a904415a97",
+    "semantic_hash": ""
+  },
+  "lib/exam-schedule/normalize-city.test.ts": {
+    "mtime": 1785937635.4308162,
+    "ast_hash": "254394145d1dac8f35e9c362ca81908e",
+    "semantic_hash": ""
+  },
+  "lib/exam-schedule/normalize-city.ts": {
+    "mtime": 1785936947.662336,
+    "ast_hash": "494ec7fa9c993110c5152d979b9433d5",
+    "semantic_hash": ""
+  },
+  "lib/exam-schedule/schedule-storage.ts": {
+    "mtime": 1785937035.2159786,
+    "ast_hash": "78dabd96591a5fe47a875aa1f53d05cb",
+    "semantic_hash": ""
+  },
+  "lib/selectors/exam-schedule-selectors.test.ts": {
+    "mtime": 1785937679.495057,
+    "ast_hash": "fce02ed9e8680c852ff96a5ba4a1c035",
+    "semantic_hash": ""
+  },
+  "lib/selectors/exam-schedule-selectors.ts": {
+    "mtime": 1785937234.4418318,
+    "ast_hash": "565c8d1b8195a70f86c4c3d8380a0b07",
+    "semantic_hash": ""
+  },
+  "lib/types/raw/classmates.ts": {
+    "mtime": 1785936930.735323,
+    "ast_hash": "b38c8b223b403518adf9da6313b68552",
+    "semantic_hash": ""
+  },
+  "lib/types/raw/exam-schedule-options.ts": {
+    "mtime": 1785936922.1583772,
+    "ast_hash": "1f76b83f12d9231ad916300033bfbd31",
+    "semantic_hash": ""
+  },
+  "public/data/shared/classmates/FLD6835406.json": {
+    "mtime": 1785937574.3812037,
+    "ast_hash": "b8987cae07145ae7680e32537a8f4ce2",
+    "semantic_hash": ""
+  },
+  "public/data/user/usuario-ficticio-baixa-frequencia/subjects/GTI03/tests/TST-AV3-GTI03-PRESENCIAL/schedule-options.json": {
+    "mtime": 1785937565.484873,
+    "ast_hash": "ba44142977016cd1ef3a5cd31d549e95",
+    "semantic_hash": ""
+  },
+  "vitest.config.mts": {
+    "mtime": 1785937715.325878,
+    "ast_hash": "c110317ffe6d8632ba892cd4dc33cd00",
+    "semantic_hash": ""
+  },
+  "components/exam-schedule/ExamScheduleSituationLabel.tsx": {
+    "mtime": 1785938506.5440617,
+    "ast_hash": "7cb9e86387bfeb85dd24a36f2af90c62",
+    "semantic_hash": ""
+  },
+  "lib/exam-schedule/use-effective-schedule-status.ts": {
+    "mtime": 1785938469.614536,
+    "ast_hash": "dabd056f20eb1ba43277ccaf4600069a",
+    "semantic_hash": ""
+  },
+  "public/data/user/joao-pedro-lopes-zamonelo/subjects/GTI03/tests/124207739/schedule-options.json": {
+    "mtime": 1785938364.8225,
+    "ast_hash": "5557d2eca4047945294f5e24f356699e",
+    "semantic_hash": ""
+  },
+  "vitru/README.md": {
+    "mtime": 1785939092.9122047,
+    "ast_hash": "41f81bd68b5c54e887b3467fad2b8b42",
+    "semantic_hash": ""
+  },
+  "vitru/docs/fundamental-decisions.md": {
+    "mtime": 1785939093.1539965,
+    "ast_hash": "ca5424c2b03ed4935136afc10b79e286",
+    "semantic_hash": ""
+  },
+  "vitru/infra/README.md": {
+    "mtime": 1785939093.3751194,
+    "ast_hash": "f12c7ae8dc5cd5093f1638bc578953a0",
+    "semantic_hash": ""
+  },
+  "vitru/n8n/README.md": {
+    "mtime": 1785939254.882369,
+    "ast_hash": "0cd5fc51b5172f1647bcab4393943c0a",
+    "semantic_hash": ""
+  },
+  "vitru/n8n/compose.yaml": {
+    "mtime": 1785939255.0058954,
+    "ast_hash": "3cfe7e36839a142ce14ac468ce3b47cd",
+    "semantic_hash": ""
+  },
+  "vitru/n8n/workflows/README.md": {
+    "mtime": 1785939255.4834313,
+    "ast_hash": "d3bd623b9f9b2837d7f311f4497e596d",
     "semantic_hash": ""
   }
 }

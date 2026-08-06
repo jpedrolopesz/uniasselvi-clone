@@ -1,0 +1,63 @@
+[
+  {
+    "student_id": "joao-pedro-lopes-zamonelo",
+    "display_name": "João Pedro",
+    "city_name": "Blumenau",
+    "city_state": "SC",
+    "class": "FLD6835406",
+    "course_code": "ENGSOFT",
+    "exam_schedule": {
+      "TST-AV3-GTI03-PRESENCIAL": { "schedule_option_id": "opt-3", "location_id": "loc-blumenau" }
+    },
+    "allow_classmates_to_see_me": true,
+    "allow_students_from_my_city_to_see_me": true,
+    "allow_travel_connection": true
+  },
+  {
+    "student_id": "classmate-ana-souza",
+    "display_name": "Ana Souza",
+    "city_name": "Chapecó",
+    "city_state": "SC",
+    "class": "FLD6835406",
+    "course_code": "ADM",
+    "exam_schedule": {
+      "TST-AV3-GTI03-PRESENCIAL": { "schedule_option_id": "opt-1", "location_id": "loc-chapeco" }
+    },
+    "allow_classmates_to_see_me": true,
+    "allow_students_from_my_city_to_see_me": true,
+    "allow_travel_connection": true
+  },
+  {
+    "student_id": "classmate-bruno-lima",
+    "display_name": "Bruno Lima",
+    "city_name": "Chapecó",
+    "city_state": "SC",
+    "class": "FLD6835406",
+    "course_code": "ADM",
+    "allow_classmates_to_see_me": true,
+    "allow_students_from_my_city_to_see_me": false,
+    "allow_travel_connection": true
+  },
+  {
+    "student_id": "classmate-carla-mendes",
+    "display_name": "Carla Mendes",
+    "city_name": "Florianópolis",
+    "city_state": "SC",
+    "class": "FLD6835406",
+    "course_code": "ADM",
+    "allow_classmates_to_see_me": true,
+    "allow_students_from_my_city_to_see_me": true,
+    "allow_travel_connection": true
+  },
+  {
+    "student_id": "classmate-diego-alves",
+    "display_name": "Diego Alves",
+    "city_name": "Chapecó",
+    "city_state": "SC",
+    "class": "FLD6835406",
+    "course_code": "ADM",
+    "allow_classmates_to_see_me": false,
+    "allow_students_from_my_city_to_see_me": true,
+    "allow_travel_connection": false
+  }
+]
