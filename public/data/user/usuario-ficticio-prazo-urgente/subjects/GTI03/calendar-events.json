@@ -1,0 +1,47 @@
+[
+  {
+    "code": "EVT-001",
+    "acts_ndis": "1",
+    "acts_orde": "1",
+    "begin_date": "2026-08-05",
+    "begin_hour": "19:00",
+    "class": "FLD6835406",
+    "description": "Aula ao vivo — Introdução à Modelagem de Processos (BPMN)",
+    "end_date": "2026-08-05",
+    "end_hour": "21:00",
+    "subject": "GTI03",
+    "subject_code": "GTI03",
+    "subject_name": "Modelagem e Gestão de Processos de Negócios",
+    "year_month": "2026-08"
+  },
+  {
+    "code": "EVT-002",
+    "acts_ndis": "1",
+    "acts_orde": "2",
+    "begin_date": "2026-08-12",
+    "begin_hour": "19:00",
+    "class": "FLD6835406",
+    "description": "Aula ao vivo — Notação BPMN na prática",
+    "end_date": "2026-08-19",
+    "end_hour": "21:00",
+    "subject": "GTI03",
+    "subject_code": "GTI03",
+    "subject_name": "Modelagem e Gestão de Processos de Negócios",
+    "year_month": "2026-08"
+  },
+  {
+    "code": "EVT-003",
+    "acts_ndis": "1",
+    "acts_orde": "3",
+    "begin_date": "2026-08-26",
+    "begin_hour": "19:00",
+    "class": "FLD6835406",
+    "description": "Plantão de dúvidas — Avaliação I",
+    "end_date": "2026-08-26",
+    "end_hour": "20:00",
+    "subject": "GTI03",
+    "subject_code": "GTI03",
+    "subject_name": "Modelagem e Gestão de Processos de Negócios",
+    "year_month": "2026-08"
+  }
+]

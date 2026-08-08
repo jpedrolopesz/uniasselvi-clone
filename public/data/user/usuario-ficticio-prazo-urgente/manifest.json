@@ -1,0 +1,32 @@
+{
+  "userId": "usuario-ficticio-prazo-urgente",
+  "isFictional": true,
+  "displayLabel": "Usuário Fictício — Prazo Urgente",
+  "scenario": "Aluno com atividade aberta cujo prazo termina no dia seguinte à data simulada.",
+  "scenarioCode": "deadline_tomorrow",
+  "simulationDate": "2026-08-16",
+  "cohortBaseUserId": "joao-pedro-lopes-zamonelo",
+  "datasets": {
+    "userData": true,
+    "currentSemester": true,
+    "sofiaDadosAluno": true,
+    "disciplines": true,
+    "financialTitles": true,
+    "studyActivities": true
+  },
+  "subjects": [
+    "159490",
+    "GTI03",
+    "MAT24",
+    "114480",
+    "GTI04"
+  ],
+  "screens": [
+    "home",
+    "calendario",
+    "notas-avaliacoes",
+    "frequencia",
+    "gravacoes"
+  ],
+  "notes": "Aluno fictício da mesma oferta acadêmica e das mesmas turmas do perfil-base."
+}

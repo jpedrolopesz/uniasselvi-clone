@@ -18,12 +18,17 @@ export interface UserManifest {
   isFictional: boolean;
   displayLabel: string;
   scenario: string;
+  scenarioCode?: string;
+  simulationDate?: string;
+  cohortBaseUserId?: string;
   datasets: {
     userData: boolean;
     currentSemester: boolean;
     sofiaDadosAluno: boolean;
     disciplines: boolean;
     financialTitles: boolean;
+    studyActivities?: boolean;
+    workSchedule?: boolean;
   };
   subjects: string[];
   screens: string[];

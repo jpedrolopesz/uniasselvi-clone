@@ -1,0 +1,11 @@
+{
+  "label": "Trabalho — turno da noite",
+  "startTime": "22:00",
+  "endTime": "06:00",
+  "weekdays": [1, 2, 3, 4, 5],
+  "restAfterShift": {
+    "label": "Descanso pós-turno",
+    "startTime": "06:00",
+    "endTime": "14:00"
+  }
+}

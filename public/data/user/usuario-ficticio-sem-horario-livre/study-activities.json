@@ -1,0 +1,86 @@
+[
+  {
+    "id": "personal-sem-horario-1",
+    "title": "Cuidados familiares",
+    "category": "pessoal",
+    "subjectCode": null,
+    "subjectName": null,
+    "date": "2026-08-06",
+    "startTime": "06:00",
+    "endTime": "14:00",
+    "notes": "Dado fictício para simulação do Vitru.",
+    "source": "seed"
+  },
+  {
+    "id": "personal-sem-horario-2",
+    "title": "Cuidados familiares",
+    "category": "pessoal",
+    "subjectCode": null,
+    "subjectName": null,
+    "date": "2026-08-07",
+    "startTime": "06:00",
+    "endTime": "14:00",
+    "notes": "Dado fictício para simulação do Vitru.",
+    "source": "seed"
+  },
+  {
+    "id": "personal-sem-horario-3",
+    "title": "Compromissos pessoais",
+    "category": "pessoal",
+    "subjectCode": null,
+    "subjectName": null,
+    "date": "2026-08-08",
+    "startTime": "06:00",
+    "endTime": "22:00",
+    "notes": "Dado fictício para simulação do Vitru.",
+    "source": "seed"
+  },
+  {
+    "id": "personal-sem-horario-4",
+    "title": "Compromissos pessoais",
+    "category": "pessoal",
+    "subjectCode": null,
+    "subjectName": null,
+    "date": "2026-08-09",
+    "startTime": "06:00",
+    "endTime": "22:00",
+    "notes": "Dado fictício para simulação do Vitru.",
+    "source": "seed"
+  },
+  {
+    "id": "personal-sem-horario-5",
+    "title": "Cuidados familiares",
+    "category": "pessoal",
+    "subjectCode": null,
+    "subjectName": null,
+    "date": "2026-08-10",
+    "startTime": "06:00",
+    "endTime": "14:00",
+    "notes": "Dado fictício para simulação do Vitru.",
+    "source": "seed"
+  },
+  {
+    "id": "personal-sem-horario-6",
+    "title": "Cuidados familiares",
+    "category": "pessoal",
+    "subjectCode": null,
+    "subjectName": null,
+    "date": "2026-08-11",
+    "startTime": "06:00",
+    "endTime": "14:00",
+    "notes": "Dado fictício para simulação do Vitru.",
+    "source": "seed"
+  },
+  {
+    "id": "personal-sem-horario-7",
+    "title": "Cuidados familiares",
+    "category": "pessoal",
+    "subjectCode": null,
+    "subjectName": null,
+    "date": "2026-08-12",
+    "startTime": "06:00",
+    "endTime": "14:00",
+    "notes": "Dado fictício para simulação do Vitru.",
+    "source": "seed"
+  }
+]

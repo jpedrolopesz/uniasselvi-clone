@@ -4,7 +4,6 @@ import { useMemo, useState } from "react";
 import type { StudyActivity } from "@/lib/types/study-activity";
 import type { AssistantSuggestion, SubjectOption } from "@/lib/study-planner/ai-assistant";
 import {
-  generateActivityId,
   removeActivity,
   upsertActivity,
 } from "@/lib/study-planner/calendar-logic";
@@ -12,7 +11,6 @@ import {
   addDays,
   buildWeekDays,
   formatWeekdayFullLabel,
-  getTodayIsoDate,
   minutesToTime,
   parseIsoDate,
   timeToMinutes,
@@ -30,8 +28,10 @@ import { DayGridView } from "@/components/study-planner/DayGridView";
 import { ActivityFormModal, type ActivityFormDraft } from "@/components/study-planner/ActivityFormModal";
 
 interface StudyPlannerViewProps {
+  userId: string;
   seedActivities: StudyActivity[];
   subjects: SubjectOption[];
+  planningDate: string;
 }
 
 function addMonths(isoDate: string, delta: number): string {
@@ -40,12 +40,18 @@ function addMonths(isoDate: string, delta: number): string {
   return toIso(date.getUTCFullYear(), date.getUTCMonth() + 1, 1);
 }
 
-export function StudyPlannerView({ seedActivities, subjects }: StudyPlannerViewProps) {
+export function StudyPlannerView({
+  userId,
+  seedActivities,
+  subjects,
+  planningDate,
+}: StudyPlannerViewProps) {
   const [activities, setActivities] = useState<StudyActivity[]>(seedActivities);
   const [viewMode, setViewMode] = useState<StudyPlannerViewMode>("week");
-  const [selectedIsoDate, setSelectedIsoDate] = useState(getTodayIsoDate());
+  const [selectedIsoDate, setSelectedIsoDate] = useState(planningDate);
   const [formDraft, setFormDraft] = useState<ActivityFormDraft | null>(null);
   const [isAssistantOpen, setIsAssistantOpen] = useState(false);
+  const [isAssistantExpanded, setIsAssistantExpanded] = useState(false);
 
   const periodLabel = useMemo(() => {
     if (viewMode === "day") {
@@ -76,7 +82,7 @@ export function StudyPlannerView({ seedActivities, subjects }: StudyPlannerViewP
   }
 
   function handleToday() {
-    setSelectedIsoDate(getTodayIsoDate());
+    setSelectedIsoDate(planningDate);
   }
 
   function handleSelectDayFromMonth(isoDate: string) {
@@ -121,20 +127,24 @@ export function StudyPlannerView({ seedActivities, subjects }: StudyPlannerViewP
     setFormDraft(null);
   }
 
-  function handleAcceptSuggestion(suggestion: AssistantSuggestion) {
-    const activity: StudyActivity = {
-      id: generateActivityId("ai"),
-      title: suggestion.title,
-      category: suggestion.category,
-      subjectCode: suggestion.subjectCode,
-      subjectName: suggestion.subjectName,
-      date: suggestion.date,
-      startTime: suggestion.startTime,
-      endTime: suggestion.endTime,
-      notes: suggestion.notes,
-      source: "ai",
+  async function handleAcceptSuggestion(suggestion: AssistantSuggestion) {
+    const response = await fetch("/api/v1/vitru/study-plan/confirm", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        action: "CREATE_STUDY_PLAN",
+        userId,
+        suggestionIds: [suggestion.id],
+      }),
+    });
+    const result = await response.json();
+    if (!response.ok || !result.ok) throw new Error("Falha ao confirmar etapa.");
+
+    const persisted = result.data.created[0] ?? {
+      ...suggestion,
+      source: "ai" as const,
     };
-    setActivities((current) => upsertActivity(current, activity));
+    setActivities((current) => upsertActivity(current, persisted));
   }
 
   return (
@@ -146,20 +156,25 @@ export function StudyPlannerView({ seedActivities, subjects }: StudyPlannerViewP
           className="flex items-center gap-2 rounded-full bg-bg-card px-4 py-2 text-sm font-medium text-white transition hover:bg-bg-card-hover"
         >
           <SparklesIcon className="h-4 w-4 text-brand-yellow" />
-          Assistente Sofia
+          Vitru · Calendário
         </button>
       </div>
 
       <div className="flex h-[75vh] min-h-140 flex-col gap-4 md:gap-6 lg:flex-row">
-        <div className="hidden min-h-0 lg:block lg:w-95 lg:shrink-0">
+        <div
+          className={`hidden min-h-0 shrink-0 transition-[width] duration-300 ease-out lg:block ${
+            isAssistantExpanded ? "lg:w-[48%]" : "lg:w-95"
+          }`}
+        >
           <AssistantPanel
-            activities={activities}
-            subjects={subjects}
+            userId={userId}
             onAcceptSuggestion={handleAcceptSuggestion}
+            isExpanded={isAssistantExpanded}
+            onToggleExpanded={() => setIsAssistantExpanded((current) => !current)}
           />
         </div>
 
-        <div className="flex min-h-0 flex-1 flex-col overflow-hidden rounded-2xl bg-bg-card">
+        <div className="flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden rounded-2xl bg-bg-card transition-[width] duration-300 ease-out">
           <CalendarToolbar
             viewMode={viewMode}
             onChangeViewMode={setViewMode}
@@ -201,12 +216,11 @@ export function StudyPlannerView({ seedActivities, subjects }: StudyPlannerViewP
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 lg:hidden"
           role="dialog"
           aria-modal="true"
-          aria-label="Assistente Sofia"
+          aria-label="Vitru · Calendário"
         >
           <div className="h-[85vh] w-full max-w-md">
             <AssistantPanel
-              activities={activities}
-              subjects={subjects}
+              userId={userId}
               onAcceptSuggestion={handleAcceptSuggestion}
               onClose={() => setIsAssistantOpen(false)}
             />

@@ -1,0 +1,246 @@
+{
+  "name": "vitru-whatsapp-inbound-interactive",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "vitru/v1/whatsapp/inbound",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [-560, 0],
+      "id": "3c83908a-8ab5-4f35-bbb7-a681853a62a3",
+      "name": "WhatsApp Inbound"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const body = $json.body ?? {};\nconst from = String(body.From ?? \"\");\nconst message = String(body.Body ?? \"\").trim();\nconst phone = from.replace(/^whatsapp:/i, \"\").replace(/\\D/g, \"\");\nconst planningIntent = /avaliac|prova|trabalho|atividade|prazo|calendario|estud|agenda|horario|organizar/i.test(message);\n\nreturn {\n  json: {\n    channel: \"whatsapp\",\n    agent: planningIntent ? \"study_planner\" : \"universal\",\n    phone,\n    from,\n    to: String(body.To ?? \"\"),\n    message,\n    messageSid: String(body.MessageSid ?? \"\"),\n    conversationId: `whatsapp-${phone}`\n  }\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [-336, 0],
+      "id": "8219ca1f-8fe6-45ec-ad7a-93f2db77884a",
+      "name": "Normalize WhatsApp Message"
+    },
+    {
+      "parameters": {
+        "url": "http://host.docker.internal:3000/api/v1/vitru/identity/whatsapp",
+        "sendQuery": true,
+        "queryParameters": {
+          "parameters": [
+            {
+              "name": "phone",
+              "value": "={{ $json.phone }}"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [-112, 0],
+      "id": "ee9ef3ac-b377-4026-8b10-f72bf0519879",
+      "name": "Identify Student"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const inbound = $(\"Normalize WhatsApp Message\").first().json;\n\nif (!$json.ok || !$json.data?.userId) {\n  throw new Error(\"Telefone não vinculado a um aluno.\");\n}\n\nreturn {\n  json: {\n    channel: \"whatsapp\",\n    agent: inbound.agent,\n    userId: $json.data.userId,\n    conversationId: inbound.conversationId,\n    message: inbound.message\n  }\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [112, 0],
+      "id": "92a27083-72ac-47c7-9b07-b917c54cef34",
+      "name": "Prepare Vitru Request"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "http://host.docker.internal:3000/api/v1/vitru/chat",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "contentType": "raw",
+        "rawContentType": "application/json",
+        "body": "={{ JSON.stringify($json) }}",
+        "options": {
+          "timeout": 60000
+        }
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [336, 0],
+      "id": "ac30c3ae-cf28-4982-86a3-49631b5a2de6",
+      "name": "Call Vitru Router"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "options": {
+            "caseSensitive": true,
+            "leftValue": "",
+            "typeValidation": "strict",
+            "version": 3
+          },
+          "conditions": [
+            {
+              "id": "8305a5aa-4484-431f-ae0b-b7e6fdc15f2f",
+              "leftValue": "={{ $json.data?.suggestions?.length ?? 0 }}",
+              "rightValue": 0,
+              "operator": {
+                "type": "number",
+                "operation": "gt"
+              }
+            }
+          ],
+          "combinator": "and"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 2.3,
+      "position": [560, 0],
+      "id": "013bda35-ddae-421a-94ab-98b1611a365d",
+      "name": "Has Study Suggestions?"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const suggestion = $json.data.suggestions[0];\nconst inbound = $(\"Normalize WhatsApp Message\").first().json;\nconst [year, month, day] = suggestion.date.split(\"-\");\n\nreturn {\n  json: {\n    from: inbound.to,\n    to: inbound.from,\n    contentVariables: JSON.stringify({\n      \"1\": suggestion.title,\n      \"2\": `${day}/${month}/${year}`,\n      \"3\": `${suggestion.startTime} às ${suggestion.endTime}`,\n      \"4\": suggestion.id\n    })\n  }\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [784, -144],
+      "id": "f75be7d6-68c8-4329-a1a7-3a75ff765d26",
+      "name": "Build Quick Reply"
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.twilio.com/2010-04-01/Accounts/AC9d124aa632c7c331d46b537857c01059/Messages.json",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpBasicAuth",
+        "sendBody": true,
+        "contentType": "form-urlencoded",
+        "bodyParameters": {
+          "parameters": [
+            { "name": "From", "value": "={{ $json.from }}" },
+            { "name": "To", "value": "={{ $json.to }}" },
+            { "name": "ContentSid", "value": "HXdaaae7fd5ba8507d73f10979a03fdbed" },
+            { "name": "ContentVariables", "value": "={{ $json.contentVariables }}" }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.4,
+      "position": [1008, -144],
+      "id": "34510e10-2a18-4e6d-b992-e669cd831ee7",
+      "name": "Send Quick Reply",
+      "credentials": {
+        "httpBasicAuth": {
+          "name": "Twilio API - Vitru Development"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "",
+        "options": {
+          "responseCode": 200
+        }
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [1232, -144],
+      "id": "f66636bc-2213-4dfb-acac-e5a536cda5e0",
+      "name": "Acknowledge Interactive Reply"
+    },
+    {
+      "parameters": {
+        "mode": "runOnceForEachItem",
+        "jsCode": "const reply = String($json.data?.replyText ?? \"O Vitru está temporariamente indisponível. Tente novamente em alguns instantes.\").trim();\nconst safeReply = reply\n  .replace(/&/g, \"&amp;\")\n  .replace(/</g, \"&lt;\")\n  .replace(/>/g, \"&gt;\")\n  .replace(/\\\"/g, \"&quot;\")\n  .replace(/'/g, \"&apos;\");\n\nreturn {\n  json: {\n    twiml: `<?xml version=\"1.0\" encoding=\"UTF-8\"?><Response><Message>${safeReply}</Message></Response>`\n  }\n};"
+      },
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [784, 144],
+      "id": "a43ad038-4aed-45eb-bdb5-0ce4231269aa",
+      "name": "Build TwiML Response"
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "={{ $json.twiml }}",
+        "options": {
+          "responseCode": 200,
+          "responseHeaders": {
+            "entries": [
+              {
+                "name": "Content-Type",
+                "value": "text/xml; charset=utf-8"
+              }
+            ]
+          }
+        }
+      },
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.5,
+      "position": [1008, 144],
+      "id": "10200702-5491-4ba6-9682-c6d550404fca",
+      "name": "Reply to Twilio"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "WhatsApp Inbound": {
+      "main": [[{"node": "Normalize WhatsApp Message", "type": "main", "index": 0}]]
+    },
+    "Normalize WhatsApp Message": {
+      "main": [[{"node": "Identify Student", "type": "main", "index": 0}]]
+    },
+    "Identify Student": {
+      "main": [[{"node": "Prepare Vitru Request", "type": "main", "index": 0}]]
+    },
+    "Prepare Vitru Request": {
+      "main": [[{"node": "Call Vitru Router", "type": "main", "index": 0}]]
+    },
+    "Call Vitru Router": {
+      "main": [[{"node": "Has Study Suggestions?", "type": "main", "index": 0}]]
+    },
+    "Has Study Suggestions?": {
+      "main": [
+        [{"node": "Build Quick Reply", "type": "main", "index": 0}],
+        [{"node": "Build TwiML Response", "type": "main", "index": 0}]
+      ]
+    },
+    "Build Quick Reply": {
+      "main": [[{"node": "Send Quick Reply", "type": "main", "index": 0}]]
+    },
+    "Send Quick Reply": {
+      "main": [[{"node": "Acknowledge Interactive Reply", "type": "main", "index": 0}]]
+    },
+    "Build TwiML Response": {
+      "main": [[{"node": "Reply to Twilio", "type": "main", "index": 0}]]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "34ee978c-dd85-4fb3-85c3-e9ddcb96cfa9",
+  "meta": {
+    "templateCredsSetupCompleted": true
+  },
+  "tags": []
+}

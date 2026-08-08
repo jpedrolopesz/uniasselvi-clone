@@ -12,23 +12,12 @@ interface HeaderProps {
   fullName: string;
   courseName: string;
   subscriptionCode: string;
-  onToggleSidebar?: () => void;
 }
 
-export function Header({ fullName, courseName, subscriptionCode, onToggleSidebar }: HeaderProps) {
+export function Header({ fullName, courseName, subscriptionCode }: HeaderProps) {
   return (
     <header className="flex h-16 shrink-0 items-center justify-between bg-brand-yellow px-6 text-black">
       <div className="flex items-center gap-3">
-        {onToggleSidebar && (
-          <button
-            type="button"
-            aria-label="Abrir ou fechar menu"
-            onClick={onToggleSidebar}
-            className="text-xl leading-none text-black/70 transition hover:text-black md:hidden"
-          >
-            ☰
-          </button>
-        )}
         <Image src={uniasselviLogo} alt="UNIASSELVI" className="h-7 w-auto" priority />
       </div>
 

@@ -1,7 +1,9 @@
 import type { CalendarEventRaw } from "@/lib/types/raw/calendar-events";
 import type { StudyActivity } from "@/lib/types/study-activity";
+import type { WorkScheduleRaw } from "@/lib/types/raw/work-schedule";
 import { toIsoDateKey } from "@/lib/formatters/date-formatters";
 import { formatHourMinute } from "@/lib/formatters/time-formatters";
+import { addDays, getWeekdayIndex, timeToMinutes } from "@/lib/study-planner/date-utils";
 
 /**
  * Converte os eventos reais de calendario-events.json (aulas ao vivo,
@@ -31,4 +33,79 @@ export function buildSeedActivities(eventsBySubject: CalendarEventRaw[]): StudyA
       };
     })
     .filter((activity): activity is StudyActivity => activity !== null);
+}
+
+function workActivity(
+  id: string,
+  title: string,
+  date: string,
+  startTime: string,
+  endTime: string,
+  category: "trabalho" | "pessoal"
+): StudyActivity {
+  return {
+    id,
+    title,
+    category,
+    subjectCode: null,
+    subjectName: null,
+    date,
+    startTime,
+    endTime,
+    notes: "Rotina fictícia usada para simular a disponibilidade do aluno EAD.",
+    source: "seed",
+  };
+}
+
+/**
+ * Expande uma jornada semanal em blocos datados. Turnos que atravessam a
+ * meia-noite são divididos em dois para manter os cálculos de conflito
+ * corretos. O descanso pós-turno é opcional e útil para jornadas noturnas.
+ */
+export function buildWorkScheduleActivities(
+  schedule: WorkScheduleRaw,
+  fromIsoDate: string,
+  toIsoDate: string
+): StudyActivity[] {
+  const activities: StudyActivity[] = [];
+
+  for (let date = fromIsoDate; date <= toIsoDate; date = addDays(date, 1)) {
+    if (!schedule.weekdays.includes(getWeekdayIndex(date))) continue;
+
+    const overnight = timeToMinutes(schedule.endTime) <= timeToMinutes(schedule.startTime);
+    if (!overnight) {
+      activities.push(
+        workActivity(
+          `work-${date}`,
+          schedule.label,
+          date,
+          schedule.startTime,
+          schedule.endTime,
+          "trabalho"
+        )
+      );
+      continue;
+    }
+
+    const nextDate = addDays(date, 1);
+    activities.push(
+      workActivity(`work-${date}-start`, schedule.label, date, schedule.startTime, "24:00", "trabalho"),
+      workActivity(`work-${date}-end`, schedule.label, nextDate, "00:00", schedule.endTime, "trabalho")
+    );
+
+    if (schedule.restAfterShift) {
+      activities.push(
+        workActivity(
+          `rest-${date}`,
+          schedule.restAfterShift.label,
+          nextDate,
+          schedule.restAfterShift.startTime,
+          schedule.restAfterShift.endTime,
+          "pessoal"
+        )
+      );
+    }
+  }
+
+  return activities;
 }

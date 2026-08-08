@@ -1,0 +1,32 @@
+{
+  "userId": "usuario-ficticio-agendamento-pendente",
+  "isFictional": true,
+  "displayLabel": "Usuário Fictício — Agendamento Pendente",
+  "scenario": "Aluno com prova presencial que exige agendamento e possui opções disponíveis.",
+  "scenarioCode": "schedule_required",
+  "simulationDate": "2026-08-06",
+  "cohortBaseUserId": "joao-pedro-lopes-zamonelo",
+  "datasets": {
+    "userData": true,
+    "currentSemester": true,
+    "sofiaDadosAluno": true,
+    "disciplines": true,
+    "financialTitles": true,
+    "studyActivities": true
+  },
+  "subjects": [
+    "159490",
+    "GTI03",
+    "MAT24",
+    "114480",
+    "GTI04"
+  ],
+  "screens": [
+    "home",
+    "calendario",
+    "notas-avaliacoes",
+    "frequencia",
+    "gravacoes"
+  ],
+  "notes": "Aluno fictício da mesma oferta acadêmica e das mesmas turmas do perfil-base."
+}

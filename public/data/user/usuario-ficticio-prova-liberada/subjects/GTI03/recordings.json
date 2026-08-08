@@ -1,0 +1,16 @@
+[
+  {
+    "date_end_recording": "2026-08-05 21:05:00",
+    "date_recording": "2026-08-05 19:00:00",
+    "duration": "01:58:00",
+    "link_youtube": "https://www.youtube.com/watch?v=exemplo-gti03-aula1",
+    "title": "FLD6811591CET - Aula 1 - Introdução à Modelagem de Processos (BPMN)"
+  },
+  {
+    "date_end_recording": "2026-08-12 21:10:00",
+    "date_recording": "2026-08-12 19:00:00",
+    "duration": "02:04:00",
+    "link_youtube": "https://www.youtube.com/watch?v=exemplo-gti03-aula2",
+    "title": "FLD6811591CET - Aula 2 - Notação BPMN na prática"
+  }
+]

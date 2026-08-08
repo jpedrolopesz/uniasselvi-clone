@@ -10,7 +10,21 @@
     "disciplines": true,
     "financialTitles": true
   },
-  "subjects": ["GTI03"],
-  "screens": ["home", "calendario", "notas-avaliacoes", "frequencia", "gravacoes"],
-  "notes": "Usuário fictício criado para testes de interface — não representa uma pessoa real. Mesma estrutura de campos dos dados reais, valores ajustados apenas para representar o cenário saudável."
+  "subjects": [
+    "159490",
+    "GTI03",
+    "MAT24",
+    "114480",
+    "GTI04"
+  ],
+  "screens": [
+    "home",
+    "calendario",
+    "notas-avaliacoes",
+    "frequencia",
+    "gravacoes"
+  ],
+  "notes": "Usuário fictício criado para testes de interface — não representa uma pessoa real. Mesma estrutura de campos dos dados reais, valores ajustados apenas para representar o cenário saudável.",
+  "cohortBaseUserId": "joao-pedro-lopes-zamonelo",
+  "simulationDate": "2026-08-06"
 }

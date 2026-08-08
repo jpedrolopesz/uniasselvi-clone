@@ -23,6 +23,11 @@ export function ActivityBlock({ activity, style, onSelect }: ActivityBlockProps)
         {activity.startTime}–{activity.endTime}
         {activity.subjectName ? ` · ${activity.subjectName}` : ""}
       </p>
+      {activity.source === "ai" && (
+        <p className="mt-0.5 truncate text-[10px] font-semibold opacity-90">
+          ✨ Criado pelo Vitru
+        </p>
+      )}
     </button>
   );
 }

@@ -1,0 +1,39 @@
+[
+  {
+    "id": "opt-blumenau-1",
+    "data": "18/08/2026",
+    "hora_inicio": "09:00:00",
+    "hora_fim": "09:30:00",
+    "capacity": 40,
+    "available_slots": 18,
+    "location": {
+      "id": "loc-blumenau",
+      "nome": "Unidade Blumenau",
+      "endereco": "Rua das Missões",
+      "numero": "121",
+      "bairro": "Centro",
+      "cidade": "Blumenau",
+      "sigla": "SC",
+      "cep": "89010-000"
+    }
+  },
+  {
+    "id": "opt-jundiai-2",
+    "data": "20/08/2026",
+    "hora_inicio": "15:00:00",
+    "hora_fim": "15:30:00",
+    "capacity": 20,
+    "available_slots": 6,
+    "location": {
+      "id": "loc-jundiai",
+      "nome": "Sala 1",
+      "endereco": "RUA CAP. CASSIANO RICARDO DE TOLEDO",
+      "numero": "191",
+      "complemento": "Loja 45",
+      "bairro": "CHÁCARA URBANA",
+      "cidade": "JUNDIAÍ",
+      "sigla": "SP",
+      "cep": "13201-840"
+    }
+  }
+]

@@ -14,6 +14,36 @@
       "id": "usuario-ficticio-em-dia",
       "label": "Usuário Fictício — Em Dia",
       "isFictional": true
+    },
+    {
+      "id": "usuario-ficticio-prazo-urgente",
+      "label": "Usuário Fictício — Prazo Urgente",
+      "isFictional": true
+    },
+    {
+      "id": "usuario-ficticio-atividades-acumuladas",
+      "label": "Usuário Fictício — Atividades Acumuladas",
+      "isFictional": true
+    },
+    {
+      "id": "usuario-ficticio-prova-liberada",
+      "label": "Usuário Fictício — Prova Liberada",
+      "isFictional": true
+    },
+    {
+      "id": "usuario-ficticio-agendamento-pendente",
+      "label": "Usuário Fictício — Agendamento Pendente",
+      "isFictional": true
+    },
+    {
+      "id": "usuario-ficticio-conflito-horarios",
+      "label": "Usuário Fictício — Conflito de Horários",
+      "isFictional": true
+    },
+    {
+      "id": "usuario-ficticio-sem-horario-livre",
+      "label": "Usuário Fictício — Sem Horário Livre",
+      "isFictional": true
     }
   ],
   "defaultUserId": "joao-pedro-lopes-zamonelo"

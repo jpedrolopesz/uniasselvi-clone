@@ -1,0 +1,6 @@
+{
+  "label": "Trabalho — turno da tarde",
+  "startTime": "14:00",
+  "endTime": "22:00",
+  "weekdays": [1, 2, 3, 4, 5]
+}

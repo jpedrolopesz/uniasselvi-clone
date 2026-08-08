@@ -7,7 +7,7 @@ import { loadUserIndex } from "@/lib/data/load-user-index";
 interface AppShellProps {
   activeUserId: string;
   children: ReactNode;
-  /** Modo imersivo (ex.: leitor da trilha): ocupa a altura da viewport, esconde a Sidebar e deixa o conteúdo controlar sua própria rolagem. */
+  /** Modo imersivo (ex.: leitor da trilha): ocupa a altura da viewport, esconde a TabBar e deixa o conteúdo controlar sua própria rolagem. */
   fullBleed?: boolean;
 }
 

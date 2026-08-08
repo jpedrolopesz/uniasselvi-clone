@@ -1,0 +1,115 @@
+{
+  "frequency": 75,
+  "frequency_diary": [
+    {
+      "alun_codi": "9100004",
+      "attendance": "S",
+      "code": "FRQ-001",
+      "discipline": "GTI03",
+      "discipline_name": "Modelagem e Gestão de Processos de Negócios",
+      "event_date": "2026-08-05",
+      "realeased_date": "2026-08-06 08:00:00",
+      "specialization": "Engenharia de Software",
+      "turn": "NOITE"
+    },
+    {
+      "alun_codi": "9100004",
+      "attendance": "S",
+      "code": "FRQ-002",
+      "discipline": "GTI03",
+      "discipline_name": "Modelagem e Gestão de Processos de Negócios",
+      "event_date": "2026-08-12",
+      "realeased_date": "2026-08-13 08:00:00",
+      "specialization": "Engenharia de Software",
+      "turn": "NOITE"
+    },
+    {
+      "alun_codi": "9100004",
+      "attendance": "N",
+      "code": "FRQ-003",
+      "discipline": "GTI03",
+      "discipline_name": "Modelagem e Gestão de Processos de Negócios",
+      "event_date": "2026-08-19",
+      "realeased_date": "2026-08-20 08:00:00",
+      "specialization": "Engenharia de Software",
+      "turn": "NOITE"
+    }
+  ],
+  "meetings": [
+    {
+      "acts_ndis": "1",
+      "acts_orde": "1",
+      "begin_date": "2026-08-05",
+      "begin_hour": "19:00",
+      "class": "FLD6835406",
+      "code": "ENC-001",
+      "description": "Encontro 1 — Introdução à Modelagem de Processos",
+      "end_date": "2026-08-05",
+      "end_hour": "21:00",
+      "subject": "GTI03",
+      "subject_code": "GTI03",
+      "subject_name": "Modelagem e Gestão de Processos de Negócios",
+      "year_month": "2026-08"
+    },
+    {
+      "acts_ndis": "1",
+      "acts_orde": "2",
+      "begin_date": "2026-08-12",
+      "begin_hour": "19:00",
+      "class": "FLD6835406",
+      "code": "ENC-002",
+      "description": "Encontro 2 — Notação BPMN na prática",
+      "end_date": "2026-08-12",
+      "end_hour": "21:00",
+      "subject": "GTI03",
+      "subject_code": "GTI03",
+      "subject_name": "Modelagem e Gestão de Processos de Negócios",
+      "year_month": "2026-08"
+    },
+    {
+      "acts_ndis": "1",
+      "acts_orde": "3",
+      "begin_date": "2026-08-19",
+      "begin_hour": "19:00",
+      "class": "FLD6835406",
+      "code": "ENC-003",
+      "description": "Encontro 3 — Modelagem AS-IS e TO-BE",
+      "end_date": "2026-08-19",
+      "end_hour": "21:00",
+      "subject": "GTI03",
+      "subject_code": "GTI03",
+      "subject_name": "Modelagem e Gestão de Processos de Negócios",
+      "year_month": "2026-08"
+    },
+    {
+      "acts_ndis": "1",
+      "acts_orde": "4",
+      "begin_date": "2026-08-26",
+      "begin_hour": "19:00",
+      "class": "FLD6835406",
+      "code": "ENC-004",
+      "description": "Encontro 4 — Indicadores de processo",
+      "end_date": "2026-08-26",
+      "end_hour": "21:00",
+      "subject": "GTI03",
+      "subject_code": "GTI03",
+      "subject_name": "Modelagem e Gestão de Processos de Negócios",
+      "year_month": "2026-08"
+    },
+    {
+      "acts_ndis": "1",
+      "acts_orde": "5",
+      "begin_date": "2026-09-02",
+      "begin_hour": "19:00",
+      "class": "FLD6835406",
+      "code": "ENC-005",
+      "description": "Encontro 5 — Ferramentas de BPM",
+      "end_date": "2026-09-02",
+      "end_hour": "21:00",
+      "subject": "GTI03",
+      "subject_code": "GTI03",
+      "subject_name": "Modelagem e Gestão de Processos de Negócios",
+      "year_month": "2026-09"
+    }
+  ]
+}

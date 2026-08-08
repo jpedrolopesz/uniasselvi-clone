@@ -1,0 +1,26 @@
+[
+  {
+    "id": "personal-usuario-ficticio-conflito-horarios-2",
+    "title": "Compromisso familiar",
+    "category": "pessoal",
+    "subjectCode": null,
+    "subjectName": null,
+    "date": "2026-08-06",
+    "startTime": "18:00",
+    "endTime": "22:00",
+    "notes": "Dado fictício para simulação do Vitru.",
+    "source": "seed"
+  },
+  {
+    "id": "personal-usuario-ficticio-conflito-horarios-4",
+    "title": "Consulta e deslocamento",
+    "category": "pessoal",
+    "subjectCode": null,
+    "subjectName": null,
+    "date": "2026-08-08",
+    "startTime": "09:00",
+    "endTime": "13:00",
+    "notes": "Dado fictício para simulação do Vitru.",
+    "source": "seed"
+  }
+]

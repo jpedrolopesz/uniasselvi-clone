@@ -41,14 +41,14 @@ export function SuggestionCard({ suggestion, status, onAccept, onReject }: Sugge
         </div>
       </dl>
 
-      {status === "pending" && (
+      {(status === "pending" || status === "error") && (
         <div className="mt-3 flex gap-2">
           <button
             type="button"
             onClick={onAccept}
             className="flex-1 rounded-full bg-brand-yellow px-3 py-1.5 text-xs font-semibold text-black transition hover:bg-brand-yellow-dark"
           >
-            Adicionar ao calendário
+            {status === "error" ? "Tentar novamente" : "Adicionar ao calendário"}
           </button>
           <button
             type="button"
@@ -60,6 +60,12 @@ export function SuggestionCard({ suggestion, status, onAccept, onReject }: Sugge
         </div>
       )}
 
+      {status === "saving" && (
+        <p className="mt-3 text-xs font-semibold text-brand-yellow">
+          Adicionando ao calendário…
+        </p>
+      )}
+
       {status === "accepted" && (
         <p className="mt-3 flex items-center gap-1.5 text-xs font-semibold text-accent-green">
           <CheckCircleIcon className="h-4 w-4" />
@@ -69,6 +75,12 @@ export function SuggestionCard({ suggestion, status, onAccept, onReject }: Sugge
 
       {status === "rejected" && (
         <p className="mt-3 text-xs text-text-secondary">Sugestão recusada.</p>
+      )}
+
+      {status === "error" && (
+        <p className="mt-2 text-xs text-accent-red">
+          Não foi possível adicionar. O plano pode ter mudado.
+        </p>
       )}
     </div>
   );

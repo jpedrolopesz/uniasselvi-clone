@@ -24,7 +24,7 @@ export function UserSwitcher({ users, activeUserId }: UserSwitcherProps) {
   }
 
   return (
-    <div className="fixed bottom-3 right-3 z-50 flex items-center gap-2 rounded-lg border border-border-subtle bg-bg-card px-3 py-2 text-xs shadow-lg">
+    <div className="fixed bottom-20 right-3 z-50 flex items-center gap-2 rounded-lg border border-border-subtle bg-bg-card px-3 py-2 text-xs shadow-lg">
       <span className="text-text-secondary">DEV · usuário ativo</span>
       <select
         value={activeUserId}

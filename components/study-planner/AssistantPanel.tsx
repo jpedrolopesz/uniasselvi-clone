@@ -5,17 +5,15 @@ import { SendIcon, SparklesIcon } from "@/components/icons";
 import { SuggestionCard } from "@/components/study-planner/SuggestionCard";
 import type { ChatMessage } from "@/components/study-planner/chat-types";
 import {
-  getAssistantResponse,
   QUICK_PROMPTS,
   type AssistantSuggestion,
-  type SubjectOption,
 } from "@/lib/study-planner/ai-assistant";
-import type { StudyActivity } from "@/lib/types/study-activity";
 
 interface AssistantPanelProps {
-  activities: StudyActivity[];
-  subjects: SubjectOption[];
-  onAcceptSuggestion: (suggestion: AssistantSuggestion) => void;
+  userId: string;
+  onAcceptSuggestion: (suggestion: AssistantSuggestion) => Promise<void>;
+  isExpanded?: boolean;
+  onToggleExpanded?: () => void;
   /** Presente apenas na versão em drawer (mobile), para exibir o botão de fechar. */
   onClose?: () => void;
 }
@@ -27,53 +25,110 @@ function nextMessageId(): number {
 }
 
 export function AssistantPanel({
-  activities,
-  subjects,
+  userId,
   onAcceptSuggestion,
+  isExpanded = false,
+  onToggleExpanded,
   onClose,
 }: AssistantPanelProps) {
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
       id: nextMessageId(),
       role: "assistant",
-      text: 'Oi! Eu sou a Sofia. Posso te ajudar a organizar seus horários de estudo e suas aulas. Me conte sua rotina, ou use um dos atalhos abaixo — nesta demonstração minhas respostas são simuladas.',
+      text: "Oi! Eu sou o Vitru · Calendário. Posso analisar suas avaliações abertas, seus prazos e sua rotina para sugerir um plano. Nada será adicionado sem sua confirmação.",
     },
   ]);
   const [input, setInput] = useState("");
   const [typing, setTyping] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const conversationId = useRef<string | null>(null);
 
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });
   }, [messages, typing]);
 
-  function sendMessage(text: string) {
+  async function sendMessage(text: string) {
     const trimmed = text.trim();
-    if (!trimmed) return;
+    if (!trimmed || typing) return;
 
     setMessages((current) => [...current, { id: nextMessageId(), role: "user", text: trimmed }]);
     setInput("");
     setTyping(true);
+    conversationId.current ??= `portal-calendar-${userId}-${Date.now()}`;
 
-    setTimeout(() => {
-      const response = getAssistantResponse(trimmed, activities, subjects);
+    try {
+      const response = await fetch("/api/v1/vitru/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          channel: "portal",
+          agent: "study_planner",
+          userId,
+          conversationId: conversationId.current,
+          message: trimmed,
+        }),
+      });
+      const result = await response.json();
+      if (!response.ok || !result.ok) throw new Error("Falha ao consultar o Vitru.");
+
       setMessages((current) => [
         ...current,
         {
           id: nextMessageId(),
           role: "assistant",
-          text: response.replyText,
+          text: result.data.replyText,
           suggestions:
-            response.suggestions.length > 0
-              ? response.suggestions.map((suggestion) => ({ suggestion, status: "pending" as const }))
+            result.data.suggestions?.length > 0
+              ? result.data.suggestions.map((suggestion: AssistantSuggestion) => ({
+                  suggestion,
+                  status: "pending" as const,
+                }))
               : undefined,
         },
       ]);
+    } catch {
+      setMessages((current) => [
+        ...current,
+        {
+          id: nextMessageId(),
+          role: "assistant",
+          text: "Não consegui falar com o Vitru agora. Tente novamente em alguns instantes.",
+        },
+      ]);
+    } finally {
       setTyping(false);
-    }, 500);
+    }
   }
 
-  function respondToSuggestion(messageId: number, suggestionId: string, accepted: boolean) {
+  async function respondToSuggestion(
+    messageId: number,
+    suggestionId: string,
+    accepted: boolean
+  ) {
+    const message = messages.find((item) => item.id === messageId);
+    const found = message?.suggestions?.find(
+      (item) => item.suggestion.id === suggestionId
+    );
+    if (!found) return;
+
+    if (!accepted) {
+      setMessages((current) =>
+        current.map((item) =>
+          item.id === messageId && item.suggestions
+            ? {
+                ...item,
+                suggestions: item.suggestions.map((suggestion) =>
+                  suggestion.suggestion.id === suggestionId
+                    ? { ...suggestion, status: "rejected" as const }
+                    : suggestion
+                ),
+              }
+            : item
+        )
+      );
+      return;
+    }
+
     setMessages((current) =>
       current.map((message) => {
         if (message.id !== messageId || !message.suggestions) return message;
@@ -81,17 +136,44 @@ export function AssistantPanel({
           ...message,
           suggestions: message.suggestions.map((item) =>
             item.suggestion.id === suggestionId
-              ? { ...item, status: accepted ? "accepted" : "rejected" }
+              ? { ...item, status: "saving" as const }
               : item
           ),
         };
       })
     );
 
-    if (accepted) {
-      const message = messages.find((m) => m.id === messageId);
-      const found = message?.suggestions?.find((item) => item.suggestion.id === suggestionId);
-      if (found) onAcceptSuggestion(found.suggestion);
+    try {
+      await onAcceptSuggestion(found.suggestion);
+      setMessages((current) =>
+        current.map((item) =>
+          item.id === messageId && item.suggestions
+            ? {
+                ...item,
+                suggestions: item.suggestions.map((suggestion) =>
+                  suggestion.suggestion.id === suggestionId
+                    ? { ...suggestion, status: "accepted" as const }
+                    : suggestion
+                ),
+              }
+            : item
+        )
+      );
+    } catch {
+      setMessages((current) =>
+        current.map((item) =>
+          item.id === messageId && item.suggestions
+            ? {
+                ...item,
+                suggestions: item.suggestions.map((suggestion) =>
+                  suggestion.suggestion.id === suggestionId
+                    ? { ...suggestion, status: "error" as const }
+                    : suggestion
+                ),
+              }
+            : item
+        )
+      );
     }
   }
 
@@ -102,9 +184,20 @@ export function AssistantPanel({
           <SparklesIcon className="h-4.5 w-4.5 text-brand-yellow" />
         </div>
         <div className="min-w-0 flex-1">
-          <p className="text-sm font-semibold text-white">Sofia</p>
-          <p className="text-xs text-text-secondary">Assistente de estudos · demonstração</p>
+          <p className="text-sm font-semibold text-white">Vitru · Calendário</p>
+          <p className="text-xs text-text-secondary">Planejamento acadêmico · demonstração</p>
         </div>
+        {onToggleExpanded && (
+          <button
+            type="button"
+            onClick={onToggleExpanded}
+            aria-label={isExpanded ? "Diminuir chat" : "Expandir chat"}
+            title={isExpanded ? "Diminuir chat" : "Expandir chat"}
+            className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-border-subtle text-lg text-text-secondary transition hover:bg-bg-card-hover hover:text-white"
+          >
+            {isExpanded ? "↤" : "↔"}
+          </button>
+        )}
         {onClose && (
           <button
             type="button"
@@ -135,8 +228,8 @@ export function AssistantPanel({
                       key={suggestion.id}
                       suggestion={suggestion}
                       status={status}
-                      onAccept={() => respondToSuggestion(message.id, suggestion.id, true)}
-                      onReject={() => respondToSuggestion(message.id, suggestion.id, false)}
+                      onAccept={() => void respondToSuggestion(message.id, suggestion.id, true)}
+                      onReject={() => void respondToSuggestion(message.id, suggestion.id, false)}
                     />
                   ))}
                 </div>
@@ -146,7 +239,7 @@ export function AssistantPanel({
         ))}
         {typing && (
           <div className="max-w-[60%] rounded-2xl bg-black/30 px-3.5 py-2.5 text-sm text-text-secondary/60">
-            Sofia está digitando…
+            Vitru está digitando…
           </div>
         )}
       </div>
@@ -156,7 +249,8 @@ export function AssistantPanel({
           <button
             key={prompt}
             type="button"
-            onClick={() => sendMessage(prompt)}
+            onClick={() => void sendMessage(prompt)}
+            disabled={typing}
             className="rounded-full border border-border-subtle px-3 py-1.5 text-xs font-medium text-text-secondary transition hover:bg-bg-card-hover hover:text-white"
           >
             {prompt}
@@ -167,7 +261,7 @@ export function AssistantPanel({
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          sendMessage(input);
+          void sendMessage(input);
         }}
         className="flex items-center gap-2 border-t border-border-subtle p-3"
       >
@@ -175,12 +269,12 @@ export function AssistantPanel({
           value={input}
           onChange={(e) => setInput(e.target.value)}
           placeholder="Descreva sua rotina ou pergunte algo"
-          aria-label="Mensagem para a Sofia"
+          aria-label="Mensagem para o Vitru"
           className="flex-1 rounded-full bg-black/30 px-4 py-2.5 text-sm text-white placeholder:text-text-secondary/60 focus:outline-none focus:ring-1 focus:ring-brand-yellow"
         />
         <button
           type="submit"
-          disabled={!input.trim()}
+          disabled={!input.trim() || typing}
           aria-label="Enviar mensagem"
           className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand-yellow text-black transition hover:bg-brand-yellow-dark disabled:cursor-not-allowed disabled:opacity-40"
         >

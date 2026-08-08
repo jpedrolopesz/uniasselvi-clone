@@ -2,7 +2,7 @@ import type { CSSProperties } from "react";
 import { timeToMinutes } from "@/lib/study-planner/date-utils";
 
 export const GRID_START_HOUR = 6;
-export const GRID_END_HOUR = 23;
+export const GRID_END_HOUR = 24;
 export const ROW_HEIGHT_PX = 56;
 
 export function buildHourRows(): number[] {

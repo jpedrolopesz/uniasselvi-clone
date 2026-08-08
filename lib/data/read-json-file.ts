@@ -1,4 +1,4 @@
-import { readFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { DataInvalidError, DataNotFoundError } from "@/lib/data/errors";
 
@@ -33,4 +33,14 @@ export async function readUserJsonFileOptional<T>(
     if (error instanceof DataNotFoundError) return null;
     throw error;
   }
+}
+
+/** Grava um JSON dentro de public/data/user/, criando o diretório de destino se necessário. `segments` é relativo a essa raiz. */
+export async function writeUserJsonFile(
+  data: unknown,
+  ...segments: string[]
+): Promise<void> {
+  const filePath = path.join(USER_DATA_ROOT, ...segments);
+  await mkdir(path.dirname(filePath), { recursive: true });
+  await writeFile(filePath, `${JSON.stringify(data, null, 2)}\n`, "utf-8");
 }

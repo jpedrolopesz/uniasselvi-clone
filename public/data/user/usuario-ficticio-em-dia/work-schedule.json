@@ -1,0 +1,6 @@
+{
+  "label": "Trabalho — horário comercial",
+  "startTime": "08:00",
+  "endTime": "17:30",
+  "weekdays": [1, 2, 3, 4, 5]
+}

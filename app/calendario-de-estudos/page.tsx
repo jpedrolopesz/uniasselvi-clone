@@ -4,8 +4,17 @@ import { EmptyState } from "@/components/layout/EmptyState";
 import { StudyPlannerView } from "@/components/study-planner/StudyPlannerView";
 import { resolveActiveUserId } from "@/lib/data/resolve-active-user";
 import { loadDisciplines } from "@/lib/data/load-user-data";
-import { loadAllSubjectCalendarEvents } from "@/lib/data/load-study-planner-data";
-import { buildSeedActivities } from "@/lib/study-planner/seed-activities";
+import {
+  loadAllSubjectCalendarEvents,
+  loadSimulationDate,
+  loadStudyActivities,
+  loadWorkSchedule,
+} from "@/lib/data/load-study-planner-data";
+import {
+  buildSeedActivities,
+  buildWorkScheduleActivities,
+} from "@/lib/study-planner/seed-activities";
+import { addDays, getTodayIsoDate } from "@/lib/study-planner/date-utils";
 import { findDisciplineByCode } from "@/lib/selectors/discipline-selectors";
 import type { SubjectOption } from "@/lib/study-planner/ai-assistant";
 
@@ -34,8 +43,21 @@ export default async function StudyCalendarPage({
     );
   }
 
-  const events = await loadAllSubjectCalendarEvents(activeUserId, disciplines);
-  const seedActivities = buildSeedActivities(events);
+  const [events, personalActivities, workSchedule, simulationDate] =
+    await Promise.all([
+    loadAllSubjectCalendarEvents(activeUserId, disciplines),
+    loadStudyActivities(activeUserId),
+    loadWorkSchedule(activeUserId),
+    loadSimulationDate(activeUserId),
+  ]);
+  const today = simulationDate ?? getTodayIsoDate();
+  const seedActivities = [
+    ...buildSeedActivities(events),
+    ...(workSchedule
+      ? buildWorkScheduleActivities(workSchedule, addDays(today, -7), addDays(today, 90))
+      : []),
+    ...(personalActivities ?? []),
+  ];
   const subjects: SubjectOption[] = disciplines.map((discipline) => ({
     code: discipline.code,
     name: discipline.description,
@@ -49,7 +71,12 @@ export default async function StudyCalendarPage({
         disciplineCode={fromDiscipline?.code}
         backHref={backHref}
       />
-      <StudyPlannerView seedActivities={seedActivities} subjects={subjects} />
+      <StudyPlannerView
+        userId={activeUserId}
+        seedActivities={seedActivities}
+        subjects={subjects}
+        planningDate={today}
+      />
     </AppShell>
   );
 }

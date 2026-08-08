@@ -1,9 +1,8 @@
-"use client";
-
-import { useState, type ReactNode } from "react";
+import type { ReactNode } from "react";
 import { Header } from "@/components/layout/Header";
-import { Sidebar } from "@/components/layout/Sidebar";
+import { TabBar } from "@/components/layout/TabBar";
 import { PageContainer } from "@/components/layout/PageContainer";
+import { BottomNavBar } from "@/components/layout/BottomNavBar";
 
 interface AppShellChromeProps {
   fullName: string;
@@ -20,28 +19,14 @@ export function AppShellChrome({
   fullBleed,
   children,
 }: AppShellChromeProps) {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false);
-
   return (
-    <div className={`flex flex-col ${fullBleed ? "h-screen overflow-hidden" : "min-h-screen"}`}>
-      <Header
-        fullName={fullName}
-        courseName={courseName}
-        subscriptionCode={subscriptionCode}
-        onToggleSidebar={fullBleed ? undefined : () => setIsSidebarOpen((open) => !open)}
-      />
-      <div className={`flex flex-1 ${fullBleed ? "min-h-0" : ""}`}>
-        {!fullBleed && (
-          <Sidebar
-            isOpen={isSidebarOpen}
-            onClose={() => setIsSidebarOpen(false)}
-            isCollapsed={isSidebarCollapsed}
-            onToggleCollapsed={() => setIsSidebarCollapsed((collapsed) => !collapsed)}
-          />
-        )}
+    <div className="flex h-dvh flex-col overflow-hidden">
+      <Header fullName={fullName} courseName={courseName} subscriptionCode={subscriptionCode} />
+      {!fullBleed && <TabBar />}
+      <div className="flex min-h-0 flex-1">
         <PageContainer fullBleed={fullBleed}>{children}</PageContainer>
       </div>
+      {!fullBleed && <BottomNavBar />}
     </div>
   );
 }

@@ -1,5 +1,5 @@
 /**
- * Assistente "Sofia" para o Calendário de Estudos.
+ * Assistente Vitru para o Calendário de Estudos.
  *
  * Ponto de integração futura: hoje `getAssistantResponse` é síncrona e
  * resolve tudo localmente (parsing por palavra-chave + busca de vagas livres
@@ -12,6 +12,8 @@
 import type { ActivityCategory, StudyActivity } from "@/lib/types/study-activity";
 import { findFreeSlots, getActivitiesInRange } from "@/lib/study-planner/calendar-logic";
 import { addDays, formatMinutesLabel, getTodayIsoDate } from "@/lib/study-planner/date-utils";
+import type { AssessmentWithSubject } from "@/lib/data/load-study-planner-data";
+import { buildNextAssessmentPlan } from "@/lib/study-planner/assessment-plan";
 
 export interface SubjectOption {
   code: string;
@@ -144,7 +146,7 @@ function buildSuggestion(
     date: slot.date,
     startTime: slot.startTime,
     endTime: slot.endTime,
-    notes: "Sugestão gerada pela Sofia (demonstração).",
+    notes: "Sugestão gerada pelo Vitru · Calendário (demonstração).",
   };
 }
 
@@ -173,13 +175,32 @@ function daysUntil(fromIsoDate: string, deadlineIsoDate: string): number {
 export function getAssistantResponse(
   message: string,
   activities: StudyActivity[],
-  subjects: SubjectOption[]
+  subjects: SubjectOption[],
+  assessments: AssessmentWithSubject[] = [],
+  planningDate: string = getTodayIsoDate()
 ): AssistantResponse {
   const normalized = normalize(message);
-  const today = getTodayIsoDate();
+  const today = planningDate;
   const durationMinutes = parseDurationMinutes(normalized);
   const subject = matchSubject(normalized, subjects);
   const deadlineIsoDate = parseDeadlineIsoDate(normalized);
+
+  const requestsAssessmentPlan =
+    normalized.includes("plano") ||
+    normalized.includes("preparar") ||
+    normalized.includes("prova") ||
+    normalized.includes("avaliac") ||
+    normalized.includes("trabalho") ||
+    normalized.includes("atividade aberta");
+
+  if (requestsAssessmentPlan && assessments.length > 0) {
+    const plan = buildNextAssessmentPlan(assessments, activities, today);
+    if (plan) return { replyText: plan.replyText, suggestions: plan.suggestions };
+    return {
+      replyText: "Não encontrei avaliações abertas e pendentes para montar um plano neste momento.",
+      suggestions: [],
+    };
+  }
 
   if (normalized.includes("organizar") && normalized.includes("semana")) {
     const slots = findFreeSlots(activities, {

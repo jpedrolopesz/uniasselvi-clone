@@ -3,6 +3,7 @@ import Image from "next/image";
 import { AppShell } from "@/components/layout/AppShell";
 import { EmptyState } from "@/components/layout/EmptyState";
 import { RecordedClassesModal } from "@/components/recordings/RecordedClassesModal";
+import { DisciplineMoreInfo } from "@/components/discipline/DisciplineMoreInfo";
 import { resolveActiveUserId } from "@/lib/data/resolve-active-user";
 import { loadDisciplines, loadUserData } from "@/lib/data/load-user-data";
 import {
@@ -204,6 +205,8 @@ export default async function DisciplinePage({
             )}
           </div>
         </div>
+
+        <DisciplineMoreInfo subjectCode={discipline.code} />
       </div>
     </AppShell>
   );

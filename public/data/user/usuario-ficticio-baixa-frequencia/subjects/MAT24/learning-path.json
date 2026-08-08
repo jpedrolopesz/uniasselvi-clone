@@ -1,0 +1,308 @@
+{
+  "subject_code": "MAT24",
+  "title": "Probabilidade e Estatística",
+  "subtitle": "Trilha de Aprendizagem",
+  "sections": [
+    {
+      "id": "apresentacao",
+      "title": "Apresentação",
+      "summary": "Como a disciplina funciona e o que esperar da trilha.",
+      "lessons": [
+        {
+          "id": "boas-vindas",
+          "title": "Boas-vindas à disciplina",
+          "kind": "leitura",
+          "duration_min": 5,
+          "points": 20,
+          "completed": true,
+          "content": "## Bem-vindo(a) à disciplina\n\nAcadêmico, bem-vindo à disciplina de **Probabilidade e Estatística**!\n\nNo último estudo, você teve a oportunidade de aprender sobre a área da matemática que mais desperta o interesse das pessoas: a estatística. Seja na empresa, com suas metas, ou no período eleitoral, com a antecipação do possível candidato eleito, a estatística é a área que mais atrai curiosidade — talvez por estar, de alguma forma, mais próxima do cotidiano das pessoas.\n\n## Como a trilha funciona\n\nDisponibilizamos leituras e a resolução detalhada das práticas ao longo da trilha. Dedique-se! Faça as leituras e resolva as práticas buscando compreender a lógica envolvida antes de avançar para a próxima unidade — cada lição libera a seguinte.\n\n## Fórum e avaliação descritiva\n\nParticipe do Fórum para discutir como aplicar a teoria das probabilidades em sala de aula — um ótimo material para sua prática docente. Nas avaliações descritivas, use o manual de símbolos matemáticos para garantir coesão nas suas respostas."
+        }
+      ]
+    },
+    {
+      "id": "unidade-1",
+      "title": "Unidade 1",
+      "summary": "Análise combinatória, técnicas de contagem e introdução à probabilidade.",
+      "lessons": [
+        {
+          "id": "u1-combinatoria-probabilidade",
+          "title": "Combinatória e probabilidade",
+          "kind": "leitura",
+          "duration_min": 8,
+          "points": 40,
+          "completed": true,
+          "content": "## O que você vai estudar\n\nNa Unidade 1 você estudará a combinatória e a probabilidade, além de aprender a calcular probabilidades utilizando o Teorema de Bayes.\n\n## Técnicas de contagem\n\nVamos abordar arranjos, combinações e permutações — técnicas usadas quando contar diretamente o número de possibilidades de um experimento se torna trabalhoso demais. A análise combinatória permite determinar o número de casos favoráveis e/ou possíveis, mas antes é preciso classificar corretamente o tipo de agrupamento para aplicar a fórmula certa.\n\n## Ensino da combinatória na Educação Básica\n\nMais adiante nesta unidade veremos as orientações dos PCN sobre o ensino deste tema, com exemplos de atividades para sala de aula. O ensino da lógica probabilística possibilita distinguir graus de incerteza e comparar prognósticos — ensinar probabilidade é mostrar aos alunos como serem donos da própria incerteza.",
+          "videos": [
+            {
+              "title": "Conceitos Fundamentais de Probabilidade e Estatística",
+              "embed_url": "https://www.youtube.com/embed/2Rep-DLhmAc?rel=0&showinfo=0&disablekb=1&modestbranding=1&allowfullscreen=1"
+            }
+          ]
+        },
+        {
+          "id": "u1-fatorial",
+          "title": "Fatorial",
+          "kind": "pratica",
+          "duration_min": 6,
+          "points": 25,
+          "completed": false,
+          "content": "## Fatorial\n\nO fatorial de um número natural n, indicado por n!, é o produto de todos os inteiros positivos menores ou iguais a n (por convenção, 0! = 1). Ele aparece na base de quase todas as fórmulas de contagem que você verá nesta unidade.\n\n## Sua prática\n\nCalcule o fatorial dos números propostos e simplifique expressões que envolvam divisão de fatoriais antes de multiplicar tudo — isso evita contas desnecessariamente grandes.",
+          "videos": [
+            {
+              "title": "Fatorial",
+              "embed_url": "https://www.youtube.com/embed/n5ck5anbI0Q?rel=0&showinfo=0&disablekb=1&modestbranding=1&allowfullscreen=1"
+            }
+          ]
+        },
+        {
+          "id": "u1-permutacao-simples",
+          "title": "Permutação simples",
+          "kind": "pratica",
+          "duration_min": 6,
+          "points": 25,
+          "completed": false,
+          "content": "## Permutação simples\n\nUma permutação simples organiza todos os elementos de um conjunto em uma ordem, sem repetição. O número de permutações de n elementos distintos é n!.\n\n## Sua prática\n\nPara cada situação proposta, confirme que todos os elementos disponíveis participam do agrupamento e que a ordem importa antes de aplicar n!.",
+          "videos": [
+            {
+              "title": "Permutação Simples",
+              "embed_url": "https://www.youtube.com/embed/K6onzP5tilM?rel=0&showinfo=0&disablekb=1&modestbranding=1&allowfullscreen=1"
+            }
+          ]
+        },
+        {
+          "id": "u1-permutacao-repetida",
+          "title": "Permutação com elementos repetidos",
+          "kind": "pratica",
+          "duration_min": 6,
+          "points": 25,
+          "completed": false,
+          "content": "## Permutação com elementos repetidos\n\nQuando o conjunto tem elementos repetidos, dividimos o fatorial total pelo fatorial da quantidade de repetições de cada elemento — senão contaríamos arranjos idênticos mais de uma vez.\n\n## Sua prática\n\nIdentifique quais elementos se repetem e quantas vezes cada um se repete antes de montar a fórmula.",
+          "videos": [
+            {
+              "title": "Permutação com Elementos Repetidos",
+              "embed_url": "https://www.youtube.com/embed/1b71WgwtsFw?rel=0&showinfo=0&disablekb=1&modestbranding=1&allowfullscreen=1"
+            }
+          ]
+        },
+        {
+          "id": "u1-arranjo",
+          "title": "Arranjo",
+          "kind": "pratica",
+          "duration_min": 6,
+          "points": 25,
+          "completed": false,
+          "content": "## Arranjo\n\nO arranjo organiza apenas parte dos elementos de um conjunto, e a ordem importa. Diferente da permutação simples, nem todos os elementos disponíveis entram no agrupamento final.\n\n## Sua prática\n\nPara cada problema, confirme quantos elementos serão escolhidos (p) do total disponível (n) antes de aplicar a fórmula A(n,p) = n!/(n−p)!.",
+          "videos": [
+            {
+              "title": "Arranjo",
+              "embed_url": "https://www.youtube.com/embed/KZlASYV4ZDc?rel=0&showinfo=0&disablekb=1&modestbranding=1&allowfullscreen=1"
+            }
+          ]
+        },
+        {
+          "id": "u1-principio-fundamental-contagem",
+          "title": "Princípio Fundamental da Contagem",
+          "kind": "pratica",
+          "duration_min": 6,
+          "points": 25,
+          "completed": false,
+          "content": "## Princípio Fundamental da Contagem\n\nO PFC diz que, se uma decisão pode ser tomada em etapas independentes, o total de possibilidades é o produto do número de opções de cada etapa. Ele funciona mesmo sem recorrer às fórmulas de arranjo, combinação ou permutação.\n\n## Sua prática\n\nTente resolver o problema proposto multiplicando diretamente as possibilidades de cada etapa, sem usar nenhuma fórmula pronta.",
+          "videos": [
+            {
+              "title": "Princípio Fundamental da Contagem",
+              "embed_url": "https://www.youtube.com/embed/o7w9QqajRRE?rel=0&showinfo=0&disablekb=1&modestbranding=1&allowfullscreen=1"
+            }
+          ]
+        },
+        {
+          "id": "u1-combinacao",
+          "title": "Combinação",
+          "kind": "pratica",
+          "duration_min": 6,
+          "points": 25,
+          "completed": false,
+          "content": "## Combinação\n\nNa combinação, diferentemente do arranjo, a ordem dos elementos escolhidos não importa — o que conta é apenas *quais* elementos formam o grupo.\n\n## Sua prática\n\nCompare o mesmo problema pensando primeiro como arranjo e depois como combinação — perceba como o resultado muda quando a ordem deixa de importar.",
+          "videos": [
+            {
+              "title": "Combinação",
+              "embed_url": "https://www.youtube.com/embed/GwY4SvG5Adk?rel=0&showinfo=0&disablekb=1&modestbranding=1&allowfullscreen=1"
+            }
+          ]
+        },
+        {
+          "id": "u1-probabilidade",
+          "title": "Probabilidade",
+          "kind": "pratica",
+          "duration_min": 6,
+          "points": 25,
+          "completed": false,
+          "content": "## Probabilidade de um evento\n\nA probabilidade de um evento é o número de casos favoráveis dividido pelo número de casos possíveis — e as técnicas de contagem que você acabou de praticar são exatamente o que usamos para contar os dois.\n\n## Sua prática\n\nResolva os problemas propostos, contando com cuidado os casos favoráveis e os casos possíveis antes de dividir.",
+          "videos": [
+            {
+              "title": "Probabilidade",
+              "embed_url": "https://www.youtube.com/embed/4bklF8pBVdk?rel=0&showinfo=0&disablekb=1&modestbranding=1&allowfullscreen=1"
+            }
+          ]
+        },
+        {
+          "id": "u1-uniao-eventos",
+          "title": "Probabilidade da união de eventos",
+          "kind": "pratica",
+          "duration_min": 6,
+          "points": 25,
+          "completed": false,
+          "content": "## Probabilidade da união de eventos\n\nP(A ∪ B) = P(A) + P(B) − P(A ∩ B). O termo subtraído evita contar duas vezes os casos em que A e B acontecem ao mesmo tempo.\n\n## Sua prática\n\nPara cada par de eventos, identifique primeiro se eles são mutuamente exclusivos (P(A ∩ B) = 0) antes de decidir se precisa da fórmula completa.",
+          "videos": [
+            {
+              "title": "Probabilidade da União de Eventos",
+              "embed_url": "https://www.youtube.com/embed/VCUZscNWSPU?rel=0&showinfo=0&disablekb=1&modestbranding=1&allowfullscreen=1"
+            }
+          ]
+        },
+        {
+          "id": "u1-teorema-multiplicacao",
+          "title": "Teorema da multiplicação",
+          "kind": "pratica",
+          "duration_min": 6,
+          "points": 25,
+          "completed": false,
+          "content": "## Teorema da multiplicação\n\nPara calcular a probabilidade de dois eventos sucessivos ocorrerem juntos, multiplicamos P(A) pela probabilidade de B dado que A já ocorreu: P(A ∩ B) = P(A) · P(B|A).\n\n## Sua prática\n\nPreste atenção se os eventos são independentes (P(B|A) = P(B)) ou dependentes antes de multiplicar.",
+          "videos": [
+            {
+              "title": "Teorema da Multiplicação",
+              "embed_url": "https://www.youtube.com/embed/cufy_okx6v4?rel=0&showinfo=0&disablekb=1&modestbranding=1&allowfullscreen=1"
+            }
+          ]
+        },
+        {
+          "id": "u1-teorema-bayes",
+          "title": "Teorema de Bayes",
+          "kind": "pratica",
+          "duration_min": 8,
+          "points": 30,
+          "completed": false,
+          "content": "## Teorema de Bayes\n\nO Teorema de Bayes permite atualizar a probabilidade de um evento a partir de uma nova informação — é a base de boa parte da estatística aplicada, de diagnósticos médicos a filtros de spam.\n\n## Sua prática\n\nResolva os problemas de probabilidade condicional propostos, identificando com clareza o evento condicionante antes de montar a fórmula de Bayes.",
+          "videos": [
+            {
+              "title": "Teorema de Bayes",
+              "embed_url": "https://www.youtube.com/embed/qjfLApI1ca0?rel=0&showinfo=0&disablekb=1&modestbranding=1&allowfullscreen=1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unidade-2",
+      "title": "Unidade 2",
+      "summary": "Variáveis aleatórias e distribuições discretas e contínuas de probabilidade.",
+      "lessons": [
+        {
+          "id": "u2-variaveis-aleatorias",
+          "title": "Variáveis aleatórias",
+          "kind": "leitura",
+          "duration_min": 10,
+          "points": 40,
+          "completed": false,
+          "content": "## Um pouco de história\n\nA probabilidade teve início com os jogos de azar difundidos na Idade Média. Os primeiros registros de estudo vêm da correspondência entre Pierre de Fermat e Blaise Pascal, no século XVII — mas foi Christiaan Huygens quem deu o primeiro tratamento científico ao assunto. Jakob Bernoulli (Arte da Conjectura) e Abraham de Moivre (Doutrina da Probabilidade) consolidaram a probabilidade como um ramo da matemática.\n\n## O que é uma variável aleatória\n\nNesta unidade você estudará as variáveis que apresentam características de imprevisibilidade, chamadas de variáveis aleatórias, além das distribuições discretas e contínuas de probabilidade. Ao final, você saberá construir uma distribuição de probabilidades e calcular média, variância e desvio padrão de uma variável aleatória.",
+          "videos": [
+            {
+              "title": "Variáveis Aleatórias",
+              "embed_url": "https://www.youtube.com/embed/0TA61Ac3yHI?rel=0&showinfo=0&disablekb=1&modestbranding=1&allowfullscreen=1"
+            }
+          ]
+        },
+        {
+          "id": "u2-distribuicoes-discretas",
+          "title": "Distribuições discretas de probabilidade",
+          "kind": "pratica",
+          "duration_min": 15,
+          "points": 60,
+          "completed": false,
+          "content": "## Construindo a distribuição\n\nUma variável aleatória discreta assume um número finito (ou enumerável) de valores, cada um com sua probabilidade associada. A soma de todas as probabilidades deve ser sempre igual a 1.\n\n## Sua prática\n\nPara cada variável aleatória proposta, monte a tabela de distribuição de probabilidades e calcule a média (esperança), a variância e o desvio padrão. Confira se a soma das probabilidades fecha em 1 antes de prosseguir para os cálculos."
+        },
+        {
+          "id": "u2-curva-gaussiana-tabela-z",
+          "title": "Curva Gaussiana e Tabela Z",
+          "kind": "pratica",
+          "duration_min": 15,
+          "points": 60,
+          "completed": false,
+          "content": "## Distribuições contínuas\n\nAo contrário das discretas, variáveis aleatórias contínuas assumem qualquer valor dentro de um intervalo. A mais importante delas é a distribuição normal (curva Gaussiana), reconhecível pelo seu formato de sino simétrico em torno da média.\n\n## Usando a Tabela Z\n\nA Tabela Z converte um valor da variável em um escore padronizado (z), permitindo consultar diretamente a probabilidade acumulada associada. Pratique padronizando valores e consultando a tabela para encontrar as probabilidades pedidas.",
+          "videos": [
+            {
+              "title": "Distribuição de Probabilidades para Variáveis Aleatórias (Curva Gaussiana e Tabela Z)",
+              "embed_url": "https://www.youtube.com/embed/00RHv1NBrZ8?rel=0&showinfo=0&disablekb=1&modestbranding=1&allowfullscreen=1"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "unidade-3",
+      "title": "Unidade 3",
+      "summary": "Testes de hipóteses, parâmetros populacionais e teste de dependência entre variáveis.",
+      "lessons": [
+        {
+          "id": "u3-parametros-populacionais",
+          "title": "Parâmetros populacionais",
+          "kind": "leitura",
+          "duration_min": 8,
+          "points": 40,
+          "completed": false,
+          "content": "## A etapa final da disciplina\n\nEsta é a terceira e última etapa de estudos de Probabilidade e Estatística. Aqui você estudará os principais parâmetros populacionais — média, variância e proporção — e como estimá-los a partir de uma amostra.\n\n## Para onde vamos\n\nA partir desses parâmetros, você estará apto a realizar testes de hipóteses para média, variância, proporção e comparação de médias, além de verificar, por meio de um teste específico, se duas variáveis possuem algum grau de dependência entre si.",
+          "videos": [
+            {
+              "title": "Parâmetros Populacionais",
+              "embed_url": "https://www.youtube.com/embed/jIKa1XVmS1M?rel=0&showinfo=0&disablekb=1&modestbranding=1&allowfullscreen=1"
+            }
+          ]
+        },
+        {
+          "id": "u3-testes-hipoteses",
+          "title": "Testes de hipóteses para média e proporção",
+          "kind": "pratica",
+          "duration_min": 15,
+          "points": 60,
+          "completed": false,
+          "content": "## A lógica do teste de hipóteses\n\nTodo teste de hipóteses parte de uma hipótese nula (H0) — geralmente a afirmação de que \"nada mudou\" — e busca evidências, na amostra, de que ela deve ser rejeitada em favor de uma hipótese alternativa (H1).\n\n## Sua prática\n\nPara cada problema, escreva explicitamente H0 e H1 antes de calcular a estatística de teste. Compare o valor calculado com o valor crítico (ou o p-valor com o nível de significância) para decidir se há evidência para rejeitar H0.",
+          "videos": [
+            {
+              "title": "Testes de Hipóteses",
+              "embed_url": "https://www.youtube.com/embed/dMootvV7Li8?rel=0&showinfo=0&disablekb=1&modestbranding=1&allowfullscreen=1"
+            }
+          ]
+        },
+        {
+          "id": "u3-teste-independencia-1",
+          "title": "Teste de independência — tabela de contingência",
+          "kind": "pratica",
+          "duration_min": 8,
+          "points": 30,
+          "completed": false,
+          "content": "## Duas variáveis estão relacionadas?\n\nO teste qui-quadrado de independência verifica se duas variáveis categóricas estão associadas ou se são estatisticamente independentes, comparando as frequências observadas com as frequências esperadas sob a hipótese de independência.\n\n## Sua prática\n\nMonte a tabela de contingência do problema proposto e calcule as frequências esperadas para cada célula, a partir das frequências marginais observadas.",
+          "videos": [
+            {
+              "title": "Teste de Independência entre Variáveis (Parte 1)",
+              "embed_url": "https://www.youtube.com/embed/6mZKrD4wxuc?rel=0&showinfo=0&disablekb=1&modestbranding=1&allowfullscreen=1"
+            }
+          ]
+        },
+        {
+          "id": "u3-teste-independencia-2",
+          "title": "Teste de independência — estatística qui-quadrado",
+          "kind": "pratica",
+          "duration_min": 8,
+          "points": 30,
+          "completed": false,
+          "content": "## Calculando a estatística qui-quadrado\n\nCom as frequências observadas e esperadas em mãos, calcule a estatística qui-quadrado somando, para cada célula da tabela, o quadrado da diferença entre observado e esperado dividido pelo esperado.\n\n## Sua prática\n\nCompare o valor calculado com o valor crítico da distribuição qui-quadrado (para o grau de liberdade e o nível de significância do problema) para concluir se as variáveis são dependentes.",
+          "videos": [
+            {
+              "title": "Teste de Independência entre Variáveis (Parte 2)",
+              "embed_url": "https://www.youtube.com/embed/84r-bajC7R4?rel=0&showinfo=0&disablekb=1&modestbranding=1&allowfullscreen=1"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
