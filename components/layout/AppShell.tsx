@@ -26,6 +26,7 @@ export async function AppShell({ activeUserId, children, fullBleed = false }: Ap
   return (
     <>
       <AppShellChrome
+        activeUserId={activeUserId}
         fullName={userData?.full_name ?? "Aluno"}
         courseName={userData?.course_name ?? "-"}
         subscriptionCode={userData?.subscription_code ?? "-"}

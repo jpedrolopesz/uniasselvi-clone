@@ -33,8 +33,13 @@ yarn-error.log*
 # env files (can opt-in for committing if needed)
 .env*
 
-# local Vitru identities (contains private phone mappings)
+# local Vitru state (pending plans, sessões de conversa, inbox, log de interações — dados de aluno/execução, não de código)
 .vitru/*.local.json
+.vitru/*.local.log
+
+# banco de desenvolvimento (PGlite). ~60 MB de cluster Postgres binário —
+# reconstruível a qualquer momento com `npm run db:reset`.
+.vitru/pglite/
 
 # vercel
 .vercel

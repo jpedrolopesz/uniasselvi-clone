@@ -12,18 +12,25 @@ export interface LearningPathVideoRaw {
   embed_url: string;
 }
 
+export interface LearningPathFaqEntry {
+  question: string;
+  answer: string;
+}
+
 export interface LearningPathLessonRaw {
   id: string;
   title: string;
   kind: LearningPathLessonKind;
   duration_min: number;
   points: number;
-  /** Estado de conclusão "de fábrica" — mesclado no cliente com o progresso salvo em localStorage. */
+  /** Estado de conclusão "de fábrica" — mesclado no servidor com o progresso salvo em trilha-progress.json (ver lib/data/load-trilha-progress.ts). */
   completed: boolean;
   /** Corpo em markdown simplificado (## títulos, parágrafos separados por linha em branco, **negrito**). */
   content: string;
   /** Vídeos do Kit Pedagógico relacionados a esta lição, se houver. */
   videos?: LearningPathVideoRaw[];
+  /** Dúvidas pré-cadastradas desta lição — primeiro passo da ordem de resolução do Vitru (custo zero, sem chamada de modelo). */
+  faq?: LearningPathFaqEntry[];
 }
 
 export interface LearningPathSectionRaw {

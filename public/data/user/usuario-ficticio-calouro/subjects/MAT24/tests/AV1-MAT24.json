@@ -1,0 +1,155 @@
+{
+  "info": {
+    "description": "Avaliação I - Individual",
+    "weigth": "10",
+    "subject_name": "Probabilidade e Estatística",
+    "subject_code": "MAT24",
+    "test_code": "AV1-MAT24",
+    "specialization": "6873790",
+    "created_at": "2026-07-28 19:00:00",
+    "updated_at": "2026-07-28 19:40:00",
+    "completed": "N",
+    "week_day": "3",
+    "shift": "3",
+    "type": "1",
+    "status_semester": "1"
+  },
+  "questions": [
+    {
+      "question_code": "MAT24Q1",
+      "number": "1",
+      "description": "<p>Qual é o valor do fatorial de um número natural n, definido como o produto de todos os inteiros positivos menores ou iguais a esse número?</p>",
+      "description_formated": "<p>Qual é o valor do fatorial de um número natural n, definido como o produto de todos os inteiros positivos menores ou iguais a esse número?</p>",
+      "image": [],
+      "new_answer_format": true,
+      "new_answer_type": "Resposta Única",
+      "new_answer_type_code": "1",
+      "answer_attachment": [],
+      "type_code": "1",
+      "type": "Objetiva",
+      "status": "2",
+      "status_description": "Questão Errada",
+      "bonus": "N",
+      "answer": "B",
+      "summary": ["1.2"],
+      "got_right": false,
+      "alternatives": [
+        {
+          "question_code": "MAT24Q1",
+          "alternative_code": "MAT24Q1A",
+          "description": "<p>A soma de todos os inteiros positivos menores ou iguais a n.</p>",
+          "correct": "N",
+          "letter": "A"
+        },
+        {
+          "question_code": "MAT24Q1",
+          "alternative_code": "MAT24Q1B",
+          "description": "<p>O produto de todos os inteiros positivos menores ou iguais a n, indicado por n!.</p>",
+          "correct": "S",
+          "letter": "B"
+        },
+        {
+          "question_code": "MAT24Q1",
+          "alternative_code": "MAT24Q1C",
+          "description": "<p>A média de todos os inteiros positivos menores ou iguais a n.</p>",
+          "correct": "N",
+          "letter": "C"
+        },
+        {
+          "question_code": "MAT24Q1",
+          "alternative_code": "MAT24Q1D",
+          "description": "<p>O maior divisor comum entre n e n-1.</p>",
+          "correct": "N",
+          "letter": "D"
+        }
+      ],
+      "attachments": []
+    },
+    {
+      "question_code": "MAT24Q2",
+      "number": "2",
+      "description": "<p>Sobre a probabilidade da união de dois eventos A e B, assinale a alternativa correta considerando a fórmula P(A &cup; B).</p>",
+      "description_formated": "<p>Sobre a probabilidade da união de dois eventos A e B, assinale a alternativa correta considerando a fórmula P(A &cup; B).</p>",
+      "image": [],
+      "new_answer_format": true,
+      "new_answer_type": "Resposta Única",
+      "new_answer_type_code": "1",
+      "answer_attachment": [],
+      "type_code": "1",
+      "type": "Objetiva",
+      "status": "1",
+      "status_description": "Questão Certa",
+      "bonus": "N",
+      "answer": "A",
+      "summary": ["1.1"],
+      "got_right": false,
+      "alternatives": [
+        {
+          "question_code": "MAT24Q2",
+          "alternative_code": "MAT24Q2A",
+          "description": "<p>P(A &cup; B) = P(A) + P(B) − P(A &cap; B).</p>",
+          "correct": "S",
+          "letter": "A"
+        },
+        {
+          "question_code": "MAT24Q2",
+          "alternative_code": "MAT24Q2B",
+          "description": "<p>P(A &cup; B) = P(A) &times; P(B).</p>",
+          "correct": "N",
+          "letter": "B"
+        },
+        {
+          "question_code": "MAT24Q2",
+          "alternative_code": "MAT24Q2C",
+          "description": "<p>P(A &cup; B) = P(A) − P(B).</p>",
+          "correct": "N",
+          "letter": "C"
+        }
+      ],
+      "attachments": []
+    },
+    {
+      "question_code": "MAT24Q3",
+      "number": "3",
+      "description": "<p>O Teorema de Bayes permite calcular qual tipo de probabilidade a partir de uma nova informação observada?</p>",
+      "description_formated": "<p>O Teorema de Bayes permite calcular qual tipo de probabilidade a partir de uma nova informação observada?</p>",
+      "image": [],
+      "new_answer_format": true,
+      "new_answer_type": "Resposta Única",
+      "new_answer_type_code": "1",
+      "answer_attachment": [],
+      "type_code": "1",
+      "type": "Objetiva",
+      "status": "1",
+      "status_description": "Questão Certa",
+      "bonus": "N",
+      "answer": "C",
+      "summary": ["1.2"],
+      "got_right": false,
+      "alternatives": [
+        {
+          "question_code": "MAT24Q3",
+          "alternative_code": "MAT24Q3A",
+          "description": "<p>A probabilidade de um evento futuro sem qualquer condição.</p>",
+          "correct": "N",
+          "letter": "A"
+        },
+        {
+          "question_code": "MAT24Q3",
+          "alternative_code": "MAT24Q3B",
+          "description": "<p>A probabilidade de dois eventos serem mutuamente exclusivos.</p>",
+          "correct": "N",
+          "letter": "B"
+        },
+        {
+          "question_code": "MAT24Q3",
+          "alternative_code": "MAT24Q3C",
+          "description": "<p>A probabilidade condicional atualizada de um evento, dado que outro já ocorreu.</p>",
+          "correct": "S",
+          "letter": "C"
+        }
+      ],
+      "attachments": []
+    }
+  ]
+}

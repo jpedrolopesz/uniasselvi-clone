@@ -21,10 +21,11 @@ import {
 interface LearningPathViewProps {
   path: LearningPathRaw;
   subjectCode: string;
+  completedLessonIds: string[];
 }
 
-export function LearningPathView({ path, subjectCode }: LearningPathViewProps) {
-  const { sections, overall } = useLearningPathProgress(path, subjectCode);
+export function LearningPathView({ path, subjectCode, completedLessonIds }: LearningPathViewProps) {
+  const { sections, overall } = useLearningPathProgress(path, completedLessonIds);
 
   const allStatuses = sections.flatMap((section) => section.lessons);
   const currentLesson = findCurrentLesson(allStatuses);

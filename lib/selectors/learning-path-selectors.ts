@@ -96,13 +96,6 @@ export function findCurrentLesson(
   return statuses.find((l) => l.status === "current") ?? statuses.at(-1);
 }
 
-/** Primeiro parágrafo (não-título) do conteúdo, sem marcação — usado como resumo para o chat da Sofia. */
-export function getLessonSummary(content: string): string {
-  const blocks = content.trim().split(/\n\n+/);
-  const paragraph = blocks.find((block) => !block.startsWith("## ")) ?? blocks[0] ?? "";
-  return paragraph.replace(/\*\*/g, "");
-}
-
 export function findLessonNavigation(
   path: LearningPathRaw,
   completedIds: ReadonlySet<string>,

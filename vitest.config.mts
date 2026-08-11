@@ -6,4 +6,8 @@ export default defineConfig({
       "@": import.meta.dirname,
     },
   },
+  test: {
+    environment: "jsdom",
+    setupFiles: ["./vitest.setup.ts"],
+  },
 });

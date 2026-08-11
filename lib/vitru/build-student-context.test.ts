@@ -47,3 +47,14 @@ describe("buildVitruStudentContext", () => {
     });
   });
 });
+
+describe("buildVitruStudentContext — calouro", () => {
+  it("mantém o cenário inicial com avaliação pendente e plano viável", async () => {
+    const context = await buildVitruStudentContext("usuario-ficticio-calouro");
+    expect(context.suggestedPlan).not.toBeNull();
+    expect(context.suggestedPlan?.suggestions.length).toBeGreaterThan(0);
+    expect(context.referenceDate).toBe("2026-08-10");
+    expect(context.assessments.every((assessment) => assessment.status !== "completed")).toBe(true);
+    expect(context.schedule.availableStudySlots.length).toBeGreaterThan(0);
+  });
+});

@@ -1,31 +1,19 @@
 import { loadUserIndex } from "@/lib/data/load-user-index";
+import { resolveActiveUserId } from "@/lib/data/resolve-active-user";
+import { loadSubjectLearningPath } from "@/lib/data/load-subject-data";
 import { buildVitruStudentContext } from "@/lib/vitru/build-student-context";
-import { POST as confirmStudyPlan } from "@/app/api/v1/vitru/study-plan/confirm/route";
+import type { AssistantAction, Resolution, Surface, SurfaceFocus } from "@/lib/vitru/surfaces";
+import { resolveLocally } from "@/lib/vitru/trilha-resolution";
 import {
-  clearPendingWhatsAppPlan,
-  getPendingWhatsAppPlan,
-  savePendingWhatsAppPlan,
-} from "@/lib/vitru/whatsapp-pending-plan";
-import type { AssistantSuggestion } from "@/lib/study-planner/ai-assistant";
-
-interface ChatBody {
-  channel?: unknown;
-  agent?: unknown;
-  userId?: unknown;
-  conversationId?: unknown;
-  message?: unknown;
-}
-
-interface VitruUpstreamResponse {
-  ok?: boolean;
-  data?: {
-    replyText?: unknown;
-    suggestions?: unknown[];
-    confirmation?: unknown;
-    [key: string]: unknown;
-  };
-  [key: string]: unknown;
-}
+  appendMessage,
+  getRecentHistory,
+  resolveConversationId,
+  type ConversationMessage,
+} from "@/lib/vitru/conversation-store";
+import { consumeInboxEvent } from "@/lib/vitru/inbox-events";
+import { logInteraction } from "@/lib/vitru/interaction-log";
+import { generate } from "@/lib/vitru/generate";
+import { buildCalendarSystemPrompt } from "@/lib/vitru/prompts";
 
 function invalid(message: string) {
   return Response.json(
@@ -34,242 +22,252 @@ function invalid(message: string) {
   );
 }
 
-function normalizeIntent(text: string) {
-  return text
-    .toLocaleLowerCase("pt-BR")
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .trim();
+// --- Contrato por superfície (spec Vitru — AssistantPanel multi-superfície) ---
+
+interface SurfaceChatBody {
+  surface?: unknown;
+  objectId?: unknown;
+  focus?: unknown;
+  entryEventId?: unknown;
+  message?: unknown;
 }
 
-function formatSuggestionOffer(suggestion: AssistantSuggestion, position: number, total: number) {
-  const [year, month, day] = suggestion.date.split("-");
-  return `Encontrei esta opção para você: ${suggestion.title}, no dia ${day}/${month}/${year}, das ${suggestion.startTime} às ${suggestion.endTime}. Posso adicionar ao seu calendário? (${position} de ${total})`;
+const VALID_SURFACES: Surface[] = ["trilha", "calendario"];
+
+const DEFAULT_GREETING: Record<Surface, string> = {
+  trilha: "Oi! Sou o Vitru. Pergunte algo sobre o conteúdo desta aula ou peça para rever uma aula anterior.",
+  calendario:
+    "Oi! Eu sou o Vitru · Calendário. Posso analisar suas avaliações abertas, seus prazos e sua rotina para sugerir um plano. Nada será adicionado sem sua confirmação.",
+};
+
+function isSurfaceFocus(value: unknown): value is SurfaceFocus {
+  if (!value || typeof value !== "object") return false;
+  const kind = (value as Record<string, unknown>).kind;
+  return kind === "trilha" || kind === "calendario";
 }
 
-async function handlePendingWhatsAppIntent(
+interface SurfaceResolutionResult {
+  reply: string;
+  resolution: Resolution;
+  confidence: number;
+  actions: AssistantAction[];
+  inputTokens?: number | null;
+  outputTokens?: number | null;
+}
+
+type SurfaceResolutionOutcome = SurfaceResolutionResult | { unavailable: true };
+
+/** FAQ da aula → conteúdo da trilha → fora de escopo → geração, nesta ordem, com parada no primeiro acerto (spec §7). */
+async function resolveTrilhaMessage(
   userId: string,
-  conversationId: string,
+  subjectCode: string,
+  focus: SurfaceFocus | undefined,
   message: string
-) {
-  const pending = await getPendingWhatsAppPlan(conversationId);
-  if (!pending || pending.userId !== userId || pending.suggestions.length === 0) {
-    return null;
-  }
-
-  const intent = normalizeIntent(message);
-  const confirms = /^(sim|pode|confirmo|confirmar|ok|claro|adicione|adiciona|pode adicionar)[.! ]*$/.test(intent);
-  const declines = /^(nao|cancelar|cancela|deixa|agora nao)[.! ]*$/.test(intent);
-  const requestsAnother = /(outr[oa]|proxim[oa]|outro horario|nao consigo|trocar|mudar horario)/.test(intent);
-  const requestedPeriod = intent.includes("manha")
-    ? "morning"
-    : intent.includes("tarde")
-      ? "afternoon"
-      : intent.includes("noite")
-        ? "evening"
-        : null;
-  const requestedHour = Number(intent.match(/\b(\d{1,2})(?::\d{2})?\s*h\b/)?.[1]);
-
-  if (declines) {
-    await clearPendingWhatsAppPlan(conversationId);
-    return "Tudo bem, não adicionei nada ao seu calendário. Quando quiser, posso procurar novos horários.";
-  }
-
-  if (requestsAnother || requestedPeriod || Number.isFinite(requestedHour)) {
-    const candidates = pending.suggestions
-      .map((suggestion, index) => ({ suggestion, index }))
-      .filter(({ index }) => index !== pending.currentIndex);
-    const matchesPreference = ({ suggestion }: (typeof candidates)[number]) => {
-      const hour = Number(suggestion.startTime.split(":")[0]);
-      if (Number.isFinite(requestedHour)) return Math.abs(hour - requestedHour) <= 1;
-      if (requestedPeriod === "morning") return hour < 12;
-      if (requestedPeriod === "afternoon") return hour >= 12 && hour < 18;
-      if (requestedPeriod === "evening") return hour >= 18;
-      return true;
+): Promise<SurfaceResolutionOutcome> {
+  if (!focus || focus.kind !== "trilha") {
+    return {
+      reply: "Preciso saber em qual lição você está para ajudar. Abra uma aula da trilha e tente de novo.",
+      resolution: "low_confidence",
+      confidence: 0,
+      actions: [],
     };
-    const preferred = candidates.find(matchesPreference);
-    if ((requestedPeriod || Number.isFinite(requestedHour)) && !preferred) {
-      return "Não encontrei outra etapa disponível nesse período antes do prazo. Posso mostrar o próximo horário livre ou você pode indicar outro período.";
-    }
-    const nextIndex = preferred?.index ?? pending.currentIndex + 1;
-    if (nextIndex >= pending.suggestions.length) {
-      return "Essas eram as opções livres que encontrei antes do prazo. Se quiser, diga qual período prefere — manhã, tarde ou noite — para tentarmos ajustar o plano.";
-    }
-    await savePendingWhatsAppPlan(
-      userId,
-      conversationId,
-      pending.suggestions,
-      nextIndex
-    );
-    return formatSuggestionOffer(
-      pending.suggestions[nextIndex],
-      nextIndex + 1,
-      pending.suggestions.length
-    );
   }
 
-  if (confirms) {
-    const suggestion = pending.suggestions[pending.currentIndex];
-    const confirmation = await confirmStudyPlan(
-      new Request("http://localhost/api/v1/vitru/study-plan/confirm", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          action: "CREATE_STUDY_PLAN",
-          userId,
-          suggestionIds: [suggestion.id],
-        }),
-      })
-    );
-    if (!confirmation.ok) {
-      await clearPendingWhatsAppPlan(conversationId);
-      return "O plano mudou desde a última mensagem. Vou precisar consultar novamente antes de adicionar esse horário.";
-    }
-    await clearPendingWhatsAppPlan(conversationId);
-    const [year, month, day] = suggestion.date.split("-");
-    return `Pronto, adicionei “${suggestion.title}” ao seu calendário no dia ${day}/${month}/${year}, das ${suggestion.startTime} às ${suggestion.endTime}.`;
+  const learningPath = await loadSubjectLearningPath(userId, subjectCode);
+  const lessons = learningPath ? learningPath.sections.flatMap((section) => section.lessons) : [];
+  const currentIndex = lessons.findIndex((lesson) => lesson.id === focus.lessonId);
+  const currentLesson = currentIndex >= 0 ? lessons[currentIndex] : null;
+
+  if (!currentLesson) {
+    return {
+      reply: "Não encontrei essa lição na trilha. Recarregue a página e tente novamente.",
+      resolution: "low_confidence",
+      confidence: 0,
+      actions: [],
+    };
   }
 
-  return null;
+  const previousLesson = currentIndex > 0 ? lessons[currentIndex - 1] : null;
+  const local = resolveLocally(message, currentLesson, previousLesson);
+
+  if (local.resolution !== "generation") {
+    const actions: AssistantAction[] =
+      local.resolution === "out_of_scope"
+        ? [
+            {
+              type: "navigate",
+              label: "Ver notas e avaliações",
+              href: `/disciplinas/${subjectCode}/notas-avaliacoes`,
+            },
+          ]
+        : local.resolution === "retrieval" &&
+            local.matchedLessonId &&
+            local.matchedLessonId !== focus.lessonId
+          ? [{ type: "open_lesson", label: "Abrir essa aula", lessonId: local.matchedLessonId }]
+          : [];
+    return { reply: local.reply, resolution: local.resolution, confidence: local.confidence, actions };
+  }
+
+  return {
+    reply: "Não encontrei essa resposta no material desta aula. Quer falar com o mediador da disciplina? Ele responde dúvidas de conteúdo.",
+    resolution: "low_confidence",
+    confidence: local.confidence,
+    actions: [
+      {
+        type: "navigate",
+        label: "Falar com o mediador",
+        href: `/disciplinas/${subjectCode}/fale-com-mediador`,
+      },
+    ],
+  };
 }
 
-export async function POST(request: Request) {
-  let body: ChatBody;
+/**
+ * Superfície calendário: sempre delega ao modelo hoje — não há
+ * atalho local determinístico equivalente ao FAQ/conteúdo da trilha, então
+ * fica fixa em resolution "generation" (dívida documentada no plano: é a
+ * única superfície com escrita real a jusante, então nunca emite
+ * low_confidence nesta versão).
+ */
+async function resolveCalendarMessage(
+  userId: string,
+  message: string,
+  history: ConversationMessage[]
+): Promise<SurfaceResolutionOutcome> {
+  const context = await buildVitruStudentContext(userId);
+  const plan = context.suggestedPlan;
+  let generated;
   try {
-    body = (await request.json()) as ChatBody;
-  } catch {
-    return invalid("O corpo deve ser um JSON válido.");
+    generated = await generate({
+      system: buildCalendarSystemPrompt(context),
+      userMessage: message,
+      history,
+      maxTokens: 1_200,
+    });
+  } catch (error) {
+    console.error("Falha na geração de texto (calendário)", error);
+    if (plan && plan.suggestions.length > 0) {
+      return {
+        reply: plan.replyText,
+        resolution: "generation",
+        confidence: 1,
+        actions: [
+          {
+            type: "confirm_plan",
+            label: "Confirmar horários sugeridos",
+            suggestions: plan.suggestions,
+          },
+        ],
+      };
+    }
+    return { unavailable: true };
   }
 
-  if (body.channel !== "portal" && body.channel !== "whatsapp") {
-    return invalid("channel deve ser portal ou whatsapp.");
-  }
-  if (body.agent !== "study_planner" && body.agent !== "universal") {
-    return invalid("agent deve ser universal ou study_planner.");
-  }
-  if (typeof body.userId !== "string" || !body.userId.trim()) {
-    return invalid("userId é obrigatório.");
-  }
-  if (
-    typeof body.conversationId !== "string" ||
-    !body.conversationId.trim() ||
-    body.conversationId.length > 160
-  ) {
-    return invalid("conversationId é inválido.");
-  }
-  if (
-    typeof body.message !== "string" ||
-    !body.message.trim() ||
-    body.message.length > 4000
-  ) {
-    return invalid("message deve conter entre 1 e 4000 caracteres.");
+  const actions: AssistantAction[] = [];
+  let reply = generated.text;
+
+  if (plan && plan.suggestions.length > 0) {
+    reply = plan.replyText;
+    actions.push({
+      type: "confirm_plan",
+      label: "Confirmar horários sugeridos",
+      suggestions: plan.suggestions,
+    });
   }
 
-  const userId = body.userId.trim();
-  const conversationId = body.conversationId.trim();
-  const message = body.message.trim();
+  return {
+    reply,
+    resolution: "generation",
+    confidence: 1,
+    actions,
+    inputTokens: generated.inputTokens,
+    outputTokens: generated.outputTokens,
+  };
+}
+
+async function handleSurfaceChat(body: SurfaceChatBody): Promise<Response> {
+  if (typeof body.surface !== "string" || !VALID_SURFACES.includes(body.surface as Surface)) {
+    return invalid("surface deve ser trilha ou calendario.");
+  }
+  const surface = body.surface as Surface;
+
+  if (typeof body.objectId !== "string" || !body.objectId.trim()) {
+    return invalid("objectId é obrigatório.");
+  }
+  const objectId = body.objectId.trim();
+
+  if (body.focus !== undefined && !isSurfaceFocus(body.focus)) {
+    return invalid("focus é inválido.");
+  }
+  const focus = body.focus as SurfaceFocus | undefined;
+
+  if (body.entryEventId !== undefined && typeof body.entryEventId !== "string") {
+    return invalid("entryEventId é inválido.");
+  }
+  const entryEventId = typeof body.entryEventId === "string" ? body.entryEventId.trim() || null : null;
+
+  const hasMessage = typeof body.message === "string" && body.message.trim().length > 0;
+  if (body.message !== undefined && typeof body.message !== "string") {
+    return invalid("message deve ser uma string.");
+  }
+  if (hasMessage && (body.message as string).length > 4000) {
+    return invalid("message deve conter no máximo 4000 caracteres.");
+  }
+  if (!hasMessage && !entryEventId) {
+    return invalid("message é obrigatória.");
+  }
+
+  const userId = await resolveActiveUserId(undefined);
   const index = await loadUserIndex();
   if (!index.users.some((user) => user.id === userId)) {
     return Response.json(
-      {
-        ok: false,
-        error: { code: "STUDENT_NOT_FOUND", message: "Aluno não encontrado." },
-      },
+      { ok: false, error: { code: "STUDENT_NOT_FOUND", message: "Aluno não encontrado." } },
       { status: 404 }
     );
   }
 
-  if (body.channel === "whatsapp") {
-    const pendingReply = await handlePendingWhatsAppIntent(
-      userId,
+  const startedAt = Date.now();
+  const conversationId = await resolveConversationId(userId, surface, objectId);
+  const lessonId = focus?.kind === "trilha" ? focus.lessonId : null;
+
+  // Modo abertura: sem mensagem do aluno, só resolve a retomada do inbox (spec §8). Não roda a ordem de resolução.
+  if (!hasMessage) {
+    const consumed = entryEventId ? await consumeInboxEvent(entryEventId) : null;
+    const reply = consumed ? consumed.reason : DEFAULT_GREETING[surface];
+    await appendMessage(conversationId, { role: "assistant", text: reply });
+    await logInteraction({
       conversationId,
-      message
+      userId,
+      surface,
+      objectId,
+      lessonId,
+      entryEventId,
+      intent: null,
+      confidence: consumed ? 1 : null,
+      resolution: "retrieval",
+      latencyMs: Date.now() - startedAt,
+      inputTokens: null,
+      outputTokens: null,
+      actionReturned: null,
+      actionClicked: null,
+    });
+    return Response.json(
+      { conversationId, reply, resolution: "retrieval", confidence: consumed ? 1 : 0, actions: [] },
+      { headers: { "Cache-Control": "no-store" } }
     );
-    if (pendingReply) {
-      return Response.json({
-        ok: true,
-        data: {
-          conversationId,
-          messageId: `msg-${Date.now()}`,
-          agent: "study_planner",
-          replyText: pendingReply,
-          suggestions: [],
-          confirmation: null,
-        },
-        meta: { channel: "whatsapp", handledLocally: true, version: "v1" },
-      });
-    }
   }
 
-  const webhookUrl =
-    process.env.N8N_VITRU_WEBHOOK_URL ??
-    "http://127.0.0.1:5679/webhook/vitru/v1/chat";
+  const message = (body.message as string).trim();
+  await appendMessage(conversationId, { role: "user", text: message });
+  const history = await getRecentHistory(conversationId);
+  const previousHistory = history.at(-1)?.role === "user" ? history.slice(0, -1) : history;
 
-  try {
-    const upstream = await fetch(webhookUrl, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        channel: body.channel,
-        agent: body.agent,
-        userId,
-        conversationId,
-        message,
-      }),
-      cache: "no-store",
-      signal: AbortSignal.timeout(45_000),
-    });
-    const responseBody = (await upstream.json()) as VitruUpstreamResponse;
+  const outcome =
+    surface === "trilha"
+      ? await resolveTrilhaMessage(userId, objectId, focus, message)
+      : await resolveCalendarMessage(userId, message, previousHistory);
 
-    if (
-      upstream.ok &&
-      responseBody.ok === true &&
-      responseBody.data &&
-      body.agent === "study_planner"
-    ) {
-      const context = await buildVitruStudentContext(userId);
-      const suggestedPlan = context.suggestedPlan;
-
-      if (suggestedPlan) {
-        if (suggestedPlan.suggestions.length > 0) {
-          if (body.channel === "whatsapp") {
-            await savePendingWhatsAppPlan(
-              userId,
-              conversationId,
-              suggestedPlan.suggestions
-            );
-            responseBody.data.replyText = formatSuggestionOffer(
-              suggestedPlan.suggestions[0],
-              1,
-              suggestedPlan.suggestions.length
-            );
-            responseBody.data.suggestions = [];
-            responseBody.data.confirmation = null;
-          } else {
-            responseBody.data.replyText = suggestedPlan.replyText;
-          }
-        }
-        if (body.channel === "portal") {
-          responseBody.data.suggestions = suggestedPlan.suggestions;
-          responseBody.data.confirmation =
-            suggestedPlan.suggestions.length > 0
-              ? {
-                  required: true,
-                  action: "CREATE_STUDY_PLAN",
-                  message:
-                    "Confirme individualmente os horários que deseja adicionar ao calendário.",
-                }
-              : null;
-        }
-      }
-    }
-
-    return Response.json(responseBody, {
-      status: upstream.status,
-      headers: { "Cache-Control": "no-store" },
-    });
-  } catch (error) {
-    console.error("Falha na comunicação com o n8n", error);
+  if ("unavailable" in outcome) {
     return Response.json(
       {
         ok: false,
@@ -281,4 +279,44 @@ export async function POST(request: Request) {
       { status: 503 }
     );
   }
+
+  await appendMessage(conversationId, { role: "assistant", text: outcome.reply });
+  await logInteraction({
+    conversationId,
+    userId,
+    surface,
+    objectId,
+    lessonId,
+    entryEventId,
+    intent: null,
+    confidence: outcome.confidence,
+    resolution: outcome.resolution,
+    latencyMs: Date.now() - startedAt,
+    inputTokens: outcome.inputTokens ?? null,
+    outputTokens: outcome.outputTokens ?? null,
+    actionReturned: outcome.actions[0]?.type ?? null,
+    actionClicked: null,
+  });
+
+  return Response.json(
+    {
+      conversationId,
+      reply: outcome.reply,
+      resolution: outcome.resolution,
+      confidence: outcome.confidence,
+      actions: outcome.actions,
+    },
+    { headers: { "Cache-Control": "no-store" } }
+  );
+}
+
+export async function POST(request: Request) {
+  let body: SurfaceChatBody;
+  try {
+    body = (await request.json()) as SurfaceChatBody;
+  } catch {
+    return invalid("O corpo deve ser um JSON válido.");
+  }
+
+  return handleSurfaceChat(body);
 }

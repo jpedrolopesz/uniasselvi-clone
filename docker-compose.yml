@@ -1,0 +1,30 @@
+# Postgres local para quando você quiser paridade total com o Aurora.
+#
+# O padrão de desenvolvimento e teste é o PGlite (Postgres em WASM, dentro do
+# processo), que não exige daemon — ver lib/db/client.ts. Use este compose
+# quando precisar de várias conexões simultâneas ou de extensões que o PGlite
+# não traz.
+#
+#   docker compose up -d
+#   DATABASE_DRIVER=postgres DATABASE_URL=postgres://vitru:vitru@localhost:5432/vitru npm run db:migrate
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: vitru-postgres
+    environment:
+      POSTGRES_USER: vitru
+      POSTGRES_PASSWORD: vitru
+      POSTGRES_DB: vitru
+    ports:
+      - "5432:5432"
+    volumes:
+      - vitru-pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U vitru -d vitru"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  vitru-pgdata:

@@ -44,6 +44,11 @@
       "id": "usuario-ficticio-sem-horario-livre",
       "label": "Usuário Fictício — Sem Horário Livre",
       "isFictional": true
+    },
+    {
+      "id": "usuario-ficticio-calouro",
+      "label": "Usuário Fictício — Calouro (1ª vez em EAD)",
+      "isFictional": true
     }
   ],
   "defaultUserId": "joao-pedro-lopes-zamonelo"

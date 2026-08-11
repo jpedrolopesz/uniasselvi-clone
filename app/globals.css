@@ -39,3 +39,154 @@ body {
   color: var(--color-text-primary);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
 }
+
+/* Logo interativo do assistente Vitru. Os estados serão ligados ao áudio real
+   na etapa de integração; por enquanto acompanham o protótipo da chamada. */
+.vitru-logo {
+  position: relative;
+  display: grid;
+  flex: none;
+  place-items: center;
+  isolation: isolate;
+}
+
+.vitru-logo__halo {
+  position: absolute;
+  inset: 8%;
+  z-index: -1;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(244, 198, 75, 0.2), transparent 65%);
+  filter: blur(7px);
+  animation: vitru-breathe 2.8s ease-in-out infinite;
+}
+
+.vitru-logo__symbol {
+  transform-origin: center;
+  filter: drop-shadow(0 0 7px rgba(244, 198, 75, 0.55));
+  animation: vitru-breathe 2.8s ease-in-out infinite;
+}
+
+.vitru-logo__core,
+.vitru-logo__rings,
+.vitru-logo__particles {
+  opacity: 0;
+}
+
+.vitru-logo__core {
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.vitru-logo--listening .vitru-logo__core,
+.vitru-logo--speaking .vitru-logo__core {
+  opacity: 0.45;
+  animation: vitru-core 1.1s ease-in-out infinite;
+}
+
+.vitru-logo--listening .vitru-logo__rings,
+.vitru-logo--speaking .vitru-logo__rings {
+  opacity: 1;
+}
+
+.vitru-logo--listening .vitru-logo__ring,
+.vitru-logo--speaking .vitru-logo__ring {
+  fill: none;
+  stroke: #58d9a3;
+  stroke-width: 1.5;
+  transform-box: view-box;
+  transform-origin: 100px 100px;
+  opacity: 0;
+  animation: vitru-ring 1.7s ease-out infinite;
+}
+
+.vitru-logo--listening .vitru-logo__symbol {
+  animation: vitru-listening 1.85s ease-in-out infinite;
+}
+
+.vitru-logo--speaking .vitru-logo__ring { stroke: #f4c64b; }
+.vitru-logo--speaking .vitru-logo__symbol { animation: vitru-speaking 0.65s ease-in-out infinite alternate; }
+
+.vitru-logo--thinking .vitru-logo__particles {
+  opacity: 1;
+  transform-box: view-box;
+  transform-origin: 100px 100px;
+  filter: drop-shadow(0 0 5px rgba(244, 198, 75, 0.9));
+  animation: vitru-spin 2.4s linear infinite;
+}
+
+.vitru-logo--thinking .vitru-logo__symbol {
+  transform-box: view-box;
+  transform-origin: 100px 100px;
+  animation: vitru-thinking 1.4s ease-in-out infinite;
+}
+
+.vitru-logo--thinking .vitru-logo__halo {
+  opacity: 1;
+  animation: vitru-thinking-halo 1.4s ease-in-out infinite;
+}
+
+.vitru-logo--thinking .vitru-logo__particles circle:nth-child(even) {
+  animation: vitru-particle 0.8s ease-in-out infinite alternate;
+}
+
+.vitru-logo--thinking .vitru-logo__particles circle:nth-child(odd) {
+  animation: vitru-particle 0.8s 0.4s ease-in-out infinite alternate;
+}
+
+@keyframes vitru-breathe {
+  0%, 100% { transform: scale(0.985); opacity: 0.62; }
+  50% { transform: scale(1.02); opacity: 0.95; }
+}
+
+@keyframes vitru-core {
+  0%, 100% { transform: scale(0.9); opacity: 0.25; }
+  50% { transform: scale(1.12); opacity: 0.55; }
+}
+
+@keyframes vitru-listening {
+  0%, 100% {
+    transform: scale(0.98);
+    filter: drop-shadow(0 0 7px rgba(244, 198, 75, 0.45));
+  }
+  50% {
+    transform: scale(1.03);
+    filter: drop-shadow(0 0 11px rgba(244, 198, 75, 0.65));
+  }
+}
+
+@keyframes vitru-ring {
+  0% { transform: scale(0.74); opacity: 0.5; }
+  100% { transform: scale(2.17); opacity: 0; }
+}
+
+@keyframes vitru-spin { to { transform: rotate(360deg); } }
+
+@keyframes vitru-thinking {
+  0%, 100% {
+    transform: rotate(-7deg) scale(0.94);
+    filter: drop-shadow(0 0 7px rgba(244, 198, 75, 0.45));
+  }
+  50% {
+    transform: rotate(7deg) scale(1.04);
+    filter: drop-shadow(0 0 16px rgba(244, 198, 75, 0.85));
+  }
+}
+
+@keyframes vitru-thinking-halo {
+  0%, 100% { transform: scale(0.86); opacity: 0.38; }
+  50% { transform: scale(1.18); opacity: 1; }
+}
+
+@keyframes vitru-particle {
+  from { opacity: 0.3; }
+  to { opacity: 1; }
+}
+
+@keyframes vitru-speaking {
+  from { transform: scale(0.96); }
+  to { transform: scale(1.08); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vitru-logo *, .vitru-logo__halo { animation: none !important; }
+}

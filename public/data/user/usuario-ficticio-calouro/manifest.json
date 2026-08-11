@@ -1,0 +1,30 @@
+{
+  "userId": "usuario-ficticio-calouro",
+  "isFictional": true,
+  "displayLabel": "Usuário Fictício — Calouro (1ª vez em EAD)",
+  "scenario": "Primeiro semestre, segunda semana de aula: trabalha em horário comercial, não tem experiência prévia em EAD, nunca usou o planejador de estudos e possui a primeira avaliação aberta com prazo próximo.",
+  "datasets": {
+    "userData": true,
+    "currentSemester": true,
+    "sofiaDadosAluno": true,
+    "disciplines": true,
+    "financialTitles": true
+  },
+  "subjects": [
+    "159490",
+    "GTI03",
+    "MAT24",
+    "114480",
+    "GTI04"
+  ],
+  "screens": [
+    "home",
+    "calendario",
+    "notas-avaliacoes",
+    "frequencia",
+    "gravacoes"
+  ],
+  "notes": "Usuário fictício criado para demonstrar a adaptação de um calouro ao EAD — não representa uma pessoa real. Mesma estrutura de campos dos dados-base, com valores ajustados apenas para este cenário.",
+  "cohortBaseUserId": "joao-pedro-lopes-zamonelo",
+  "simulationDate": "2026-08-10"
+}

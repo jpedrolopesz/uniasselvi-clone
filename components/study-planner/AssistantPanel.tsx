@@ -1,21 +1,41 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { useRouter } from "next/navigation";
 import { SendIcon, SparklesIcon } from "@/components/icons";
 import { SuggestionCard } from "@/components/study-planner/SuggestionCard";
-import type { ChatMessage } from "@/components/study-planner/chat-types";
-import {
-  QUICK_PROMPTS,
-  type AssistantSuggestion,
-} from "@/lib/study-planner/ai-assistant";
+import type { SuggestionStatus } from "@/components/study-planner/chat-types";
+import type { AssistantSuggestion } from "@/lib/study-planner/ai-assistant";
+import type { AssistantAction, ActionType, Resolution, Surface, SurfaceFocus } from "@/lib/vitru/surfaces";
 
 interface AssistantPanelProps {
-  userId: string;
-  onAcceptSuggestion: (suggestion: AssistantSuggestion) => Promise<void>;
+  surface: Surface;
+  objectId: string;
+  focus?: SurfaceFocus;
+  entryEventId?: string;
   isExpanded?: boolean;
   onToggleExpanded?: () => void;
   /** Presente apenas na versão em drawer (mobile), para exibir o botão de fechar. */
   onClose?: () => void;
+  /**
+   * Fora do contrato da spec (que não prevê callback nenhum) — necessário
+   * para a grade do calendário se atualizar depois de uma ação confirm_plan,
+   * já que o painel agora executa a confirmação sozinho em vez de delegar a
+   * um AssistantSuggestion escolhido pela página.
+   */
+  onPlanConfirmed?: (activity: AssistantSuggestion & { source: "ai" }) => void;
+}
+
+interface DisplayedAction {
+  action: AssistantAction;
+  key: string;
+}
+
+interface ChatMessage {
+  id: number;
+  role: "assistant" | "user";
+  text: string;
+  actions?: DisplayedAction[];
 }
 
 let messageIdCounter = 0;
@@ -24,28 +44,102 @@ function nextMessageId(): number {
   return messageIdCounter;
 }
 
+const KNOWN_ACTION_TYPES: ActionType[] = ["open_lesson", "navigate", "confirm_plan", "dismiss"];
+
+function isAssistantAction(value: unknown): value is AssistantAction {
+  if (!value || typeof value !== "object") return false;
+  const type = (value as Record<string, unknown>).type;
+  return typeof type === "string" && KNOWN_ACTION_TYPES.includes(type as ActionType);
+}
+
+const PANEL_COPY: Record<Surface, { title: string; subtitle: string; greeting: string; quickPrompts: string[] }> = {
+  trilha: {
+    title: "Vitru",
+    subtitle: "Assistente da trilha · demonstração",
+    greeting:
+      "Oi! Sou o Vitru. Pergunte algo sobre o conteúdo desta aula ou peça para rever uma aula anterior.",
+    quickPrompts: ["Resumir esta aula", "Rever a aula anterior", "Não entendi essa parte"],
+  },
+  calendario: {
+    title: "Vitru · Calendário",
+    subtitle: "Planejamento acadêmico · demonstração",
+    greeting:
+      "Oi! Eu sou o Vitru · Calendário. Posso analisar suas avaliações abertas, seus prazos e sua rotina para sugerir um plano. Nada será adicionado sem sua confirmação.",
+    quickPrompts: [
+      "Organizar minha semana",
+      "Encontrar horário livre",
+      "Planejar uma revisão",
+      "Preparar para uma prova",
+    ],
+  },
+};
+
+interface ChatApiResponse {
+  conversationId?: string;
+  reply?: string;
+  resolution?: Resolution;
+  actions?: unknown[];
+}
+
 export function AssistantPanel({
-  userId,
-  onAcceptSuggestion,
+  surface,
+  objectId,
+  focus,
+  entryEventId,
   isExpanded = false,
   onToggleExpanded,
   onClose,
+  onPlanConfirmed,
 }: AssistantPanelProps) {
-  const [messages, setMessages] = useState<ChatMessage[]>([
-    {
-      id: nextMessageId(),
-      role: "assistant",
-      text: "Oi! Eu sou o Vitru · Calendário. Posso analisar suas avaliações abertas, seus prazos e sua rotina para sugerir um plano. Nada será adicionado sem sua confirmação.",
-    },
-  ]);
+  const router = useRouter();
+  const copy = PANEL_COPY[surface];
+
+  const [messages, setMessages] = useState<ChatMessage[]>(
+    entryEventId ? [] : [{ id: nextMessageId(), role: "assistant", text: copy.greeting }]
+  );
   const [input, setInput] = useState("");
   const [typing, setTyping] = useState(false);
+  const [suggestionStatus, setSuggestionStatus] = useState<Record<string, SuggestionStatus>>({});
+  const [dismissedKeys, setDismissedKeys] = useState<Set<string>>(new Set());
   const scrollRef = useRef<HTMLDivElement>(null);
-  const conversationId = useRef<string | null>(null);
 
   useEffect(() => {
     scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: "smooth" });
   }, [messages, typing]);
+
+  // Mensagem de retomada do inbox (spec §8) — só roda uma vez, ao abrir, e substitui a saudação padrão em vez de se somar a ela.
+  useEffect(() => {
+    if (!entryEventId) return;
+    let cancelled = false;
+
+    (async () => {
+      setTyping(true);
+      try {
+        const response = await fetch("/api/v1/vitru/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ surface, objectId, focus, entryEventId }),
+        });
+        const result = (await response.json()) as ChatApiResponse;
+        if (!cancelled && response.ok && typeof result.reply === "string") {
+          setMessages((current) => [...current, { id: nextMessageId(), role: "assistant", text: result.reply! }]);
+        } else if (!cancelled) {
+          setMessages((current) => [...current, { id: nextMessageId(), role: "assistant", text: copy.greeting }]);
+        }
+      } catch {
+        if (!cancelled) {
+          setMessages((current) => [...current, { id: nextMessageId(), role: "assistant", text: copy.greeting }]);
+        }
+      } finally {
+        if (!cancelled) setTyping(false);
+      }
+    })();
+
+    return () => {
+      cancelled = true;
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [entryEventId]);
 
   async function sendMessage(text: string) {
     const trimmed = text.trim();
@@ -54,38 +148,24 @@ export function AssistantPanel({
     setMessages((current) => [...current, { id: nextMessageId(), role: "user", text: trimmed }]);
     setInput("");
     setTyping(true);
-    conversationId.current ??= `portal-calendar-${userId}-${Date.now()}`;
 
     try {
       const response = await fetch("/api/v1/vitru/chat", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          channel: "portal",
-          agent: "study_planner",
-          userId,
-          conversationId: conversationId.current,
-          message: trimmed,
-        }),
+        body: JSON.stringify({ surface, objectId, focus, message: trimmed }),
       });
-      const result = await response.json();
-      if (!response.ok || !result.ok) throw new Error("Falha ao consultar o Vitru.");
+      const result = (await response.json()) as ChatApiResponse;
+      if (!response.ok || typeof result.reply !== "string") {
+        throw new Error("Falha ao consultar o Vitru.");
+      }
 
-      setMessages((current) => [
-        ...current,
-        {
-          id: nextMessageId(),
-          role: "assistant",
-          text: result.data.replyText,
-          suggestions:
-            result.data.suggestions?.length > 0
-              ? result.data.suggestions.map((suggestion: AssistantSuggestion) => ({
-                  suggestion,
-                  status: "pending" as const,
-                }))
-              : undefined,
-        },
-      ]);
+      const messageId = nextMessageId();
+      const actions = (result.actions ?? [])
+        .filter(isAssistantAction)
+        .map((action, index) => ({ action, key: `${messageId}:${index}` }));
+
+      setMessages((current) => [...current, { id: messageId, role: "assistant", text: result.reply!, actions }]);
     } catch {
       setMessages((current) => [
         ...current,
@@ -100,81 +180,97 @@ export function AssistantPanel({
     }
   }
 
-  async function respondToSuggestion(
-    messageId: number,
-    suggestionId: string,
-    accepted: boolean
-  ) {
-    const message = messages.find((item) => item.id === messageId);
-    const found = message?.suggestions?.find(
-      (item) => item.suggestion.id === suggestionId
-    );
-    if (!found) return;
-
+  async function respondToSuggestion(suggestion: AssistantSuggestion, accepted: boolean) {
     if (!accepted) {
-      setMessages((current) =>
-        current.map((item) =>
-          item.id === messageId && item.suggestions
-            ? {
-                ...item,
-                suggestions: item.suggestions.map((suggestion) =>
-                  suggestion.suggestion.id === suggestionId
-                    ? { ...suggestion, status: "rejected" as const }
-                    : suggestion
-                ),
-              }
-            : item
-        )
-      );
+      setSuggestionStatus((current) => ({ ...current, [suggestion.id]: "rejected" }));
       return;
     }
 
-    setMessages((current) =>
-      current.map((message) => {
-        if (message.id !== messageId || !message.suggestions) return message;
-        return {
-          ...message,
-          suggestions: message.suggestions.map((item) =>
-            item.suggestion.id === suggestionId
-              ? { ...item, status: "saving" as const }
-              : item
-          ),
-        };
-      })
-    );
-
+    setSuggestionStatus((current) => ({ ...current, [suggestion.id]: "saving" }));
     try {
-      await onAcceptSuggestion(found.suggestion);
-      setMessages((current) =>
-        current.map((item) =>
-          item.id === messageId && item.suggestions
-            ? {
-                ...item,
-                suggestions: item.suggestions.map((suggestion) =>
-                  suggestion.suggestion.id === suggestionId
-                    ? { ...suggestion, status: "accepted" as const }
-                    : suggestion
-                ),
-              }
-            : item
-        )
-      );
+      const response = await fetch("/api/v1/vitru/study-plan/confirm", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ action: "CREATE_STUDY_PLAN", suggestionIds: [suggestion.id] }),
+      });
+      const result = await response.json();
+      if (!response.ok || !result.ok) throw new Error("Falha ao confirmar etapa.");
+
+      setSuggestionStatus((current) => ({ ...current, [suggestion.id]: "accepted" }));
+      const persisted = result.data.created[0] ?? { ...suggestion, source: "ai" as const };
+      onPlanConfirmed?.(persisted);
     } catch {
-      setMessages((current) =>
-        current.map((item) =>
-          item.id === messageId && item.suggestions
-            ? {
-                ...item,
-                suggestions: item.suggestions.map((suggestion) =>
-                  suggestion.suggestion.id === suggestionId
-                    ? { ...suggestion, status: "error" as const }
-                    : suggestion
-                ),
-              }
-            : item
-        )
+      setSuggestionStatus((current) => ({ ...current, [suggestion.id]: "error" }));
+    }
+  }
+
+  function renderAction({ action, key }: DisplayedAction) {
+    if (dismissedKeys.has(key)) return null;
+
+    if (action.type === "confirm_plan") {
+      const suggestions = Array.isArray(action.suggestions)
+        ? (action.suggestions as AssistantSuggestion[])
+        : [];
+      if (suggestions.length === 0) return null;
+      return (
+        <div key={key} className="mt-3 flex flex-col gap-2">
+          {suggestions.map((suggestion) => (
+            <SuggestionCard
+              key={suggestion.id}
+              suggestion={suggestion}
+              status={suggestionStatus[suggestion.id] ?? "pending"}
+              onAccept={() => void respondToSuggestion(suggestion, true)}
+              onReject={() => void respondToSuggestion(suggestion, false)}
+            />
+          ))}
+        </div>
       );
     }
+
+    if (action.type === "open_lesson") {
+      const lessonId = typeof action.lessonId === "string" ? action.lessonId : null;
+      if (!lessonId) return null;
+      return (
+        <button
+          key={key}
+          type="button"
+          onClick={() => router.push(`/disciplinas/${objectId}/trilha-de-aprendizagem/${lessonId}`)}
+          className="mt-3 w-fit rounded-full bg-brand-yellow px-4 py-2 text-xs font-semibold text-black transition hover:bg-brand-yellow-dark"
+        >
+          {action.label}
+        </button>
+      );
+    }
+
+    if (action.type === "navigate") {
+      const href = typeof action.href === "string" ? action.href : null;
+      if (!href) return null;
+      return (
+        <button
+          key={key}
+          type="button"
+          onClick={() => router.push(href)}
+          className="mt-3 w-fit rounded-full border border-border-subtle px-4 py-2 text-xs font-medium text-text-secondary transition hover:bg-bg-card-hover hover:text-white"
+        >
+          {action.label}
+        </button>
+      );
+    }
+
+    if (action.type === "dismiss") {
+      return (
+        <button
+          key={key}
+          type="button"
+          onClick={() => setDismissedKeys((current) => new Set(current).add(key))}
+          className="mt-3 w-fit text-xs text-text-secondary underline-offset-2 hover:underline"
+        >
+          {action.label}
+        </button>
+      );
+    }
+
+    return null;
   }
 
   return (
@@ -184,8 +280,8 @@ export function AssistantPanel({
           <SparklesIcon className="h-4.5 w-4.5 text-brand-yellow" />
         </div>
         <div className="min-w-0 flex-1">
-          <p className="text-sm font-semibold text-white">Vitru · Calendário</p>
-          <p className="text-xs text-text-secondary">Planejamento acadêmico · demonstração</p>
+          <p className="text-sm font-semibold text-white">{copy.title}</p>
+          <p className="text-xs text-text-secondary">{copy.subtitle}</p>
         </div>
         {onToggleExpanded && (
           <button
@@ -221,19 +317,7 @@ export function AssistantPanel({
               }`}
             >
               {message.text}
-              {message.suggestions && (
-                <div className="mt-3 flex flex-col gap-2">
-                  {message.suggestions.map(({ suggestion, status }) => (
-                    <SuggestionCard
-                      key={suggestion.id}
-                      suggestion={suggestion}
-                      status={status}
-                      onAccept={() => void respondToSuggestion(message.id, suggestion.id, true)}
-                      onReject={() => void respondToSuggestion(message.id, suggestion.id, false)}
-                    />
-                  ))}
-                </div>
-              )}
+              {message.actions?.map((displayed) => renderAction(displayed))}
             </div>
           </div>
         ))}
@@ -244,19 +328,21 @@ export function AssistantPanel({
         )}
       </div>
 
-      <div className="flex flex-wrap gap-2 border-t border-border-subtle p-3">
-        {QUICK_PROMPTS.map((prompt) => (
-          <button
-            key={prompt}
-            type="button"
-            onClick={() => void sendMessage(prompt)}
-            disabled={typing}
-            className="rounded-full border border-border-subtle px-3 py-1.5 text-xs font-medium text-text-secondary transition hover:bg-bg-card-hover hover:text-white"
-          >
-            {prompt}
-          </button>
-        ))}
-      </div>
+      {copy.quickPrompts.length > 0 && (
+        <div className="flex flex-wrap gap-2 border-t border-border-subtle p-3">
+          {copy.quickPrompts.map((prompt) => (
+            <button
+              key={prompt}
+              type="button"
+              onClick={() => void sendMessage(prompt)}
+              disabled={typing}
+              className="rounded-full border border-border-subtle px-3 py-1.5 text-xs font-medium text-text-secondary transition hover:bg-bg-card-hover hover:text-white"
+            >
+              {prompt}
+            </button>
+          ))}
+        </div>
+      )}
 
       <form
         onSubmit={(e) => {

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<title>Voice AI MVP</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 560px; margin: 60px auto; text-align: center; }
+  button { font-size: 18px; padding: 14px 28px; border-radius: 999px; border: none; cursor: pointer; }
+  #callBtn { background: #16a34a; color: white; }
+  #callBtn.active { background: #dc2626; }
+  #log { text-align: left; margin-top: 30px; font-size: 14px; color: #444; white-space: pre-wrap; }
+  #status { margin-top: 10px; color: #888; }
+</style>
+</head>
+<body>
+  <h1>🎙️ Voice AI MVP</h1>
+  <button id="callBtn">Iniciar chamada</button>
+  <div id="status">Pronto</div>
+  <div id="log"></div>
+
+<script>
+const callBtn = document.getElementById('callBtn');
+const statusEl = document.getElementById('status');
+const logEl = document.getElementById('log');
+
+let ws = null;
+let audioCtx = null;
+let mediaStream = null;
+let processorNode = null;
+let active = false;
+
+// Fila simples de reprodução para os chunks de MP3 que chegam do servidor
+let playbackQueue = [];
+let isPlaying = false;
+
+function log(from, text) {
+  logEl.textContent += `[${from}] ${text}\n`;
+  logEl.scrollTop = logEl.scrollHeight;
+}
+
+async function playNextChunk() {
+  if (isPlaying || playbackQueue.length === 0) return;
+  isPlaying = true;
+  const chunk = playbackQueue.shift();
+  try {
+    const buffer = await audioCtx.decodeAudioData(chunk);
+    const source = audioCtx.createBufferSource();
+    source.buffer = buffer;
+    source.connect(audioCtx.destination);
+    source.onended = () => { isPlaying = false; playNextChunk(); };
+    source.start();
+  } catch (e) {
+    isPlaying = false;
+    playNextChunk();
+  }
+}
+
+function downsampleTo16kPCM16(input, inputSampleRate) {
+  const ratio = inputSampleRate / 16000;
+  const outLength = Math.floor(input.length / ratio);
+  const out = new Int16Array(outLength);
+  for (let i = 0; i < outLength; i++) {
+    const s = Math.max(-1, Math.min(1, input[Math.floor(i * ratio)]));
+    out[i] = s < 0 ? s * 0x8000 : s * 0x7fff;
+  }
+  return out;
+}
+
+async function startCall() {
+  audioCtx = new AudioContext();
+  mediaStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+
+  ws = new WebSocket(`${location.origin.replace(/^http/, 'ws')}/ws`);
+  ws.binaryType = 'arraybuffer';
+
+  ws.onmessage = (event) => {
+    if (typeof event.data === 'string') {
+      const msg = JSON.parse(event.data);
+      if (msg.type === 'transcript') log(msg.from, msg.text);
+    } else {
+      playbackQueue.push(event.data);
+      playNextChunk();
+    }
+  };
+
+  ws.onopen = async () => {
+    const source = audioCtx.createMediaStreamSource(mediaStream);
+    await audioCtx.audioWorklet.addModule('/pcm-processor.js');
+    processorNode = new AudioWorkletNode(audioCtx, 'pcm-processor');
+    const silentGain = audioCtx.createGain();
+    silentGain.gain.value = 0;
+    source.connect(processorNode);
+    processorNode.connect(silentGain);
+    silentGain.connect(audioCtx.destination);
+
+    processorNode.port.onmessage = (e) => {
+      if (ws.readyState !== WebSocket.OPEN) return;
+      const input = e.data;
+      const pcm16 = downsampleTo16kPCM16(input, audioCtx.sampleRate);
+      ws.send(pcm16.buffer);
+    };
+  };
+
+  statusEl.textContent = 'Em chamada... fale algo!';
+  callBtn.textContent = 'Encerrar chamada';
+  callBtn.classList.add('active');
+  active = true;
+}
+
+function stopCall() {
+  processorNode?.disconnect();
+  mediaStream?.getTracks().forEach((t) => t.stop());
+  ws?.close();
+  audioCtx?.close();
+
+  statusEl.textContent = 'Pronto';
+  callBtn.textContent = 'Iniciar chamada';
+  callBtn.classList.remove('active');
+  active = false;
+}
+
+callBtn.onclick = () => (active ? stopCall() : startCall());
+</script>
+</body>
+</html>

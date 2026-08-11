@@ -1,8 +1,8 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import type { StudyActivity } from "@/lib/types/study-activity";
-import type { AssistantSuggestion, SubjectOption } from "@/lib/study-planner/ai-assistant";
+import type { SubjectOption } from "@/lib/study-planner/ai-assistant";
 import {
   removeActivity,
   upsertActivity,
@@ -19,8 +19,7 @@ import {
 import { MONTH_LABELS_PT } from "@/lib/selectors/calendar-selectors";
 import { formatDateBr } from "@/lib/formatters/date-formatters";
 import type { StudyPlannerViewMode } from "@/components/study-planner/view-mode";
-import { SparklesIcon } from "@/components/icons";
-import { AssistantPanel } from "@/components/study-planner/AssistantPanel";
+import { VITRU_PLAN_CONFIRMED_EVENT } from "@/components/vitru/planner-events";
 import { CalendarToolbar } from "@/components/study-planner/CalendarToolbar";
 import { MonthGridView } from "@/components/study-planner/MonthGridView";
 import { WeekGridView } from "@/components/study-planner/WeekGridView";
@@ -41,7 +40,6 @@ function addMonths(isoDate: string, delta: number): string {
 }
 
 export function StudyPlannerView({
-  userId,
   seedActivities,
   subjects,
   planningDate,
@@ -50,8 +48,15 @@ export function StudyPlannerView({
   const [viewMode, setViewMode] = useState<StudyPlannerViewMode>("week");
   const [selectedIsoDate, setSelectedIsoDate] = useState(planningDate);
   const [formDraft, setFormDraft] = useState<ActivityFormDraft | null>(null);
-  const [isAssistantOpen, setIsAssistantOpen] = useState(false);
-  const [isAssistantExpanded, setIsAssistantExpanded] = useState(false);
+
+  useEffect(() => {
+    const handleConfirmedPlan = (event: Event) => {
+      const activity = (event as CustomEvent<StudyActivity>).detail;
+      if (activity) setActivities((current) => upsertActivity(current, activity));
+    };
+    window.addEventListener(VITRU_PLAN_CONFIRMED_EVENT, handleConfirmedPlan);
+    return () => window.removeEventListener(VITRU_PLAN_CONFIRMED_EVENT, handleConfirmedPlan);
+  }, []);
 
   const periodLabel = useMemo(() => {
     if (viewMode === "day") {
@@ -127,53 +132,9 @@ export function StudyPlannerView({
     setFormDraft(null);
   }
 
-  async function handleAcceptSuggestion(suggestion: AssistantSuggestion) {
-    const response = await fetch("/api/v1/vitru/study-plan/confirm", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        action: "CREATE_STUDY_PLAN",
-        userId,
-        suggestionIds: [suggestion.id],
-      }),
-    });
-    const result = await response.json();
-    if (!response.ok || !result.ok) throw new Error("Falha ao confirmar etapa.");
-
-    const persisted = result.data.created[0] ?? {
-      ...suggestion,
-      source: "ai" as const,
-    };
-    setActivities((current) => upsertActivity(current, persisted));
-  }
-
   return (
-    <div className="flex flex-col gap-4">
-      <div className="flex justify-end lg:hidden">
-        <button
-          type="button"
-          onClick={() => setIsAssistantOpen(true)}
-          className="flex items-center gap-2 rounded-full bg-bg-card px-4 py-2 text-sm font-medium text-white transition hover:bg-bg-card-hover"
-        >
-          <SparklesIcon className="h-4 w-4 text-brand-yellow" />
-          Vitru · Calendário
-        </button>
-      </div>
-
-      <div className="flex h-[75vh] min-h-140 flex-col gap-4 md:gap-6 lg:flex-row">
-        <div
-          className={`hidden min-h-0 shrink-0 transition-[width] duration-300 ease-out lg:block ${
-            isAssistantExpanded ? "lg:w-[48%]" : "lg:w-95"
-          }`}
-        >
-          <AssistantPanel
-            userId={userId}
-            onAcceptSuggestion={handleAcceptSuggestion}
-            isExpanded={isAssistantExpanded}
-            onToggleExpanded={() => setIsAssistantExpanded((current) => !current)}
-          />
-        </div>
-
+    <div className="flex flex-col gap-4 transition-[padding] duration-300 lg:pl-[424px]">
+      <div className="flex h-[75vh] min-h-140 flex-col">
         <div className="flex min-h-0 min-w-0 flex-1 flex-col overflow-hidden rounded-2xl bg-bg-card transition-[width] duration-300 ease-out">
           <CalendarToolbar
             viewMode={viewMode}
@@ -210,23 +171,6 @@ export function StudyPlannerView({
           )}
         </div>
       </div>
-
-      {isAssistantOpen && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 lg:hidden"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Vitru · Calendário"
-        >
-          <div className="h-[85vh] w-full max-w-md">
-            <AssistantPanel
-              userId={userId}
-              onAcceptSuggestion={handleAcceptSuggestion}
-              onClose={() => setIsAssistantOpen(false)}
-            />
-          </div>
-        </div>
-      )}
 
       {formDraft && (
         <ActivityFormModal

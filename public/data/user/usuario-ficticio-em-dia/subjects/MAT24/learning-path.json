@@ -52,6 +52,16 @@
               "title": "Fatorial",
               "embed_url": "https://www.youtube.com/embed/n5ck5anbI0Q?rel=0&showinfo=0&disablekb=1&modestbranding=1&allowfullscreen=1"
             }
+          ],
+          "faq": [
+            {
+              "question": "O que é fatorial de zero?",
+              "answer": "Por convenção, 0! = 1. Essa definição existe para que as fórmulas de contagem (como combinações e arranjos) continuem funcionando corretamente quando um dos termos é zero."
+            },
+            {
+              "question": "Como simplificar uma divisão de fatoriais?",
+              "answer": "Cancele os fatores repetidos antes de multiplicar. Por exemplo, 10!/8! = 10 × 9, porque os fatores de 8! até 1 aparecem nos dois fatoriais e se cancelam."
+            }
           ]
         },
         {
@@ -186,6 +196,12 @@
             {
               "title": "Teorema de Bayes",
               "embed_url": "https://www.youtube.com/embed/qjfLApI1ca0?rel=0&showinfo=0&disablekb=1&modestbranding=1&allowfullscreen=1"
+            }
+          ],
+          "faq": [
+            {
+              "question": "Quando devo usar o Teorema de Bayes em vez da probabilidade condicional direta?",
+              "answer": "Use o Teorema de Bayes quando você conhece P(B|A) mas precisa descobrir P(A|B) — ou seja, quando quer inverter a condição, atualizando a probabilidade de uma causa a partir de um efeito observado."
             }
           ]
         }

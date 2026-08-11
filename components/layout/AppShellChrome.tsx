@@ -3,8 +3,10 @@ import { Header } from "@/components/layout/Header";
 import { TabBar } from "@/components/layout/TabBar";
 import { PageContainer } from "@/components/layout/PageContainer";
 import { BottomNavBar } from "@/components/layout/BottomNavBar";
+import { VoiceAssistantWindow } from "@/components/vitru/VoiceAssistantWindow";
 
 interface AppShellChromeProps {
+  activeUserId: string;
   fullName: string;
   courseName: string;
   subscriptionCode: string;
@@ -13,6 +15,7 @@ interface AppShellChromeProps {
 }
 
 export function AppShellChrome({
+  activeUserId,
   fullName,
   courseName,
   subscriptionCode,
@@ -26,6 +29,7 @@ export function AppShellChrome({
       <div className="flex min-h-0 flex-1">
         <PageContainer fullBleed={fullBleed}>{children}</PageContainer>
       </div>
+      <VoiceAssistantWindow activeUserId={activeUserId} />
       {!fullBleed && <BottomNavBar />}
     </div>
   );

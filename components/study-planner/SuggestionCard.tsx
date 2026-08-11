@@ -48,14 +48,14 @@ export function SuggestionCard({ suggestion, status, onAccept, onReject }: Sugge
             onClick={onAccept}
             className="flex-1 rounded-full bg-brand-yellow px-3 py-1.5 text-xs font-semibold text-black transition hover:bg-brand-yellow-dark"
           >
-            {status === "error" ? "Tentar novamente" : "Adicionar ao calendário"}
+            {status === "error" ? "Tentar novamente" : "Confirmar horário"}
           </button>
           <button
             type="button"
             onClick={onReject}
             className="rounded-full border border-border-subtle px-3 py-1.5 text-xs font-medium text-text-secondary transition hover:bg-bg-card-hover hover:text-white"
           >
-            Recusar
+            Não quero este horário
           </button>
         </div>
       )}

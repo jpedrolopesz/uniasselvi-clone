@@ -1,4 +1,5 @@
 import { loadUserIndex } from "@/lib/data/load-user-index";
+import { resolveActiveUserId } from "@/lib/data/resolve-active-user";
 import { saveStudyActivities } from "@/lib/data/save-study-activities";
 import { buildVitruStudentContext } from "@/lib/vitru/build-student-context";
 import type { StudyActivity } from "@/lib/types/study-activity";
@@ -27,8 +28,8 @@ export async function POST(request: Request) {
   if (body.action !== "CREATE_STUDY_PLAN") {
     return invalid("A ação deve ser CREATE_STUDY_PLAN.");
   }
-  if (typeof body.userId !== "string" || !body.userId.trim()) {
-    return invalid("userId é obrigatório.");
+  if (body.userId !== undefined && (typeof body.userId !== "string" || !body.userId.trim())) {
+    return invalid("userId é inválido.");
   }
   if (
     !Array.isArray(body.suggestionIds) ||
@@ -39,7 +40,11 @@ export async function POST(request: Request) {
     return invalid("suggestionIds deve conter entre 1 e 20 identificadores.");
   }
 
-  const userId = body.userId.trim();
+  // AssistantPanel (surface trilha/calendario) não recebe userId como prop — quando omitido, resolve pelo mesmo mecanismo usado no resto do portal (cookie do UserSwitcher).
+  const userId =
+    typeof body.userId === "string" && body.userId.trim()
+      ? body.userId.trim()
+      : await resolveActiveUserId(undefined);
   const suggestionIds = [...new Set(body.suggestionIds as string[])];
   const index = await loadUserIndex();
   if (!index.users.some((user) => user.id === userId)) {

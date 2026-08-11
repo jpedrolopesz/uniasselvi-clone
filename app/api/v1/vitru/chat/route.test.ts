@@ -1,4 +1,19 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
+
+const { generateMock } = vi.hoisted(() => ({ generateMock: vi.fn() }));
+
+vi.mock("@/lib/vitru/generate", () => ({
+  generate: generateMock,
+}));
+
+// resolveActiveUserId() lê cookies() do next/headers, que exige um request
+// context real do Next.js fora do qual lança — mockado para fixar o aluno de teste.
+vi.mock("@/lib/data/resolve-active-user", () => ({
+  resolveActiveUserId: vi.fn().mockResolvedValue("usuario-ficticio-em-dia"),
+}));
+
+const TEST_USER_ID = "usuario-ficticio-em-dia";
+
 import { POST } from "@/app/api/v1/vitru/chat/route";
 
 function request(body: unknown) {
@@ -10,143 +25,158 @@ function request(body: unknown) {
 }
 
 afterEach(() => {
+  generateMock.mockReset();
   vi.unstubAllGlobals();
 });
 
-describe("POST /api/v1/vitru/chat", () => {
-  it("valida os dados antes de chamar o n8n", async () => {
-    const fetchMock = vi.fn();
-    vi.stubGlobal("fetch", fetchMock);
+describe("POST /api/v1/vitru/chat — contrato por superfície", () => {
+  const trilhaFocus = { kind: "trilha", lessonId: "u1-fatorial", markCount: 0, lastMarkAt: null };
 
-    const response = await POST(request({ channel: "email" }));
-
-    expect(response.status).toBe(400);
-    expect(fetchMock).not.toHaveBeenCalled();
-  });
-
-  it("anexa o plano estruturado à resposta do agente de calendário", async () => {
-    const upstreamBody = {
-      ok: true,
-      data: {
-        replyText:
-          "Plano detalhado repetindo datas e horários que também aparecem nos cartões.",
-        suggestions: [],
-        confirmation: null,
-      },
-    };
-    const fetchMock = vi.fn().mockResolvedValue(
-      Response.json(upstreamBody, { status: 200 })
-    );
-    vi.stubGlobal("fetch", fetchMock);
-
+  it("resolve pela FAQ da aula sem chamar o gerador", async () => {
     const response = await POST(
       request({
-        channel: "portal",
-        agent: "study_planner",
-        userId: "usuario-ficticio-em-dia",
-        conversationId: "portal-test-001",
-        message: "Organize meus estudos",
+        surface: "trilha",
+        objectId: "MAT24",
+        focus: trilhaFocus,
+        message: "o que é fatorial de zero?",
       })
     );
 
     expect(response.status).toBe(200);
     const body = await response.json();
-    expect(body).toMatchObject({
-      ok: true,
-      data: {
-        replyText: expect.stringContaining(
-          "Confirme individualmente o que deseja adicionar ao calendário."
-        ),
-        confirmation: {
-          required: true,
-          action: "CREATE_STUDY_PLAN",
-        },
-      },
-    });
-    expect(body.data.suggestions.length).toBeGreaterThan(0);
-    expect(body.data.replyText).not.toContain("Resposta do Vitru");
-    expect(body.data.suggestions[0]).toMatchObject({
-      id: expect.stringMatching(/^plan-/),
-      date: expect.any(String),
-      startTime: expect.any(String),
-      endTime: expect.any(String),
-    });
-    expect(fetchMock).toHaveBeenCalledWith(
-      "http://127.0.0.1:5679/webhook/vitru/v1/chat",
-      expect.objectContaining({ method: "POST", cache: "no-store" })
-    );
+    expect(body).toMatchObject({ resolution: "faq" });
+    expect(typeof body.conversationId).toBe("string");
+    expect(generateMock).not.toHaveBeenCalled();
   });
 
-  it("preserva a resposta do agente universal sem anexar plano", async () => {
-    const upstreamBody = {
-      ok: true,
-      data: {
-        replyText: "Resposta universal",
-        suggestions: [],
-        confirmation: null,
-      },
-    };
-    vi.stubGlobal(
-      "fetch",
-      vi.fn().mockResolvedValue(Response.json(upstreamBody, { status: 200 }))
-    );
-
+  it("pergunta sobre nota retorna out_of_scope com ação de navegação, nunca uma resposta sobre nota", async () => {
     const response = await POST(
       request({
-        channel: "portal",
-        agent: "universal",
-        userId: "usuario-ficticio-em-dia",
-        conversationId: "portal-test-universal-001",
-        message: "Olá",
+        surface: "trilha",
+        objectId: "MAT24",
+        focus: trilhaFocus,
+        message: "qual é a minha nota nessa disciplina?",
       })
     );
 
-    await expect(response.json()).resolves.toEqual(upstreamBody);
+    const body = await response.json();
+    expect(body.resolution).toBe("out_of_scope");
+    expect(body.actions).toEqual([expect.objectContaining({ type: "navigate" })]);
+    expect(generateMock).not.toHaveBeenCalled();
   });
 
-  it("aceita o canal WhatsApp e o encaminha ao n8n", async () => {
-    const fetchMock = vi.fn().mockResolvedValue(
-      Response.json({
-        ok: true,
-        data: { replyText: "Resposta curta", suggestions: [], confirmation: null },
-      })
-    );
-    vi.stubGlobal("fetch", fetchMock);
-
+  it("mensagem sem nenhum token reconhecível nunca produz resposta afirmativa (low_confidence), sem chamar o gerador", async () => {
     const response = await POST(
       request({
-        channel: "whatsapp",
-        agent: "universal",
-        userId: "usuario-ficticio-prova-liberada",
-        conversationId: "whatsapp-test-001",
-        message: "Quem é você?",
+        surface: "trilha",
+        objectId: "MAT24",
+        focus: trilhaFocus,
+        message: "? ! ...",
+      })
+    );
+
+    const body = await response.json();
+    expect(body.resolution).toBe("low_confidence");
+    expect(body.confidence).toBeLessThan(0.6);
+    expect(generateMock).not.toHaveBeenCalled();
+  });
+
+  it("uma pergunta sem resposta no material oferece encaminhamento ao mediador sem chamar o gerador", async () => {
+    const response = await POST(
+      request({
+        surface: "trilha",
+        objectId: "MAT24",
+        focus: trilhaFocus,
+        message: "não entendi essa parte, pode explicar de outro jeito?",
+      })
+    );
+
+    const body = await response.json();
+    expect(body.resolution).toBe("low_confidence");
+    expect(body.actions).toEqual([
+      {
+        type: "navigate",
+        label: "Falar com o mediador",
+        href: "/disciplinas/MAT24/fale-com-mediador",
+      },
+    ]);
+    expect(generateMock).not.toHaveBeenCalled();
+  });
+
+  it("toda resposta de sucesso carrega resolution", async () => {
+    const messages = [
+      "o que é fatorial de zero?",
+      "qual é a minha nota nessa disciplina?",
+      "? ! ...",
+      "não entendi essa parte",
+    ];
+    for (const message of messages) {
+      const response = await POST(
+        request({ surface: "trilha", objectId: "MAT24", focus: trilhaFocus, message })
+      );
+      const body = await response.json();
+      expect(body.resolution).toBeTruthy();
+    }
+    expect(generateMock).not.toHaveBeenCalled();
+  });
+
+  it("entryEventId desconhecido abre o painel normalmente, sem erro e sem retomada", async () => {
+    const response = await POST(
+      request({
+        surface: "trilha",
+        objectId: "MAT24",
+        entryEventId: "evt-nao-existe-nunca",
       })
     );
 
     expect(response.status).toBe(200);
-    expect(JSON.parse(fetchMock.mock.calls[0][1].body as string)).toMatchObject({
-      channel: "whatsapp",
-    });
+    const body = await response.json();
+    expect(body.reply).toContain("Vitru");
+    expect(body.resolution).toBe("retrieval");
   });
 
-  it("devolve erro controlado quando o n8n está indisponível", async () => {
-    vi.stubGlobal("fetch", vi.fn().mockRejectedValue(new Error("offline")));
-    const consoleSpy = vi.spyOn(console, "error").mockImplementation(() => undefined);
-
-    const response = await POST(
+  it("nunca chama o gerador quando a trilha não encontra resposta local", async () => {
+    await POST(
       request({
-        channel: "portal",
-        agent: "study_planner",
-        userId: "usuario-ficticio-em-dia",
-        conversationId: "portal-test-002",
-        message: "Olá",
+        surface: "trilha",
+        objectId: "MAT24",
+        focus: trilhaFocus,
+        message: "fatorial tem alguma curiosidade histórica interessante fora do conteúdo desta unidade?",
       })
     );
 
-    expect(response.status).toBe(503);
+    expect(generateMock).not.toHaveBeenCalled();
+  });
+
+  it("falha no gerador mantém o plano local disponível para confirmação", async () => {
+    generateMock.mockRejectedValue(new Error("offline"));
+    const consoleSpy = vi.spyOn(console, "error").mockImplementation(() => undefined);
+
+    const response = await POST(
+      request({ surface: "calendario", objectId: TEST_USER_ID, message: "monte um plano" })
+    );
+
+    expect(response.status).toBe(200);
     await expect(response.json()).resolves.toMatchObject({
-      error: { code: "AUTOMATION_UNAVAILABLE" },
+      resolution: "generation",
+      actions: [expect.objectContaining({ type: "confirm_plan" })],
     });
     consoleSpy.mockRestore();
+  });
+
+  it("superfície calendario delega ao modelo e devolve resolution generation com ação confirm_plan quando há plano sugerido", async () => {
+    generateMock.mockResolvedValue({
+      text: "Aqui está seu plano.",
+      inputTokens: null,
+      outputTokens: null,
+    });
+
+    const response = await POST(
+      request({ surface: "calendario", objectId: TEST_USER_ID, message: "monte um plano para minha prova" })
+    );
+
+    expect(response.status).toBe(200);
+    const body = await response.json();
+    expect(body.resolution).toBe("generation");
   });
 });
