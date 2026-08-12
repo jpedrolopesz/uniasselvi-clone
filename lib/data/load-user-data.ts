@@ -1,43 +1,61 @@
-import { readUserJsonFileOptional } from "@/lib/data/read-json-file";
+import { asc, eq } from "drizzle-orm";
+import { getDb } from "@/lib/db/client";
+import * as s from "@/lib/db/schema";
+import { findStudentBySlug, hasDataset } from "@/lib/data/db-helpers";
 import type { UserDataRaw } from "@/lib/types/raw/user-data";
 import type { CurrentSemesterRaw } from "@/lib/types/raw/current-semester";
 import type { SofiaDadosAlunoRaw } from "@/lib/types/raw/sofia-dados-aluno";
 import type { DisciplineRaw } from "@/lib/types/raw/disciplines";
 import type { FinancialTitleRaw } from "@/lib/types/raw/financial-titles";
 
-export function loadUserData(userId: string): Promise<UserDataRaw | null> {
-  return readUserJsonFileOptional<UserDataRaw>(userId, "user-data.json");
+export async function loadUserData(userId: string): Promise<UserDataRaw | null> {
+  const student = await findStudentBySlug(userId);
+  return student?.userData ?? null;
 }
 
-export function loadCurrentSemester(
+export async function loadCurrentSemester(
   userId: string
 ): Promise<CurrentSemesterRaw | null> {
-  return readUserJsonFileOptional<CurrentSemesterRaw>(
-    userId,
-    "current-semester.json"
-  );
+  const student = await findStudentBySlug(userId);
+  if (!student || student.currentSemester === null) return null;
+  return { value: student.currentSemester };
 }
 
-export function loadSofiaDadosAluno(
+export async function loadSofiaDadosAluno(
   userId: string
 ): Promise<SofiaDadosAlunoRaw | null> {
-  return readUserJsonFileOptional<SofiaDadosAlunoRaw>(
-    userId,
-    "sofia-dados-aluno.json"
-  );
+  const student = await findStudentBySlug(userId);
+  return student?.sofia ?? null;
 }
 
-export function loadDisciplines(
+export async function loadDisciplines(
   userId: string
 ): Promise<DisciplineRaw[] | null> {
-  return readUserJsonFileOptional<DisciplineRaw[]>(userId, "disciplines.json");
+  const student = await findStudentBySlug(userId);
+  if (!student) return null;
+  if (!(await hasDataset(student.id, "disciplines"))) return null;
+
+  const db = await getDb();
+  const rows = await db
+    .select()
+    .from(s.disciplines)
+    .where(eq(s.disciplines.studentId, student.id))
+    .orderBy(asc(s.disciplines.ordinal));
+  return rows.map((row) => row.payload);
 }
 
-export function loadFinancialTitles(
+export async function loadFinancialTitles(
   userId: string
 ): Promise<FinancialTitleRaw[] | null> {
-  return readUserJsonFileOptional<FinancialTitleRaw[]>(
-    userId,
-    "financial-titles.json"
-  );
+  const student = await findStudentBySlug(userId);
+  if (!student) return null;
+  if (!(await hasDataset(student.id, "financial-titles"))) return null;
+
+  const db = await getDb();
+  const rows = await db
+    .select()
+    .from(s.financialTitles)
+    .where(eq(s.financialTitles.studentId, student.id))
+    .orderBy(asc(s.financialTitles.ordinal));
+  return rows.map((row) => row.payload);
 }

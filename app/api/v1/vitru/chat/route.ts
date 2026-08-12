@@ -12,6 +12,9 @@ import {
 } from "@/lib/vitru/conversation-store";
 import { consumeInboxEvent } from "@/lib/vitru/inbox-events";
 import { logInteraction } from "@/lib/vitru/interaction-log";
+import { getSurfaceVisit, recordSurfaceVisit } from "@/lib/vitru/memory/surface-visits";
+import { getStudentProfile } from "@/lib/vitru/memory/student-profile";
+import { resolveDisclosure } from "@/lib/vitru/disclosure";
 import { generate } from "@/lib/vitru/generate";
 import { buildCalendarSystemPrompt } from "@/lib/vitru/prompts";
 
@@ -134,12 +137,17 @@ async function resolveCalendarMessage(
   message: string,
   history: ConversationMessage[]
 ): Promise<SurfaceResolutionOutcome> {
-  const context = await buildVitruStudentContext(userId);
+  const [context, profile, visit] = await Promise.all([
+    buildVitruStudentContext(userId),
+    getStudentProfile(userId),
+    getSurfaceVisit(userId, "calendario"),
+  ]);
+  const disclosure = resolveDisclosure(visit?.visitCount ?? 1);
   const plan = context.suggestedPlan;
   let generated;
   try {
     generated = await generate({
-      system: buildCalendarSystemPrompt(context),
+      system: buildCalendarSystemPrompt(context, profile, disclosure),
       userMessage: message,
       history,
       maxTokens: 1_200,
@@ -230,6 +238,16 @@ async function handleSurfaceChat(body: SurfaceChatBody): Promise<Response> {
   const conversationId = await resolveConversationId(userId, surface, objectId);
   const lessonId = focus?.kind === "trilha" ? focus.lessonId : null;
 
+  // Histórico vazio = superfície recém-aberta (sessão nova ou renovada após
+  // 24h). Vale tanto para o modo abertura (trilha) quanto para o Calendário,
+  // que nunca passa por ele — a UI já entra mandando a mensagem de análise
+  // automaticamente. Contar aqui, uma vez por sessão, é o que faz o nível de
+  // explicação graduar nas duas superfícies, não só na que abre sem mensagem.
+  const priorHistory = await getRecentHistory(conversationId);
+  if (priorHistory.length === 0) {
+    await recordSurfaceVisit(userId, surface);
+  }
+
   // Modo abertura: sem mensagem do aluno, só resolve a retomada do inbox (spec §8). Não roda a ordem de resolução.
   if (!hasMessage) {
     const consumed = entryEventId ? await consumeInboxEvent(entryEventId) : null;
@@ -259,8 +277,10 @@ async function handleSurfaceChat(body: SurfaceChatBody): Promise<Response> {
 
   const message = (body.message as string).trim();
   await appendMessage(conversationId, { role: "user", text: message });
-  const history = await getRecentHistory(conversationId);
-  const previousHistory = history.at(-1)?.role === "user" ? history.slice(0, -1) : history;
+  // priorHistory já foi buscado antes de anexar esta mensagem — é
+  // exatamente o histórico anterior a este turno, sem precisar descartar a
+  // última entrada como antes (quando a busca acontecia depois do append).
+  const previousHistory = priorHistory;
 
   const outcome =
     surface === "trilha"

@@ -190,3 +190,14 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .vitru-logo *, .vitru-logo__halo { animation: none !important; }
 }
+/* Destaque temporário controlado pelo Vitru. O atributo é aplicado somente a
+   elementos encontrados no registro semântico/acessível da página. */
+[data-vitru-highlight="true"] {
+  position: relative;
+  z-index: 45;
+  outline: 3px solid var(--color-brand-yellow, #f4c64b) !important;
+  outline-offset: 5px;
+  border-radius: 8px;
+  box-shadow: 0 0 0 8px rgb(244 198 75 / 18%), 0 0 32px rgb(244 198 75 / 35%);
+  transition: outline-color 160ms ease, box-shadow 160ms ease;
+}

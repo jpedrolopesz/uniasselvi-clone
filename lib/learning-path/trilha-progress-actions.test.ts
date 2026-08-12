@@ -1,7 +1,6 @@
 import { randomUUID } from "node:crypto";
-import { rm } from "node:fs/promises";
-import path from "node:path";
 import { afterEach, describe, expect, it, vi } from "vitest";
+import { createTestStudent, deleteTestStudent } from "@/lib/db/test-helpers";
 
 // revalidatePath exige um request context real do Next.js (App Router) — fora dele, lança "static generation store missing". Mockado para testar a ação isoladamente, como o resto do módulo n8n/route já faz para suas próprias dependências externas.
 vi.mock("next/cache", () => ({ revalidatePath: vi.fn() }));
@@ -11,12 +10,13 @@ import { loadTrilhaProgress } from "@/lib/data/load-trilha-progress";
 
 const TEST_SUBJECT = "TESTSUBJ";
 
-async function cleanup(userId: string) {
-  await rm(path.join(process.cwd(), "public", "data", "user", userId), {
-    recursive: true,
-    force: true,
-  });
-}
+/**
+ * markLessonCompleted/markParagraph exigem um aluno existente (FK de
+ * trilha_completions/trilha_marks para academic.students) — diferente do
+ * antigo armazenamento em arquivo, que aceitava qualquer userId e criava o
+ * diretório na hora. Cada teste provisiona um aluno descartável.
+ */
+const cleanup = deleteTestStudent;
 
 describe("trilha-progress-actions", () => {
   afterEach(async () => {
@@ -25,6 +25,7 @@ describe("trilha-progress-actions", () => {
 
   it("marca uma lição como concluída e não duplica em chamadas repetidas", async () => {
     const userId = `teste-progresso-${randomUUID()}`;
+    await createTestStudent(userId);
     try {
       await markLessonCompleted(userId, TEST_SUBJECT, "licao-1");
       await markLessonCompleted(userId, TEST_SUBJECT, "licao-1");
@@ -38,6 +39,7 @@ describe("trilha-progress-actions", () => {
 
   it("marca um parágrafo, trunca o excerto a 120 caracteres e não duplica a mesma marcação", async () => {
     const userId = `teste-marcas-${randomUUID()}`;
+    await createTestStudent(userId);
     try {
       const longExcerpt = "x".repeat(200);
       await markParagraph(userId, TEST_SUBJECT, "licao-1", "p0", longExcerpt);
@@ -54,6 +56,7 @@ describe("trilha-progress-actions", () => {
 
   it("trunca o excerto a 120 caracteres quando é longo", async () => {
     const userId = `teste-marcas-truncamento-${randomUUID()}`;
+    await createTestStudent(userId);
     try {
       const longExcerpt = "y".repeat(200);
       await markParagraph(userId, TEST_SUBJECT, "licao-1", "p0", longExcerpt);

@@ -7,10 +7,7 @@
 import { closeDb, getDb } from "@/lib/db/client";
 import { sql } from "drizzle-orm";
 
-interface TableRow {
-  schema: string;
-  table: string;
-}
+type TableRow = { schema: string; table: string };
 
 async function main(): Promise<void> {
   const db = await getDb();

@@ -1,5 +1,5 @@
 {
-  "id": "e6aff8b2-b2f3-4b96-b8ff-576f28020731",
+  "id": "3670040d-3c86-4d33-a41b-cba3f3cd7522",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -1307,7 +1307,7 @@
         },
         "conversation_id": {
           "name": "conversation_id",
-          "type": "uuid",
+          "type": "text",
           "primaryKey": false,
           "notNull": true
         },
@@ -1382,10 +1382,9 @@
       "columns": {
         "id": {
           "name": "id",
-          "type": "uuid",
+          "type": "text",
           "primaryKey": true,
-          "notNull": true,
-          "default": "gen_random_uuid()"
+          "notNull": true
         },
         "student_id": {
           "name": "student_id",
@@ -1488,7 +1487,7 @@
         },
         "conversation_id": {
           "name": "conversation_id",
-          "type": "uuid",
+          "type": "text",
           "primaryKey": false,
           "notNull": false
         },
@@ -2101,17 +2100,41 @@
           "primaryKey": false,
           "notNull": true
         },
-        "subject_code": {
-          "name": "subject_code",
+        "source_id": {
+          "name": "source_id",
           "type": "text",
           "primaryKey": false,
-          "notNull": false
+          "notNull": true
         },
         "assessment_code": {
           "name": "assessment_code",
           "type": "text",
           "primaryKey": false,
           "notNull": false
+        },
+        "subject_code": {
+          "name": "subject_code",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "subject_name": {
+          "name": "subject_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "title": {
+          "name": "title",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "category": {
+          "name": "category",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
         },
         "date": {
           "name": "date",
@@ -2130,6 +2153,13 @@
           "type": "text",
           "primaryKey": false,
           "notNull": true
+        },
+        "notes": {
+          "name": "notes",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "''"
         },
         "status": {
           "name": "status",
@@ -2186,12 +2216,12 @@
       },
       "compositePrimaryKeys": {},
       "uniqueConstraints": {
-        "study_sessions_unq": {
-          "name": "study_sessions_unq",
+        "study_sessions_source_unq": {
+          "name": "study_sessions_source_unq",
           "nullsNotDistinct": false,
           "columns": [
             "program_id",
-            "ordinal"
+            "source_id"
           ]
         }
       },

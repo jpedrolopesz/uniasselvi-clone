@@ -1,58 +1,68 @@
-import { mkdir, rename, writeFile } from "node:fs/promises";
-import path from "node:path";
-import { randomUUID } from "node:crypto";
-import { readUserJsonFileOptional } from "@/lib/data/read-json-file";
+import { eq } from "drizzle-orm";
+import { getDb } from "@/lib/db/client";
+import * as s from "@/lib/db/schema";
+import { requireStudentBySlug } from "@/lib/data/db-helpers";
+import { rowToStudyActivity } from "@/lib/data/study-activity-row";
 import type { StudyActivity } from "@/lib/types/study-activity";
-
-const USER_DATA_ROOT = path.join(process.cwd(), "public", "data", "user");
-const pendingWrites = new Map<string, Promise<unknown>>();
+import { STUDENT_LEVEL } from "@/lib/db/schema/academic";
 
 export interface SaveStudyActivitiesResult {
   created: StudyActivity[];
   existing: StudyActivity[];
 }
 
-async function writeForUser(
+/**
+ * Insere atividades novas e devolve separado o que já existia — mesma
+ * semântica do arquivo local anterior. O caminho de produção
+ * (study-plan/confirm/route.ts) sempre valida o aluno contra
+ * `loadUserIndex()` antes de chegar aqui; um slug desconhecido é bug do
+ * chamador, não um caso a tratar silenciosamente.
+ */
+export async function saveStudyActivities(
   userId: string,
   proposed: StudyActivity[]
 ): Promise<SaveStudyActivitiesResult> {
-  if (!/^[a-z0-9-]+$/.test(userId)) {
-    throw new Error("Identificador de aluno inválido.");
-  }
+  const student = await requireStudentBySlug(userId);
+  const db = await getDb();
 
-  const current =
-    (await readUserJsonFileOptional<StudyActivity[]>(
-      userId,
-      "study-activities.json"
-    )) ?? [];
-  const currentById = new Map(current.map((activity) => [activity.id, activity]));
-  const created = proposed.filter((activity) => !currentById.has(activity.id));
+  const current = await db
+    .select()
+    .from(s.studyActivities)
+    .where(eq(s.studyActivities.studentId, student.id));
+  const currentByExternalId = new Map(current.map((row) => [row.externalId, rowToStudyActivity(row)]));
+
+  const created = proposed.filter((activity) => !currentByExternalId.has(activity.id));
   const existing = proposed
-    .map((activity) => currentById.get(activity.id))
+    .map((activity) => currentByExternalId.get(activity.id))
     .filter((activity): activity is StudyActivity => Boolean(activity));
 
   if (created.length === 0) return { created, existing };
 
-  const directory = path.join(USER_DATA_ROOT, userId);
-  const target = path.join(directory, "study-activities.json");
-  const temporary = path.join(directory, `.study-activities-${randomUUID()}.tmp`);
-  await mkdir(directory, { recursive: true });
-  await writeFile(temporary, `${JSON.stringify([...current, ...created], null, 2)}\n`);
-  await rename(temporary, target);
-  return { created, existing };
-}
+  await db.insert(s.studyActivities).values(
+    created.map((activity) => ({
+      studentId: student.id,
+      externalId: activity.id,
+      title: activity.title,
+      category: activity.category,
+      subjectCode: activity.subjectCode,
+      subjectName: activity.subjectName,
+      date: activity.date,
+      startTime: activity.startTime,
+      endTime: activity.endTime,
+      notes: activity.notes,
+      source: activity.source,
+    }))
+  );
 
-/** Serializa gravações por aluno e faz substituição atômica do JSON local. */
-export function saveStudyActivities(
-  userId: string,
-  proposed: StudyActivity[]
-): Promise<SaveStudyActivitiesResult> {
-  const previous = pendingWrites.get(userId) ?? Promise.resolve();
-  const next = previous.then(() => writeForUser(userId, proposed));
-  pendingWrites.set(userId, next);
-  const cleanup = () => {
-    if (pendingWrites.get(userId) === next) pendingWrites.delete(userId);
-  };
-  void next.then(cleanup, cleanup);
-  return next;
+  // Um aluno sem study-activities.json no seed nunca ganha a marca de
+  // presença em academic.datasets — sem isto, loadStudyActivities
+  // continuaria devolvendo null para sempre, mesmo com atividades reais já
+  // gravadas aqui em cima (ver academic.datasets no schema: presença é
+  // explícita, não inferida pela existência de linhas).
+  await db
+    .insert(s.datasets)
+    .values({ studentId: student.id, subjectCode: STUDENT_LEVEL, kind: "study-activities" })
+    .onConflictDoNothing();
+
+  return { created, existing };
 }

@@ -1,5 +1,6 @@
-import { appendFile, mkdir } from "node:fs/promises";
-import path from "node:path";
+import { getDb } from "@/lib/db/client";
+import * as s from "@/lib/db/schema";
+import { findStudentBySlug } from "@/lib/data/db-helpers";
 import type { Resolution, Surface } from "@/lib/vitru/surfaces";
 
 export interface InteractionLogEntry {
@@ -19,20 +20,36 @@ export interface InteractionLogEntry {
   actionClicked: string | null;
 }
 
-const LOG_PATH = path.join(process.cwd(), ".vitru", "interactions.local.log");
-
 /**
- * Log dedicado, append-only, em JSON-lines — não console.error, não
- * execuções do n8n (spec §10). Grava o dado bruto por interação; métricas
- * derivadas (taxa de generation por aula, taxa de out_of_scope por
- * superfície etc.) não são calculadas nesta versão — ficam para trabalho
- * futuro sobre este log.
+ * Grava uma linha por interação em vitru.interactions — substitui o
+ * JSON-lines append-only anterior (spec §10: log dedicado, não
+ * console.error, não execuções do n8n). Métricas derivadas (taxa de
+ * generation por aula, taxa de out_of_scope por superfície etc.) não são
+ * calculadas nesta versão — ficam para trabalho futuro sobre esta tabela.
+ *
+ * Igual ao comportamento anterior, uma falha aqui nunca deve derrubar a
+ * resposta do chat — só registra o erro e segue.
  */
 export async function logInteraction(entry: InteractionLogEntry): Promise<void> {
-  const line = `${JSON.stringify({ ...entry, at: new Date().toISOString() })}\n`;
   try {
-    await mkdir(path.dirname(LOG_PATH), { recursive: true });
-    await appendFile(LOG_PATH, line, "utf8");
+    const student = await findStudentBySlug(entry.userId);
+    const db = await getDb();
+    await db.insert(s.interactions).values({
+      conversationId: entry.conversationId,
+      studentId: student?.id ?? null,
+      surface: entry.surface,
+      objectId: entry.objectId,
+      lessonId: entry.lessonId,
+      entryEventId: entry.entryEventId,
+      intent: entry.intent,
+      confidence: entry.confidence,
+      resolution: entry.resolution,
+      latencyMs: entry.latencyMs,
+      inputTokens: entry.inputTokens,
+      outputTokens: entry.outputTokens,
+      actionReturned: entry.actionReturned,
+      actionClicked: entry.actionClicked,
+    });
   } catch (error) {
     console.error("Falha ao gravar o log de interação do Vitru", error);
   }

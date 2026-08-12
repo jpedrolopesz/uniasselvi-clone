@@ -1,6 +1,5 @@
 import { AppShell } from "@/components/layout/AppShell";
 import { SemesterHeader } from "@/components/home/SemesterHeader";
-import { AcademicShortcuts } from "@/components/home/AcademicShortcuts";
 import { DisciplineCarousel } from "@/components/home/DisciplineCarousel";
 import { JourneyShortcuts } from "@/components/home/JourneyShortcuts";
 import { RecoverySection } from "@/components/home/RecoverySection";
@@ -23,8 +22,6 @@ export default async function HomePage({
   ]);
 
   const disciplines = sortDisciplinesByProgress(disciplinesRaw ?? []);
-  const primarySubject =
-    disciplines.find((discipline) => discipline.current_subject === true) ?? disciplines[0];
 
   const now = new Date();
   const todayIsoDate = `${now.getUTCFullYear()}-${String(now.getUTCMonth() + 1).padStart(2, "0")}-${String(
@@ -35,7 +32,6 @@ export default async function HomePage({
     <AppShell activeUserId={activeUserId}>
       <div className="flex flex-col gap-8">
         <SemesterHeader semesterValue={currentSemester?.value ?? null} />
-        <AcademicShortcuts primarySubjectCode={primarySubject?.code ?? null} />
         <DisciplineCarousel
           disciplines={disciplines}
           activeUserId={activeUserId}

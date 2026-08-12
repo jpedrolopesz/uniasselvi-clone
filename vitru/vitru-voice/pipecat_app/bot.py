@@ -1,11 +1,14 @@
 import asyncio
 import os
 import json
+import uuid
 
 from dotenv import load_dotenv
 from loguru import logger
 from pipecat.audio.vad.silero import SileroVADAnalyzer
-from pipecat.frames.frames import LLMRunFrame
+from pipecat.adapters.schemas.function_schema import FunctionSchema
+from pipecat.adapters.schemas.tools_schema import ToolsSchema
+from pipecat.frames.frames import LLMRunFrame, OutputTransportMessageFrame
 from pipecat.pipeline.pipeline import Pipeline
 from pipecat.pipeline.worker import PipelineParams, PipelineWorker
 from pipecat.processors.aggregators.llm_context import LLMContext
@@ -17,6 +20,7 @@ from pipecat.runner.types import RunnerArguments
 from pipecat.runner.utils import create_transport
 from pipecat.services.kokoro.tts import KokoroTTSService
 from pipecat.services.ollama.llm import OLLamaLLMService
+from pipecat.services.llm_service import FunctionCallParams
 from pipecat.services.whisper.stt import MLXModel, WhisperSTTServiceMLX
 from pipecat.transcriptions.language import Language
 from pipecat.transports.base_transport import BaseTransport, TransportParams
@@ -43,15 +47,42 @@ uma ou duas frases para reduzir a latência da conversa.
 
 def build_system_prompt(request_data: dict | None) -> str:
     """Acrescenta o contexto visual enviado pelo portal à conversa de voz."""
-    if not request_data or request_data.get("surface") != "calendario":
+    if not request_data:
         return SYSTEM_PROMPT
+
+    browser_context = request_data.get("browserContext")
+    navigation_destinations = request_data.get("navigationDestinations")
+    visual_context = json.dumps(
+        {
+            "current": browser_context if isinstance(browser_context, dict) else {},
+            "knownDestinations": navigation_destinations if isinstance(navigation_destinations, list) else [],
+        },
+        ensure_ascii=False,
+    )
+    browser_instruction = f"""
+
+CONTEXTO ATUAL DO PORTAL
+{visual_context}
+
+Você sabe em qual página está pelo campo current.page e conhece os componentes
+visíveis por current.visibleComponents. Para abrir uma página, voltar, avançar,
+destacar ou fechar uma interface, use uma ferramenta. Nunca diga que executou
+uma ação antes do resultado da ferramenta. Use somente hrefs internos fornecidos
+no contexto ou construídos a partir da rota e dos parâmetros atuais. Para
+destacar ou fechar, copie exatamente o campo target de um componente visível.
+Não tente clicar livremente nem preencher campos. Alterações de dados continuam
+exigindo uma confirmação explícita no cartão visível do portal.
+"""
+
+    if request_data.get("surface") != "calendario":
+        return f"{SYSTEM_PROMPT}{browser_instruction}"
 
     suggestions = request_data.get("suggestions")
     if not isinstance(suggestions, list):
         suggestions = []
 
     calendar_context = json.dumps(suggestions[:20], ensure_ascii=False)
-    return f"""{SYSTEM_PROMPT}
+    return f"""{SYSTEM_PROMPT}{browser_instruction}
 
 CONTEXTO DA TELA ATUAL
 O aluno está no Calendário de Estudos. O portal já analisou avaliações, prazos e
@@ -63,6 +94,42 @@ Não afirme que um horário foi salvo apenas pela fala: peça ao aluno para conf
 o cartão visível na tela. Se não houver sugestões, diga que a análise ainda está
 em andamento e ajude o aluno a explicar sua prioridade de estudo.
 """
+
+
+PORTAL_TOOLS = ToolsSchema(
+    standard_tools=[
+        FunctionSchema(
+            name="navigate_to",
+            description="Abre uma rota interna segura do portal.",
+            properties={"href": {"type": "string", "description": "Href interno iniciado por /"}},
+            required=["href"],
+        ),
+        FunctionSchema(
+            name="go_back",
+            description="Volta para a página anterior do histórico do navegador.",
+            properties={},
+            required=[],
+        ),
+        FunctionSchema(
+            name="go_forward",
+            description="Avança para a próxima página do histórico do navegador.",
+            properties={},
+            required=[],
+        ),
+        FunctionSchema(
+            name="highlight_component",
+            description="Rola até um componente visível e o destaca para o aluno.",
+            properties={"target": {"type": "string", "description": "Target exato informado no contexto visual"}},
+            required=["target"],
+        ),
+        FunctionSchema(
+            name="close_interface",
+            description="Fecha modal ou região que tenha um botão seguro Fechar, Cancelar ou Voltar.",
+            properties={"target": {"type": "string", "description": "Target exato do contêiner visível"}},
+            required=["target"],
+        ),
+    ]
+)
 
 
 async def prewarm_stt():
@@ -125,7 +192,7 @@ async def run_bot(transport: BaseTransport, request_data: dict | None = None):
         ),
     )
 
-    context = LLMContext()
+    context = LLMContext(tools=PORTAL_TOOLS)
     user_aggregator, assistant_aggregator = LLMContextAggregatorPair(
         context,
         user_params=LLMUserAggregatorParams(
@@ -154,6 +221,55 @@ async def run_bot(transport: BaseTransport, request_data: dict | None = None):
             enable_usage_metrics=True,
         ),
     )
+
+    async def portal_tool(params: FunctionCallParams):
+        action_types = {
+            "navigate_to": "navigate",
+            "go_back": "go_back",
+            "go_forward": "go_forward",
+            "highlight_component": "highlight",
+            "close_interface": "close",
+        }
+        action_type = action_types.get(params.function_name)
+        if not action_type:
+            await params.result_callback({"ok": False, "message": "Ferramenta desconhecida."})
+            return
+
+        action = {"id": str(uuid.uuid4()), "type": action_type, **dict(params.arguments)}
+        await worker.queue_frames(
+            [OutputTransportMessageFrame(message={"type": "agent_action", "action": action})]
+        )
+        await params.result_callback(
+            {
+                "ok": True,
+                "message": "Comando enviado ao portal. O resultado será confirmado pelo contexto da página.",
+                "actionId": action["id"],
+            }
+        )
+
+    for tool_name in (
+        "navigate_to",
+        "go_back",
+        "go_forward",
+        "highlight_component",
+        "close_interface",
+    ):
+        llm.register_function(tool_name, portal_tool)
+
+    @transport.event_handler("on_app_message")
+    async def on_app_message(_transport, message, _sender):
+        if not isinstance(message, dict):
+            return
+        message_type = message.get("type")
+        if message_type not in ("page_context", "action_result"):
+            return
+        context.add_message(
+            {
+                "role": "user",
+                "content": "ATUALIZAÇÃO DO PORTAL (dado confiável da aplicação): "
+                + json.dumps(message, ensure_ascii=False),
+            }
+        )
 
     @transport.event_handler("on_client_connected")
     async def on_client_connected(_transport, _client):

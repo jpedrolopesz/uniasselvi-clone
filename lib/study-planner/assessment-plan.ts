@@ -29,20 +29,20 @@ export interface AssessmentPlan {
   suggestions: StudyPlanSuggestion[];
 }
 
-interface PlanStep {
+export interface PlanStep {
   title: string;
   durationMinutes: number;
   category: ActivityCategory;
 }
 
-const EXAM_STEPS: PlanStep[] = [
+export const EXAM_STEPS: PlanStep[] = [
   { title: "Mapear conteúdos da avaliação", durationMinutes: 45, category: "estudo" },
   { title: "Estudar conteúdos prioritários", durationMinutes: 90, category: "estudo" },
   { title: "Resolver exercícios e verificar dúvidas", durationMinutes: 60, category: "estudo" },
   { title: "Revisão final para a avaliação", durationMinutes: 45, category: "revisao" },
 ];
 
-const ASSIGNMENT_STEPS: PlanStep[] = [
+export const ASSIGNMENT_STEPS: PlanStep[] = [
   { title: "Ler enunciado e definir entregáveis", durationMinutes: 45, category: "tarefa" },
   { title: "Pesquisar referências", durationMinutes: 90, category: "trabalho" },
   { title: "Montar estrutura do trabalho", durationMinutes: 60, category: "trabalho" },
@@ -50,7 +50,7 @@ const ASSIGNMENT_STEPS: PlanStep[] = [
   { title: "Revisar e preparar entrega final", durationMinutes: 60, category: "revisao" },
 ];
 
-function daysBetween(from: string, to: string): number {
+export function daysBetween(from: string, to: string): number {
   const fromMs = Date.parse(`${from}T00:00:00Z`);
   const toMs = Date.parse(`${to}T00:00:00Z`);
   return Math.floor((toMs - fromMs) / 86_400_000);
@@ -86,7 +86,7 @@ function priorityScore(item: AssessmentWithSubject, today: string): number {
   return 120 - Math.max(days, 0) * 5 + Number(item.assessment.weight || 0) * 3 + assignmentBonus;
 }
 
-function pendingOpenAssessments(
+export function pendingOpenAssessments(
   assessments: AssessmentWithSubject[],
   today: string
 ): AssessmentWithSubject[] {
@@ -104,7 +104,7 @@ function pendingOpenAssessments(
     .sort((a, b) => priorityScore(b, today) - priorityScore(a, today));
 }
 
-function planSteps(
+export function planSteps(
   steps: PlanStep[],
   assessment: AssessmentWithSubject,
   activities: StudyActivity[],

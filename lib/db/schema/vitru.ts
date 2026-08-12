@@ -1,5 +1,4 @@
 import {
-  boolean,
   index,
   integer,
   jsonb,
@@ -115,7 +114,15 @@ export const memories = vitru.table(
 export const conversations = vitru.table(
   "conversations",
   {
-    id: uuid("id").primaryKey().defaultRandom(),
+    /**
+     * Texto, não uuid: o formato de sempre é `conv-<uuid>` (gerado pelo
+     * loader, não pelo banco), tratado como opaco em toda a aplicação — o
+     * cliente recebe essa string e nunca a interpreta. Uma coluna `uuid`
+     * rejeitaria com erro de tipo qualquer string que não seja um UUID
+     * puro, inclusive um conversationId desconhecido bem formado — o que
+     * deveria ser um "não encontrado" comum vira exceção.
+     */
+    id: text("id").primaryKey(),
     studentId: uuid("student_id")
       .notNull()
       .references(() => students.id, { onDelete: "cascade" }),
@@ -136,7 +143,7 @@ export const conversationMessages = vitru.table(
   "conversation_messages",
   {
     id: uuid("id").primaryKey().defaultRandom(),
-    conversationId: uuid("conversation_id")
+    conversationId: text("conversation_id")
       .notNull()
       .references(() => conversations.id, { onDelete: "cascade" }),
     /** user | assistant */
@@ -267,17 +274,29 @@ export const studySessions = vitru.table(
     programId: uuid("program_id")
       .notNull()
       .references(() => studyPrograms.id, { onDelete: "cascade" }),
-    subjectCode: text("subject_code"),
+    /**
+     * Mesmo esquema de id que StudyPlanSuggestion usa (`plan-<code>-<n>`) —
+     * é o que liga esta sessão de volta à etapa que a gerou e a
+     * study_activities.externalId quando aceita. Único só dentro do
+     * programa (ver unique abaixo), não da tabela inteira: dois programas
+     * gerados em dias diferentes podem repetir o passo da mesma avaliação.
+     */
+    sourceId: text("source_id").notNull(),
     assessmentCode: text("assessment_code"),
+    subjectCode: text("subject_code"),
+    subjectName: text("subject_name"),
+    title: text("title").notNull(),
+    category: text("category").$type<ActivityCategory>().notNull(),
     date: text("date").notNull(),
     startTime: text("start_time").notNull(),
     endTime: text("end_time").notNull(),
+    notes: text("notes").notNull().default(""),
     /** proposed | accepted | rejected | done */
     status: text("status").notNull().default("proposed"),
     ordinal: integer("ordinal").notNull(),
   },
   (table) => [
-    unique("study_sessions_unq").on(table.programId, table.ordinal),
+    unique("study_sessions_source_unq").on(table.programId, table.sourceId),
     index("study_sessions_program_date_idx").on(table.programId, table.date),
   ]
 );
@@ -291,7 +310,7 @@ export const interactions = vitru.table(
   "interactions",
   {
     id: uuid("id").primaryKey().defaultRandom(),
-    conversationId: uuid("conversation_id"),
+    conversationId: text("conversation_id"),
     studentId: uuid("student_id").references(() => students.id, {
       onDelete: "set null",
     }),

@@ -164,14 +164,14 @@ CREATE TABLE "vitru"."app_settings" (
 --> statement-breakpoint
 CREATE TABLE "vitru"."conversation_messages" (
 	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
-	"conversation_id" uuid NOT NULL,
+	"conversation_id" text NOT NULL,
 	"role" text NOT NULL,
 	"text" text NOT NULL,
 	"created_at" timestamp with time zone DEFAULT now() NOT NULL
 );
 --> statement-breakpoint
 CREATE TABLE "vitru"."conversations" (
-	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
+	"id" text PRIMARY KEY NOT NULL,
 	"student_id" uuid NOT NULL,
 	"surface" text NOT NULL,
 	"object_id" text NOT NULL,
@@ -183,7 +183,7 @@ CREATE TABLE "vitru"."conversations" (
 --> statement-breakpoint
 CREATE TABLE "vitru"."interactions" (
 	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
-	"conversation_id" uuid,
+	"conversation_id" text,
 	"student_id" uuid,
 	"surface" text NOT NULL,
 	"object_id" text NOT NULL,
@@ -254,14 +254,19 @@ CREATE TABLE "vitru"."study_programs" (
 CREATE TABLE "vitru"."study_sessions" (
 	"id" uuid PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,
 	"program_id" uuid NOT NULL,
-	"subject_code" text,
+	"source_id" text NOT NULL,
 	"assessment_code" text,
+	"subject_code" text,
+	"subject_name" text,
+	"title" text NOT NULL,
+	"category" text NOT NULL,
 	"date" text NOT NULL,
 	"start_time" text NOT NULL,
 	"end_time" text NOT NULL,
+	"notes" text DEFAULT '' NOT NULL,
 	"status" text DEFAULT 'proposed' NOT NULL,
 	"ordinal" integer NOT NULL,
-	CONSTRAINT "study_sessions_unq" UNIQUE("program_id","ordinal")
+	CONSTRAINT "study_sessions_source_unq" UNIQUE("program_id","source_id")
 );
 --> statement-breakpoint
 CREATE TABLE "vitru"."surface_visits" (

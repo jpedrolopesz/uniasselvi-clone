@@ -159,3 +159,5 @@ export async function buildVitruStudentContext(userId: string) {
       : null,
   };
 }
+
+export type VitruStudentContext = Awaited<ReturnType<typeof buildVitruStudentContext>>;

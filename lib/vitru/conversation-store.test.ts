@@ -1,26 +1,35 @@
 import { randomUUID } from "node:crypto";
-import { afterEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import {
   appendMessage,
   getRecentHistory,
   resolveConversationId,
   SESSION_TTL_MS,
 } from "@/lib/vitru/conversation-store";
+import { createTestStudent, deleteTestStudent } from "@/lib/db/test-helpers";
 
-afterEach(() => {
+// resolveConversationId exige um aluno existente (FK de vitru.conversations
+// para academic.students) — cada teste usa um aluno descartável próprio.
+let userId: string;
+
+beforeEach(async () => {
+  userId = `user-${randomUUID()}`;
+  await createTestStudent(userId);
+});
+
+afterEach(async () => {
   vi.useRealTimers();
+  await deleteTestStudent(userId);
 });
 
 describe("conversation-store", () => {
   it("resolve o mesmo conversationId para a mesma chave userId+surface+objectId", async () => {
-    const userId = `user-${randomUUID()}`;
     const first = await resolveConversationId(userId, "trilha", "MAT24");
     const second = await resolveConversationId(userId, "trilha", "MAT24");
     expect(second).toBe(first);
   });
 
   it("chaves diferentes (surface ou objectId) nunca compartilham conversationId", async () => {
-    const userId = `user-${randomUUID()}`;
     const trilha = await resolveConversationId(userId, "trilha", "MAT24");
     const calendario = await resolveConversationId(userId, "calendario", userId);
     const outraDisciplina = await resolveConversationId(userId, "trilha", "GTI03");
@@ -29,7 +38,6 @@ describe("conversation-store", () => {
   });
 
   it("expira após 24h de inatividade e gera uma nova sessão", async () => {
-    const userId = `user-${randomUUID()}`;
     const original = await resolveConversationId(userId, "trilha", "MAT24");
 
     vi.useFakeTimers();
@@ -41,7 +49,6 @@ describe("conversation-store", () => {
   });
 
   it("histórico recente é limitado às últimas 6 mensagens", async () => {
-    const userId = `user-${randomUUID()}`;
     const conversationId = await resolveConversationId(userId, "trilha", "MAT24");
 
     for (let i = 0; i < 9; i++) {

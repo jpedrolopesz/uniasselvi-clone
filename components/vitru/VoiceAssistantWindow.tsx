@@ -1,12 +1,14 @@
 "use client";
 
-import { usePathname } from "next/navigation";
-import { useCallback, useEffect, useRef, useState, type SVGProps } from "react";
+import { usePathname, useRouter } from "next/navigation";
+import { useCallback, useEffect, useMemo, useRef, useState, type SVGProps } from "react";
 import { VitruLogo, type VitruLogoState } from "@/components/vitru/VitruLogo";
 import { SuggestionCard } from "@/components/study-planner/SuggestionCard";
 import type { SuggestionStatus } from "@/components/study-planner/chat-types";
 import type { AssistantSuggestion } from "@/lib/study-planner/ai-assistant";
 import { announceConfirmedPlan } from "@/components/vitru/planner-events";
+import { buildBrowserContext, closeVitruTarget, highlightVitruTarget } from "@/components/vitru/browser-context";
+import { isSafeInternalHref, resolveVitruPage, VITRU_NAVIGATION_DESTINATIONS } from "@/lib/vitru/page-context";
 
 type ConversationState = "active" | "pending" | "alert";
 type CallState = "idle" | "connecting" | "in-call" | "error";
@@ -22,6 +24,13 @@ interface CalendarPlanResponse {
   reply?: string;
   actions?: Array<{ type?: string; suggestions?: AssistantSuggestion[] }>;
 }
+
+type BrowserAction =
+  | { id: string; type: "navigate"; href: string }
+  | { id: string; type: "go_back" }
+  | { id: string; type: "go_forward" }
+  | { id: string; type: "highlight"; target: string }
+  | { id: string; type: "close"; target: string };
 
 const STATE_CONTENT: Record<
   ConversationState,
@@ -89,6 +98,8 @@ function isAssessmentRunner(pathname: string): boolean {
 
 export function VoiceAssistantWindow({ activeUserId }: VoiceAssistantWindowProps) {
   const pathname = usePathname();
+  const router = useRouter();
+  const page = useMemo(() => resolveVitruPage(pathname), [pathname]);
   const [isOpen, setIsOpen] = useState(true);
   const [conversationState] = useState<ConversationState>("active");
   const [callState, setCallState] = useState<CallState>("idle");
@@ -98,11 +109,14 @@ export function VoiceAssistantWindow({ activeUserId }: VoiceAssistantWindowProps
   const peerConnectionRef = useRef<RTCPeerConnection | null>(null);
   const localStreamRef = useRef<MediaStream | null>(null);
   const remoteAudioRef = useRef<HTMLAudioElement | null>(null);
+  const dataChannelRef = useRef<RTCDataChannel | null>(null);
+  const observerTimeoutRef = useRef<number | null>(null);
   const requestedCalendarPlanRef = useRef<string | null>(null);
   const [calendarReply, setCalendarReply] = useState<string | null>(null);
   const [calendarSuggestions, setCalendarSuggestions] = useState<AssistantSuggestion[]>([]);
   const [isPlanning, setIsPlanning] = useState(false);
   const [suggestionStatus, setSuggestionStatus] = useState<Record<string, SuggestionStatus>>({});
+  const [actionNotice, setActionNotice] = useState<string | null>(null);
   const isCalendarMode = pathname === "/calendario-de-estudos";
 
   useEffect(() => {
@@ -112,6 +126,8 @@ export function VoiceAssistantWindow({ activeUserId }: VoiceAssistantWindowProps
   }, [callState]);
 
   const releaseCall = useCallback(() => {
+    dataChannelRef.current?.close();
+    dataChannelRef.current = null;
     peerConnectionRef.current?.close();
     peerConnectionRef.current = null;
     localStreamRef.current?.getTracks().forEach((track) => track.stop());
@@ -120,6 +136,32 @@ export function VoiceAssistantWindow({ activeUserId }: VoiceAssistantWindowProps
   }, []);
 
   useEffect(() => releaseCall, [releaseCall]);
+
+  const sendAppMessage = useCallback((message: object) => {
+    const channel = dataChannelRef.current;
+    if (channel?.readyState === "open") channel.send(JSON.stringify(message));
+  }, []);
+
+  useEffect(() => {
+    if (callState !== "in-call") return;
+    const publish = () => sendAppMessage({ type: "page_context", context: buildBrowserContext(page) });
+    const frame = window.requestAnimationFrame(publish);
+    const observer = new MutationObserver(() => {
+      if (observerTimeoutRef.current !== null) window.clearTimeout(observerTimeoutRef.current);
+      observerTimeoutRef.current = window.setTimeout(publish, 250);
+    });
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true,
+      attributes: true,
+      attributeFilter: ["disabled", "aria-disabled", "open"],
+    });
+    return () => {
+      window.cancelAnimationFrame(frame);
+      observer.disconnect();
+      if (observerTimeoutRef.current !== null) window.clearTimeout(observerTimeoutRef.current);
+    };
+  }, [callState, page, sendAppMessage]);
 
   useEffect(() => {
     if (!isCalendarMode || requestedCalendarPlanRef.current === activeUserId) return;
@@ -192,6 +234,39 @@ export function VoiceAssistantWindow({ activeUserId }: VoiceAssistantWindowProps
     elapsedSeconds % 60
   ).padStart(2, "0")}`;
 
+  function executeBrowserAction(action: BrowserAction) {
+    let ok = false;
+    let message = "Ação não reconhecida.";
+
+    if (action.type === "navigate") {
+      if (isSafeInternalHref(action.href)) {
+        router.push(action.href);
+        ok = true;
+        message = "Navegação iniciada. A nova página confirmará quando estiver pronta.";
+      } else {
+        message = "Destino recusado: a rota não pertence ao catálogo seguro do Vitru.";
+      }
+    } else if (action.type === "go_back") {
+      router.back();
+      ok = true;
+      message = "Voltando para a página anterior.";
+    } else if (action.type === "go_forward") {
+      router.forward();
+      ok = true;
+      message = "Avançando no histórico.";
+    } else if (action.type === "highlight") {
+      ok = highlightVitruTarget(action.target);
+      message = ok ? "Componente localizado e destacado." : "O componente não está visível nesta página.";
+    } else if (action.type === "close") {
+      ok = closeVitruTarget(action.target);
+      message = ok ? "Interface fechada." : "Não encontrei um controle de fechar seguro nesse componente.";
+    }
+
+    setActionNotice(message);
+    window.setTimeout(() => setActionNotice(null), 5_000);
+    sendAppMessage({ type: "action_result", actionId: action.id, ok, message });
+  }
+
   const startCall = async () => {
     setCallError(null);
     setElapsedSeconds(0);
@@ -211,6 +286,19 @@ export function VoiceAssistantWindow({ activeUserId }: VoiceAssistantWindowProps
 
       const peerConnection = new RTCPeerConnection();
       peerConnectionRef.current = peerConnection;
+      const dataChannel = peerConnection.createDataChannel("vitru-control", { ordered: true });
+      dataChannelRef.current = dataChannel;
+      dataChannel.onopen = () => {
+        dataChannel.send(JSON.stringify({ type: "page_context", context: buildBrowserContext(page) }));
+      };
+      dataChannel.onmessage = (event) => {
+        try {
+          const payload = JSON.parse(String(event.data)) as { type?: string; action?: BrowserAction };
+          if (payload.type === "agent_action" && payload.action?.id) executeBrowserAction(payload.action);
+        } catch {
+          setCallError("Recebi um comando inválido do serviço de voz.");
+        }
+      };
       stream.getAudioTracks().forEach((track) => peerConnection.addTrack(track, stream));
 
       peerConnection.ontrack = (event) => {
@@ -255,8 +343,10 @@ export function VoiceAssistantWindow({ activeUserId }: VoiceAssistantWindowProps
         body: JSON.stringify({
           sdp: peerConnection.localDescription?.sdp,
           type: peerConnection.localDescription?.type,
-          request_data: isCalendarMode
-            ? {
+          request_data: {
+                browserContext: buildBrowserContext(page),
+                navigationDestinations: VITRU_NAVIGATION_DESTINATIONS,
+                ...(isCalendarMode ? {
                 surface: "calendario",
                 userId: activeUserId,
                 planningReply: calendarReply,
@@ -267,8 +357,8 @@ export function VoiceAssistantWindow({ activeUserId }: VoiceAssistantWindowProps
                   startTime,
                   endTime,
                 })),
-              }
-            : { surface: "portal", userId: activeUserId },
+              } : { surface: "portal", userId: activeUserId }),
+          },
         }),
       });
 
@@ -347,7 +437,7 @@ export function VoiceAssistantWindow({ activeUserId }: VoiceAssistantWindowProps
           <div className="min-w-0">
             <h2 className="truncate text-sm font-semibold tracking-wide text-[#f7d778]">VITRU</h2>
             <p className="text-[11px] text-[#7d86b3]">
-              {isCalendarMode ? "Planejamento acadêmico" : "Assistente inteligente"} • {content.title}
+              {page.name} • {content.title}
             </p>
           </div>
         </div>
@@ -370,6 +460,11 @@ export function VoiceAssistantWindow({ activeUserId }: VoiceAssistantWindowProps
       </header>
 
       <div className={`px-4 pb-4 pt-5 ${isCalendarMode ? "flex min-h-0 flex-1 flex-col" : ""}`}>
+        {actionNotice && (
+          <p role="status" className="mb-3 rounded-lg border border-brand-yellow/25 bg-brand-yellow/10 px-3 py-2 text-xs text-[#f7d778]">
+            {actionNotice}
+          </p>
+        )}
         {isCalendarMode && (
           <div className="mb-3 flex shrink-0 justify-end">
             <p className="max-w-[82%] rounded-2xl rounded-tr-sm bg-[#f4c64b]/15 px-3.5 py-2.5 text-sm text-white">

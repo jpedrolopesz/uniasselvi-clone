@@ -1,7 +1,9 @@
 "use server";
 
 import { revalidatePath } from "next/cache";
-import { writeUserJsonFile } from "@/lib/data/read-json-file";
+import { getDb } from "@/lib/db/client";
+import * as s from "@/lib/db/schema";
+import { requireStudentBySlug } from "@/lib/data/db-helpers";
 import type {
   LearningPathLessonKind,
   LearningPathRaw,
@@ -107,15 +109,17 @@ export async function saveLearningPath(
   };
 
   try {
-    await writeUserJsonFile(
-      normalized,
-      userId,
-      "subjects",
-      subjectCode,
-      "learning-path.json"
-    );
+    const student = await requireStudentBySlug(userId);
+    const db = await getDb();
+    await db
+      .insert(s.learningPaths)
+      .values({ studentId: student.id, subjectCode, payload: normalized })
+      .onConflictDoUpdate({
+        target: [s.learningPaths.studentId, s.learningPaths.subjectCode],
+        set: { payload: normalized },
+      });
   } catch {
-    return fail("Não foi possível salvar o arquivo. Tente novamente.");
+    return fail("Não foi possível salvar a trilha. Tente novamente.");
   }
 
   revalidatePath(`/disciplinas/${subjectCode}/trilha-de-aprendizagem`);

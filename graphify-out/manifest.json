@@ -145,8 +145,8 @@
     "semantic_hash": "b2276a6e2dbd6ccd55b82da5b8d08263"
   },
   "components/layout/AppShell.tsx": {
-    "mtime": 1786155339.4167109,
-    "ast_hash": "98427ab21f252d1ecc6507c6dc6b8830",
+    "mtime": 1786478794.6892767,
+    "ast_hash": "48d05bb06517d35b70a29363a28e5ad4",
     "semantic_hash": ""
   },
   "components/layout/EmptyState.tsx": {
@@ -320,8 +320,8 @@
     "semantic_hash": "9b77af189a21a7a64e4bd7a426f64176"
   },
   "package.json": {
-    "mtime": 1786400685.4698257,
-    "ast_hash": "b669c266309d745352821a361aaaa7dc",
+    "mtime": 1786491121.6098416,
+    "ast_hash": "1fef2f36b391c0ea3d08672c9cf5f896",
     "semantic_hash": ""
   },
   "postcss.config.mjs": {
@@ -650,8 +650,8 @@
     "semantic_hash": ""
   },
   "components/layout/AppShellChrome.tsx": {
-    "mtime": 1786156615.347988,
-    "ast_hash": "a86dded97381565fa106f173fe3990e0",
+    "mtime": 1786478794.753056,
+    "ast_hash": "c592b5c4300f228bb836615847db7400",
     "semantic_hash": ""
   },
   "public/assets/logo/logo-uniasselvi.png": {
@@ -700,13 +700,13 @@
     "semantic_hash": ""
   },
   "components/study-planner/StudyPlannerView.tsx": {
-    "mtime": 1786228712.593885,
-    "ast_hash": "29293d1f538f3fbca879b7b40f2ca9c5",
+    "mtime": 1786479624.1841033,
+    "ast_hash": "3bb618078b5b295835b84023c748783f",
     "semantic_hash": ""
   },
   "components/study-planner/SuggestionCard.tsx": {
-    "mtime": 1786056773.6246338,
-    "ast_hash": "51872f591375e2a366552680cf56360a",
+    "mtime": 1786479624.2337255,
+    "ast_hash": "2245c87101d10334d1d81cb68f36e145",
     "semantic_hash": ""
   },
   "components/study-planner/TimeGridColumn.tsx": {
@@ -965,13 +965,13 @@
     "semantic_hash": ""
   },
   "app/api/v1/vitru/chat/route.test.ts": {
-    "mtime": 1786401880.8292403,
-    "ast_hash": "3f228298fe0cf161421104b6588ea085",
+    "mtime": 1786479353.2919438,
+    "ast_hash": "15081df6bbcae15d0ebd5fc4204c37d2",
     "semantic_hash": ""
   },
   "app/api/v1/vitru/chat/route.ts": {
-    "mtime": 1786401880.7323294,
-    "ast_hash": "0fec181f18745b0b5feace135d0da7d2",
+    "mtime": 1786479288.3987043,
+    "ast_hash": "aa82fdaa2292e3fb54556cb7293d79aa",
     "semantic_hash": ""
   },
   "app/api/v1/vitru/identity/whatsapp/route.ts": {
@@ -2112,6 +2112,161 @@
   "public/data/user/usuario-ficticio-calouro/subjects/images/sistemas-aplicacoes-distribuidas.png": {
     "mtime": 1786402641.7300553,
     "ast_hash": "d0b8989fc5e9a86bae78c709837bcd73",
+    "semantic_hash": ""
+  },
+  "components/vitru/VitruLogo.tsx": {
+    "mtime": 1786476324.9120905,
+    "ast_hash": "0684eae9ddd9e428f4c880e9a1f3ffc0",
+    "semantic_hash": ""
+  },
+  "components/vitru/VoiceAssistantWindow.tsx": {
+    "mtime": 1786479635.6570191,
+    "ast_hash": "73ffc2e8405aa85411dadcebcc94f6f1",
+    "semantic_hash": ""
+  },
+  "components/vitru/planner-events.ts": {
+    "mtime": 1786478794.567611,
+    "ast_hash": "69a9ce5b8f6e8dcfb54ae0562c4e85a2",
+    "semantic_hash": ""
+  },
+  "drizzle.config.ts": {
+    "mtime": 1786489828.424849,
+    "ast_hash": "3d159f7f6aa4bdac8d8fba9299cf80c6",
+    "semantic_hash": ""
+  },
+  "lib/db/client.ts": {
+    "mtime": 1786490944.536918,
+    "ast_hash": "dfd8e15d158b09209a0731f29bb29966",
+    "semantic_hash": ""
+  },
+  "lib/db/migrations/0000_init.sql": {
+    "mtime": 1786490020.7575786,
+    "ast_hash": "b5feb9d360eb48c8ddc2d1f8808c734f",
+    "semantic_hash": ""
+  },
+  "lib/db/migrations/meta/0000_snapshot.json": {
+    "mtime": 1786490020.7562864,
+    "ast_hash": "e0ad7175e607dc6870decf2aed0249b7",
+    "semantic_hash": ""
+  },
+  "lib/db/migrations/meta/_journal.json": {
+    "mtime": 1786490020.7569811,
+    "ast_hash": "4043253d07d22afb5f8a596d94163bb9",
+    "semantic_hash": ""
+  },
+  "lib/db/schema/academic.ts": {
+    "mtime": 1786489729.3086665,
+    "ast_hash": "b12c0c95807f61bfa417e6ec295764c9",
+    "semantic_hash": ""
+  },
+  "lib/db/schema/index.ts": {
+    "mtime": 1786489801.457893,
+    "ast_hash": "15e2b0c29e591e6050a8d340b3ede23b",
+    "semantic_hash": ""
+  },
+  "lib/db/schema/vitru.ts": {
+    "mtime": 1786490001.542845,
+    "ast_hash": "c42846c5f7a17e28a312935c43009ea9",
+    "semantic_hash": ""
+  },
+  "scripts/db-migrate.ts": {
+    "mtime": 1786489863.103442,
+    "ast_hash": "933cce3f9914c7c5d6fa87a642ac1234",
+    "semantic_hash": ""
+  },
+  "scripts/db-status.ts": {
+    "mtime": 1786491044.9306839,
+    "ast_hash": "e1e7df10d6565e1313d5ee5f924bb34b",
+    "semantic_hash": ""
+  },
+  "scripts/db-verify-fidelity.ts": {
+    "mtime": 1786491149.7667615,
+    "ast_hash": "6e1177222eea7eee38bd5b93e4f09d9f",
+    "semantic_hash": ""
+  },
+  "scripts/seed-from-fixtures.ts": {
+    "mtime": 1786490952.365994,
+    "ast_hash": "793299cdfe668c9a2da1b392f70adae3",
+    "semantic_hash": ""
+  },
+  "vitru/vitru-voice/package.json": {
+    "mtime": 1786414609.5854483,
+    "ast_hash": "d66ab469bb62be2a75a28b8a6aa6da2e",
+    "semantic_hash": ""
+  },
+  "vitru/vitru-voice/pipecat_app/bot.py": {
+    "mtime": 1786487136.9128425,
+    "ast_hash": "8fe8a33ddc71e3d3ee92c7e55d506b89",
+    "semantic_hash": ""
+  },
+  "vitru/vitru-voice/public/pcm-processor.js": {
+    "mtime": 1786408767.9278457,
+    "ast_hash": "626406951f94d97f5e7f46d993819eef",
+    "semantic_hash": ""
+  },
+  "vitru/vitru-voice/pyproject.toml": {
+    "mtime": 1786487026.0033095,
+    "ast_hash": "84597153316c9556664313635222b5b1",
+    "semantic_hash": ""
+  },
+  "vitru/vitru-voice/scripts/kokoro_worker.py": {
+    "mtime": 1786409774.8504446,
+    "ast_hash": "950e8a74f9bca83ad8cf880299683698",
+    "semantic_hash": ""
+  },
+  "vitru/vitru-voice/src/config.js": {
+    "mtime": 1786414609.6505773,
+    "ast_hash": "34ab2ddc2134cb3192fe79ad6cada698",
+    "semantic_hash": ""
+  },
+  "vitru/vitru-voice/src/prompts/assistantPrompt.js": {
+    "mtime": 1786476497.5326571,
+    "ast_hash": "855b5e73b67413693428f8e8e1dedfd3",
+    "semantic_hash": ""
+  },
+  "vitru/vitru-voice/src/routes/webRoutes.js": {
+    "mtime": 1786409775.0701363,
+    "ast_hash": "95570a07ce2749ba400fea25f963b882",
+    "semantic_hash": ""
+  },
+  "vitru/vitru-voice/src/server.js": {
+    "mtime": 1786414609.7080774,
+    "ast_hash": "1d908fde422df86bee84067ea80e5abf",
+    "semantic_hash": ""
+  },
+  "vitru/vitru-voice/src/services/llmService.js": {
+    "mtime": 1786408132.384015,
+    "ast_hash": "43e0aae666a37111d918c44e7b74b202",
+    "semantic_hash": ""
+  },
+  "vitru/vitru-voice/src/services/sttService.js": {
+    "mtime": 1786408656.1424537,
+    "ast_hash": "48ddfcaddb8b6f04b76c5ad4c4d5adf9",
+    "semantic_hash": ""
+  },
+  "vitru/vitru-voice/src/services/ttsService.js": {
+    "mtime": 1786409850.408913,
+    "ast_hash": "1497bb6f58e421c3fa7975fa15dc348c",
+    "semantic_hash": ""
+  },
+  "vitru/vitru-voice/src/session/CallSession.js": {
+    "mtime": 1786409875.0112545,
+    "ast_hash": "f8348b5c3c9c5525964204b3dd0d0c0a",
+    "semantic_hash": ""
+  },
+  "docker-compose.yml": {
+    "mtime": 1786489832.8068829,
+    "ast_hash": "20e475e336848cc3e7ec5941cc921693",
+    "semantic_hash": ""
+  },
+  "vitru/vitru-voice/README.md": {
+    "mtime": 1786487058.5554843,
+    "ast_hash": "3c11b4d5277d328b5b8d40880f2bc7a4",
+    "semantic_hash": ""
+  },
+  "vitru/vitru-voice/public/index.html": {
+    "mtime": 1786408698.272506,
+    "ast_hash": "bb491de3425d9fb8f3eed206fae6d8c8",
     "semantic_hash": ""
   }
 }
