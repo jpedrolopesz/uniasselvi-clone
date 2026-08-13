@@ -4,3 +4,5 @@ npm-debug.log*
 .DS_Store
 models/*.bin
 .venv-kokoro/
+.venv/
+__pycache__/

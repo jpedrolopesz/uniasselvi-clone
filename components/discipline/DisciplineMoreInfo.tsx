@@ -64,6 +64,7 @@ export function DisciplineMoreInfo({ subjectCode }: DisciplineMoreInfoProps) {
         <div className="rounded-3xl bg-bg-card p-6 md:p-8">
           <div className="flex flex-wrap gap-4">
             <Link
+              data-vitru-id={`discipline:${subjectCode}:mediator`}
               href={`/disciplinas/${subjectCode}/fale-com-mediador`}
               className="flex items-center gap-3 rounded-xl bg-brand-yellow px-6 py-4 text-sm font-bold uppercase tracking-tight text-black shadow-md transition hover:bg-brand-yellow-dark"
             >

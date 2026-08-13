@@ -4,12 +4,13 @@ import { useState } from "react";
 import type { RecordingRaw } from "@/lib/types/raw/recordings";
 import { RecordingItem } from "@/components/recordings/RecordingItem";
 
-export function RecordedClassesModal({ recordings }: { recordings: RecordingRaw[] | null }) {
+export function RecordedClassesModal({ recordings, subjectCode }: { recordings: RecordingRaw[] | null; subjectCode: string }) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
       <button
+        data-vitru-id={`discipline:${subjectCode}:recordings`}
         type="button"
         onClick={() => setIsOpen(true)}
             className="rounded-full border border-border-subtle bg-bg-card px-5 py-2.5 text-sm font-medium text-white transition hover:bg-bg-card-hover"
@@ -19,6 +20,7 @@ export function RecordedClassesModal({ recordings }: { recordings: RecordingRaw[
 
       {isOpen && (
         <div
+          data-vitru-id={`discipline:${subjectCode}:recordings`}
           className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4"
           role="dialog"
           aria-modal="true"
@@ -49,7 +51,7 @@ export function RecordedClassesModal({ recordings }: { recordings: RecordingRaw[
                 <p className="text-sm text-text-secondary">Nenhuma aula gravada encontrada.</p>
               )}
               {recordings?.map((recording) => (
-                <RecordingItem key={recording.title + recording.date_recording} recording={recording} />
+                <RecordingItem key={recording.title + recording.date_recording} recording={recording} subjectCode={subjectCode} />
               ))}
             </div>
 

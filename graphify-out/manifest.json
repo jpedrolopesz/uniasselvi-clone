@@ -2,12 +2,7 @@
   ".claude/settings.json": {
     "mtime": 1785719586.3422492,
     "ast_hash": "f4c62974fd343e5c07a5448358d440e9",
-    "semantic_hash": ""
-  },
-  "app/disciplinas/[subjectCode]/calendario/page.tsx": {
-    "mtime": 1785708513.5565946,
-    "ast_hash": "0353c8408d20ee528cd6abe4d41ab387",
-    "semantic_hash": "0353c8408d20ee528cd6abe4d41ab387"
+    "semantic_hash": "f4c62974fd343e5c07a5448358d440e9"
   },
   "app/disciplinas/[subjectCode]/notas-avaliacoes/[testCode]/page.tsx": {
     "mtime": 1785716702.9572067,
@@ -15,33 +10,33 @@
     "semantic_hash": "5e70495646b4d05154eb64746cc9987c"
   },
   "app/disciplinas/[subjectCode]/notas-avaliacoes/page.tsx": {
-    "mtime": 1785713354.4837356,
-    "ast_hash": "20a4299840cf3b229e72d40920263a24",
-    "semantic_hash": "20a4299840cf3b229e72d40920263a24"
+    "mtime": 1786554770.1852274,
+    "ast_hash": "deda2a7a67b7a0db4ef36d94313fc08e",
+    "semantic_hash": ""
   },
   "app/disciplinas/[subjectCode]/page.tsx": {
-    "mtime": 1786225151.4208462,
-    "ast_hash": "0f0306c49ecfa5b458ecbb211888b23b",
+    "mtime": 1786554770.018476,
+    "ast_hash": "64a6e97706b3fbb47231af513de0eb51",
     "semantic_hash": ""
   },
   "app/layout.tsx": {
-    "mtime": 1785708296.0026362,
-    "ast_hash": "9e62d22d07a51762c05a17943d8a6ff8",
-    "semantic_hash": "9e62d22d07a51762c05a17943d8a6ff8"
-  },
-  "app/page.tsx": {
-    "mtime": 1785934530.9063203,
-    "ast_hash": "530b940638ffe209cb9cdbd02e5be8b7",
+    "mtime": 1786614677.8775146,
+    "ast_hash": "a3f7860e0773f0f19d6a6179bb1bcb53",
     "semantic_hash": ""
   },
+  "app/page.tsx": {
+    "mtime": 1786546438.402529,
+    "ast_hash": "bed64476a316ca70ddfa0f226b31cafc",
+    "semantic_hash": "bed64476a316ca70ddfa0f226b31cafc"
+  },
   "components/assessments/AssessmentAction.tsx": {
-    "mtime": 1785713334.2149556,
-    "ast_hash": "4f025827950f89faedb4ff4b86aeff3e",
-    "semantic_hash": "4f025827950f89faedb4ff4b86aeff3e"
+    "mtime": 1786554771.0450978,
+    "ast_hash": "3bd0d9b5891edf95565fc5b830d4f3d5",
+    "semantic_hash": ""
   },
   "components/assessments/AssessmentCard.tsx": {
-    "mtime": 1785937456.722931,
-    "ast_hash": "6ebe13f7e8b23c081c376cf50e8fae0e",
+    "mtime": 1786554770.9462378,
+    "ast_hash": "9cc69d17877c9f4bdd1e12a328d7520a",
     "semantic_hash": ""
   },
   "components/assessments/AssessmentStatus.tsx": {
@@ -87,12 +82,12 @@
   "components/calendar/CalendarDay.tsx": {
     "mtime": 1785937158.167393,
     "ast_hash": "c5445d2a3037b82e6a40b51eaf362fec",
-    "semantic_hash": ""
+    "semantic_hash": "c5445d2a3037b82e6a40b51eaf362fec"
   },
   "components/calendar/CalendarGrid.tsx": {
     "mtime": 1785937169.440838,
     "ast_hash": "2003487d31eb3128ab131bdedff993c4",
-    "semantic_hash": ""
+    "semantic_hash": "2003487d31eb3128ab131bdedff993c4"
   },
   "components/calendar/CalendarMonthNavigation.tsx": {
     "mtime": 1785708480.1238117,
@@ -104,30 +99,20 @@
     "ast_hash": "a008f8e45b25f9ca38390810e49786b5",
     "semantic_hash": "a008f8e45b25f9ca38390810e49786b5"
   },
-  "components/calendar/SubjectCalendarView.tsx": {
-    "mtime": 1785708506.1378112,
-    "ast_hash": "106702df4e77d62222cb348991f8a9e5",
-    "semantic_hash": "106702df4e77d62222cb348991f8a9e5"
-  },
   "components/dev/UserSwitcher.tsx": {
-    "mtime": 1786156659.5600598,
-    "ast_hash": "a3e547884f4ddd00ed5ea7b2e4f45672",
-    "semantic_hash": ""
-  },
-  "components/home/AcademicShortcuts.tsx": {
-    "mtime": 1785898669.3504395,
-    "ast_hash": "9afe153365820d2511c9e2bb78065b1e",
+    "mtime": 1786617162.0774584,
+    "ast_hash": "94adc99e60905a031b4ee7313b155ccf",
     "semantic_hash": ""
   },
   "components/home/DisciplineCard.tsx": {
     "mtime": 1785934807.1919293,
     "ast_hash": "3af2af06ecb370c4e72411413e56979c",
-    "semantic_hash": ""
+    "semantic_hash": "3af2af06ecb370c4e72411413e56979c"
   },
   "components/home/DisciplineCarousel.tsx": {
     "mtime": 1785934503.9177475,
     "ast_hash": "66943b206c4ac5c997994ab1cd7c4c4a",
-    "semantic_hash": ""
+    "semantic_hash": "66943b206c4ac5c997994ab1cd7c4c4a"
   },
   "components/home/JourneyShortcuts.tsx": {
     "mtime": 1785708351.6037314,
@@ -145,8 +130,8 @@
     "semantic_hash": "b2276a6e2dbd6ccd55b82da5b8d08263"
   },
   "components/layout/AppShell.tsx": {
-    "mtime": 1786478794.6892767,
-    "ast_hash": "48d05bb06517d35b70a29363a28e5ad4",
+    "mtime": 1786614725.2567685,
+    "ast_hash": "783b28278e6da491af1dc505a285bd1e",
     "semantic_hash": ""
   },
   "components/layout/EmptyState.tsx": {
@@ -157,27 +142,27 @@
   "components/layout/Header.tsx": {
     "mtime": 1786155316.960021,
     "ast_hash": "2d7562e00818920c4f2e07592ea28bbc",
-    "semantic_hash": ""
+    "semantic_hash": "2d7562e00818920c4f2e07592ea28bbc"
   },
   "components/layout/PageContainer.tsx": {
-    "mtime": 1786156624.2254252,
-    "ast_hash": "3175cd2daba8d4a359688938342df497",
-    "semantic_hash": ""
+    "mtime": 1786547126.6108294,
+    "ast_hash": "c2e97aaa1746fa7b5adb77743cb929b8",
+    "semantic_hash": "c2e97aaa1746fa7b5adb77743cb929b8"
   },
   "components/layout/SubpageHeader.tsx": {
-    "mtime": 1785935743.6859174,
-    "ast_hash": "7193bafaa2dfa5e486c2ce0786783ee1",
-    "semantic_hash": ""
+    "mtime": 1786547126.6635163,
+    "ast_hash": "9524dc6bbecd2e8ce34cb803526cde36",
+    "semantic_hash": "9524dc6bbecd2e8ce34cb803526cde36"
   },
   "components/recordings/RecordedClassesModal.tsx": {
-    "mtime": 1785896071.1663973,
-    "ast_hash": "58b99addd26dc53132ea601bb9d9c320",
+    "mtime": 1786568926.9066753,
+    "ast_hash": "f2650d055e708c59a772a997dafa23c8",
     "semantic_hash": ""
   },
   "components/recordings/RecordingItem.tsx": {
-    "mtime": 1785708399.4885528,
-    "ast_hash": "da18d03576e52fbd69c6ad248a6662b7",
-    "semantic_hash": "da18d03576e52fbd69c6ad248a6662b7"
+    "mtime": 1786554778.8458765,
+    "ast_hash": "0c9d94793036fa5685a0d3a1cf0b910c",
+    "semantic_hash": ""
   },
   "eslint.config.mjs": {
     "mtime": 1785707551.7677355,
@@ -189,35 +174,25 @@
     "ast_hash": "33713360f9b1fe70f865f00cd56d46d4",
     "semantic_hash": "33713360f9b1fe70f865f00cd56d46d4"
   },
-  "lib/data/errors.ts": {
-    "mtime": 1785707800.0105858,
-    "ast_hash": "37dfa94ff1d4c9279b9a0047211bad61",
-    "semantic_hash": "37dfa94ff1d4c9279b9a0047211bad61"
-  },
   "lib/data/load-subject-data.ts": {
-    "mtime": 1785937107.4039388,
-    "ast_hash": "b1df3ed1e0486a557d18c1cb59cc06a3",
-    "semantic_hash": ""
+    "mtime": 1786546474.2175794,
+    "ast_hash": "b7ec91460adb4042d561f4e96589d56f",
+    "semantic_hash": "b7ec91460adb4042d561f4e96589d56f"
   },
   "lib/data/load-user-data.ts": {
-    "mtime": 1785707818.976317,
-    "ast_hash": "2e21edd943f868e58478f60e9a2f7e02",
-    "semantic_hash": "2e21edd943f868e58478f60e9a2f7e02"
+    "mtime": 1786491610.613815,
+    "ast_hash": "524d5e56af78163d5b8fa74a98626250",
+    "semantic_hash": "524d5e56af78163d5b8fa74a98626250"
   },
   "lib/data/load-user-index.ts": {
-    "mtime": 1785707810.6641936,
-    "ast_hash": "41fa25765588d0cc6de48179d3c06464",
-    "semantic_hash": "41fa25765588d0cc6de48179d3c06464"
-  },
-  "lib/data/read-json-file.ts": {
-    "mtime": 1786222091.425029,
-    "ast_hash": "b9ae99ba2bffe70c429221c3fe6d9978",
-    "semantic_hash": ""
+    "mtime": 1786491601.979229,
+    "ast_hash": "70d8958eb9f6839b7cfd5118fb4a2823",
+    "semantic_hash": "70d8958eb9f6839b7cfd5118fb4a2823"
   },
   "lib/data/resolve-active-user.ts": {
-    "mtime": 1785708613.2935598,
-    "ast_hash": "adb6ed7e6164fd9fba425061daef49c7",
-    "semantic_hash": "adb6ed7e6164fd9fba425061daef49c7"
+    "mtime": 1786617207.0007956,
+    "ast_hash": "f0b38f8ab18961d6f373c0be3860c4cf",
+    "semantic_hash": ""
   },
   "lib/formatters/date-formatters.ts": {
     "mtime": 1785707737.6733863,
@@ -237,7 +212,7 @@
   "lib/selectors/assessment-selectors.ts": {
     "mtime": 1785938344.5391383,
     "ast_hash": "5fe6fe24c75dfc846f358863d57088cc",
-    "semantic_hash": ""
+    "semantic_hash": "5fe6fe24c75dfc846f358863d57088cc"
   },
   "lib/selectors/calendar-selectors.ts": {
     "mtime": 1785708457.1821766,
@@ -247,7 +222,7 @@
   "lib/selectors/discipline-selectors.ts": {
     "mtime": 1785934437.7648292,
     "ast_hash": "a43463fa41b5b796d82d5dc938931833",
-    "semantic_hash": ""
+    "semantic_hash": "a43463fa41b5b796d82d5dc938931833"
   },
   "lib/selectors/user-selectors.ts": {
     "mtime": 1785707758.952729,
@@ -257,7 +232,7 @@
   "lib/types/derived/index.ts": {
     "mtime": 1785937211.9267764,
     "ast_hash": "9f31ca97289b04ee8f68e130eedd8321",
-    "semantic_hash": ""
+    "semantic_hash": "9f31ca97289b04ee8f68e130eedd8321"
   },
   "lib/types/raw/assessments.ts": {
     "mtime": 1785717423.0260718,
@@ -292,7 +267,7 @@
   "lib/types/raw/local.ts": {
     "mtime": 1786054573.5292017,
     "ast_hash": "d6d1ae6fdf7bf9c85a768ff59996bb54",
-    "semantic_hash": ""
+    "semantic_hash": "d6d1ae6fdf7bf9c85a768ff59996bb54"
   },
   "lib/types/raw/recordings.ts": {
     "mtime": 1785707694.004009,
@@ -315,184 +290,19 @@
     "semantic_hash": "9d5e01322b4c2d1c9347e36456c881bd"
   },
   "next.config.ts": {
-    "mtime": 1785707551.7684672,
-    "ast_hash": "9b77af189a21a7a64e4bd7a426f64176",
-    "semantic_hash": "9b77af189a21a7a64e4bd7a426f64176"
+    "mtime": 1786541377.7354944,
+    "ast_hash": "40b4d89cedef4bf0056d0a4bfd3caf6a",
+    "semantic_hash": "40b4d89cedef4bf0056d0a4bfd3caf6a"
   },
   "package.json": {
     "mtime": 1786491121.6098416,
     "ast_hash": "1fef2f36b391c0ea3d08672c9cf5f896",
-    "semantic_hash": ""
+    "semantic_hash": "1fef2f36b391c0ea3d08672c9cf5f896"
   },
   "postcss.config.mjs": {
     "mtime": 1785707551.7683434,
     "ast_hash": "239f3ebf717465dc636818a1a619398d",
     "semantic_hash": "239f3ebf717465dc636818a1a619398d"
-  },
-  "public/data/user/index.json": {
-    "mtime": 1786402746.0335236,
-    "ast_hash": "d548a347a5d3bab937970e8cca2b3ecc",
-    "semantic_hash": ""
-  },
-  "public/data/user/joao-pedro-lopes-zamonelo/current-semester.json": {
-    "mtime": 1785707885.5586586,
-    "ast_hash": "227ac46d5a910ebfb83b2bebe6f5c611",
-    "semantic_hash": "227ac46d5a910ebfb83b2bebe6f5c611"
-  },
-  "public/data/user/joao-pedro-lopes-zamonelo/disciplines.json": {
-    "mtime": 1785712640.3580575,
-    "ast_hash": "0d9c69b625fa0a0bfe306c9cac64d325",
-    "semantic_hash": "0d9c69b625fa0a0bfe306c9cac64d325"
-  },
-  "public/data/user/joao-pedro-lopes-zamonelo/financial-titles.json": {
-    "mtime": 1785707920.347662,
-    "ast_hash": "5fafc9e2cdef2de709ae77c8d65e664a",
-    "semantic_hash": "5fafc9e2cdef2de709ae77c8d65e664a"
-  },
-  "public/data/user/joao-pedro-lopes-zamonelo/manifest.json": {
-    "mtime": 1785707871.1514978,
-    "ast_hash": "3b43c9b40961ca48c15e04c8981c9c3d",
-    "semantic_hash": "3b43c9b40961ca48c15e04c8981c9c3d"
-  },
-  "public/data/user/joao-pedro-lopes-zamonelo/sofia-dados-aluno.json": {
-    "mtime": 1785710969.9093084,
-    "ast_hash": "f38aba7ba8af3fa3cfb8912b862f6422",
-    "semantic_hash": "f38aba7ba8af3fa3cfb8912b862f6422"
-  },
-  "public/data/user/joao-pedro-lopes-zamonelo/subjects/159490/tests/124208039.json": {
-    "mtime": 1785716793.8042934,
-    "ast_hash": "c7a117c47f4b363c76ca54af8d05f952",
-    "semantic_hash": "c7a117c47f4b363c76ca54af8d05f952"
-  },
-  "public/data/user/joao-pedro-lopes-zamonelo/subjects/GTI03/assessments.json": {
-    "mtime": 1785717487.913898,
-    "ast_hash": "a8bb1f05146f2bdacc24ff91c2632104",
-    "semantic_hash": "a8bb1f05146f2bdacc24ff91c2632104"
-  },
-  "public/data/user/joao-pedro-lopes-zamonelo/subjects/GTI03/attendances.json": {
-    "mtime": 1785707984.6937792,
-    "ast_hash": "c96ee7eaadc8fef7eff5ef011191ad04",
-    "semantic_hash": "c96ee7eaadc8fef7eff5ef011191ad04"
-  },
-  "public/data/user/joao-pedro-lopes-zamonelo/subjects/GTI03/calendar-events.json": {
-    "mtime": 1785707928.2539759,
-    "ast_hash": "471afa4f15473fec83729bbf69214cd2",
-    "semantic_hash": "471afa4f15473fec83729bbf69214cd2"
-  },
-  "public/data/user/joao-pedro-lopes-zamonelo/subjects/GTI03/recordings.json": {
-    "mtime": 1785707935.0210404,
-    "ast_hash": "cf866028e9dcb16838c4092147e71bb8",
-    "semantic_hash": "cf866028e9dcb16838c4092147e71bb8"
-  },
-  "public/data/user/joao-pedro-lopes-zamonelo/subjects/GTI03/tests/123265797.json": {
-    "mtime": 1785712924.167835,
-    "ast_hash": "791b286ce1444cbe9269c37eeeb32488",
-    "semantic_hash": "791b286ce1444cbe9269c37eeeb32488"
-  },
-  "public/data/user/joao-pedro-lopes-zamonelo/user-data.json": {
-    "mtime": 1785707882.0109992,
-    "ast_hash": "9d6ec0d904bce28be10cacc9ef4cd60b",
-    "semantic_hash": "9d6ec0d904bce28be10cacc9ef4cd60b"
-  },
-  "public/data/user/usuario-ficticio-baixa-frequencia/current-semester.json": {
-    "mtime": 1785708006.9386873,
-    "ast_hash": "227ac46d5a910ebfb83b2bebe6f5c611",
-    "semantic_hash": "227ac46d5a910ebfb83b2bebe6f5c611"
-  },
-  "public/data/user/usuario-ficticio-baixa-frequencia/disciplines.json": {
-    "mtime": 1786050833.325569,
-    "ast_hash": "0d9c69b625fa0a0bfe306c9cac64d325",
-    "semantic_hash": ""
-  },
-  "public/data/user/usuario-ficticio-baixa-frequencia/financial-titles.json": {
-    "mtime": 1785708031.2332761,
-    "ast_hash": "0246206d631bdad5b087011ca8b92def",
-    "semantic_hash": "0246206d631bdad5b087011ca8b92def"
-  },
-  "public/data/user/usuario-ficticio-baixa-frequencia/manifest.json": {
-    "mtime": 1786050833.3638031,
-    "ast_hash": "eb03a7da468f8891246181040b8288c1",
-    "semantic_hash": ""
-  },
-  "public/data/user/usuario-ficticio-baixa-frequencia/sofia-dados-aluno.json": {
-    "mtime": 1785708010.6128,
-    "ast_hash": "eb1420c4b50f0d5bf06127d3b56fdd91",
-    "semantic_hash": "eb1420c4b50f0d5bf06127d3b56fdd91"
-  },
-  "public/data/user/usuario-ficticio-baixa-frequencia/subjects/GTI03/assessments.json": {
-    "mtime": 1785937545.3531797,
-    "ast_hash": "f14fb42f7dc23f2f316511d9135fd292",
-    "semantic_hash": ""
-  },
-  "public/data/user/usuario-ficticio-baixa-frequencia/subjects/GTI03/attendances.json": {
-    "mtime": 1785708067.5343163,
-    "ast_hash": "d453b30e939bdda1bd1d1768618db757",
-    "semantic_hash": "d453b30e939bdda1bd1d1768618db757"
-  },
-  "public/data/user/usuario-ficticio-baixa-frequencia/subjects/GTI03/calendar-events.json": {
-    "mtime": 1785708039.0332835,
-    "ast_hash": "027d0f154072acf59209ce492b6c3faa",
-    "semantic_hash": "027d0f154072acf59209ce492b6c3faa"
-  },
-  "public/data/user/usuario-ficticio-baixa-frequencia/subjects/GTI03/recordings.json": {
-    "mtime": 1785708042.9490714,
-    "ast_hash": "58e0494c51d30eb3494f7c9198986bb9",
-    "semantic_hash": "58e0494c51d30eb3494f7c9198986bb9"
-  },
-  "public/data/user/usuario-ficticio-baixa-frequencia/user-data.json": {
-    "mtime": 1785708003.6651008,
-    "ast_hash": "5a134fd9d9e8bdf0e72d9cde7d7ce59b",
-    "semantic_hash": "5a134fd9d9e8bdf0e72d9cde7d7ce59b"
-  },
-  "public/data/user/usuario-ficticio-em-dia/current-semester.json": {
-    "mtime": 1785708090.184457,
-    "ast_hash": "227ac46d5a910ebfb83b2bebe6f5c611",
-    "semantic_hash": "227ac46d5a910ebfb83b2bebe6f5c611"
-  },
-  "public/data/user/usuario-ficticio-em-dia/disciplines.json": {
-    "mtime": 1786050833.2951717,
-    "ast_hash": "0d9c69b625fa0a0bfe306c9cac64d325",
-    "semantic_hash": ""
-  },
-  "public/data/user/usuario-ficticio-em-dia/financial-titles.json": {
-    "mtime": 1785708111.617723,
-    "ast_hash": "9f1ff9b1a2e140715e80cb36a31a12ff",
-    "semantic_hash": "9f1ff9b1a2e140715e80cb36a31a12ff"
-  },
-  "public/data/user/usuario-ficticio-em-dia/manifest.json": {
-    "mtime": 1786050833.3239484,
-    "ast_hash": "1059d741a3adf169671f3ab9a6ac8b7c",
-    "semantic_hash": ""
-  },
-  "public/data/user/usuario-ficticio-em-dia/sofia-dados-aluno.json": {
-    "mtime": 1785708094.0704608,
-    "ast_hash": "40c459a46efd632049b56fc6f9da682b",
-    "semantic_hash": "40c459a46efd632049b56fc6f9da682b"
-  },
-  "public/data/user/usuario-ficticio-em-dia/subjects/GTI03/assessments.json": {
-    "mtime": 1785717545.2882779,
-    "ast_hash": "174a7082c27496cbfae4f16fcefd768e",
-    "semantic_hash": "174a7082c27496cbfae4f16fcefd768e"
-  },
-  "public/data/user/usuario-ficticio-em-dia/subjects/GTI03/attendances.json": {
-    "mtime": 1785708165.7476983,
-    "ast_hash": "747591259a86590f93851041fa50690e",
-    "semantic_hash": "747591259a86590f93851041fa50690e"
-  },
-  "public/data/user/usuario-ficticio-em-dia/subjects/GTI03/calendar-events.json": {
-    "mtime": 1785708120.0910943,
-    "ast_hash": "b63e15ec4fdc7580b893eabdda1ef371",
-    "semantic_hash": "b63e15ec4fdc7580b893eabdda1ef371"
-  },
-  "public/data/user/usuario-ficticio-em-dia/subjects/GTI03/recordings.json": {
-    "mtime": 1785708126.646109,
-    "ast_hash": "3e3124c8029414e52f94e58c735237a7",
-    "semantic_hash": "3e3124c8029414e52f94e58c735237a7"
-  },
-  "public/data/user/usuario-ficticio-em-dia/user-data.json": {
-    "mtime": 1785708086.1155314,
-    "ast_hash": "91c37b375186ee922ca6dadfa0e530a0",
-    "semantic_hash": "91c37b375186ee922ca6dadfa0e530a0"
   },
   "tsconfig.json": {
     "mtime": 1785707551.7695174,
@@ -562,341 +372,921 @@
   "README.md": {
     "mtime": 1785719879.2077272,
     "ast_hash": "c7e59175d133156f33be9884ea1907c9",
-    "semantic_hash": ""
-  },
-  "public/file.svg": {
-    "mtime": 1785707551.7685146,
-    "ast_hash": "d09f95206c3fa0bb9bd9fefabfd0ea71",
-    "semantic_hash": "d09f95206c3fa0bb9bd9fefabfd0ea71"
-  },
-  "public/globe.svg": {
-    "mtime": 1785707551.7689326,
-    "ast_hash": "2aaafa6a49b6563925fe440891e32717",
-    "semantic_hash": "2aaafa6a49b6563925fe440891e32717"
-  },
-  "public/next.svg": {
-    "mtime": 1785707551.7689874,
-    "ast_hash": "8e061864f388b47f33a1c3780831193e",
-    "semantic_hash": "8e061864f388b47f33a1c3780831193e"
-  },
-  "public/vercel.svg": {
-    "mtime": 1785707551.7688477,
-    "ast_hash": "c0af2f507b369b085b35ef4bbe3bcf1e",
-    "semantic_hash": "c0af2f507b369b085b35ef4bbe3bcf1e"
-  },
-  "public/window.svg": {
-    "mtime": 1785707551.7689507,
-    "ast_hash": "a2760511c65806022ad20adf74370ff3",
-    "semantic_hash": "a2760511c65806022ad20adf74370ff3"
+    "semantic_hash": "c7e59175d133156f33be9884ea1907c9"
   },
   "components/icons/index.tsx": {
     "mtime": 1786225095.8869987,
     "ast_hash": "dc202cf823bcfcd2825b5948c6c2e143",
-    "semantic_hash": ""
+    "semantic_hash": "dc202cf823bcfcd2825b5948c6c2e143"
   },
   "app/disciplinas/[subjectCode]/registro-de-frequencia/page.tsx": {
     "mtime": 1785885418.9478073,
     "ast_hash": "0f0f714da9f0b7b4d16ffb33ac88519d",
-    "semantic_hash": ""
+    "semantic_hash": "0f0f714da9f0b7b4d16ffb33ac88519d"
   },
   "app/disciplinas/[subjectCode]/trilha-de-aprendizagem/[lessonCode]/page.tsx": {
     "mtime": 1786322578.4829988,
     "ast_hash": "c9b530ec4b87c8e78f03aad8152136f0",
-    "semantic_hash": ""
+    "semantic_hash": "c9b530ec4b87c8e78f03aad8152136f0"
   },
   "app/disciplinas/[subjectCode]/trilha-de-aprendizagem/page.tsx": {
     "mtime": 1786228829.4543104,
     "ast_hash": "37c92c5b04717df27ade86ac2c00fe5c",
-    "semantic_hash": ""
+    "semantic_hash": "37c92c5b04717df27ade86ac2c00fe5c"
   },
   "components/learning-path/LearningPathView.tsx": {
     "mtime": 1786228815.098349,
     "ast_hash": "b7f708c3c57fad455dc2516827680656",
-    "semantic_hash": ""
+    "semantic_hash": "b7f708c3c57fad455dc2516827680656"
   },
   "components/learning-path/LessonMarkdown.tsx": {
     "mtime": 1786229641.84584,
     "ast_hash": "3bda4a121ac9356cab021b2ba10eeadf",
-    "semantic_hash": ""
+    "semantic_hash": "3bda4a121ac9356cab021b2ba10eeadf"
   },
   "components/learning-path/LessonView.tsx": {
     "mtime": 1786228882.536265,
     "ast_hash": "8ec5d42f9bdf79b15122cfa9daac5b8a",
-    "semantic_hash": ""
+    "semantic_hash": "8ec5d42f9bdf79b15122cfa9daac5b8a"
   },
   "components/learning-path/use-learning-path-progress.ts": {
     "mtime": 1786228809.82165,
     "ast_hash": "30cb3097de9f9fa680505145cb95ecca",
-    "semantic_hash": ""
+    "semantic_hash": "30cb3097de9f9fa680505145cb95ecca"
   },
   "lib/selectors/learning-path-selectors.ts": {
     "mtime": 1786228861.3556569,
     "ast_hash": "35be0eceb9216c77c86ea2ce77626ec6",
-    "semantic_hash": ""
+    "semantic_hash": "35be0eceb9216c77c86ea2ce77626ec6"
   },
   "lib/types/raw/learning-path.ts": {
     "mtime": 1786228027.064553,
     "ast_hash": "1b651cb7f9e7f575ce3c59ebe079fac5",
-    "semantic_hash": ""
-  },
-  "public/data/user/joao-pedro-lopes-zamonelo/subjects/MAT24/learning-path.json": {
-    "mtime": 1786222666.037461,
-    "ast_hash": "30271b8bb892cb806024a4df04334a5a",
-    "semantic_hash": ""
+    "semantic_hash": "1b651cb7f9e7f575ce3c59ebe079fac5"
   },
   "components/learning-path/LessonVideos.tsx": {
     "mtime": 1785894822.6343446,
     "ast_hash": "16a47e4f84f22ea32e86e3bf375cf0f1",
-    "semantic_hash": ""
+    "semantic_hash": "16a47e4f84f22ea32e86e3bf375cf0f1"
   },
   "components/layout/AppShellChrome.tsx": {
-    "mtime": 1786478794.753056,
-    "ast_hash": "c592b5c4300f228bb836615847db7400",
-    "semantic_hash": ""
-  },
-  "public/assets/logo/logo-uniasselvi.png": {
-    "mtime": 1785894199.0730426,
-    "ast_hash": "defda6aa297e0905a68189a7aeaf12eb",
-    "semantic_hash": ""
-  },
-  "public/data/user/joao-pedro-lopes-zamonelo/subjects/images/modelagem-e-gestao-de-processo-de-negocio.png": {
-    "mtime": 1785897496.0454233,
-    "ast_hash": "04278418143b8deb8225040ab2d8e519",
+    "mtime": 1786614725.2046313,
+    "ast_hash": "04ba504f9a853e4f8b3f1a476048898d",
     "semantic_hash": ""
   },
   "app/calendario-de-estudos/page.tsx": {
     "mtime": 1786057422.224627,
     "ast_hash": "60509f444e8c41bf1b03430b3c312900",
-    "semantic_hash": ""
+    "semantic_hash": "60509f444e8c41bf1b03430b3c312900"
   },
   "components/study-planner/ActivityBlock.tsx": {
-    "mtime": 1786057387.9360137,
-    "ast_hash": "8befef7513a941021176866ebeeacbb5",
+    "mtime": 1786616881.6188905,
+    "ast_hash": "9bbec7afc95598641195f935db2b2977",
     "semantic_hash": ""
   },
   "components/study-planner/ActivityFormModal.tsx": {
     "mtime": 1785898560.749401,
     "ast_hash": "d227481d945a6b2dc0d6e0265fad8690",
-    "semantic_hash": ""
+    "semantic_hash": "d227481d945a6b2dc0d6e0265fad8690"
   },
   "components/study-planner/AssistantPanel.tsx": {
-    "mtime": 1786399738.5925112,
-    "ast_hash": "7371752841c8b572db5f788b56da3b7c",
+    "mtime": 1786616313.6703835,
+    "ast_hash": "9463fad43a41d7cf631d98d0e4cd14c6",
     "semantic_hash": ""
   },
   "components/study-planner/CalendarToolbar.tsx": {
     "mtime": 1785898391.1082363,
     "ast_hash": "6ac2c46ef29bf7a37ffce970552bb3ed",
-    "semantic_hash": ""
+    "semantic_hash": "6ac2c46ef29bf7a37ffce970552bb3ed"
   },
   "components/study-planner/DayGridView.tsx": {
-    "mtime": 1785898459.5278895,
-    "ast_hash": "8f8c30609c48f2874b13a9eea4e3391e",
+    "mtime": 1786616565.0588653,
+    "ast_hash": "36d6a84faf4b04d346b2002cff54f54b",
     "semantic_hash": ""
   },
   "components/study-planner/MonthGridView.tsx": {
-    "mtime": 1785898507.914505,
-    "ast_hash": "c63d7c84cc68592d959d26a012a03d5a",
+    "mtime": 1786615949.4445815,
+    "ast_hash": "ac7466ba0bcf50d702d7dfb170c215bb",
     "semantic_hash": ""
   },
   "components/study-planner/StudyPlannerView.tsx": {
-    "mtime": 1786479624.1841033,
-    "ast_hash": "3bb618078b5b295835b84023c748783f",
+    "mtime": 1786616574.1680088,
+    "ast_hash": "93caa2b0a444bc52e044540156c708e9",
     "semantic_hash": ""
   },
   "components/study-planner/SuggestionCard.tsx": {
     "mtime": 1786479624.2337255,
     "ast_hash": "2245c87101d10334d1d81cb68f36e145",
-    "semantic_hash": ""
+    "semantic_hash": "2245c87101d10334d1d81cb68f36e145"
   },
   "components/study-planner/TimeGridColumn.tsx": {
-    "mtime": 1785898442.9449465,
-    "ast_hash": "b22d363b1f23f1b87a1fcf37feb26d37",
+    "mtime": 1786616564.9131696,
+    "ast_hash": "bf5310c40322ab131f7e3a956665c4de",
     "semantic_hash": ""
   },
   "components/study-planner/TimeGutter.tsx": {
     "mtime": 1785898453.438536,
     "ast_hash": "96c10496092c94401fae14361d2c5cec",
-    "semantic_hash": ""
+    "semantic_hash": "96c10496092c94401fae14361d2c5cec"
   },
   "components/study-planner/WeekGridView.tsx": {
-    "mtime": 1785898478.9816787,
-    "ast_hash": "9c9b597e9e16654cfe3c8832c2204281",
+    "mtime": 1786616564.9745107,
+    "ast_hash": "804c0f0df2f408ab7be8f50e394fa53a",
     "semantic_hash": ""
   },
   "components/study-planner/chat-types.ts": {
     "mtime": 1786228723.0003052,
     "ast_hash": "b8bb8822011b31fbaf1435f5c9ac5fd9",
-    "semantic_hash": ""
+    "semantic_hash": "b8bb8822011b31fbaf1435f5c9ac5fd9"
   },
   "components/study-planner/hour-grid.ts": {
     "mtime": 1786052117.9766695,
     "ast_hash": "aba75f962fa4ffcb279bf5a7c92b1bb9",
-    "semantic_hash": ""
+    "semantic_hash": "aba75f962fa4ffcb279bf5a7c92b1bb9"
   },
   "components/study-planner/view-mode.ts": {
     "mtime": 1785898394.333309,
     "ast_hash": "9fd96d6c289e7d385e63a2d78ab8bd37",
-    "semantic_hash": ""
+    "semantic_hash": "9fd96d6c289e7d385e63a2d78ab8bd37"
   },
   "lib/data/load-study-planner-data.ts": {
-    "mtime": 1786052994.555433,
-    "ast_hash": "f47a34d7435f4d61cc6611c753f1946b",
-    "semantic_hash": ""
+    "mtime": 1786491641.9761646,
+    "ast_hash": "165235fe03d024e45afce430bae810f9",
+    "semantic_hash": "165235fe03d024e45afce430bae810f9"
   },
   "lib/study-planner/ai-assistant.ts": {
     "mtime": 1786399211.778884,
     "ast_hash": "fe28efd87b77572e5c3a6b26f911df58",
-    "semantic_hash": ""
+    "semantic_hash": "fe28efd87b77572e5c3a6b26f911df58"
   },
   "lib/study-planner/calendar-logic.ts": {
     "mtime": 1785898511.2543418,
     "ast_hash": "1481b6ee2c7511c67088753be360c684",
-    "semantic_hash": ""
+    "semantic_hash": "1481b6ee2c7511c67088753be360c684"
   },
   "lib/study-planner/category-meta.ts": {
     "mtime": 1785898065.2849998,
     "ast_hash": "7be7a43e766475aa8921ce5d53c57e51",
-    "semantic_hash": ""
+    "semantic_hash": "7be7a43e766475aa8921ce5d53c57e51"
   },
   "lib/study-planner/date-utils.ts": {
     "mtime": 1785898661.1696107,
     "ast_hash": "9b2320f3afd4fd7c85eb194ab6d571b5",
-    "semantic_hash": ""
+    "semantic_hash": "9b2320f3afd4fd7c85eb194ab6d571b5"
   },
   "lib/study-planner/seed-activities.ts": {
     "mtime": 1786052117.4451733,
     "ast_hash": "9f49ee87a502d8e2a24c5aea16418cf1",
-    "semantic_hash": ""
+    "semantic_hash": "9f49ee87a502d8e2a24c5aea16418cf1"
   },
   "lib/types/study-activity.ts": {
-    "mtime": 1785898050.8483334,
-    "ast_hash": "c152b83b8f289faead21e49cc77b6de5",
-    "semantic_hash": ""
-  },
-  "public/data/user/joao-pedro-lopes-zamonelo/subjects/images/estudo-contemporaneo-e-transversal-relacoes-etenico-raciais-cultura-e-direitos-humanos.png": {
-    "mtime": 1785934351.8223414,
-    "ast_hash": "161f682b6d0efc24f7139dba5e03c738",
-    "semantic_hash": ""
-  },
-  "public/data/user/joao-pedro-lopes-zamonelo/subjects/images/experiencia-profissional-desafios-comtemporaneos.png": {
-    "mtime": 1785933789.533719,
-    "ast_hash": "38746ed48e4a26418a7b5cafbf49e89e",
-    "semantic_hash": ""
-  },
-  "public/data/user/joao-pedro-lopes-zamonelo/subjects/images/experiencia-profissional-mineracao-e-analise-de-dados.png": {
-    "mtime": 1785934227.1904714,
-    "ast_hash": "fc1841accfe5a2c0cc48fcbf0814bbcc",
-    "semantic_hash": ""
-  },
-  "public/data/user/joao-pedro-lopes-zamonelo/subjects/images/mineracao-de-dados.png": {
-    "mtime": 1785933497.9465935,
-    "ast_hash": "53b6c8137caa46efe82c6734793cae6c",
-    "semantic_hash": ""
-  },
-  "public/data/user/joao-pedro-lopes-zamonelo/subjects/images/probabilidade-e-estatistica.png": {
-    "mtime": 1785933224.6294594,
-    "ast_hash": "4d43f405dacf926f15844ea84d63c2f2",
-    "semantic_hash": ""
-  },
-  "public/data/user/joao-pedro-lopes-zamonelo/subjects/images/sistemas-aplicacoes-distribuidas.png": {
-    "mtime": 1785933644.025996,
-    "ast_hash": "d0b8989fc5e9a86bae78c709837bcd73",
+    "mtime": 1786616312.8847153,
+    "ast_hash": "5046d0ddff4eb785d43bb9020560d6ae",
     "semantic_hash": ""
   },
   "app/disciplinas/[subjectCode]/notas-avaliacoes/[testCode]/agendamento/page.tsx": {
-    "mtime": 1785938538.74658,
-    "ast_hash": "77c1ef1fa5bdc30364c7647ce2b40c54",
+    "mtime": 1786617133.692976,
+    "ast_hash": "02be7b8a0170e6c220e56bd863fe53ba",
     "semantic_hash": ""
   },
   "components/exam-schedule/CityComparisonNotice.tsx": {
     "mtime": 1785937311.2690122,
     "ast_hash": "4e878c2d1b61228b400baa0e6fe391e4",
-    "semantic_hash": ""
+    "semantic_hash": "4e878c2d1b61228b400baa0e6fe391e4"
   },
   "components/exam-schedule/ClassmatesSection.tsx": {
     "mtime": 1785937330.8880618,
     "ast_hash": "53b59e8321ac41ff3974d0451e80d7cb",
-    "semantic_hash": ""
+    "semantic_hash": "53b59e8321ac41ff3974d0451e80d7cb"
   },
   "components/exam-schedule/ExamDateCalendar.tsx": {
     "mtime": 1785937288.9965417,
     "ast_hash": "6465cb29feb83cccee09dea05cfc231e",
-    "semantic_hash": ""
+    "semantic_hash": "6465cb29feb83cccee09dea05cfc231e"
   },
   "components/exam-schedule/ExamLocationCard.tsx": {
     "mtime": 1785937303.8687875,
     "ast_hash": "1d2e638fccf5ff4c7b7328c045a9000c",
-    "semantic_hash": ""
+    "semantic_hash": "1d2e638fccf5ff4c7b7328c045a9000c"
   },
   "components/exam-schedule/ExamScheduleHeader.tsx": {
     "mtime": 1785938514.6744757,
     "ast_hash": "512be0ec0e54feea12cdbdcf23302544",
-    "semantic_hash": ""
+    "semantic_hash": "512be0ec0e54feea12cdbdcf23302544"
   },
   "components/exam-schedule/ExamScheduleSummary.tsx": {
     "mtime": 1785937341.2143059,
     "ast_hash": "9acdeb22f66addf7918bff0a86a003fa",
-    "semantic_hash": ""
+    "semantic_hash": "9acdeb22f66addf7918bff0a86a003fa"
   },
   "components/exam-schedule/ExamScheduleView.tsx": {
-    "mtime": 1785939256.15854,
-    "ast_hash": "0b770e54517883f539f0084712ff00f6",
+    "mtime": 1786617303.08161,
+    "ast_hash": "13af8c7202c5a209bdcfe86350813e6f",
     "semantic_hash": ""
   },
   "lib/data/load-classmates.ts": {
-    "mtime": 1785937130.7216873,
-    "ast_hash": "57723490b90d1c2d80462e1676e7f7ac",
-    "semantic_hash": ""
-  },
-  "lib/data/read-shared-json-file.ts": {
-    "mtime": 1785937124.565349,
-    "ast_hash": "f30daa9581adf126e5eb4317d7f9ab6e",
-    "semantic_hash": ""
+    "mtime": 1786491659.0168874,
+    "ast_hash": "e2f965a44a9ed96d5a130c034b5baa43",
+    "semantic_hash": "e2f965a44a9ed96d5a130c034b5baa43"
   },
   "lib/exam-schedule/group-related-students.test.ts": {
     "mtime": 1785937657.199143,
     "ast_hash": "f9c07ad8c6291cced9c42d9c46a9e1fd",
-    "semantic_hash": ""
+    "semantic_hash": "f9c07ad8c6291cced9c42d9c46a9e1fd"
   },
   "lib/exam-schedule/group-related-students.ts": {
     "mtime": 1785936990.8260076,
     "ast_hash": "ad75e4099640936d739234a904415a97",
-    "semantic_hash": ""
+    "semantic_hash": "ad75e4099640936d739234a904415a97"
   },
   "lib/exam-schedule/normalize-city.test.ts": {
     "mtime": 1785937635.4308162,
     "ast_hash": "254394145d1dac8f35e9c362ca81908e",
-    "semantic_hash": ""
+    "semantic_hash": "254394145d1dac8f35e9c362ca81908e"
   },
   "lib/exam-schedule/normalize-city.ts": {
     "mtime": 1785936947.662336,
     "ast_hash": "494ec7fa9c993110c5152d979b9433d5",
-    "semantic_hash": ""
+    "semantic_hash": "494ec7fa9c993110c5152d979b9433d5"
   },
   "lib/exam-schedule/schedule-storage.ts": {
-    "mtime": 1785937035.2159786,
-    "ast_hash": "78dabd96591a5fe47a875aa1f53d05cb",
+    "mtime": 1786617268.3818994,
+    "ast_hash": "762b3ec74e8121d3ce1222fcb1ab3076",
     "semantic_hash": ""
   },
   "lib/selectors/exam-schedule-selectors.test.ts": {
     "mtime": 1785937679.495057,
     "ast_hash": "fce02ed9e8680c852ff96a5ba4a1c035",
-    "semantic_hash": ""
+    "semantic_hash": "fce02ed9e8680c852ff96a5ba4a1c035"
   },
   "lib/selectors/exam-schedule-selectors.ts": {
     "mtime": 1785937234.4418318,
     "ast_hash": "565c8d1b8195a70f86c4c3d8380a0b07",
-    "semantic_hash": ""
+    "semantic_hash": "565c8d1b8195a70f86c4c3d8380a0b07"
   },
   "lib/types/raw/classmates.ts": {
     "mtime": 1785936930.735323,
     "ast_hash": "b38c8b223b403518adf9da6313b68552",
-    "semantic_hash": ""
+    "semantic_hash": "b38c8b223b403518adf9da6313b68552"
   },
   "lib/types/raw/exam-schedule-options.ts": {
     "mtime": 1785936922.1583772,
     "ast_hash": "1f76b83f12d9231ad916300033bfbd31",
+    "semantic_hash": "1f76b83f12d9231ad916300033bfbd31"
+  },
+  "vitest.config.mts": {
+    "mtime": 1786491842.769023,
+    "ast_hash": "215a57f71504edea1f9f3f9ae2f556fd",
+    "semantic_hash": "215a57f71504edea1f9f3f9ae2f556fd"
+  },
+  "components/exam-schedule/ExamScheduleSituationLabel.tsx": {
+    "mtime": 1786617133.4429867,
+    "ast_hash": "84c5f3df18d2604376d48025e2fe7429",
+    "semantic_hash": ""
+  },
+  "lib/exam-schedule/use-effective-schedule-status.ts": {
+    "mtime": 1786617303.0207725,
+    "ast_hash": "b6363bc60eaeebbbcaee5b1a6225b648",
+    "semantic_hash": ""
+  },
+  "vitru/README.md": {
+    "mtime": 1785939092.9122047,
+    "ast_hash": "41f81bd68b5c54e887b3467fad2b8b42",
+    "semantic_hash": "41f81bd68b5c54e887b3467fad2b8b42"
+  },
+  "vitru/docs/fundamental-decisions.md": {
+    "mtime": 1785939093.1539965,
+    "ast_hash": "ca5424c2b03ed4935136afc10b79e286",
+    "semantic_hash": "ca5424c2b03ed4935136afc10b79e286"
+  },
+  "vitru/infra/README.md": {
+    "mtime": 1785939093.3751194,
+    "ast_hash": "f12c7ae8dc5cd5093f1638bc578953a0",
+    "semantic_hash": "f12c7ae8dc5cd5093f1638bc578953a0"
+  },
+  "vitru/n8n/README.md": {
+    "mtime": 1785939254.882369,
+    "ast_hash": "0cd5fc51b5172f1647bcab4393943c0a",
+    "semantic_hash": "0cd5fc51b5172f1647bcab4393943c0a"
+  },
+  "vitru/n8n/compose.yaml": {
+    "mtime": 1785939255.0058954,
+    "ast_hash": "3cfe7e36839a142ce14ac468ce3b47cd",
+    "semantic_hash": "3cfe7e36839a142ce14ac468ce3b47cd"
+  },
+  "vitru/n8n/workflows/README.md": {
+    "mtime": 1786400820.2921512,
+    "ast_hash": "f4ea0ac986db3c825a257c36f89933b5",
+    "semantic_hash": "f4ea0ac986db3c825a257c36f89933b5"
+  },
+  "vitru/n8n/workflows/vitru-router.json": {
+    "mtime": 1786320840.6006901,
+    "ast_hash": "9bd347511fb8dd682b18ac3c231fc602",
+    "semantic_hash": "9bd347511fb8dd682b18ac3c231fc602"
+  },
+  "app/api/v1/vitru/chat/route.test.ts": {
+    "mtime": 1786479353.2919438,
+    "ast_hash": "15081df6bbcae15d0ebd5fc4204c37d2",
+    "semantic_hash": "15081df6bbcae15d0ebd5fc4204c37d2"
+  },
+  "app/api/v1/vitru/chat/route.ts": {
+    "mtime": 1786534594.0999434,
+    "ast_hash": "1734f07f01d98a51e69e397bfb40b2c3",
+    "semantic_hash": "1734f07f01d98a51e69e397bfb40b2c3"
+  },
+  "app/api/v1/vitru/identity/whatsapp/route.ts": {
+    "mtime": 1786069591.7362416,
+    "ast_hash": "a79c4e3c93f66a084c79d637585fed2e",
+    "semantic_hash": "a79c4e3c93f66a084c79d637585fed2e"
+  },
+  "app/api/v1/vitru/study-plan/confirm/route.test.ts": {
+    "mtime": 1786056367.6559942,
+    "ast_hash": "3fb77d383e8d161549d497e1e0f3dc99",
+    "semantic_hash": "3fb77d383e8d161549d497e1e0f3dc99"
+  },
+  "app/api/v1/vitru/study-plan/confirm/route.ts": {
+    "mtime": 1786229559.9197226,
+    "ast_hash": "9094e90189ae6e1b61d8630c1ce7959a",
+    "semantic_hash": "9094e90189ae6e1b61d8630c1ce7959a"
+  },
+  "app/campus-vitru/page.tsx": {
+    "mtime": 1786153997.485278,
+    "ast_hash": "ee1b1a94764a4dbf0065acd456e21bf7",
+    "semantic_hash": "ee1b1a94764a4dbf0065acd456e21bf7"
+  },
+  "components/layout/BottomNavBar.tsx": {
+    "mtime": 1786546430.9141285,
+    "ast_hash": "6a40f888162f8f7a2663fc63801c6781",
+    "semantic_hash": "6a40f888162f8f7a2663fc63801c6781"
+  },
+  "components/layout/TabBar.tsx": {
+    "mtime": 1786177667.0736744,
+    "ast_hash": "09c29c73079a13698993479ecf34fdae",
+    "semantic_hash": "09c29c73079a13698993479ecf34fdae"
+  },
+  "lib/data/load-study-planner-data.test.ts": {
+    "mtime": 1786052178.2021213,
+    "ast_hash": "d2bfa35e277e06b8d6b9432432398fef",
+    "semantic_hash": "d2bfa35e277e06b8d6b9432432398fef"
+  },
+  "lib/data/save-study-activities.ts": {
+    "mtime": 1786540997.2036629,
+    "ast_hash": "0264a321f0141357e1d9bb1e3dc1e2f4",
+    "semantic_hash": "0264a321f0141357e1d9bb1e3dc1e2f4"
+  },
+  "lib/study-planner/assessment-plan.test.ts": {
+    "mtime": 1786056803.3785949,
+    "ast_hash": "343eddcc86535b6ea9b06bed4f79eddb",
+    "semantic_hash": "343eddcc86535b6ea9b06bed4f79eddb"
+  },
+  "lib/study-planner/assessment-plan.ts": {
+    "mtime": 1786540828.4537385,
+    "ast_hash": "13e99ea4894d7f1857cde7f025ea9fe3",
+    "semantic_hash": "13e99ea4894d7f1857cde7f025ea9fe3"
+  },
+  "lib/study-planner/seed-activities.test.ts": {
+    "mtime": 1786052139.2006605,
+    "ast_hash": "528c7048dbb59365f8366c13b9169179",
+    "semantic_hash": "528c7048dbb59365f8366c13b9169179"
+  },
+  "lib/types/raw/work-schedule.ts": {
+    "mtime": 1786052117.102628,
+    "ast_hash": "b67af84e02352b030db835980a509b46",
+    "semantic_hash": "b67af84e02352b030db835980a509b46"
+  },
+  "lib/vitru/build-student-context.test.ts": {
+    "mtime": 1786402953.5784342,
+    "ast_hash": "291cf12d07fe2574b806acb2c1a6740a",
+    "semantic_hash": "291cf12d07fe2574b806acb2c1a6740a"
+  },
+  "lib/vitru/build-student-context.ts": {
+    "mtime": 1786534525.001663,
+    "ast_hash": "cfee07cd9ceb04973ae711f36cff3049",
+    "semantic_hash": "cfee07cd9ceb04973ae711f36cff3049"
+  },
+  "vitru/n8n/workflows/vitru-whatsapp-inbound.json": {
+    "mtime": 1786135610.4452746,
+    "ast_hash": "d2de701dcd2f3f3f1f4bc86e76d42da4",
+    "semantic_hash": "d2de701dcd2f3f3f1f4bc86e76d42da4"
+  },
+  "app/portal-responsavel/[subjectCode]/trilha-de-aprendizagem/page.tsx": {
+    "mtime": 1786222225.077986,
+    "ast_hash": "a50483d712ee61611fc8428900a1f6cf",
+    "semantic_hash": "a50483d712ee61611fc8428900a1f6cf"
+  },
+  "app/portal-responsavel/page.tsx": {
+    "mtime": 1786222214.6629713,
+    "ast_hash": "f1a477f619e0092867b720abc8cd74e0",
+    "semantic_hash": "f1a477f619e0092867b720abc8cd74e0"
+  },
+  "components/content-portal/PortalHeader.tsx": {
+    "mtime": 1786222200.0174863,
+    "ast_hash": "7dbb24a89bd66e346e62add7b8770bab",
+    "semantic_hash": "7dbb24a89bd66e346e62add7b8770bab"
+  },
+  "components/content-portal/TrilhaEditor.tsx": {
+    "mtime": 1786222271.1806536,
+    "ast_hash": "7909e18de4009dc1b9e871ec855e3ef8",
+    "semantic_hash": "7909e18de4009dc1b9e871ec855e3ef8"
+  },
+  "lib/content-portal/actions.ts": {
+    "mtime": 1786491776.171272,
+    "ast_hash": "0c042792c761c28bba4db84e82622998",
+    "semantic_hash": "0c042792c761c28bba4db84e82622998"
+  },
+  "lib/content-portal/slug.ts": {
+    "mtime": 1786222118.9768984,
+    "ast_hash": "fea639de33f73cd3189e4bde712b914e",
+    "semantic_hash": "fea639de33f73cd3189e4bde712b914e"
+  },
+  "components/discipline/DisciplineMoreInfo.tsx": {
+    "mtime": 1786554770.5827107,
+    "ast_hash": "242035b8002837d6a9de2bc0c5f80a4b",
+    "semantic_hash": ""
+  },
+  "app/disciplinas/[subjectCode]/fale-com-mediador/page.tsx": {
+    "mtime": 1786225126.2934415,
+    "ast_hash": "1952fe25d2611aaf583ebb6f62a565f0",
+    "semantic_hash": "1952fe25d2611aaf583ebb6f62a565f0"
+  },
+  "components/mediador/MediatorRequestForm.tsx": {
+    "mtime": 1786225113.1179552,
+    "ast_hash": "fc1fc8b7319bb551214a485a21aba346",
+    "semantic_hash": "fc1fc8b7319bb551214a485a21aba346"
+  },
+  "components/study-planner/AssistantPanel.test.tsx": {
+    "mtime": 1786229492.616586,
+    "ast_hash": "a767049f2dd9c040c03069678a67e8aa",
+    "semantic_hash": "a767049f2dd9c040c03069678a67e8aa"
+  },
+  "lib/data/load-trilha-progress.ts": {
+    "mtime": 1786491650.2380514,
+    "ast_hash": "a5bc91e9fee43b3fc22d1072de8d36ae",
+    "semantic_hash": "a5bc91e9fee43b3fc22d1072de8d36ae"
+  },
+  "lib/learning-path/trilha-progress-actions.test.ts": {
+    "mtime": 1786494732.9350152,
+    "ast_hash": "6188e90d1c76e11ffa9846d37068206c",
+    "semantic_hash": "6188e90d1c76e11ffa9846d37068206c"
+  },
+  "lib/learning-path/trilha-progress-actions.ts": {
+    "mtime": 1786491692.3683078,
+    "ast_hash": "daf15ec86d258328d3d3f5a89e4cc01e",
+    "semantic_hash": "daf15ec86d258328d3d3f5a89e4cc01e"
+  },
+  "lib/vitru/conversation-store.test.ts": {
+    "mtime": 1786494780.989666,
+    "ast_hash": "fcc576f770ecbd8ae459763949b679c5",
+    "semantic_hash": "fcc576f770ecbd8ae459763949b679c5"
+  },
+  "lib/vitru/conversation-store.ts": {
+    "mtime": 1786494762.5672832,
+    "ast_hash": "bd1acc2e83ee655e24167c432ff24d0d",
+    "semantic_hash": "bd1acc2e83ee655e24167c432ff24d0d"
+  },
+  "lib/vitru/inbox-events.test.ts": {
+    "mtime": 1786229229.3338206,
+    "ast_hash": "bbdda35c7efc535b76d6751ec06dcbef",
+    "semantic_hash": "bbdda35c7efc535b76d6751ec06dcbef"
+  },
+  "lib/vitru/inbox-events.ts": {
+    "mtime": 1786322520.8870037,
+    "ast_hash": "4cee243deb573aa47142ba06baa0b052",
+    "semantic_hash": "4cee243deb573aa47142ba06baa0b052"
+  },
+  "lib/vitru/interaction-log.ts": {
+    "mtime": 1786575512.3372512,
+    "ast_hash": "811d5429dc99e43b9be7dcd23964f829",
+    "semantic_hash": ""
+  },
+  "lib/vitru/surfaces.ts": {
+    "mtime": 1786570599.2978735,
+    "ast_hash": "7d0d71ed84b756e17c4d1988c33c418a",
+    "semantic_hash": "7d0d71ed84b756e17c4d1988c33c418a"
+  },
+  "lib/vitru/trilha-resolution.test.ts": {
+    "mtime": 1786318627.8994133,
+    "ast_hash": "76ad8a21bbee8d8ba3dc83582b987210",
+    "semantic_hash": "76ad8a21bbee8d8ba3dc83582b987210"
+  },
+  "lib/vitru/trilha-resolution.ts": {
+    "mtime": 1786568669.5981128,
+    "ast_hash": "2ff54080c948bd100e625e204db928dd",
+    "semantic_hash": ""
+  },
+  "vitest.setup.ts": {
+    "mtime": 1786229468.8465915,
+    "ast_hash": "56da59e6177e0447fe58c9e644a819c6",
+    "semantic_hash": "56da59e6177e0447fe58c9e644a819c6"
+  },
+  "lib/formatters/strip-html.test.ts": {
+    "mtime": 1786322276.1029758,
+    "ast_hash": "3f9c09a49807633653910f4b72048106",
+    "semantic_hash": "3f9c09a49807633653910f4b72048106"
+  },
+  "lib/formatters/strip-html.ts": {
+    "mtime": 1786322269.8277597,
+    "ast_hash": "550016d154b54bd2b215bb20565ab137",
+    "semantic_hash": "550016d154b54bd2b215bb20565ab137"
+  },
+  "lib/vitru/wrong-answer-nudge.test.ts": {
+    "mtime": 1786322528.5135784,
+    "ast_hash": "cea70bae58b5886349a248c3b1f02da4",
+    "semantic_hash": "cea70bae58b5886349a248c3b1f02da4"
+  },
+  "lib/vitru/wrong-answer-nudge.ts": {
+    "mtime": 1786322389.9765146,
+    "ast_hash": "b7af1e93ca770f8453ef21783c3808d1",
+    "semantic_hash": "b7af1e93ca770f8453ef21783c3808d1"
+  },
+  "lib/vitru/generate.ts": {
+    "mtime": 1786400984.1105053,
+    "ast_hash": "364cb53bd0041955cbec3998e0530d79",
+    "semantic_hash": "364cb53bd0041955cbec3998e0530d79"
+  },
+  "lib/vitru/prompts.ts": {
+    "mtime": 1786534577.0712025,
+    "ast_hash": "eee285762bfa8cfff70d938326bd335a",
+    "semantic_hash": "eee285762bfa8cfff70d938326bd335a"
+  },
+  "components/vitru/VitruLogo.tsx": {
+    "mtime": 1786615344.8250496,
+    "ast_hash": "2ce616feb4519d15158269ebc4aec878",
+    "semantic_hash": ""
+  },
+  "components/vitru/VoiceAssistantWindow.tsx": {
+    "mtime": 1786617161.748331,
+    "ast_hash": "196a61452571f658c819347a0aae3618",
+    "semantic_hash": ""
+  },
+  "components/vitru/planner-events.ts": {
+    "mtime": 1786615948.7053401,
+    "ast_hash": "08683d5f770344bed3082663c4a5988a",
+    "semantic_hash": ""
+  },
+  "drizzle.config.ts": {
+    "mtime": 1786489828.424849,
+    "ast_hash": "3d159f7f6aa4bdac8d8fba9299cf80c6",
+    "semantic_hash": "3d159f7f6aa4bdac8d8fba9299cf80c6"
+  },
+  "lib/db/client.ts": {
+    "mtime": 1786490944.536918,
+    "ast_hash": "dfd8e15d158b09209a0731f29bb29966",
+    "semantic_hash": "dfd8e15d158b09209a0731f29bb29966"
+  },
+  "lib/db/migrations/0000_init.sql": {
+    "mtime": 1786540807.5846562,
+    "ast_hash": "62b92ac990bf0149fd18bc99137b6c8d",
+    "semantic_hash": "62b92ac990bf0149fd18bc99137b6c8d"
+  },
+  "lib/db/migrations/meta/0000_snapshot.json": {
+    "mtime": 1786540807.5844507,
+    "ast_hash": "906e8ec5076acd8c6ec7e5599bb952c9",
+    "semantic_hash": "906e8ec5076acd8c6ec7e5599bb952c9"
+  },
+  "lib/db/migrations/meta/_journal.json": {
+    "mtime": 1786617104.7167861,
+    "ast_hash": "6583a52a28c47eb662d752de277793ca",
+    "semantic_hash": ""
+  },
+  "lib/db/schema/academic.ts": {
+    "mtime": 1786489729.3086665,
+    "ast_hash": "b12c0c95807f61bfa417e6ec295764c9",
+    "semantic_hash": "b12c0c95807f61bfa417e6ec295764c9"
+  },
+  "lib/db/schema/index.ts": {
+    "mtime": 1786489801.457893,
+    "ast_hash": "15e2b0c29e591e6050a8d340b3ede23b",
+    "semantic_hash": "15e2b0c29e591e6050a8d340b3ede23b"
+  },
+  "lib/db/schema/vitru.ts": {
+    "mtime": 1786617104.5891244,
+    "ast_hash": "b67673e40f50bbe3ab39a583a450a735",
+    "semantic_hash": ""
+  },
+  "scripts/db-migrate.ts": {
+    "mtime": 1786489863.103442,
+    "ast_hash": "933cce3f9914c7c5d6fa87a642ac1234",
+    "semantic_hash": "933cce3f9914c7c5d6fa87a642ac1234"
+  },
+  "scripts/db-status.ts": {
+    "mtime": 1786491937.0983253,
+    "ast_hash": "9b241f29057f6dda5096657331a397d0",
+    "semantic_hash": "9b241f29057f6dda5096657331a397d0"
+  },
+  "scripts/db-verify-fidelity.ts": {
+    "mtime": 1786491149.7667615,
+    "ast_hash": "6e1177222eea7eee38bd5b93e4f09d9f",
+    "semantic_hash": "6e1177222eea7eee38bd5b93e4f09d9f"
+  },
+  "scripts/seed-from-fixtures.ts": {
+    "mtime": 1786490952.365994,
+    "ast_hash": "793299cdfe668c9a2da1b392f70adae3",
+    "semantic_hash": "793299cdfe668c9a2da1b392f70adae3"
+  },
+  "vitru/vitru-voice/package.json": {
+    "mtime": 1786414609.5854483,
+    "ast_hash": "d66ab469bb62be2a75a28b8a6aa6da2e",
+    "semantic_hash": "d66ab469bb62be2a75a28b8a6aa6da2e"
+  },
+  "vitru/vitru-voice/pipecat_app/bot.py": {
+    "mtime": 1786617355.3007777,
+    "ast_hash": "8398a8671e2c5fde747186d3ccff5f28",
+    "semantic_hash": ""
+  },
+  "vitru/vitru-voice/pyproject.toml": {
+    "mtime": 1786575234.0978441,
+    "ast_hash": "f706e6567eb1153f666e3ccf4cdfa933",
+    "semantic_hash": ""
+  },
+  "vitru/vitru-voice/scripts/kokoro_worker.py": {
+    "mtime": 1786409774.8504446,
+    "ast_hash": "950e8a74f9bca83ad8cf880299683698",
+    "semantic_hash": "950e8a74f9bca83ad8cf880299683698"
+  },
+  "vitru/vitru-voice/src/config.js": {
+    "mtime": 1786414609.6505773,
+    "ast_hash": "34ab2ddc2134cb3192fe79ad6cada698",
+    "semantic_hash": "34ab2ddc2134cb3192fe79ad6cada698"
+  },
+  "vitru/vitru-voice/src/prompts/assistantPrompt.js": {
+    "mtime": 1786476497.5326571,
+    "ast_hash": "855b5e73b67413693428f8e8e1dedfd3",
+    "semantic_hash": "855b5e73b67413693428f8e8e1dedfd3"
+  },
+  "vitru/vitru-voice/src/routes/webRoutes.js": {
+    "mtime": 1786409775.0701363,
+    "ast_hash": "95570a07ce2749ba400fea25f963b882",
+    "semantic_hash": "95570a07ce2749ba400fea25f963b882"
+  },
+  "vitru/vitru-voice/src/server.js": {
+    "mtime": 1786414609.7080774,
+    "ast_hash": "1d908fde422df86bee84067ea80e5abf",
+    "semantic_hash": "1d908fde422df86bee84067ea80e5abf"
+  },
+  "vitru/vitru-voice/src/services/llmService.js": {
+    "mtime": 1786408132.384015,
+    "ast_hash": "43e0aae666a37111d918c44e7b74b202",
+    "semantic_hash": "43e0aae666a37111d918c44e7b74b202"
+  },
+  "vitru/vitru-voice/src/services/sttService.js": {
+    "mtime": 1786408656.1424537,
+    "ast_hash": "48ddfcaddb8b6f04b76c5ad4c4d5adf9",
+    "semantic_hash": "48ddfcaddb8b6f04b76c5ad4c4d5adf9"
+  },
+  "vitru/vitru-voice/src/services/ttsService.js": {
+    "mtime": 1786409850.408913,
+    "ast_hash": "1497bb6f58e421c3fa7975fa15dc348c",
+    "semantic_hash": "1497bb6f58e421c3fa7975fa15dc348c"
+  },
+  "vitru/vitru-voice/src/session/CallSession.js": {
+    "mtime": 1786409875.0112545,
+    "ast_hash": "f8348b5c3c9c5525964204b3dd0d0c0a",
+    "semantic_hash": "f8348b5c3c9c5525964204b3dd0d0c0a"
+  },
+  "docker-compose.yml": {
+    "mtime": 1786489832.8068829,
+    "ast_hash": "20e475e336848cc3e7ec5941cc921693",
+    "semantic_hash": "20e475e336848cc3e7ec5941cc921693"
+  },
+  "vitru/vitru-voice/README.md": {
+    "mtime": 1786589698.32072,
+    "ast_hash": "53d38634aeb8c6a18748bc8021388f84",
+    "semantic_hash": ""
+  },
+  "components/vitru/browser-context.ts": {
+    "mtime": 1786568926.8554866,
+    "ast_hash": "cb442cca1307c4e15831bd5dfdadb62d",
+    "semantic_hash": ""
+  },
+  "lib/data/db-helpers.ts": {
+    "mtime": 1786491587.8724773,
+    "ast_hash": "71f9a3fad36990bad10d87fafa5c19ce",
+    "semantic_hash": "71f9a3fad36990bad10d87fafa5c19ce"
+  },
+  "lib/data/study-activity-row.ts": {
+    "mtime": 1786491593.23012,
+    "ast_hash": "07b813fe4b0631c897a3d708ec13f352",
+    "semantic_hash": "07b813fe4b0631c897a3d708ec13f352"
+  },
+  "lib/db/test-helpers.ts": {
+    "mtime": 1786494721.2522647,
+    "ast_hash": "94fe010b9350686683f39a8f57c9c71e",
+    "semantic_hash": "94fe010b9350686683f39a8f57c9c71e"
+  },
+  "lib/study-planner/study-program.test.ts": {
+    "mtime": 1786540890.8520796,
+    "ast_hash": "ab76838a77f081f773f88f24a7d56a17",
+    "semantic_hash": "ab76838a77f081f773f88f24a7d56a17"
+  },
+  "lib/study-planner/study-program.ts": {
+    "mtime": 1786540868.0133734,
+    "ast_hash": "b0e12fe3779acfcb95a35797db42a917",
+    "semantic_hash": "b0e12fe3779acfcb95a35797db42a917"
+  },
+  "lib/vitru/disclosure.test.ts": {
+    "mtime": 1786568698.9917655,
+    "ast_hash": "3a84643a1a6f79fccc8b757ae2284435",
+    "semantic_hash": ""
+  },
+  "lib/vitru/disclosure.ts": {
+    "mtime": 1786568698.7844923,
+    "ast_hash": "f50a916aef41eddd5b9c178d8f11c75a",
+    "semantic_hash": "f50a916aef41eddd5b9c178d8f11c75a"
+  },
+  "lib/vitru/known-fields-manifest.test.ts": {
+    "mtime": 1786534646.0355294,
+    "ast_hash": "ae4526235b8059f865796d81ceb88174",
+    "semantic_hash": "ae4526235b8059f865796d81ceb88174"
+  },
+  "lib/vitru/known-fields-manifest.ts": {
+    "mtime": 1786568698.8526554,
+    "ast_hash": "705bf61cb7f54cc4e98a5769146de241",
+    "semantic_hash": "705bf61cb7f54cc4e98a5769146de241"
+  },
+  "lib/vitru/memory/memories.test.ts": {
+    "mtime": 1786494968.7105598,
+    "ast_hash": "107245024aceb44d820a8da1610dc3f5",
+    "semantic_hash": "107245024aceb44d820a8da1610dc3f5"
+  },
+  "lib/vitru/memory/memories.ts": {
+    "mtime": 1786494903.2247355,
+    "ast_hash": "b5cb9daff590277502bfb5951a5ea827",
+    "semantic_hash": "b5cb9daff590277502bfb5951a5ea827"
+  },
+  "lib/vitru/memory/student-profile.test.ts": {
+    "mtime": 1786494977.0403256,
+    "ast_hash": "cba3a2add06886ea4fd32faf74aaca62",
+    "semantic_hash": "cba3a2add06886ea4fd32faf74aaca62"
+  },
+  "lib/vitru/memory/student-profile.ts": {
+    "mtime": 1786494891.033288,
+    "ast_hash": "346e0787689fd53f869ec9fbe04ee2bb",
+    "semantic_hash": "346e0787689fd53f869ec9fbe04ee2bb"
+  },
+  "lib/vitru/memory/surface-visits.test.ts": {
+    "mtime": 1786494958.50471,
+    "ast_hash": "6641707a0e9a52fbdda502467afc5f59",
+    "semantic_hash": "6641707a0e9a52fbdda502467afc5f59"
+  },
+  "lib/vitru/memory/surface-visits.ts": {
+    "mtime": 1786494878.578219,
+    "ast_hash": "4360e56b49a207578c0f330f17e7c553",
+    "semantic_hash": "4360e56b49a207578c0f330f17e7c553"
+  },
+  "lib/vitru/page-context.test.ts": {
+    "mtime": 1786547077.2740676,
+    "ast_hash": "845b62eed95458569bee3166aa7fa489",
+    "semantic_hash": "845b62eed95458569bee3166aa7fa489"
+  },
+  "lib/vitru/page-context.ts": {
+    "mtime": 1786547077.2202163,
+    "ast_hash": "fcd2995aef63b66d5904d771af34b0a3",
+    "semantic_hash": "fcd2995aef63b66d5904d771af34b0a3"
+  },
+  "lib/vitru/study-programs.test.ts": {
+    "mtime": 1786541022.6817918,
+    "ast_hash": "a68b767273f231615d843f1c8e399851",
+    "semantic_hash": "a68b767273f231615d843f1c8e399851"
+  },
+  "lib/vitru/study-programs.ts": {
+    "mtime": 1786540923.1494632,
+    "ast_hash": "318f0de408f3701a30bc4571586fb986",
+    "semantic_hash": "318f0de408f3701a30bc4571586fb986"
+  },
+  "app/api/v1/vitru/exam-schedule/route.ts": {
+    "mtime": 1786617105.0730312,
+    "ast_hash": "242a3c53a79bff811d546dad57dac328",
+    "semantic_hash": ""
+  },
+  "app/api/v1/vitru/voice-metrics/route.ts": {
+    "mtime": 1786575486.8448513,
+    "ast_hash": "cbf25dd864539464c6412478db508e45",
+    "semantic_hash": ""
+  },
+  "app/vitru-debug/page.tsx": {
+    "mtime": 1786570345.9818594,
+    "ast_hash": "d666ed450f65e08ab28a7a50224616b4",
+    "semantic_hash": ""
+  },
+  "components/study-planner/ActivityBlock.test.tsx": {
+    "mtime": 1786616565.347127,
+    "ast_hash": "49515e8620df15d7baa2746a2dcad68f",
+    "semantic_hash": ""
+  },
+  "components/vitru/SemanticSnapshotProvider.test.tsx": {
+    "mtime": 1786614725.3191783,
+    "ast_hash": "5dd58cef71f17966d463b530ff37a448",
+    "semantic_hash": ""
+  },
+  "components/vitru/SemanticSnapshotProvider.tsx": {
+    "mtime": 1786614677.7633708,
+    "ast_hash": "6e79565207150ff3004917bc22ceb6a9",
+    "semantic_hash": ""
+  },
+  "components/vitru/VitruDebugPanel.tsx": {
+    "mtime": 1786617206.9375741,
+    "ast_hash": "2bca3dcbe42a27fc05478c704dfc1a30",
+    "semantic_hash": ""
+  },
+  "lib/db/migrations/0001_voice_metrics.sql": {
+    "mtime": 1786570389.9336607,
+    "ast_hash": "da855fbd2f46442da93e00879e8679a4",
+    "semantic_hash": ""
+  },
+  "lib/db/migrations/0002_exam_schedule_overrides.sql": {
+    "mtime": 1786617104.6472898,
+    "ast_hash": "35d1ca43b4b2eb50ffdaf24753765615",
+    "semantic_hash": ""
+  },
+  "lib/exam-schedule/schedule-client-state.ts": {
+    "mtime": 1786617302.966374,
+    "ast_hash": "617b1218973fa163ddc88a051bdcc7f5",
+    "semantic_hash": ""
+  },
+  "lib/exam-schedule/schedule-repository.ts": {
+    "mtime": 1786617104.8321006,
+    "ast_hash": "e63444fa57260e8a5590189a09e53976",
+    "semantic_hash": ""
+  },
+  "lib/exam-schedule/schedule-storage.test.ts": {
+    "mtime": 1786617268.4369953,
+    "ast_hash": "3760be3e7d2f36fcbe5bf89a0f8956c6",
+    "semantic_hash": ""
+  },
+  "lib/vitru/action-protocol.test.ts": {
+    "mtime": 1786568739.0408502,
+    "ast_hash": "ec9aacf8e020450a237df18ae2add6d5",
+    "semantic_hash": ""
+  },
+  "lib/vitru/action-protocol.ts": {
+    "mtime": 1786568738.9873548,
+    "ast_hash": "49dba25eb94a669486418d50273f3c55",
+    "semantic_hash": ""
+  },
+  "lib/vitru/adapters/assessment-scheduling.ts": {
+    "mtime": 1786570925.360198,
+    "ast_hash": "3b9a5b03065345a3d9c7e95896c39f9d",
+    "semantic_hash": ""
+  },
+  "lib/vitru/adapters/assessments.test.ts": {
+    "mtime": 1786554956.6789453,
+    "ast_hash": "8880f50d1ba1942c38ce571d25d05002",
+    "semantic_hash": ""
+  },
+  "lib/vitru/adapters/assessments.ts": {
+    "mtime": 1786568670.0219984,
+    "ast_hash": "b0b16b38828d2a73d332f404a056028f",
+    "semantic_hash": ""
+  },
+  "lib/vitru/adapters/discipline.ts": {
+    "mtime": 1786568670.1082604,
+    "ast_hash": "8c9de7a9b539a94b276402960c7aa9b2",
+    "semantic_hash": ""
+  },
+  "lib/vitru/adapters/index.ts": {
+    "mtime": 1786554734.2782848,
+    "ast_hash": "f5cf7360ccbf6c4ad05ddb5eea370913",
+    "semantic_hash": ""
+  },
+  "lib/vitru/debug-store.ts": {
+    "mtime": 1786617161.9201107,
+    "ast_hash": "49d0fb80f642c7aa6f9a250864814f32",
+    "semantic_hash": ""
+  },
+  "lib/vitru/pending-action.test.ts": {
+    "mtime": 1786617268.5839283,
+    "ast_hash": "a3d4a8553d02ef42fcb2f8dd4dc033a3",
+    "semantic_hash": ""
+  },
+  "lib/vitru/pending-action.ts": {
+    "mtime": 1786571552.7974906,
+    "ast_hash": "fcb5ea663ceddd9bee026e90c6ed5101",
+    "semantic_hash": ""
+  },
+  "lib/vitru/resolve-target.test.ts": {
+    "mtime": 1786568670.1618319,
+    "ast_hash": "887f9fc466aad795c11ded12516c1f5b",
+    "semantic_hash": ""
+  },
+  "lib/vitru/resolve-target.ts": {
+    "mtime": 1786568669.6540267,
+    "ast_hash": "0e168da2f4aff1e9a43671f56432940e",
+    "semantic_hash": ""
+  },
+  "lib/vitru/scheduling-flow.test.ts": {
+    "mtime": 1786617268.4886107,
+    "ast_hash": "100bb598e7c85f2f0095e2ab9d0443d1",
+    "semantic_hash": ""
+  },
+  "lib/vitru/semantic-snapshot.ts": {
+    "mtime": 1786568669.7766194,
+    "ast_hash": "257bf2a5e4a81bddfd42f502c119b12c",
+    "semantic_hash": ""
+  },
+  "lib/vitru/snapshot-redaction.ts": {
+    "mtime": 1786568698.7342207,
+    "ast_hash": "bef45a86bde29e4fe618060ca9b3dd4b",
     "semantic_hash": ""
   },
   "public/data/shared/classmates/FLD6835406.json": {
@@ -904,24 +1294,64 @@
     "ast_hash": "b8987cae07145ae7680e32537a8f4ce2",
     "semantic_hash": ""
   },
-  "public/data/user/usuario-ficticio-baixa-frequencia/subjects/GTI03/tests/TST-AV3-GTI03-PRESENCIAL/schedule-options.json": {
-    "mtime": 1785937565.484873,
-    "ast_hash": "ba44142977016cd1ef3a5cd31d549e95",
+  "public/data/user/index.json": {
+    "mtime": 1786402746.0335236,
+    "ast_hash": "d548a347a5d3bab937970e8cca2b3ecc",
     "semantic_hash": ""
   },
-  "vitest.config.mts": {
-    "mtime": 1786229474.2750146,
-    "ast_hash": "100173955c3eebe13e7ff1cd1a372efd",
+  "public/data/user/joao-pedro-lopes-zamonelo/current-semester.json": {
+    "mtime": 1785707885.5586586,
+    "ast_hash": "227ac46d5a910ebfb83b2bebe6f5c611",
     "semantic_hash": ""
   },
-  "components/exam-schedule/ExamScheduleSituationLabel.tsx": {
-    "mtime": 1785938506.5440617,
-    "ast_hash": "7cb9e86387bfeb85dd24a36f2af90c62",
+  "public/data/user/joao-pedro-lopes-zamonelo/disciplines.json": {
+    "mtime": 1785712640.3580575,
+    "ast_hash": "0d9c69b625fa0a0bfe306c9cac64d325",
     "semantic_hash": ""
   },
-  "lib/exam-schedule/use-effective-schedule-status.ts": {
-    "mtime": 1785938469.614536,
-    "ast_hash": "dabd056f20eb1ba43277ccaf4600069a",
+  "public/data/user/joao-pedro-lopes-zamonelo/financial-titles.json": {
+    "mtime": 1785707920.347662,
+    "ast_hash": "5fafc9e2cdef2de709ae77c8d65e664a",
+    "semantic_hash": ""
+  },
+  "public/data/user/joao-pedro-lopes-zamonelo/manifest.json": {
+    "mtime": 1785707871.1514978,
+    "ast_hash": "3b43c9b40961ca48c15e04c8981c9c3d",
+    "semantic_hash": ""
+  },
+  "public/data/user/joao-pedro-lopes-zamonelo/sofia-dados-aluno.json": {
+    "mtime": 1785710969.9093084,
+    "ast_hash": "f38aba7ba8af3fa3cfb8912b862f6422",
+    "semantic_hash": ""
+  },
+  "public/data/user/joao-pedro-lopes-zamonelo/subjects/159490/tests/124208039.json": {
+    "mtime": 1785716793.8042934,
+    "ast_hash": "c7a117c47f4b363c76ca54af8d05f952",
+    "semantic_hash": ""
+  },
+  "public/data/user/joao-pedro-lopes-zamonelo/subjects/GTI03/assessments.json": {
+    "mtime": 1785717487.913898,
+    "ast_hash": "a8bb1f05146f2bdacc24ff91c2632104",
+    "semantic_hash": ""
+  },
+  "public/data/user/joao-pedro-lopes-zamonelo/subjects/GTI03/attendances.json": {
+    "mtime": 1785707984.6937792,
+    "ast_hash": "c96ee7eaadc8fef7eff5ef011191ad04",
+    "semantic_hash": ""
+  },
+  "public/data/user/joao-pedro-lopes-zamonelo/subjects/GTI03/calendar-events.json": {
+    "mtime": 1785707928.2539759,
+    "ast_hash": "471afa4f15473fec83729bbf69214cd2",
+    "semantic_hash": ""
+  },
+  "public/data/user/joao-pedro-lopes-zamonelo/subjects/GTI03/recordings.json": {
+    "mtime": 1785707935.0210404,
+    "ast_hash": "cf866028e9dcb16838c4092147e71bb8",
+    "semantic_hash": ""
+  },
+  "public/data/user/joao-pedro-lopes-zamonelo/subjects/GTI03/tests/123265797.json": {
+    "mtime": 1785712924.167835,
+    "ast_hash": "791b286ce1444cbe9269c37eeeb32488",
     "semantic_hash": ""
   },
   "public/data/user/joao-pedro-lopes-zamonelo/subjects/GTI03/tests/124207739/schedule-options.json": {
@@ -929,124 +1359,14 @@
     "ast_hash": "5557d2eca4047945294f5e24f356699e",
     "semantic_hash": ""
   },
-  "vitru/README.md": {
-    "mtime": 1785939092.9122047,
-    "ast_hash": "41f81bd68b5c54e887b3467fad2b8b42",
+  "public/data/user/joao-pedro-lopes-zamonelo/subjects/MAT24/learning-path.json": {
+    "mtime": 1786222666.037461,
+    "ast_hash": "30271b8bb892cb806024a4df04334a5a",
     "semantic_hash": ""
   },
-  "vitru/docs/fundamental-decisions.md": {
-    "mtime": 1785939093.1539965,
-    "ast_hash": "ca5424c2b03ed4935136afc10b79e286",
-    "semantic_hash": ""
-  },
-  "vitru/infra/README.md": {
-    "mtime": 1785939093.3751194,
-    "ast_hash": "f12c7ae8dc5cd5093f1638bc578953a0",
-    "semantic_hash": ""
-  },
-  "vitru/n8n/README.md": {
-    "mtime": 1785939254.882369,
-    "ast_hash": "0cd5fc51b5172f1647bcab4393943c0a",
-    "semantic_hash": ""
-  },
-  "vitru/n8n/compose.yaml": {
-    "mtime": 1785939255.0058954,
-    "ast_hash": "3cfe7e36839a142ce14ac468ce3b47cd",
-    "semantic_hash": ""
-  },
-  "vitru/n8n/workflows/README.md": {
-    "mtime": 1786400820.2921512,
-    "ast_hash": "f4ea0ac986db3c825a257c36f89933b5",
-    "semantic_hash": ""
-  },
-  "vitru/n8n/workflows/vitru-router.json": {
-    "mtime": 1786320840.6006901,
-    "ast_hash": "9bd347511fb8dd682b18ac3c231fc602",
-    "semantic_hash": ""
-  },
-  "app/api/v1/vitru/chat/route.test.ts": {
-    "mtime": 1786479353.2919438,
-    "ast_hash": "15081df6bbcae15d0ebd5fc4204c37d2",
-    "semantic_hash": ""
-  },
-  "app/api/v1/vitru/chat/route.ts": {
-    "mtime": 1786479288.3987043,
-    "ast_hash": "aa82fdaa2292e3fb54556cb7293d79aa",
-    "semantic_hash": ""
-  },
-  "app/api/v1/vitru/identity/whatsapp/route.ts": {
-    "mtime": 1786069591.7362416,
-    "ast_hash": "a79c4e3c93f66a084c79d637585fed2e",
-    "semantic_hash": ""
-  },
-  "app/api/v1/vitru/study-plan/confirm/route.test.ts": {
-    "mtime": 1786056367.6559942,
-    "ast_hash": "3fb77d383e8d161549d497e1e0f3dc99",
-    "semantic_hash": ""
-  },
-  "app/api/v1/vitru/study-plan/confirm/route.ts": {
-    "mtime": 1786229559.9197226,
-    "ast_hash": "9094e90189ae6e1b61d8630c1ce7959a",
-    "semantic_hash": ""
-  },
-  "app/campus-vitru/page.tsx": {
-    "mtime": 1786153997.485278,
-    "ast_hash": "ee1b1a94764a4dbf0065acd456e21bf7",
-    "semantic_hash": ""
-  },
-  "app/chat-ia/page.tsx": {
-    "mtime": 1786153993.4367318,
-    "ast_hash": "64a448fb003cfe8a67a56fc6a9f8b4ac",
-    "semantic_hash": ""
-  },
-  "components/layout/BottomNavBar.tsx": {
-    "mtime": 1786156632.6783276,
-    "ast_hash": "8493e28c3a3eb4adae3902b91425af09",
-    "semantic_hash": ""
-  },
-  "components/layout/TabBar.tsx": {
-    "mtime": 1786177667.0736744,
-    "ast_hash": "09c29c73079a13698993479ecf34fdae",
-    "semantic_hash": ""
-  },
-  "lib/data/load-study-planner-data.test.ts": {
-    "mtime": 1786052178.2021213,
-    "ast_hash": "d2bfa35e277e06b8d6b9432432398fef",
-    "semantic_hash": ""
-  },
-  "lib/data/save-study-activities.ts": {
-    "mtime": 1786056367.5299234,
-    "ast_hash": "9ef3185c36c90cbdc651d896689789d3",
-    "semantic_hash": ""
-  },
-  "lib/study-planner/assessment-plan.test.ts": {
-    "mtime": 1786056803.3785949,
-    "ast_hash": "343eddcc86535b6ea9b06bed4f79eddb",
-    "semantic_hash": ""
-  },
-  "lib/study-planner/assessment-plan.ts": {
-    "mtime": 1786056773.2874317,
-    "ast_hash": "3fecb454322435ea226f638816b1ddd9",
-    "semantic_hash": ""
-  },
-  "lib/study-planner/seed-activities.test.ts": {
-    "mtime": 1786052139.2006605,
-    "ast_hash": "528c7048dbb59365f8366c13b9169179",
-    "semantic_hash": ""
-  },
-  "lib/types/raw/work-schedule.ts": {
-    "mtime": 1786052117.102628,
-    "ast_hash": "b67af84e02352b030db835980a509b46",
-    "semantic_hash": ""
-  },
-  "lib/vitru/build-student-context.test.ts": {
-    "mtime": 1786402953.5784342,
-    "ast_hash": "291cf12d07fe2574b806acb2c1a6740a",
-    "semantic_hash": ""
-  },
-  "lib/vitru/build-student-context.ts": {
-    "mtime": 1786401853.4318388,
-    "ast_hash": "0b78396a8b8d9c5ae26a9d019c3076fe",
+  "public/data/user/joao-pedro-lopes-zamonelo/user-data.json": {
+    "mtime": 1785707882.0109992,
+    "ast_hash": "9d6ec0d904bce28be10cacc9ef4cd60b",
     "semantic_hash": ""
   },
   "public/data/user/usuario-ficticio-agendamento-pendente/current-semester.json": {
@@ -1209,9 +1529,59 @@
     "ast_hash": "cc3ab3fa2e9f5f32ec7a599e24ac9e75",
     "semantic_hash": ""
   },
+  "public/data/user/usuario-ficticio-baixa-frequencia/current-semester.json": {
+    "mtime": 1785708006.9386873,
+    "ast_hash": "227ac46d5a910ebfb83b2bebe6f5c611",
+    "semantic_hash": ""
+  },
+  "public/data/user/usuario-ficticio-baixa-frequencia/disciplines.json": {
+    "mtime": 1786050833.325569,
+    "ast_hash": "0d9c69b625fa0a0bfe306c9cac64d325",
+    "semantic_hash": ""
+  },
+  "public/data/user/usuario-ficticio-baixa-frequencia/financial-titles.json": {
+    "mtime": 1785708031.2332761,
+    "ast_hash": "0246206d631bdad5b087011ca8b92def",
+    "semantic_hash": ""
+  },
+  "public/data/user/usuario-ficticio-baixa-frequencia/manifest.json": {
+    "mtime": 1786050833.3638031,
+    "ast_hash": "eb03a7da468f8891246181040b8288c1",
+    "semantic_hash": ""
+  },
+  "public/data/user/usuario-ficticio-baixa-frequencia/sofia-dados-aluno.json": {
+    "mtime": 1785708010.6128,
+    "ast_hash": "eb1420c4b50f0d5bf06127d3b56fdd91",
+    "semantic_hash": ""
+  },
   "public/data/user/usuario-ficticio-baixa-frequencia/subjects/159490/tests/124208039.json": {
     "mtime": 1786050833.3268228,
     "ast_hash": "c7a117c47f4b363c76ca54af8d05f952",
+    "semantic_hash": ""
+  },
+  "public/data/user/usuario-ficticio-baixa-frequencia/subjects/GTI03/assessments.json": {
+    "mtime": 1785937545.3531797,
+    "ast_hash": "f14fb42f7dc23f2f316511d9135fd292",
+    "semantic_hash": ""
+  },
+  "public/data/user/usuario-ficticio-baixa-frequencia/subjects/GTI03/attendances.json": {
+    "mtime": 1785708067.5343163,
+    "ast_hash": "d453b30e939bdda1bd1d1768618db757",
+    "semantic_hash": ""
+  },
+  "public/data/user/usuario-ficticio-baixa-frequencia/subjects/GTI03/calendar-events.json": {
+    "mtime": 1785708039.0332835,
+    "ast_hash": "027d0f154072acf59209ce492b6c3faa",
+    "semantic_hash": ""
+  },
+  "public/data/user/usuario-ficticio-baixa-frequencia/subjects/GTI03/recordings.json": {
+    "mtime": 1785708042.9490714,
+    "ast_hash": "58e0494c51d30eb3494f7c9198986bb9",
+    "semantic_hash": ""
+  },
+  "public/data/user/usuario-ficticio-baixa-frequencia/subjects/GTI03/tests/TST-AV3-GTI03-PRESENCIAL/schedule-options.json": {
+    "mtime": 1785937565.484873,
+    "ast_hash": "ba44142977016cd1ef3a5cd31d549e95",
     "semantic_hash": ""
   },
   "public/data/user/usuario-ficticio-baixa-frequencia/subjects/MAT24/learning-path.json": {
@@ -1219,9 +1589,94 @@
     "ast_hash": "30271b8bb892cb806024a4df04334a5a",
     "semantic_hash": ""
   },
+  "public/data/user/usuario-ficticio-baixa-frequencia/user-data.json": {
+    "mtime": 1785708003.6651008,
+    "ast_hash": "5a134fd9d9e8bdf0e72d9cde7d7ce59b",
+    "semantic_hash": ""
+  },
   "public/data/user/usuario-ficticio-baixa-frequencia/work-schedule.json": {
     "mtime": 1786052118.3252592,
     "ast_hash": "7d05406482082a58c0a048776694df93",
+    "semantic_hash": ""
+  },
+  "public/data/user/usuario-ficticio-calouro/current-semester.json": {
+    "mtime": 1786402641.7227306,
+    "ast_hash": "227ac46d5a910ebfb83b2bebe6f5c611",
+    "semantic_hash": ""
+  },
+  "public/data/user/usuario-ficticio-calouro/disciplines.json": {
+    "mtime": 1786402745.9074783,
+    "ast_hash": "f163023ade225274120347ed3d772f6d",
+    "semantic_hash": ""
+  },
+  "public/data/user/usuario-ficticio-calouro/financial-titles.json": {
+    "mtime": 1786402745.9907708,
+    "ast_hash": "3f16ef9679c6cd0c42fd4265a570a84c",
+    "semantic_hash": ""
+  },
+  "public/data/user/usuario-ficticio-calouro/manifest.json": {
+    "mtime": 1786402745.815413,
+    "ast_hash": "f3fd4f0b5faa1a5610bd2bf286f24488",
+    "semantic_hash": ""
+  },
+  "public/data/user/usuario-ficticio-calouro/sofia-dados-aluno.json": {
+    "mtime": 1786402745.9494934,
+    "ast_hash": "aa80e9fc62f60c5a2fdb7639b5c4bb24",
+    "semantic_hash": ""
+  },
+  "public/data/user/usuario-ficticio-calouro/subjects/159490/tests/124208039.json": {
+    "mtime": 1786402818.8945436,
+    "ast_hash": "ec126cb7ded4845ae1cf7185d6f3cc35",
+    "semantic_hash": ""
+  },
+  "public/data/user/usuario-ficticio-calouro/subjects/GTI03/assessments.json": {
+    "mtime": 1786402798.70154,
+    "ast_hash": "31fcfabcb426a71c0668c73536d0908a",
+    "semantic_hash": ""
+  },
+  "public/data/user/usuario-ficticio-calouro/subjects/GTI03/attendances.json": {
+    "mtime": 1786402641.7430627,
+    "ast_hash": "747591259a86590f93851041fa50690e",
+    "semantic_hash": ""
+  },
+  "public/data/user/usuario-ficticio-calouro/subjects/GTI03/calendar-events.json": {
+    "mtime": 1786402641.742751,
+    "ast_hash": "b63e15ec4fdc7580b893eabdda1ef371",
+    "semantic_hash": ""
+  },
+  "public/data/user/usuario-ficticio-calouro/subjects/GTI03/recordings.json": {
+    "mtime": 1786402641.7421134,
+    "ast_hash": "3e3124c8029414e52f94e58c735237a7",
+    "semantic_hash": ""
+  },
+  "public/data/user/usuario-ficticio-calouro/subjects/MAT24/assessments.json": {
+    "mtime": 1786402798.7562673,
+    "ast_hash": "1dc8a813de02eb83cc119dccfe5069c1",
+    "semantic_hash": ""
+  },
+  "public/data/user/usuario-ficticio-calouro/subjects/MAT24/learning-path.json": {
+    "mtime": 1786402818.8874338,
+    "ast_hash": "37dcd42ebb803a1d97e88a0b2119ed1f",
+    "semantic_hash": ""
+  },
+  "public/data/user/usuario-ficticio-calouro/subjects/MAT24/tests/AV1-MAT24.json": {
+    "mtime": 1786402818.8971815,
+    "ast_hash": "4ea9e480c904d38abb30781856eaf448",
+    "semantic_hash": ""
+  },
+  "public/data/user/usuario-ficticio-calouro/subjects/MAT24/trilha-progress.json": {
+    "mtime": 1786402798.8093488,
+    "ast_hash": "dee323205dd0582236445f5d8bf40161",
+    "semantic_hash": ""
+  },
+  "public/data/user/usuario-ficticio-calouro/user-data.json": {
+    "mtime": 1786402745.864818,
+    "ast_hash": "77a5ea980e324f950dcbcc9efccf1590",
+    "semantic_hash": ""
+  },
+  "public/data/user/usuario-ficticio-calouro/work-schedule.json": {
+    "mtime": 1786402641.7232249,
+    "ast_hash": "0e4bcde3f1e8cc339a1110b5ee3783b9",
     "semantic_hash": ""
   },
   "public/data/user/usuario-ficticio-conflito-horarios/current-semester.json": {
@@ -1304,14 +1759,79 @@
     "ast_hash": "0e4bcde3f1e8cc339a1110b5ee3783b9",
     "semantic_hash": ""
   },
+  "public/data/user/usuario-ficticio-em-dia/current-semester.json": {
+    "mtime": 1785708090.184457,
+    "ast_hash": "227ac46d5a910ebfb83b2bebe6f5c611",
+    "semantic_hash": ""
+  },
+  "public/data/user/usuario-ficticio-em-dia/disciplines.json": {
+    "mtime": 1786050833.2951717,
+    "ast_hash": "0d9c69b625fa0a0bfe306c9cac64d325",
+    "semantic_hash": ""
+  },
+  "public/data/user/usuario-ficticio-em-dia/financial-titles.json": {
+    "mtime": 1785708111.617723,
+    "ast_hash": "9f1ff9b1a2e140715e80cb36a31a12ff",
+    "semantic_hash": ""
+  },
+  "public/data/user/usuario-ficticio-em-dia/manifest.json": {
+    "mtime": 1786050833.3239484,
+    "ast_hash": "1059d741a3adf169671f3ab9a6ac8b7c",
+    "semantic_hash": ""
+  },
+  "public/data/user/usuario-ficticio-em-dia/sofia-dados-aluno.json": {
+    "mtime": 1785708094.0704608,
+    "ast_hash": "40c459a46efd632049b56fc6f9da682b",
+    "semantic_hash": ""
+  },
   "public/data/user/usuario-ficticio-em-dia/subjects/159490/tests/124208039.json": {
     "mtime": 1786050833.296369,
     "ast_hash": "c7a117c47f4b363c76ca54af8d05f952",
     "semantic_hash": ""
   },
+  "public/data/user/usuario-ficticio-em-dia/subjects/GTI03/assessments.json": {
+    "mtime": 1785717545.2882779,
+    "ast_hash": "174a7082c27496cbfae4f16fcefd768e",
+    "semantic_hash": ""
+  },
+  "public/data/user/usuario-ficticio-em-dia/subjects/GTI03/attendances.json": {
+    "mtime": 1785708165.7476983,
+    "ast_hash": "747591259a86590f93851041fa50690e",
+    "semantic_hash": ""
+  },
+  "public/data/user/usuario-ficticio-em-dia/subjects/GTI03/calendar-events.json": {
+    "mtime": 1785708120.0910943,
+    "ast_hash": "b63e15ec4fdc7580b893eabdda1ef371",
+    "semantic_hash": ""
+  },
+  "public/data/user/usuario-ficticio-em-dia/subjects/GTI03/recordings.json": {
+    "mtime": 1785708126.646109,
+    "ast_hash": "3e3124c8029414e52f94e58c735237a7",
+    "semantic_hash": ""
+  },
+  "public/data/user/usuario-ficticio-em-dia/subjects/MAT24/assessments.json": {
+    "mtime": 1786322427.780458,
+    "ast_hash": "2e70908faf27c5a527ad303f97cb9d28",
+    "semantic_hash": ""
+  },
   "public/data/user/usuario-ficticio-em-dia/subjects/MAT24/learning-path.json": {
     "mtime": 1786228045.0723028,
     "ast_hash": "dc667c98106eaba932b2c7adf538ce17",
+    "semantic_hash": ""
+  },
+  "public/data/user/usuario-ficticio-em-dia/subjects/MAT24/tests/AV1-MAT24.json": {
+    "mtime": 1786322449.12318,
+    "ast_hash": "c89e1a52f44c0c6e95c0f9468c615bf4",
+    "semantic_hash": ""
+  },
+  "public/data/user/usuario-ficticio-em-dia/subjects/MAT24/trilha-progress.json": {
+    "mtime": 1786318291.5135672,
+    "ast_hash": "5a7497a882974accfad863597136d966",
+    "semantic_hash": ""
+  },
+  "public/data/user/usuario-ficticio-em-dia/user-data.json": {
+    "mtime": 1785708086.1155314,
+    "ast_hash": "91c37b375186ee922ca6dadfa0e530a0",
     "semantic_hash": ""
   },
   "public/data/user/usuario-ficticio-em-dia/work-schedule.json": {
@@ -1559,9 +2079,99 @@
     "ast_hash": "7d05406482082a58c0a048776694df93",
     "semantic_hash": ""
   },
-  "vitru/n8n/workflows/vitru-whatsapp-inbound.json": {
-    "mtime": 1786135610.4452746,
-    "ast_hash": "d2de701dcd2f3f3f1f4bc86e76d42da4",
+  "vitru/vitru-voice/pipecat_app/call_guards.py": {
+    "mtime": 1786575486.4994957,
+    "ast_hash": "636d2c2a269144f31b3f88184569c7ea",
+    "semantic_hash": ""
+  },
+  "vitru/vitru-voice/pipecat_app/context.py": {
+    "mtime": 1786617355.2533824,
+    "ast_hash": "1c56354cad826afb657d4a87fcdc8d1e",
+    "semantic_hash": ""
+  },
+  "vitru/vitru-voice/pipecat_app/thinking_filter.py": {
+    "mtime": 1786566670.444636,
+    "ast_hash": "ca28b65e0c56a5e5641c257ff898491c",
+    "semantic_hash": ""
+  },
+  "vitru/vitru-voice/public/pcm-processor.js": {
+    "mtime": 1786408767.9278457,
+    "ast_hash": "626406951f94d97f5e7f46d993819eef",
+    "semantic_hash": ""
+  },
+  "vitru/vitru-voice/scripts/golden_set.py": {
+    "mtime": 1786571460.2512715,
+    "ast_hash": "db67916a6b5a4cb36fdd38fdd5dffc2f",
+    "semantic_hash": ""
+  },
+  "vitru/vitru-voice/scripts/inspect_payload.py": {
+    "mtime": 1786554858.5695522,
+    "ast_hash": "53564362a4332486c0b92d2fb1092d42",
+    "semantic_hash": ""
+  },
+  "vitru/vitru-voice/tests/test_bot.py": {
+    "mtime": 1786553800.6789937,
+    "ast_hash": "5b14ea2d38b207ebc6aa7b7f444644d8",
+    "semantic_hash": ""
+  },
+  "vitru/vitru-voice/tests/test_call_guards.py": {
+    "mtime": 1786575486.5825975,
+    "ast_hash": "04ee88ea2200526bcb130bc9e7f8706a",
+    "semantic_hash": ""
+  },
+  "vitru/vitru-voice/tests/test_thinking_filter.py": {
+    "mtime": 1786566670.520015,
+    "ast_hash": "e0ef952983dd0363513ec38d607d68f5",
+    "semantic_hash": ""
+  },
+  ".github/workflows/vitru-golden.yml": {
+    "mtime": 1786570371.354359,
+    "ast_hash": "c985dc4ddc94f183a164cc4b9994cbff",
+    "semantic_hash": ""
+  },
+  "vitru/vitru-voice/public/index.html": {
+    "mtime": 1786408698.272506,
+    "ast_hash": "bb491de3425d9fb8f3eed206fae6d8c8",
+    "semantic_hash": ""
+  },
+  "public/assets/logo/logo-uniasselvi.png": {
+    "mtime": 1785894199.0730426,
+    "ast_hash": "defda6aa297e0905a68189a7aeaf12eb",
+    "semantic_hash": ""
+  },
+  "public/data/user/joao-pedro-lopes-zamonelo/subjects/images/estudo-contemporaneo-e-transversal-relacoes-etenico-raciais-cultura-e-direitos-humanos.png": {
+    "mtime": 1785934351.8223414,
+    "ast_hash": "161f682b6d0efc24f7139dba5e03c738",
+    "semantic_hash": ""
+  },
+  "public/data/user/joao-pedro-lopes-zamonelo/subjects/images/experiencia-profissional-desafios-comtemporaneos.png": {
+    "mtime": 1785933789.533719,
+    "ast_hash": "38746ed48e4a26418a7b5cafbf49e89e",
+    "semantic_hash": ""
+  },
+  "public/data/user/joao-pedro-lopes-zamonelo/subjects/images/experiencia-profissional-mineracao-e-analise-de-dados.png": {
+    "mtime": 1785934227.1904714,
+    "ast_hash": "fc1841accfe5a2c0cc48fcbf0814bbcc",
+    "semantic_hash": ""
+  },
+  "public/data/user/joao-pedro-lopes-zamonelo/subjects/images/mineracao-de-dados.png": {
+    "mtime": 1785933497.9465935,
+    "ast_hash": "53b6c8137caa46efe82c6734793cae6c",
+    "semantic_hash": ""
+  },
+  "public/data/user/joao-pedro-lopes-zamonelo/subjects/images/modelagem-e-gestao-de-processo-de-negocio.png": {
+    "mtime": 1785897496.0454233,
+    "ast_hash": "04278418143b8deb8225040ab2d8e519",
+    "semantic_hash": ""
+  },
+  "public/data/user/joao-pedro-lopes-zamonelo/subjects/images/probabilidade-e-estatistica.png": {
+    "mtime": 1785933224.6294594,
+    "ast_hash": "4d43f405dacf926f15844ea84d63c2f2",
+    "semantic_hash": ""
+  },
+  "public/data/user/joao-pedro-lopes-zamonelo/subjects/images/sistemas-aplicacoes-distribuidas.png": {
+    "mtime": 1785933644.025996,
+    "ast_hash": "d0b8989fc5e9a86bae78c709837bcd73",
     "semantic_hash": ""
   },
   "public/data/user/usuario-ficticio-agendamento-pendente/subjects/images/estudo-contemporaneo-e-transversal-relacoes-etenico-raciais-cultura-e-direitos-humanos.png": {
@@ -1666,6 +2276,41 @@
   },
   "public/data/user/usuario-ficticio-baixa-frequencia/subjects/images/sistemas-aplicacoes-distribuidas.png": {
     "mtime": 1786050833.3329341,
+    "ast_hash": "d0b8989fc5e9a86bae78c709837bcd73",
+    "semantic_hash": ""
+  },
+  "public/data/user/usuario-ficticio-calouro/subjects/images/estudo-contemporaneo-e-transversal-relacoes-etenico-raciais-cultura-e-direitos-humanos.png": {
+    "mtime": 1786402641.7372432,
+    "ast_hash": "161f682b6d0efc24f7139dba5e03c738",
+    "semantic_hash": ""
+  },
+  "public/data/user/usuario-ficticio-calouro/subjects/images/experiencia-profissional-desafios-comtemporaneos.png": {
+    "mtime": 1786402641.7274964,
+    "ast_hash": "38746ed48e4a26418a7b5cafbf49e89e",
+    "semantic_hash": ""
+  },
+  "public/data/user/usuario-ficticio-calouro/subjects/images/experiencia-profissional-mineracao-e-analise-de-dados.png": {
+    "mtime": 1786402641.741597,
+    "ast_hash": "fc1841accfe5a2c0cc48fcbf0814bbcc",
+    "semantic_hash": ""
+  },
+  "public/data/user/usuario-ficticio-calouro/subjects/images/mineracao-de-dados.png": {
+    "mtime": 1786402641.7399476,
+    "ast_hash": "53b6c8137caa46efe82c6734793cae6c",
+    "semantic_hash": ""
+  },
+  "public/data/user/usuario-ficticio-calouro/subjects/images/modelagem-e-gestao-de-processo-de-negocio.png": {
+    "mtime": 1786402641.7341766,
+    "ast_hash": "04278418143b8deb8225040ab2d8e519",
+    "semantic_hash": ""
+  },
+  "public/data/user/usuario-ficticio-calouro/subjects/images/probabilidade-e-estatistica.png": {
+    "mtime": 1786402641.732312,
+    "ast_hash": "4d43f405dacf926f15844ea84d63c2f2",
+    "semantic_hash": ""
+  },
+  "public/data/user/usuario-ficticio-calouro/subjects/images/sistemas-aplicacoes-distribuidas.png": {
+    "mtime": 1786402641.7300553,
     "ast_hash": "d0b8989fc5e9a86bae78c709837bcd73",
     "semantic_hash": ""
   },
@@ -1844,429 +2489,29 @@
     "ast_hash": "d0b8989fc5e9a86bae78c709837bcd73",
     "semantic_hash": ""
   },
-  "app/portal-responsavel/[subjectCode]/trilha-de-aprendizagem/page.tsx": {
-    "mtime": 1786222225.077986,
-    "ast_hash": "a50483d712ee61611fc8428900a1f6cf",
+  "public/file.svg": {
+    "mtime": 1785707551.7685146,
+    "ast_hash": "d09f95206c3fa0bb9bd9fefabfd0ea71",
     "semantic_hash": ""
   },
-  "app/portal-responsavel/page.tsx": {
-    "mtime": 1786222214.6629713,
-    "ast_hash": "f1a477f619e0092867b720abc8cd74e0",
+  "public/globe.svg": {
+    "mtime": 1785707551.7689326,
+    "ast_hash": "2aaafa6a49b6563925fe440891e32717",
     "semantic_hash": ""
   },
-  "components/content-portal/PortalHeader.tsx": {
-    "mtime": 1786222200.0174863,
-    "ast_hash": "7dbb24a89bd66e346e62add7b8770bab",
+  "public/next.svg": {
+    "mtime": 1785707551.7689874,
+    "ast_hash": "8e061864f388b47f33a1c3780831193e",
     "semantic_hash": ""
   },
-  "components/content-portal/TrilhaEditor.tsx": {
-    "mtime": 1786222271.1806536,
-    "ast_hash": "7909e18de4009dc1b9e871ec855e3ef8",
+  "public/vercel.svg": {
+    "mtime": 1785707551.7688477,
+    "ast_hash": "c0af2f507b369b085b35ef4bbe3bcf1e",
     "semantic_hash": ""
   },
-  "lib/content-portal/actions.ts": {
-    "mtime": 1786222113.1511104,
-    "ast_hash": "aceb38d34a9b2825f34932b36b307f1e",
-    "semantic_hash": ""
-  },
-  "lib/content-portal/slug.ts": {
-    "mtime": 1786222118.9768984,
-    "ast_hash": "fea639de33f73cd3189e4bde712b914e",
-    "semantic_hash": ""
-  },
-  "components/discipline/DisciplineMoreInfo.tsx": {
-    "mtime": 1786225146.9343486,
-    "ast_hash": "2c41f57f43d75324da59ed233d4fe346",
-    "semantic_hash": ""
-  },
-  "app/disciplinas/[subjectCode]/fale-com-mediador/page.tsx": {
-    "mtime": 1786225126.2934415,
-    "ast_hash": "1952fe25d2611aaf583ebb6f62a565f0",
-    "semantic_hash": ""
-  },
-  "components/mediador/MediatorRequestForm.tsx": {
-    "mtime": 1786225113.1179552,
-    "ast_hash": "fc1fc8b7319bb551214a485a21aba346",
-    "semantic_hash": ""
-  },
-  "components/study-planner/AssistantPanel.test.tsx": {
-    "mtime": 1786229492.616586,
-    "ast_hash": "a767049f2dd9c040c03069678a67e8aa",
-    "semantic_hash": ""
-  },
-  "lib/data/load-trilha-progress.ts": {
-    "mtime": 1786228051.376479,
-    "ast_hash": "8bf7b4de17b91f1fe4dc7184121a1b42",
-    "semantic_hash": ""
-  },
-  "lib/learning-path/trilha-progress-actions.test.ts": {
-    "mtime": 1786229277.6046712,
-    "ast_hash": "be6eed4cf17b67b81dfa7aaa28b5e412",
-    "semantic_hash": ""
-  },
-  "lib/learning-path/trilha-progress-actions.ts": {
-    "mtime": 1786228066.3633204,
-    "ast_hash": "7cf503417c07a4ade4848b97f230d251",
-    "semantic_hash": ""
-  },
-  "lib/vitru/conversation-store.test.ts": {
-    "mtime": 1786229239.3838053,
-    "ast_hash": "3c0cf429dfb1705eacea3fb82af928d3",
-    "semantic_hash": ""
-  },
-  "lib/vitru/conversation-store.ts": {
-    "mtime": 1786228295.4779184,
-    "ast_hash": "4612d8a9b7c81481f698b14dd4b4acad",
-    "semantic_hash": ""
-  },
-  "lib/vitru/inbox-events.test.ts": {
-    "mtime": 1786229229.3338206,
-    "ast_hash": "bbdda35c7efc535b76d6751ec06dcbef",
-    "semantic_hash": ""
-  },
-  "lib/vitru/inbox-events.ts": {
-    "mtime": 1786322520.8870037,
-    "ast_hash": "4cee243deb573aa47142ba06baa0b052",
-    "semantic_hash": ""
-  },
-  "lib/vitru/interaction-log.ts": {
-    "mtime": 1786228310.397656,
-    "ast_hash": "81d98c47e4d49a032eadfca5303b8382",
-    "semantic_hash": ""
-  },
-  "lib/vitru/surfaces.ts": {
-    "mtime": 1786401853.5044916,
-    "ast_hash": "7d0d71ed84b756e17c4d1988c33c418a",
-    "semantic_hash": ""
-  },
-  "lib/vitru/trilha-resolution.test.ts": {
-    "mtime": 1786318627.8994133,
-    "ast_hash": "76ad8a21bbee8d8ba3dc83582b987210",
-    "semantic_hash": ""
-  },
-  "lib/vitru/trilha-resolution.ts": {
-    "mtime": 1786318571.2847414,
-    "ast_hash": "f846c8dcb3303e2ac0511a6121300848",
-    "semantic_hash": ""
-  },
-  "vitest.setup.ts": {
-    "mtime": 1786229468.8465915,
-    "ast_hash": "56da59e6177e0447fe58c9e644a819c6",
-    "semantic_hash": ""
-  },
-  "lib/formatters/strip-html.test.ts": {
-    "mtime": 1786322276.1029758,
-    "ast_hash": "3f9c09a49807633653910f4b72048106",
-    "semantic_hash": ""
-  },
-  "lib/formatters/strip-html.ts": {
-    "mtime": 1786322269.8277597,
-    "ast_hash": "550016d154b54bd2b215bb20565ab137",
-    "semantic_hash": ""
-  },
-  "lib/vitru/wrong-answer-nudge.test.ts": {
-    "mtime": 1786322528.5135784,
-    "ast_hash": "cea70bae58b5886349a248c3b1f02da4",
-    "semantic_hash": ""
-  },
-  "lib/vitru/wrong-answer-nudge.ts": {
-    "mtime": 1786322389.9765146,
-    "ast_hash": "b7af1e93ca770f8453ef21783c3808d1",
-    "semantic_hash": ""
-  },
-  "public/data/user/usuario-ficticio-em-dia/subjects/MAT24/assessments.json": {
-    "mtime": 1786322427.780458,
-    "ast_hash": "2e70908faf27c5a527ad303f97cb9d28",
-    "semantic_hash": ""
-  },
-  "public/data/user/usuario-ficticio-em-dia/subjects/MAT24/tests/AV1-MAT24.json": {
-    "mtime": 1786322449.12318,
-    "ast_hash": "c89e1a52f44c0c6e95c0f9468c615bf4",
-    "semantic_hash": ""
-  },
-  "public/data/user/usuario-ficticio-em-dia/subjects/MAT24/trilha-progress.json": {
-    "mtime": 1786318291.5135672,
-    "ast_hash": "5a7497a882974accfad863597136d966",
-    "semantic_hash": ""
-  },
-  "lib/vitru/generate.ts": {
-    "mtime": 1786400984.1105053,
-    "ast_hash": "364cb53bd0041955cbec3998e0530d79",
-    "semantic_hash": ""
-  },
-  "lib/vitru/prompts.ts": {
-    "mtime": 1786401853.226979,
-    "ast_hash": "3f3fdda94c87c80dd66139ba5dcab41d",
-    "semantic_hash": ""
-  },
-  "public/data/user/usuario-ficticio-calouro/current-semester.json": {
-    "mtime": 1786402641.7227306,
-    "ast_hash": "227ac46d5a910ebfb83b2bebe6f5c611",
-    "semantic_hash": ""
-  },
-  "public/data/user/usuario-ficticio-calouro/disciplines.json": {
-    "mtime": 1786402745.9074783,
-    "ast_hash": "f163023ade225274120347ed3d772f6d",
-    "semantic_hash": ""
-  },
-  "public/data/user/usuario-ficticio-calouro/financial-titles.json": {
-    "mtime": 1786402745.9907708,
-    "ast_hash": "3f16ef9679c6cd0c42fd4265a570a84c",
-    "semantic_hash": ""
-  },
-  "public/data/user/usuario-ficticio-calouro/manifest.json": {
-    "mtime": 1786402745.815413,
-    "ast_hash": "f3fd4f0b5faa1a5610bd2bf286f24488",
-    "semantic_hash": ""
-  },
-  "public/data/user/usuario-ficticio-calouro/sofia-dados-aluno.json": {
-    "mtime": 1786402745.9494934,
-    "ast_hash": "aa80e9fc62f60c5a2fdb7639b5c4bb24",
-    "semantic_hash": ""
-  },
-  "public/data/user/usuario-ficticio-calouro/subjects/159490/tests/124208039.json": {
-    "mtime": 1786402818.8945436,
-    "ast_hash": "ec126cb7ded4845ae1cf7185d6f3cc35",
-    "semantic_hash": ""
-  },
-  "public/data/user/usuario-ficticio-calouro/subjects/GTI03/assessments.json": {
-    "mtime": 1786402798.70154,
-    "ast_hash": "31fcfabcb426a71c0668c73536d0908a",
-    "semantic_hash": ""
-  },
-  "public/data/user/usuario-ficticio-calouro/subjects/GTI03/attendances.json": {
-    "mtime": 1786402641.7430627,
-    "ast_hash": "747591259a86590f93851041fa50690e",
-    "semantic_hash": ""
-  },
-  "public/data/user/usuario-ficticio-calouro/subjects/GTI03/calendar-events.json": {
-    "mtime": 1786402641.742751,
-    "ast_hash": "b63e15ec4fdc7580b893eabdda1ef371",
-    "semantic_hash": ""
-  },
-  "public/data/user/usuario-ficticio-calouro/subjects/GTI03/recordings.json": {
-    "mtime": 1786402641.7421134,
-    "ast_hash": "3e3124c8029414e52f94e58c735237a7",
-    "semantic_hash": ""
-  },
-  "public/data/user/usuario-ficticio-calouro/subjects/MAT24/assessments.json": {
-    "mtime": 1786402798.7562673,
-    "ast_hash": "1dc8a813de02eb83cc119dccfe5069c1",
-    "semantic_hash": ""
-  },
-  "public/data/user/usuario-ficticio-calouro/subjects/MAT24/learning-path.json": {
-    "mtime": 1786402818.8874338,
-    "ast_hash": "37dcd42ebb803a1d97e88a0b2119ed1f",
-    "semantic_hash": ""
-  },
-  "public/data/user/usuario-ficticio-calouro/subjects/MAT24/tests/AV1-MAT24.json": {
-    "mtime": 1786402818.8971815,
-    "ast_hash": "4ea9e480c904d38abb30781856eaf448",
-    "semantic_hash": ""
-  },
-  "public/data/user/usuario-ficticio-calouro/subjects/MAT24/trilha-progress.json": {
-    "mtime": 1786402798.8093488,
-    "ast_hash": "dee323205dd0582236445f5d8bf40161",
-    "semantic_hash": ""
-  },
-  "public/data/user/usuario-ficticio-calouro/user-data.json": {
-    "mtime": 1786402745.864818,
-    "ast_hash": "77a5ea980e324f950dcbcc9efccf1590",
-    "semantic_hash": ""
-  },
-  "public/data/user/usuario-ficticio-calouro/work-schedule.json": {
-    "mtime": 1786402641.7232249,
-    "ast_hash": "0e4bcde3f1e8cc339a1110b5ee3783b9",
-    "semantic_hash": ""
-  },
-  "public/data/user/usuario-ficticio-calouro/subjects/images/estudo-contemporaneo-e-transversal-relacoes-etenico-raciais-cultura-e-direitos-humanos.png": {
-    "mtime": 1786402641.7372432,
-    "ast_hash": "161f682b6d0efc24f7139dba5e03c738",
-    "semantic_hash": ""
-  },
-  "public/data/user/usuario-ficticio-calouro/subjects/images/experiencia-profissional-desafios-comtemporaneos.png": {
-    "mtime": 1786402641.7274964,
-    "ast_hash": "38746ed48e4a26418a7b5cafbf49e89e",
-    "semantic_hash": ""
-  },
-  "public/data/user/usuario-ficticio-calouro/subjects/images/experiencia-profissional-mineracao-e-analise-de-dados.png": {
-    "mtime": 1786402641.741597,
-    "ast_hash": "fc1841accfe5a2c0cc48fcbf0814bbcc",
-    "semantic_hash": ""
-  },
-  "public/data/user/usuario-ficticio-calouro/subjects/images/mineracao-de-dados.png": {
-    "mtime": 1786402641.7399476,
-    "ast_hash": "53b6c8137caa46efe82c6734793cae6c",
-    "semantic_hash": ""
-  },
-  "public/data/user/usuario-ficticio-calouro/subjects/images/modelagem-e-gestao-de-processo-de-negocio.png": {
-    "mtime": 1786402641.7341766,
-    "ast_hash": "04278418143b8deb8225040ab2d8e519",
-    "semantic_hash": ""
-  },
-  "public/data/user/usuario-ficticio-calouro/subjects/images/probabilidade-e-estatistica.png": {
-    "mtime": 1786402641.732312,
-    "ast_hash": "4d43f405dacf926f15844ea84d63c2f2",
-    "semantic_hash": ""
-  },
-  "public/data/user/usuario-ficticio-calouro/subjects/images/sistemas-aplicacoes-distribuidas.png": {
-    "mtime": 1786402641.7300553,
-    "ast_hash": "d0b8989fc5e9a86bae78c709837bcd73",
-    "semantic_hash": ""
-  },
-  "components/vitru/VitruLogo.tsx": {
-    "mtime": 1786476324.9120905,
-    "ast_hash": "0684eae9ddd9e428f4c880e9a1f3ffc0",
-    "semantic_hash": ""
-  },
-  "components/vitru/VoiceAssistantWindow.tsx": {
-    "mtime": 1786479635.6570191,
-    "ast_hash": "73ffc2e8405aa85411dadcebcc94f6f1",
-    "semantic_hash": ""
-  },
-  "components/vitru/planner-events.ts": {
-    "mtime": 1786478794.567611,
-    "ast_hash": "69a9ce5b8f6e8dcfb54ae0562c4e85a2",
-    "semantic_hash": ""
-  },
-  "drizzle.config.ts": {
-    "mtime": 1786489828.424849,
-    "ast_hash": "3d159f7f6aa4bdac8d8fba9299cf80c6",
-    "semantic_hash": ""
-  },
-  "lib/db/client.ts": {
-    "mtime": 1786490944.536918,
-    "ast_hash": "dfd8e15d158b09209a0731f29bb29966",
-    "semantic_hash": ""
-  },
-  "lib/db/migrations/0000_init.sql": {
-    "mtime": 1786490020.7575786,
-    "ast_hash": "b5feb9d360eb48c8ddc2d1f8808c734f",
-    "semantic_hash": ""
-  },
-  "lib/db/migrations/meta/0000_snapshot.json": {
-    "mtime": 1786490020.7562864,
-    "ast_hash": "e0ad7175e607dc6870decf2aed0249b7",
-    "semantic_hash": ""
-  },
-  "lib/db/migrations/meta/_journal.json": {
-    "mtime": 1786490020.7569811,
-    "ast_hash": "4043253d07d22afb5f8a596d94163bb9",
-    "semantic_hash": ""
-  },
-  "lib/db/schema/academic.ts": {
-    "mtime": 1786489729.3086665,
-    "ast_hash": "b12c0c95807f61bfa417e6ec295764c9",
-    "semantic_hash": ""
-  },
-  "lib/db/schema/index.ts": {
-    "mtime": 1786489801.457893,
-    "ast_hash": "15e2b0c29e591e6050a8d340b3ede23b",
-    "semantic_hash": ""
-  },
-  "lib/db/schema/vitru.ts": {
-    "mtime": 1786490001.542845,
-    "ast_hash": "c42846c5f7a17e28a312935c43009ea9",
-    "semantic_hash": ""
-  },
-  "scripts/db-migrate.ts": {
-    "mtime": 1786489863.103442,
-    "ast_hash": "933cce3f9914c7c5d6fa87a642ac1234",
-    "semantic_hash": ""
-  },
-  "scripts/db-status.ts": {
-    "mtime": 1786491044.9306839,
-    "ast_hash": "e1e7df10d6565e1313d5ee5f924bb34b",
-    "semantic_hash": ""
-  },
-  "scripts/db-verify-fidelity.ts": {
-    "mtime": 1786491149.7667615,
-    "ast_hash": "6e1177222eea7eee38bd5b93e4f09d9f",
-    "semantic_hash": ""
-  },
-  "scripts/seed-from-fixtures.ts": {
-    "mtime": 1786490952.365994,
-    "ast_hash": "793299cdfe668c9a2da1b392f70adae3",
-    "semantic_hash": ""
-  },
-  "vitru/vitru-voice/package.json": {
-    "mtime": 1786414609.5854483,
-    "ast_hash": "d66ab469bb62be2a75a28b8a6aa6da2e",
-    "semantic_hash": ""
-  },
-  "vitru/vitru-voice/pipecat_app/bot.py": {
-    "mtime": 1786487136.9128425,
-    "ast_hash": "8fe8a33ddc71e3d3ee92c7e55d506b89",
-    "semantic_hash": ""
-  },
-  "vitru/vitru-voice/public/pcm-processor.js": {
-    "mtime": 1786408767.9278457,
-    "ast_hash": "626406951f94d97f5e7f46d993819eef",
-    "semantic_hash": ""
-  },
-  "vitru/vitru-voice/pyproject.toml": {
-    "mtime": 1786487026.0033095,
-    "ast_hash": "84597153316c9556664313635222b5b1",
-    "semantic_hash": ""
-  },
-  "vitru/vitru-voice/scripts/kokoro_worker.py": {
-    "mtime": 1786409774.8504446,
-    "ast_hash": "950e8a74f9bca83ad8cf880299683698",
-    "semantic_hash": ""
-  },
-  "vitru/vitru-voice/src/config.js": {
-    "mtime": 1786414609.6505773,
-    "ast_hash": "34ab2ddc2134cb3192fe79ad6cada698",
-    "semantic_hash": ""
-  },
-  "vitru/vitru-voice/src/prompts/assistantPrompt.js": {
-    "mtime": 1786476497.5326571,
-    "ast_hash": "855b5e73b67413693428f8e8e1dedfd3",
-    "semantic_hash": ""
-  },
-  "vitru/vitru-voice/src/routes/webRoutes.js": {
-    "mtime": 1786409775.0701363,
-    "ast_hash": "95570a07ce2749ba400fea25f963b882",
-    "semantic_hash": ""
-  },
-  "vitru/vitru-voice/src/server.js": {
-    "mtime": 1786414609.7080774,
-    "ast_hash": "1d908fde422df86bee84067ea80e5abf",
-    "semantic_hash": ""
-  },
-  "vitru/vitru-voice/src/services/llmService.js": {
-    "mtime": 1786408132.384015,
-    "ast_hash": "43e0aae666a37111d918c44e7b74b202",
-    "semantic_hash": ""
-  },
-  "vitru/vitru-voice/src/services/sttService.js": {
-    "mtime": 1786408656.1424537,
-    "ast_hash": "48ddfcaddb8b6f04b76c5ad4c4d5adf9",
-    "semantic_hash": ""
-  },
-  "vitru/vitru-voice/src/services/ttsService.js": {
-    "mtime": 1786409850.408913,
-    "ast_hash": "1497bb6f58e421c3fa7975fa15dc348c",
-    "semantic_hash": ""
-  },
-  "vitru/vitru-voice/src/session/CallSession.js": {
-    "mtime": 1786409875.0112545,
-    "ast_hash": "f8348b5c3c9c5525964204b3dd0d0c0a",
-    "semantic_hash": ""
-  },
-  "docker-compose.yml": {
-    "mtime": 1786489832.8068829,
-    "ast_hash": "20e475e336848cc3e7ec5941cc921693",
-    "semantic_hash": ""
-  },
-  "vitru/vitru-voice/README.md": {
-    "mtime": 1786487058.5554843,
-    "ast_hash": "3c11b4d5277d328b5b8d40880f2bc7a4",
-    "semantic_hash": ""
-  },
-  "vitru/vitru-voice/public/index.html": {
-    "mtime": 1786408698.272506,
-    "ast_hash": "bb491de3425d9fb8f3eed206fae6d8c8",
+  "public/window.svg": {
+    "mtime": 1785707551.7689507,
+    "ast_hash": "a2760511c65806022ad20adf74370ff3",
     "semantic_hash": ""
   }
 }

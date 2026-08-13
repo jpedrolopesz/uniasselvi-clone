@@ -5,6 +5,8 @@ description = "Agente de voz local com Pipecat, Whisper MLX, Ollama e Kokoro"
 requires-python = ">=3.11,<3.13"
 dependencies = [
     "mlx-whisper>=0.4,<1",
-    "pipecat-ai[kokoro,runner,silero,webrtc,whisper]>=1.7.0,<2",
+    "pipecat-ai[aws,aws-nova-sonic,kokoro,runner,silero,webrtc,whisper]>=1.7.0,<2",
+    "botocore[crt]",
+    "boto3",
     "python-dotenv>=1.0,<2",
 ]

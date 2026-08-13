@@ -26,6 +26,7 @@ export function MonthGridView({ isoDate, activities, onSelectDay }: MonthGridVie
       <div className="grid grid-cols-7 gap-1">
         {cells.map((cell) => {
           const dayActivities = getActivitiesForDate(activities, cell.isoDate);
+          const pendingCount = dayActivities.filter((activity) => activity.confirmationStatus === "pending").length;
           const categories = [...new Set(dayActivities.map((activity) => activity.category))].slice(0, 3);
 
           return (
@@ -53,6 +54,16 @@ export function MonthGridView({ isoDate, activities, onSelectDay }: MonthGridVie
               )}
               {dayActivities.length > 0 && (
                 <span className="sr-only">{dayActivities.length} atividade(s)</span>
+              )}
+              {dayActivities.map((activity) => (
+                <span key={activity.id} data-vitru-id={`calendar-activity:${activity.id}:show`} className="sr-only">
+                  {activity.title}, {activity.startTime}–{activity.endTime}
+                </span>
+              ))}
+              {pendingCount > 0 && (
+                <span className="truncate text-[9px] font-semibold text-brand-yellow">
+                  {pendingCount} aguardando
+                </span>
               )}
             </button>
           );

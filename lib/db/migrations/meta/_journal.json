@@ -8,6 +8,20 @@
       "when": 1786540807584,
       "tag": "0000_init",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1786560000000,
+      "tag": "0001_voice_metrics",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1786590000000,
+      "tag": "0002_exam_schedule_overrides",
+      "breakpoints": true
     }
   ]
 }

@@ -6,10 +6,11 @@ interface TimeGridColumnProps {
   activities: StudyActivity[];
   onCreateAt: (hour: number) => void;
   onSelectActivity: (activity: StudyActivity) => void;
+  onReviewPreview: (activity: StudyActivity) => void;
 }
 
 /** Uma coluna de dia com linhas por hora (visões Dia/Semana). Clicar numa linha vazia cria uma atividade naquele horário; clicar num bloco existente o edita. */
-export function TimeGridColumn({ activities, onCreateAt, onSelectActivity }: TimeGridColumnProps) {
+export function TimeGridColumn({ activities, onCreateAt, onSelectActivity, onReviewPreview }: TimeGridColumnProps) {
   const rows = buildHourRows();
 
   return (
@@ -31,6 +32,7 @@ export function TimeGridColumn({ activities, onCreateAt, onSelectActivity }: Tim
           activity={activity}
           style={computeBlockStyle(activity.startTime, activity.endTime)}
           onSelect={() => onSelectActivity(activity)}
+          onReviewPreview={() => onReviewPreview(activity)}
         />
       ))}
     </div>

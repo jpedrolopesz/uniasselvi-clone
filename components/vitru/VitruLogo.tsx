@@ -10,6 +10,19 @@ interface VitruLogoProps {
 const PETAL_PATH =
   "M100,15 C112,15 120,24 119,38 C118,50 114,62 108,71 C105,75 95,75 92,71 C86,62 82,50 81,38 C80,24 88,15 100,15 Z";
 
+// Coordenadas pré-calculadas e arredondadas. Valores produzidos por
+// Math.sin/Math.cos durante o SSR podem ser normalizados pelo parser SVG do
+// navegador antes da hidratação (por exemplo, 100.00000000000001 → 100), o
+// que faz React detectar atributos diferentes mesmo com o desenho idêntico.
+const PARTICLES = [
+  { x: 182, y: 100 },
+  { x: 141, y: 171 },
+  { x: 59, y: 171 },
+  { x: 18, y: 100 },
+  { x: 59, y: 29 },
+  { x: 141, y: 29 },
+] as const;
+
 export function VitruLogo({ state = "idle", size = "large" }: VitruLogoProps) {
   const gradientId = useId().replaceAll(":", "");
   const rotations = Array.from({ length: 8 }, (_, index) => index * 45);
@@ -46,11 +59,11 @@ export function VitruLogo({ state = "idle", size = "large" }: VitruLogoProps) {
         </g>
 
         <g className="vitru-logo__particles" aria-hidden="true">
-          {[0, 60, 120, 180, 240, 300].map((angle) => (
+          {PARTICLES.map(({ x, y }) => (
             <circle
-              key={angle}
-              cx={100 + Math.cos((angle * Math.PI) / 180) * 82}
-              cy={100 + Math.sin((angle * Math.PI) / 180) * 82}
+              key={`${x}-${y}`}
+              cx={x}
+              cy={y}
               r="4"
               fill="#f4c64b"
             />

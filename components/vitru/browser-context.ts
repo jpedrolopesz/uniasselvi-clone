@@ -1,4 +1,7 @@
-import type { VitruPageContext } from "@/lib/vitru/page-context";
+import { VITRU_NAVIGATION_DESTINATIONS, type VitruPageContext } from "@/lib/vitru/page-context";
+import { destinationsForPage } from "@/lib/vitru/destinations";
+
+export const VITRU_ASSISTANT_ROOT_ATTRIBUTE = "data-vitru-assistant-root";
 
 export interface VitruVisibleComponent {
   target: string;
@@ -11,6 +14,8 @@ export interface VitruBrowserContext {
   page: VitruPageContext;
   title: string;
   visibleComponents: VitruVisibleComponent[];
+  state: { now: string; timezone: string };
+  destinations: { id: string; name: string; href: string }[];
 }
 
 function isVisible(element: HTMLElement): boolean {
@@ -42,6 +47,7 @@ export function collectVisibleComponents(): VitruVisibleComponent[] {
   const result: VitruVisibleComponent[] = [];
 
   for (const element of candidates) {
+    if (element.closest(`[${VITRU_ASSISTANT_ROOT_ATTRIBUTE}]`)) continue;
     if (!isVisible(element)) continue;
     const name = componentName(element);
     if (!name) continue;
@@ -63,8 +69,24 @@ export function collectVisibleComponents(): VitruVisibleComponent[] {
   return result;
 }
 
+export function stableContextHash(context: unknown): string {
+  const serialized = JSON.stringify(context);
+  let hash = 2166136261;
+  for (let index = 0; index < serialized.length; index += 1) {
+    hash ^= serialized.charCodeAt(index);
+    hash = Math.imul(hash, 16777619);
+  }
+  return (hash >>> 0).toString(16).padStart(8, "0");
+}
+
 export function buildBrowserContext(page: VitruPageContext): VitruBrowserContext {
-  return { page, title: document.title, visibleComponents: collectVisibleComponents() };
+  return {
+    page,
+    title: document.title,
+    visibleComponents: collectVisibleComponents(),
+    state: { now: new Date().toISOString(), timezone: Intl.DateTimeFormat().resolvedOptions().timeZone },
+    destinations: destinationsForPage(page.id, VITRU_NAVIGATION_DESTINATIONS),
+  };
 }
 
 function findTarget(target: string): HTMLElement | null {
@@ -99,11 +121,14 @@ export function highlightVitruTarget(target: string): boolean {
 }
 
 export function closeVitruTarget(target: string): boolean {
-  const container = findTarget(target);
-  if (!container) return false;
-  const closeButton = Array.from(container.querySelectorAll<HTMLElement>("button")).find((element) =>
-    /^(fechar|cancelar|voltar)$/i.test(componentName(element))
-  );
+  const containers = target.startsWith("id:")
+    ? Array.from(document.querySelectorAll<HTMLElement>("[data-vitru-id]")).filter(
+        (element) => element.dataset.vitruId === target.slice(3) && isVisible(element)
+      )
+    : [findTarget(target)].filter((element): element is HTMLElement => Boolean(element));
+  const closeButton = containers.flatMap((container) =>
+    Array.from(container.querySelectorAll<HTMLElement>("button"))
+  ).find((element) => /^(fechar|cancelar|voltar)$/i.test(componentName(element)));
   if (!closeButton) return false;
   closeButton.click();
   return true;

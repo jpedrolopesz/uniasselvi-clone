@@ -2,6 +2,7 @@
 
 import { useEffectiveScheduleStatus } from "@/lib/exam-schedule/use-effective-schedule-status";
 import type { ExamSession } from "@/lib/types/derived";
+import type { ScheduleOverride } from "@/lib/exam-schedule/schedule-repository";
 
 interface ExamScheduleSituationLabelProps {
   subjectCode: string;
@@ -9,6 +10,7 @@ interface ExamScheduleSituationLabelProps {
   hasSeedSchedule: boolean;
   seedSession: ExamSession | null;
   scheduleOptions: ExamSession[];
+  initialOverride: ScheduleOverride | null;
 }
 
 /**
@@ -23,6 +25,7 @@ export function ExamScheduleSituationLabel({
   hasSeedSchedule,
   seedSession,
   scheduleOptions,
+  initialOverride,
 }: ExamScheduleSituationLabelProps) {
   const { status, effectiveSession } = useEffectiveScheduleStatus({
     subjectCode,
@@ -30,6 +33,7 @@ export function ExamScheduleSituationLabel({
     hasSeedSchedule,
     seedSession,
     scheduleOptions,
+    initialOverride,
   });
 
   if (status === "scheduled" && effectiveSession) {

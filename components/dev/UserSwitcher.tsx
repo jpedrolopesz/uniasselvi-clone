@@ -2,7 +2,6 @@
 
 import { useRouter } from "next/navigation";
 import type { UserIndexEntry } from "@/lib/types/raw/local";
-import { ACTIVE_USER_COOKIE } from "@/lib/data/active-user-cookie";
 
 interface UserSwitcherProps {
   users: UserIndexEntry[];
@@ -15,8 +14,6 @@ export function UserSwitcher({ users, activeUserId }: UserSwitcherProps) {
 
   function handleChange(event: React.ChangeEvent<HTMLSelectElement>) {
     const nextUserId = event.target.value;
-    document.cookie = `${ACTIVE_USER_COOKIE}=${nextUserId}; path=/; max-age=${60 * 60 * 24 * 30}`;
-
     const url = new URL(window.location.href);
     url.searchParams.set("u", nextUserId);
     router.push(`${url.pathname}${url.search}`);

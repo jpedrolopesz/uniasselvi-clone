@@ -22,6 +22,7 @@ import {
   PlayCircleIcon,
   TargetIcon,
 } from "@/components/icons";
+import { buildSemanticSnapshot } from "@/lib/vitru/adapters";
 
 export default async function DisciplinePage({
   params,
@@ -65,9 +66,15 @@ export default async function DisciplinePage({
     (typeof discipline.mediator === "object" && discipline.mediator?.person_name) ||
     (typeof discipline.regent === "object" && discipline.regent?.person_name) ||
     undefined;
+  const vitruSnapshot = buildSemanticSnapshot("discipline", {
+    discipline,
+    recordings,
+    assessments,
+    frequency,
+  });
 
   return (
-    <AppShell activeUserId={activeUserId}>
+    <AppShell activeUserId={activeUserId} vitruSnapshot={vitruSnapshot}>
       <div className="flex flex-col gap-6">
         <nav
           aria-label="Breadcrumb"
@@ -82,7 +89,7 @@ export default async function DisciplinePage({
           <span className="font-semibold text-white">{discipline.description}</span>
         </nav>
 
-        <div className="grid gap-10 rounded-3xl bg-bg-card p-6 md:p-10 lg:grid-cols-[1.4fr_1fr] lg:items-center">
+        <div data-vitru-id={`discipline:${discipline.code}`} className="grid gap-10 rounded-3xl bg-bg-card p-6 md:p-10 lg:grid-cols-[1.4fr_1fr] lg:items-center">
           <div className="flex flex-col gap-5">
             <div className="flex flex-wrap items-center gap-2">
               
@@ -140,21 +147,24 @@ export default async function DisciplinePage({
             <div className="mt-1 flex flex-wrap items-center gap-3">
               
               <Link
+                data-vitru-id={`discipline:${discipline.code}:learning-path`}
                 href={`/disciplinas/${discipline.code}/trilha-de-aprendizagem`}
                 className="rounded-full border border-border-subtle px-6 py-3 text-sm font-semibold text-white transition hover:bg-yellow-300/75"
               >
                 Trilha de aprendizagem
               </Link>
             <Link
+            data-vitru-id={`discipline:${discipline.code}:assessments`}
             href={`/disciplinas/${discipline.code}/notas-avaliacoes`}
             className="rounded-full border border-border-subtle bg-bg-card px-5 py-2.5 text-sm font-medium text-white transition hover:bg-bg-yellow-hover"
           >
             Notas e avaliações
           </Link>
 
-              <RecordedClassesModal recordings={recordings} />
+              <RecordedClassesModal recordings={recordings} subjectCode={discipline.code} />
 
                <Link
+            data-vitru-id={`discipline:${discipline.code}:attendance`}
             href={`/disciplinas/${discipline.code}/registro-de-frequencia`}
             className="rounded-full border border-border-subtle bg-bg-card px-5 py-2.5 text-sm font-medium text-white transition hover:bg-bg-card-hover"
           >
@@ -162,6 +172,7 @@ export default async function DisciplinePage({
           </Link>
 
               <Link
+                data-vitru-id={`discipline:${discipline.code}:study-calendar`}
                 href={`/calendario-de-estudos?subjectCode=${discipline.code}`}
                 className="inline-flex items-center gap-1.5 rounded-full border border-border-subtle bg-bg-card px-5 py-2.5 text-sm font-medium text-white transition hover:bg-bg-card-hover"
               >

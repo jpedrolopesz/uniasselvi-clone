@@ -9,9 +9,10 @@ interface WeekGridViewProps {
   activities: StudyActivity[];
   onCreateAt: (isoDate: string, startTime: string) => void;
   onSelectActivity: (activity: StudyActivity) => void;
+  onReviewPreview: (activity: StudyActivity) => void;
 }
 
-export function WeekGridView({ isoDate, activities, onCreateAt, onSelectActivity }: WeekGridViewProps) {
+export function WeekGridView({ isoDate, activities, onCreateAt, onSelectActivity, onReviewPreview }: WeekGridViewProps) {
   const days = buildWeekDays(isoDate);
 
   return (
@@ -42,6 +43,7 @@ export function WeekGridView({ isoDate, activities, onCreateAt, onSelectActivity
               activities={getActivitiesForDate(activities, day.isoDate)}
               onCreateAt={(hour) => onCreateAt(day.isoDate, minutesToTime(hour * 60))}
               onSelectActivity={onSelectActivity}
+              onReviewPreview={onReviewPreview}
             />
           ))}
         </div>

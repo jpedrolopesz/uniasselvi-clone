@@ -1,9 +1,10 @@
 import type { RecordingRaw } from "@/lib/types/raw/recordings";
 import { formatDateBr } from "@/lib/formatters/date-formatters";
 
-export function RecordingItem({ recording }: { recording: RecordingRaw }) {
+export function RecordingItem({ recording, subjectCode }: { recording: RecordingRaw; subjectCode: string }) {
   return (
     <a
+      data-vitru-id={`recording:${subjectCode}:${recording.date_recording}`}
       href={recording.link_youtube}
       target="_blank"
       rel="noopener noreferrer"

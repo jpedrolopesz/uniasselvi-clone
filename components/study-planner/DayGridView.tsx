@@ -9,9 +9,10 @@ interface DayGridViewProps {
   activities: StudyActivity[];
   onCreateAt: (isoDate: string, startTime: string) => void;
   onSelectActivity: (activity: StudyActivity) => void;
+  onReviewPreview: (activity: StudyActivity) => void;
 }
 
-export function DayGridView({ isoDate, activities, onCreateAt, onSelectActivity }: DayGridViewProps) {
+export function DayGridView({ isoDate, activities, onCreateAt, onSelectActivity, onReviewPreview }: DayGridViewProps) {
   const dayActivities = getActivitiesForDate(activities, isoDate);
 
   return (
@@ -22,6 +23,7 @@ export function DayGridView({ isoDate, activities, onCreateAt, onSelectActivity 
           activities={dayActivities}
           onCreateAt={(hour) => onCreateAt(isoDate, minutesToTime(hour * 60))}
           onSelectActivity={onSelectActivity}
+          onReviewPreview={onReviewPreview}
         />
       </div>
     </div>

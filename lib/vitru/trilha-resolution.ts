@@ -15,10 +15,13 @@ export function normalizeTokens(text: string): string[] {
     .normalize("NFD")
     // Faixa U+0300–U+036F (marcas de combinação diacríticas), escrita com os
     // caracteres literais em vez de \u — mesmo efeito de [̀-ͯ].
-    .replace(/[̀-ͯ]/g, "");
+    .replace(/[̀-ͯ]/g, "")
+    // No portal, AV1/AV2 são abreviações visíveis de "Avaliação Virtual 1/2".
+    // Expandir aqui mantém todos os resolvedores sobre a mesma normalização.
+    .replace(/\bav\s*(\d+)\b/g, "avaliacao virtual $1");
   return normalized
     .split(/[^a-z0-9]+/)
-    .filter((token) => token.length > 1 && !STOPWORDS.has(token));
+    .filter((token) => (/^\d+$/.test(token) || token.length > 1) && !STOPWORDS.has(token));
 }
 
 /**

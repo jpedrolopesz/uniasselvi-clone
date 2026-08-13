@@ -3,9 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import { useRouter } from "next/navigation";
 import { SendIcon, SparklesIcon } from "@/components/icons";
-import { SuggestionCard } from "@/components/study-planner/SuggestionCard";
-import type { SuggestionStatus } from "@/components/study-planner/chat-types";
 import type { AssistantSuggestion } from "@/lib/study-planner/ai-assistant";
+import { announcePlanPreviews } from "@/components/vitru/planner-events";
 import type { AssistantAction, ActionType, Resolution, Surface, SurfaceFocus } from "@/lib/vitru/surfaces";
 
 interface AssistantPanelProps {
@@ -99,7 +98,6 @@ export function AssistantPanel({
   );
   const [input, setInput] = useState("");
   const [typing, setTyping] = useState(false);
-  const [suggestionStatus, setSuggestionStatus] = useState<Record<string, SuggestionStatus>>({});
   const [dismissedKeys, setDismissedKeys] = useState<Set<string>>(new Set());
   const scrollRef = useRef<HTMLDivElement>(null);
 
@@ -166,6 +164,12 @@ export function AssistantPanel({
         .map((action, index) => ({ action, key: `${messageId}:${index}` }));
 
       setMessages((current) => [...current, { id: messageId, role: "assistant", text: result.reply!, actions }]);
+      const previews = actions.flatMap(({ action }) =>
+        action.type === "confirm_plan" && Array.isArray(action.suggestions)
+          ? action.suggestions as AssistantSuggestion[]
+          : []
+      );
+      if (previews.length > 0) announcePlanPreviews(previews);
     } catch {
       setMessages((current) => [
         ...current,
@@ -180,51 +184,11 @@ export function AssistantPanel({
     }
   }
 
-  async function respondToSuggestion(suggestion: AssistantSuggestion, accepted: boolean) {
-    if (!accepted) {
-      setSuggestionStatus((current) => ({ ...current, [suggestion.id]: "rejected" }));
-      return;
-    }
-
-    setSuggestionStatus((current) => ({ ...current, [suggestion.id]: "saving" }));
-    try {
-      const response = await fetch("/api/v1/vitru/study-plan/confirm", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ action: "CREATE_STUDY_PLAN", suggestionIds: [suggestion.id] }),
-      });
-      const result = await response.json();
-      if (!response.ok || !result.ok) throw new Error("Falha ao confirmar etapa.");
-
-      setSuggestionStatus((current) => ({ ...current, [suggestion.id]: "accepted" }));
-      const persisted = result.data.created[0] ?? { ...suggestion, source: "ai" as const };
-      onPlanConfirmed?.(persisted);
-    } catch {
-      setSuggestionStatus((current) => ({ ...current, [suggestion.id]: "error" }));
-    }
-  }
-
   function renderAction({ action, key }: DisplayedAction) {
     if (dismissedKeys.has(key)) return null;
 
     if (action.type === "confirm_plan") {
-      const suggestions = Array.isArray(action.suggestions)
-        ? (action.suggestions as AssistantSuggestion[])
-        : [];
-      if (suggestions.length === 0) return null;
-      return (
-        <div key={key} className="mt-3 flex flex-col gap-2">
-          {suggestions.map((suggestion) => (
-            <SuggestionCard
-              key={suggestion.id}
-              suggestion={suggestion}
-              status={suggestionStatus[suggestion.id] ?? "pending"}
-              onAccept={() => void respondToSuggestion(suggestion, true)}
-              onReject={() => void respondToSuggestion(suggestion, false)}
-            />
-          ))}
-        </div>
-      );
+      return null;
     }
 
     if (action.type === "open_lesson") {

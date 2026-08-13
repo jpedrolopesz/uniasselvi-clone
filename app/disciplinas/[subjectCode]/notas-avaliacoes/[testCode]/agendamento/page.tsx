@@ -19,6 +19,8 @@ import {
 import { groupRelatedStudents } from "@/lib/exam-schedule/group-related-students";
 import type { ExamScheduleOptionRaw } from "@/lib/types/raw/exam-schedule-options";
 import type { RelatedStudentsGroups } from "@/lib/exam-schedule/group-related-students";
+import { buildAssessmentSchedulingSnapshot } from "@/lib/vitru/adapters/assessment-scheduling";
+import { loadScheduleOverride } from "@/lib/exam-schedule/schedule-repository";
 
 export default async function ExamSchedulePage({
   params,
@@ -72,6 +74,7 @@ export default async function ExamSchedulePage({
 
   const hasSeedSchedule = assessment.has_schedule;
   const seedSession = buildScheduledSession(assessment);
+  const scheduleOverride = await loadScheduleOverride(activeUserId, subjectCode, testCode);
 
   let scheduleOptionsRaw: ExamScheduleOptionRaw[] = [];
   let optionsLoadError = false;
@@ -112,9 +115,15 @@ export default async function ExamSchedulePage({
   const todayIso = todayIsoDateKey();
   const schedulingWindowOpen = isSchedulingWindowOpen(assessment, todayIso);
   const deadlineDisplay = getSchedulingDeadlineDisplay(assessment);
+  const vitruSnapshot = buildAssessmentSchedulingSnapshot(
+    { code: subjectCode, name: discipline?.description ?? subjectCode },
+    testCode,
+    assessment.description,
+    scheduleOptions
+  );
 
   return (
-    <AppShell activeUserId={activeUserId}>
+    <AppShell activeUserId={activeUserId} vitruSnapshot={vitruSnapshot}>
       <SubpageHeader
         title="Agendamento de Prova"
         disciplineName={discipline?.description ?? subjectCode}
@@ -137,6 +146,7 @@ export default async function ExamSchedulePage({
               hasSeedSchedule={hasSeedSchedule}
               seedSession={seedSession}
               scheduleOptions={scheduleOptions}
+              initialOverride={scheduleOverride}
             />
           }
         />
@@ -154,6 +164,8 @@ export default async function ExamSchedulePage({
           studentState={studentState}
           groupsBySessionId={groupsBySessionId}
           schedulingWindowOpen={schedulingWindowOpen}
+          userId={activeUserId}
+          initialOverride={scheduleOverride}
         />
       </div>
     </AppShell>

@@ -5,9 +5,10 @@ interface AssessmentActionProps {
   uiState: AssessmentUiState;
   /** Rota da prova (ver TestRunner) — só usada quando a ação está habilitada. */
   href?: string;
+  vitruActionId?: string;
 }
 
-export function AssessmentAction({ uiState, href }: AssessmentActionProps) {
+export function AssessmentAction({ uiState, href, vitruActionId }: AssessmentActionProps) {
   const className = [
     "w-full rounded-full px-4 py-2 text-center text-sm font-semibold transition",
     uiState.isActionEnabled
@@ -17,7 +18,7 @@ export function AssessmentAction({ uiState, href }: AssessmentActionProps) {
 
   if (uiState.isActionEnabled && href) {
     return (
-      <Link href={href} className={className}>
+      <Link href={href} data-vitru-id={vitruActionId} className={className}>
         {uiState.actionLabel}
       </Link>
     );
@@ -25,6 +26,7 @@ export function AssessmentAction({ uiState, href }: AssessmentActionProps) {
 
   return (
     <button
+      data-vitru-id={vitruActionId}
       type="button"
       disabled={!uiState.isActionEnabled}
       title={uiState.isActionEnabled ? undefined : "Indisponível no momento"}

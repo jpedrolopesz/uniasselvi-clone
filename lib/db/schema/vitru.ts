@@ -187,6 +187,21 @@ export const studyActivities = vitru.table(
   ]
 );
 
+/** Estado efetivo de agendamentos alterados pelo aluno. PGlite é a fonte única; a UI apenas reflete a resposta da API. */
+export const examScheduleOverrides = vitru.table(
+  "exam_schedule_overrides",
+  {
+    id: uuid("id").primaryKey().defaultRandom(),
+    studentId: uuid("student_id").notNull().references(() => students.id, { onDelete: "cascade" }),
+    subjectCode: text("subject_code").notNull(),
+    testCode: text("test_code").notNull(),
+    kind: text("kind").$type<"scheduled" | "cancelled">().notNull(),
+    scheduleOptionId: text("schedule_option_id"),
+    updatedAt: timestamp("updated_at", { withTimezone: true }).notNull().defaultNow(),
+  },
+  (table) => [unique("exam_schedule_overrides_unq").on(table.studentId, table.subjectCode, table.testCode)]
+);
+
 /**
  * Progresso do aluno na trilha. Vive aqui e não em `academic` porque quem
  * escreve é o próprio aluno pela interface (Server Actions em
@@ -332,6 +347,8 @@ export const interactions = vitru.table(
     actionReturned: text("action_returned"),
     actionClicked: text("action_clicked"),
     model: text("model"),
+    /** Métricas operacionais por turno de voz (Etapa 4). */
+    voiceMetrics: jsonb("voice_metrics").$type<Record<string, number | boolean | string | null>>(),
     createdAt: timestamp("created_at", { withTimezone: true }).notNull().defaultNow(),
   },
   (table) => [

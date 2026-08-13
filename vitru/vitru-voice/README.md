@@ -40,6 +40,73 @@ KOKORO_VOICE=pf_dora
 
 O prompt pode ser sobrescrito por `ASSISTANT_SYSTEM_PROMPT`.
 
+### Janela de contexto do Ollama.app
+
+A janela é configurada no servidor do Ollama, não no processo Pipecat. No macOS:
+
+```bash
+launchctl setenv OLLAMA_CONTEXT_LENGTH 8192
+```
+
+Depois, encerre e reinicie o Ollama.app. Durante uma chamada ativa, confirme com
+`ollama ps`: a coluna `CONTEXT` deve mostrar `8192`. Nessa configuração o modelo
+usa aproximadamente 3,1 GB de GPU, contra 2,5 GB com a janela de 4096.
+
+Não coloque `num_ctx` no `.env` do Pipecat nem nas Settings do serviço. O endpoint
+Ollama `/v1/chat/completions` ignora `options.num_ctx`, e
+`OLLamaLLMService.Settings` não oferece `num_ctx`, `options` ou `extra_body`.
+
+Para habilitar os logs estruturados de diagnóstico, defina `VITRU_DEBUG=1` no
+ambiente do processo de voz.
+
+O orquestrador padrão é o Amazon Nova Micro no Bedrock. O extra AWS e o cliente
+CRT fazem parte do lock de produção:
+
+```bash
+UV_PROJECT_ENVIRONMENT=.venv-kokoro uv run --frozen \
+  python -m pipecat_app.bot --port 3001
+```
+
+O fallback Ollama foi removido do pipeline de produção: no instrumento corrigido
+ele marcou 29/60, contra 50/60 do Nova Micro. Se o Bedrock estiver indisponível,
+o serviço devolve erro explícito em vez de degradar silenciosamente. O script do
+conjunto dourado mantém Ollama apenas como diagnóstico informativo. O serviço
+Bedrock usa `converse_stream`; os deltas chegam ao filtro e ao Kokoro durante a
+resposta.
+
+## Conjunto dourado semântico
+
+O gate de CI executa 15 casos × 5 repetições. Com cerca de 1.900 tokens de
+entrada por repetição, uma execução consome aproximadamente 142.500 tokens de
+entrada; o custo monetário depende da tabela vigente da AWS e não é fixado aqui.
+Nova falha abaixo de 76% ou navegação abaixo de 90%. O piso geral deixa quatro
+pontos de margem sobre o baseline de 80% para não oscilar por uma única resposta,
+sem aceitar a degradação de 55% observada anteriormente. Ollama é somente
+diagnóstico local e não bloqueia o build.
+
+Com o Ollama ativo e o modelo carregado, execute os 12 casos cinco vezes cada:
+
+```bash
+cd vitru/vitru-voice
+PYTHONDONTWRITEBYTECODE=1 .venv-kokoro/bin/python scripts/golden_set.py
+```
+
+Para medir o Bedrock com e sem a ferramenta explícita de não agir:
+
+```bash
+UV_PROJECT_ENVIRONMENT=.venv-kokoro uv run --frozen \
+  python scripts/golden_set.py --backend bedrock
+
+UV_PROJECT_ENVIRONMENT=.venv-kokoro uv run --frozen \
+  python scripts/golden_set.py --backend bedrock --without-responder-sem-acao
+```
+
+Para validar fixtures, imports e quantidade de execuções sem chamar o modelo:
+
+```bash
+PYTHONDONTWRITEBYTECODE=1 .venv-kokoro/bin/python scripts/golden_set.py --validate
+```
+
 ## Executar
 
 Confirme que o Ollama está ativo e execute:
@@ -84,6 +151,15 @@ npm run start:legacy
 ## Estado atual
 
 - Canal web por WebRTC.
+- Modo selecionável por chamada: cascata (Whisper + Nova Micro + Kokoro) ou
+  `amazon.nova-2-sonic-v1:0` speech-to-speech. O Sonic usa Carolina por padrão;
+  altere `SONIC_VOICE=leo` para o teste de voz masculina.
+- O Sonic recebe áudio PCM 16 kHz e devolve PCM 24 kHz. Atualizações do snapshot
+  semanticamente único reconectam a conversa Sonic via `reset_conversation`,
+  preservando o histórico e reenviando somente o snapshot de maior versão.
+- Chamadas fecham após 60 s sem fala ou 10 min totais (`SONIC_IDLE_SECONDS` e
+  `SONIC_MAX_CALL_SECONDS`). O log `sonic_usage` separa tokens de fala/texto e
+  calcula custo acumulado com as tarifas configuradas para esta etapa.
 - Interrupção de fala gerenciada pelo Pipecat/Silero.
 - STT Whisper MLX local segmentado pelo Silero VAD, sem chave de API.
 - Sem persistência, dashboard ou integração acadêmica real.

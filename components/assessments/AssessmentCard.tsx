@@ -3,6 +3,7 @@ import { deriveAssessmentUiState } from "@/lib/selectors/assessment-selectors";
 import { formatDateBr } from "@/lib/formatters/date-formatters";
 import { AssessmentStatus } from "@/components/assessments/AssessmentStatus";
 import { AssessmentAction } from "@/components/assessments/AssessmentAction";
+import { assessmentActionId, assessmentItemId } from "@/lib/vitru/adapters/assessments";
 
 interface AssessmentCardProps {
   assessment: AssessmentRaw;
@@ -17,9 +18,11 @@ export function AssessmentCard({ assessment, subjectCode }: AssessmentCardProps)
       : uiState.actionKind === "agendar-prova" && assessment.test_code
         ? `/disciplinas/${subjectCode}/notas-avaliacoes/${assessment.test_code}/agendamento`
         : undefined;
+  const itemId = assessmentItemId(subjectCode, assessment.code);
+  const actionId = assessmentActionId(assessment, subjectCode);
 
   return (
-    <div className="flex flex-col gap-3 rounded-xl bg-bg-card p-4">
+    <div data-vitru-id={itemId} className="flex flex-col gap-3 rounded-xl bg-bg-card p-4">
       <div>
         <h3 className="text-sm font-semibold text-white">
           {assessment.description}
@@ -33,7 +36,7 @@ export function AssessmentCard({ assessment, subjectCode }: AssessmentCardProps)
       </div>
 
       <AssessmentStatus weight={assessment.weight} uiState={uiState} />
-      <AssessmentAction uiState={uiState} href={testHref} />
+      <AssessmentAction uiState={uiState} href={testHref} vitruActionId={actionId ?? undefined} />
     </div>
   );
 }

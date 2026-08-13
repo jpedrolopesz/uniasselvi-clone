@@ -6,6 +6,7 @@ import { resolveActiveUserId } from "@/lib/data/resolve-active-user";
 import { loadDisciplines } from "@/lib/data/load-user-data";
 import { loadSubjectAssessments } from "@/lib/data/load-subject-data";
 import { findDisciplineByCode } from "@/lib/selectors/discipline-selectors";
+import { buildSemanticSnapshot } from "@/lib/vitru/adapters";
 
 export default async function AssessmentsPage({
   params,
@@ -24,9 +25,13 @@ export default async function AssessmentsPage({
   ]);
 
   const discipline = disciplines ? findDisciplineByCode(disciplines, subjectCode) : undefined;
+  const vitruSnapshot = buildSemanticSnapshot("assessments", {
+    subject: { code: subjectCode, name: discipline?.description ?? subjectCode },
+    assessments,
+  });
 
   return (
-    <AppShell activeUserId={activeUserId}>
+    <AppShell activeUserId={activeUserId} vitruSnapshot={vitruSnapshot}>
       <SubpageHeader
         title="Notas e Avaliações"
         disciplineName={discipline?.description ?? subjectCode}

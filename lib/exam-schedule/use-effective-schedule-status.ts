@@ -2,10 +2,11 @@
 
 import { useSyncExternalStore } from "react";
 import {
-  getServerScheduleOverrideSnapshot,
-  getStoredScheduleOverride,
+  getScheduleOverrideSnapshot,
+  seedScheduleOverride,
   subscribeToScheduleOverrideChanges,
-} from "@/lib/exam-schedule/schedule-storage";
+} from "@/lib/exam-schedule/schedule-client-state";
+import type { ScheduleOverride } from "@/lib/exam-schedule/schedule-repository";
 import type { ExamSession } from "@/lib/types/derived";
 
 export interface EffectiveScheduleStatus {
@@ -26,17 +27,20 @@ export function useEffectiveScheduleStatus({
   hasSeedSchedule,
   seedSession,
   scheduleOptions,
+  initialOverride,
 }: {
   subjectCode: string;
   testCode: string;
   hasSeedSchedule: boolean;
   seedSession: ExamSession | null;
   scheduleOptions: ExamSession[];
+  initialOverride: ScheduleOverride | null;
 }): EffectiveScheduleStatus {
+  seedScheduleOverride(subjectCode, testCode, initialOverride);
   const override = useSyncExternalStore(
     subscribeToScheduleOverrideChanges,
-    () => getStoredScheduleOverride(subjectCode, testCode),
-    getServerScheduleOverrideSnapshot
+    () => getScheduleOverrideSnapshot(subjectCode, testCode),
+    () => initialOverride
   );
 
   if (override?.kind === "cancelled") {

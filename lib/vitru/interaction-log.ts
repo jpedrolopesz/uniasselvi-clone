@@ -6,7 +6,7 @@ import type { Resolution, Surface } from "@/lib/vitru/surfaces";
 export interface InteractionLogEntry {
   conversationId: string;
   userId: string;
-  surface: Surface;
+  surface: Surface | "portal";
   objectId: string;
   lessonId: string | null;
   entryEventId: string | null;
@@ -18,6 +18,7 @@ export interface InteractionLogEntry {
   outputTokens: number | null;
   actionReturned: string | null;
   actionClicked: string | null;
+  voiceMetrics?: Record<string, number | boolean | string | null>;
 }
 
 /**
@@ -49,6 +50,7 @@ export async function logInteraction(entry: InteractionLogEntry): Promise<void> 
       outputTokens: entry.outputTokens,
       actionReturned: entry.actionReturned,
       actionClicked: entry.actionClicked,
+      voiceMetrics: entry.voiceMetrics,
     });
   } catch (error) {
     console.error("Falha ao gravar o log de interação do Vitru", error);

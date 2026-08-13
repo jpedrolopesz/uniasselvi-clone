@@ -26,4 +26,6 @@ export interface StudyActivity {
   endTime: string;
   notes: string;
   source: ActivitySource;
+  /** Estado somente visual. Nunca é persistido em study_activities. */
+  confirmationStatus?: "pending" | "saving" | "error";
 }
