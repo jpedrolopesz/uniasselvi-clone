@@ -3,11 +3,18 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { SVGProps } from "react";
-import { CalendarIcon, GraduationCapIcon, HomeIcon, UsersIcon } from "@/components/icons";
+import {
+  CalendarIcon,
+  ChatBubbleIcon,
+  GraduationCapIcon,
+  HomeIcon,
+  UsersIcon,
+} from "@/components/icons";
 
 const TABS: { label: string; href: string; icon: (props: SVGProps<SVGSVGElement>) => React.JSX.Element }[] = [
   { label: "Home", href: "/", icon: HomeIcon },
   { label: "Calendário de Estudos", href: "/calendario-de-estudos", icon: CalendarIcon },
+  { label: "Meu Grupo", href: "/meu-grupo", icon: ChatBubbleIcon },
   { label: "Comunidade", href: "/comunidade", icon: UsersIcon },
   { label: "Campus Vitru", href: "/campus-vitru", icon: GraduationCapIcon },
 ];
