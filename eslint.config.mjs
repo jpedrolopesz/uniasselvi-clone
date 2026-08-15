@@ -12,6 +12,9 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Projetos independentes, com package.json/tsconfig próprios — cada um
+    // roda seu próprio lint (ver também "services" em tsconfig.json#exclude).
+    "services/**",
   ]),
 ]);
 
