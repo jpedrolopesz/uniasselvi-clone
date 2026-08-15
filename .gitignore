@@ -32,6 +32,7 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.example
 
 # local Vitru state (pending plans, sessões de conversa, inbox, log de interações — dados de aluno/execução, não de código)
 .vitru/*.local.json

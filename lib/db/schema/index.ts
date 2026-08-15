@@ -5,3 +5,6 @@
  */
 export * from "@/lib/db/schema/academic";
 export * from "@/lib/db/schema/vitru";
+export * from "@/lib/db/schema/learning-profile";
+export * from "@/lib/db/schema/community";
+export * from "@/lib/db/schema/risk-score";

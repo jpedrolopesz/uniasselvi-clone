@@ -1,0 +1,10 @@
+{
+  "app": "npx ts-node --prefer-ts-exts bin/vitru-infra.ts",
+  "watch": {
+    "include": ["**"],
+    "exclude": ["node_modules", "cdk.out", "**/*.d.ts", "**/*.js"]
+  },
+  "context": {
+    "env": "dev"
+  }
+}
