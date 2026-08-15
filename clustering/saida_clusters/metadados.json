@@ -1,0 +1,39 @@
+{
+  "arquivo": "/home/matheuscahu/HackaVitru/dataset_aluno_predicted_20260807_hac.xlsx",
+  "n_alunos": 457427,
+  "k": 8,
+  "silhouette": 0.13912349340742722,
+  "features": [
+    "QT_IDADE_ALUNO",
+    "FL_ENTRADA_TARDIA",
+    "FL_ALUNO_SEM_ESPACO_CALOURO",
+    "FL_FEZ_QUEST_ESPACO_CALOURO",
+    "FL_FEZ_QUEST_CONHECA_EAD",
+    "FL_ACESSOU_CONHECA_EAD",
+    "QT_DIA_ATE_PRI_ACESSO",
+    "QT_DIA_ACESSO_TOTAL",
+    "QT_ACESSO_AVA_SEMANA_ENTREGA_ATV",
+    "PC_ATIVIDADE_ENTREGUE",
+    "QT_ATV_ENTREGUE",
+    "PC_AULA_AOVIVO_ASSISTIDA",
+    "PC_AULA_CONCEITUAL_ASSISTIDA",
+    "PC_ENGAJAMENTO_FINANCEIRO",
+    "PC_RENEGOCIACAO",
+    "PC_CONCLUSAO_CURSO",
+    "PC_DESEMP_MF",
+    "PC_DESEMP_ATIV",
+    "PC_DESEMP_PROVA",
+    "PC_DISC_APROV"
+  ],
+  "filtro_tp_aluno": null,
+  "perfis": {
+    "0": "C0 - Intermitente (Acessou Conheca EAD baixo)",
+    "1": "C1 - Regular (% atividades entregues alto)",
+    "2": "C2 - Intermitente (Acessou Conheca EAD alto)",
+    "3": "C3 - Desengajado (Desempenho - atividades baixo)",
+    "4": "C4 - Regular (Respondeu quest. Conheca EAD alto)",
+    "5": "C5 - Regular (Respondeu quest. Espaco Calouro alto)",
+    "6": "C6 - Desengajado (Entrada tardia alto)",
+    "7": "C7 - Regular (Respondeu quest. Espaco Calouro alto)"
+  }
+}
