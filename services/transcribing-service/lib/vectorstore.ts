@@ -63,6 +63,38 @@ export async function upsertChunks(
   }
 }
 
+/**
+ * Stores the flattened plain-text transcript for a video. Idempotent by
+ * video_id, and independent of EMBEDDING_MODEL — re-ingesting under a new
+ * embedding model overwrites the same row instead of accumulating copies.
+ */
+export async function upsertTranscript(
+  meta: ChunkMeta,
+  content: string,
+  stats: { segments: number; durationMs: number },
+): Promise<void> {
+  await pool.query(
+    `insert into transcripts
+       (video_id, course, materia, content, segments, duration_ms)
+     values ($1,$2,$3,$4,$5,$6)
+     on conflict (video_id) do update
+       set course      = excluded.course,
+           materia     = excluded.materia,
+           content     = excluded.content,
+           segments    = excluded.segments,
+           duration_ms = excluded.duration_ms,
+           updated_at  = now()`,
+    [
+      meta.videoId,
+      meta.course ?? null,
+      meta.materia ?? null,
+      content,
+      stats.segments,
+      stats.durationMs,
+    ],
+  );
+}
+
 export interface Retrieved {
   videoId: string;
   materia: string | null;

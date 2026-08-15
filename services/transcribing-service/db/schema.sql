@@ -18,8 +18,24 @@ create table if not exists ingest_jobs (
 
 create index if not exists ingest_jobs_status_idx on ingest_jobs (status, next_retry_at);
 
+-- Full plain-text transcript, one row per video. Deliberately NOT keyed by
+-- model_version: the text is a property of the lecture, not of the embedding
+-- model, so re-embedding with a different model reuses this instead of
+-- re-downloading the captions.
+create table if not exists transcripts (
+  id          bigserial primary key,
+  video_id    text not null unique,
+  course      text,
+  materia     text,
+  content     text not null,
+  segments    int  not null,
+  duration_ms int  not null,
+  created_at  timestamptz not null default now(),
+  updated_at  timestamptz not null default now()
+);
+
 -- Embedded transcript chunks. Each row = one time-window with citation metadata.
--- NOTE: vector(1536) matches text-embedding-3-small. If you swap the embedding
+-- NOTE: vector(768) matches nomic-embed-text (local via Ollama). If you swap the embedding
 -- model, change this dimension to match (e.g. 768 for many local models).
 create table if not exists transcript_chunks (
   id            bigserial primary key,
@@ -31,7 +47,7 @@ create table if not exists transcript_chunks (
   end_ms        int  not null,
   content       text not null,
   content_hash  text not null,
-  embedding     vector(1536) not null,
+  embedding     vector(768) not null,
   model_version text not null,
   created_at    timestamptz not null default now(),
   unique (video_id, chunk_index, model_version)
