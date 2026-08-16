@@ -42,6 +42,7 @@ function resolveDriver(): DatabaseDriver {
 
 /** Diretório do banco embarcado. `:memory:` isola cada execução de teste. */
 function pgliteLocation(): string {
+  if (process.env.VERCEL === "1") return "memory://";
   return (
     process.env.PGLITE_PATH ?? path.join(process.cwd(), ".vitru", "pglite")
   );
@@ -67,9 +68,24 @@ async function createConnection(): Promise<Connection> {
     // inicializado. No App Router, layout e página podem consultar o banco em
     // paralelo; devolver a instância criada com `new PGlite()` antes de
     // `waitReady` pode fazer as primeiras queries disputarem o boot do WASM.
-    const client = await PGlite.create(pgliteLocation());
+    const location = pgliteLocation();
+    const client = await PGlite.create(location);
+    const db = drizzle(client, { schema });
+
+    // A Vercel não oferece um diretório persistente gravável para o banco
+    // embarcado. Em cada cold start criamos a demonstração em memória,
+    // aplicamos o schema e carregamos os fixtures usados pelo protótipo.
+    if (location === "memory://") {
+      const { migrate } = await import("drizzle-orm/pglite/migrator");
+      const { seedFixtures } = await import("@/lib/db/seed-fixtures");
+      await migrate(db, {
+        migrationsFolder: path.join(process.cwd(), "lib", "db", "migrations"),
+      });
+      await seedFixtures(db as unknown as Database);
+    }
+
     return {
-      db: drizzle(client, { schema }) as unknown as Database,
+      db: db as unknown as Database,
       close: () => client.close(),
     };
   }

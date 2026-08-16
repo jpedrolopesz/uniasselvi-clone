@@ -13,6 +13,11 @@ const nextConfig: NextConfig = {
   // do Node para este pacote, sem empacotar, que é como os scripts (tsx) e
   // o vitest sempre rodaram sem problema.
   serverExternalPackages: ["@electric-sql/pglite"],
+  // Migrations e fixtures são lidos do filesystem pela função serverless no
+  // primeiro acesso, portanto precisam acompanhar o bundle de todas as rotas.
+  outputFileTracingIncludes: {
+    "/*": ["./lib/db/migrations/**/*", "./public/data/**/*"],
+  },
 };
 
 export default nextConfig;

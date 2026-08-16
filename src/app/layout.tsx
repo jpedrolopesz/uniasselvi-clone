@@ -12,6 +12,10 @@ export const metadata: Metadata = {
   description: "Ambiente Virtual de Aprendizagem simulado com dados locais.",
 };
 
+// O layout depende do usuário ativo e do banco demonstrativo. Impede que o
+// Next tente consultar o PGlite durante a geração estática do deploy.
+export const dynamic = "force-dynamic";
+
 export default async function RootLayout({
   children,
 }: Readonly<{

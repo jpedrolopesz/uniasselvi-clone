@@ -1,6 +1,6 @@
 import "server-only";
 import { query, queryOne } from "./client";
-import { embedOne,toVectorLiteral } from "@/lib/ai/embeddings";
+import { embedOne, toVectorLiteral } from "../ai/embeddings";
 
 export function normalizeAlias(input: string) { return input.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase().replace(/\s+/g," ").trim(); }
 export interface ResolvedTarget { subjectId:string;subjectCode:string;name:string;route:string|null;matchedBy:"alias"|"exact_name"|"semantic";confidence:number }

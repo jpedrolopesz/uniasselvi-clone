@@ -1,4 +1,4 @@
-import type { SubjectRow } from "@/lib/db/academic";
+import type { SubjectRow } from "./db/academic";
 
 export interface SubjectSchedule { day: string; time: string }
 export type SubjectStatus = "em_andamento" | "em_breve";
