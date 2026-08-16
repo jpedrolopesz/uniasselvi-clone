@@ -17,8 +17,9 @@ Requisição HTTP → API Route → Módulo de Negócio (lib/) → Banco (Aurora
 - **Framework:** Next.js 16 (App Router)
 - **ORM:** Drizzle ORM (type-safe, SQL-first)
 - **Banco:** Aurora Serverless v2 (PostgreSQL 16) / PGlite (dev)
-- **IA:** AWS Bedrock (Converse API)
-- **CRM:** Salesforce REST API v60.0
+- **IA Texto:** Salesforce Agentforce (Agent API v62.0)
+- **IA Voz:** Amazon Nova Sonic (Bedrock, speech-to-speech)
+- **CRM:** Salesforce Education Cloud (REST API v62.0)
 
 ---
 
@@ -39,7 +40,8 @@ Requisição HTTP → API Route → Módulo de Negócio (lib/) → Banco (Aurora
 | POST | `/api/v1/community` | Community | Entrar ou sair de grupo |
 | POST | `/api/v1/salesforce/sync` | Salesforce | Força sincronização → SF |
 | POST | `/api/v1/salesforce/webhook` | Salesforce | Recebe eventos do Salesforce |
-| POST | `/api/v1/vitru/chat` | Vitru | Assistente IA conversacional |
+| POST | `/api/v1/agentforce/chat` | Agentforce | Chat texto (Salesforce Agent API) |
+| POST | `/api/v1/vitru/chat` | Vitru | Assistente IA conversacional (legado) |
 
 ---
 
@@ -361,11 +363,77 @@ Response: 200 OK
 
 ---
 
-### 3.6 Vitru Chat API
+### 3.6 Agentforce Chat API (Salesforce — texto)
+
+**Arquivo:** `app/api/v1/agentforce/chat/route.ts`  
+**Módulo:** `lib/agentforce/client.ts`  
+**Integração:** Salesforce Agent API v62.0 (OAuth Client Credentials)
+
+```
+Request:  POST /api/v1/agentforce/chat
+Body:
+{
+  "message": "O que devo estudar hoje?",
+  "sessionId": "session-123"   // opcional, cria nova se ausente
+}
+
+Response: 200 OK
+{
+  "ok": true,
+  "sessionId": "session-123",
+  "replies": [
+    {
+      "id": "r-123",
+      "text": "Priorize Estatística (avaliação em 3 dias). Método: Mapas Mentais.",
+      "type": "Inform",
+      "safe": true
+    }
+  ]
+}
+```
+
+**Fluxo em produção:**
+```
+POST → OAuth (Client Credentials) → Cria sessão (Agent API) → Envia mensagem → Resposta
+```
+
+**Em dev (Agent API indisponível na org gratuita):** Retorna respostas simuladas baseadas no contexto do aluno.
+
+---
+
+### 3.7 Nova Sonic Voice API (AWS — voz)
+
+**Protocolo:** WebSocket bidirectional (Bedrock Converse Stream)  
+**Modelo:** `amazon.nova-sonic-v1:0`  
+**Integração:** Amazon Bedrock (speech-to-speech, sem STT+TTS separados)
+
+```
+Fluxo:
+  1. Client abre WebSocket com Bedrock
+  2. Envia system prompt (contexto do aluno: perfil VARK, disciplinas, score)
+  3. Envia chunks de áudio do microfone
+  4. Recebe chunks de áudio da resposta (streaming)
+  5. Client reproduz áudio em tempo real
+
+Latência: <1s para primeira resposta
+Custo: ~$0.0007/segundo de áudio
+```
+
+**System prompt incluído:**
+```
+Aluno: visual/cinestésico, trabalha integral, curso ADM.
+Disciplinas: Estatística (prova em 3 dias), Cálculo I (nota 5.2).
+Risk score: 62/100. Participa de 0 comunidades.
+Responda de forma breve e direta. Português brasileiro.
+```
+
+---
+
+### 3.8 Vitru Chat API (legado)
 
 **Arquivo:** `app/api/v1/vitru/chat/route.ts`  
 **Módulo:** `lib/vitru/generate.ts`, `lib/vitru/build-student-context.ts`  
-**Integração:** AWS Bedrock (Converse API)
+**Integração:** AWS Bedrock (Converse API — texto)
 
 ```
 Request:  POST /api/v1/vitru/chat
@@ -397,6 +465,8 @@ Response: 200 OK
 
 ```
 lib/
+├── agentforce/
+│   └── client.ts                  # OAuth + Agent API v62.0 (sessão, mensagem)
 ├── profile/
 │   └── learning-profile.ts        # Tipos, VARK, onboarding steps, cálculo de completude
 ├── recommender/

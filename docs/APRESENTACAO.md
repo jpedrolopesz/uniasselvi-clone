@@ -52,18 +52,22 @@ AWS + Salesforce Agentforce + Amazon Nova Sonic + Sala Virtual
 
 ```
 ┌───────────────────────────────────────────────────────┐
-│              ASSISTENTE VITRU (canto esquerdo)         │
+│     ASSISTENTE VITRU (canto esquerdo, logo animado)   │
 │                                                       │
-│  Modo Texto: Salesforce Agentforce                    │
-│  • Agent API REST                                     │
-│  • Topics: estudo, comunidade, planejamento           │
-│  • Consulta dados do aluno no CRM                     │
+│  ┌─────────────────┐ ┌─────────────────────────────┐ │
+│  │  AGENTFORCE     │ │  NOVA SONIC                  │ │
+│  │  (tab texto)    │ │  (tab voz)                   │ │
+│  │                 │ │                              │ │
+│  │  Salesforce     │ │  AWS Bedrock                 │ │
+│  │  Agent API      │ │  Speech-to-speech            │ │
+│  │  REST v62.0     │ │  WebSocket bidirectional     │ │
+│  │                 │ │                              │ │
+│  │  Digita →       │ │  Fala →                      │ │
+│  │  recebe texto   │ │  ouve resposta em áudio      │ │
+│  └─────────────────┘ └─────────────────────────────┘ │
 │                                                       │
-│  Modo Voz: Amazon Nova Sonic (Bedrock)                │
-│  • Speech-to-speech (sem STT+TTS separados)           │
-│  • WebSocket bidirectional                            │
-│  • Latência <1s, português nativo                     │
-│  • Hands-free, acessível                              │
+│  Ambos consultam: perfil VARK, disciplinas,           │
+│  risk score, comunidades do aluno                     │
 └───────────────────────────────────────────────────────┘
 ```
 
@@ -309,9 +313,10 @@ http://localhost:3000/comunidade   → Hub comunidade
 http://localhost:3000/risco        → Score engajamento
 http://localhost:3000/campus-virtual → Sala Virtual (futuro)
 
-Botão mic (canto esquerdo) → Assistente Vitru
-  • Modo texto: Salesforce Agentforce
-  • Modo voz: Amazon Nova Sonic
+Botão Vitru (canto esquerdo, logo animado):
+  → Clique para abrir assistente
+  → Tab "Agentforce": chat por escrita (Salesforce)
+  → Tab "Nova Sonic": conversa por voz (AWS Bedrock)
 ```
 
 ---

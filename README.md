@@ -19,13 +19,15 @@ A evasão em cursos EAD no Brasil supera **30%** (INEP/MEC). Alunos desistem por
 
 ## Solução
 
-O Vitru AVA combina **IA conversacional (Salesforce Agentforce)** com **infraestrutura AWS** para criar um ambiente de aprendizagem que:
+O Vitru AVA combina **IA conversacional (Salesforce Agentforce + Amazon Nova Sonic)** com **infraestrutura AWS** para criar um ambiente de aprendizagem que:
 
 | Pilar | O que faz | Tecnologia |
 |-------|----------|-----------|
-| Assistente IA | Conversa, recomenda estudos, indica comunidade | Agentforce Builder |
+| Assistente IA (texto) | Conversa, recomenda estudos, indica comunidade | Salesforce Agentforce |
+| Assistente IA (voz) | Conversa por voz, speech-to-speech, hands-free | Amazon Nova Sonic (Bedrock) |
 | Detecção de Risco | Calcula score de evasão, alerta coordenadores | AWS Lambda + Salesforce CRM |
 | Comunidade | Conecta a EJ, pesquisa, atlética, networking | React + Aurora |
+| Sala Virtual | Campus 2D com avatares e voz por proximidade | PixiJS + Chime SDK + API GW WS |
 | Perfil Inteligente | Coleta estilo VARK, adapta tudo ao aluno | Onboarding progressivo |
 
 ---
@@ -38,8 +40,11 @@ http://localhost:3000/perfil       → Onboarding de perfil (VARK)
 http://localhost:3000/recomendacoes → Recomendações de estudo (IA)
 http://localhost:3000/comunidade   → Hub de comunidade (matching)
 http://localhost:3000/risco        → Score de engajamento
+http://localhost:3000/campus-virtual → Sala Virtual (roadmap)
 
-+ Botão amarelo (canto inferior direito) → Chat Agentforce
+Widget Vitru (canto inferior esquerdo, logo animado):
+  → Tab "Agentforce": chat por escrita (Salesforce)
+  → Tab "Nova Sonic": conversa por voz (AWS Bedrock)
 ```
 
 ---
@@ -51,14 +56,20 @@ http://localhost:3000/risco        → Score de engajamento
                                         │
                               API Routes (serverless)
                                         │
-                    ┌────────────────────┼────────────────────┐
-                    ▼                    ▼                    ▼
-              AWS Aurora           AWS Lambda           Salesforce
-            (banco dados)       (risk score +        (Agentforce +
-                                 sync SF)             CRM retenção)
+              ┌─────────────────────────┬┼┬─────────────────────────┐
+              ▼                         ▼ ▼                         ▼
+        AWS Aurora              AWS Lambda +              Salesforce
+       (banco dados)           Bedrock Nova Sonic        (Agentforce +
+                               (risk score, voz,          CRM retenção)
+                                sync SF)
+                                        │
+              ┌─────────────────────────┘
+              ▼
+        Sala Virtual
+       (API GW WS + Chime SDK + DynamoDB)
 ```
 
-Documentação completa: [`docs/ARQUITETURA.md`](docs/ARQUITETURA.md)
+Documentação completa: [`docs/ARQUITETURA.md`](docs/ARQUITETURA.md) | [`docs/SALA-VIRTUAL.md`](docs/SALA-VIRTUAL.md)
 
 ---
 
@@ -70,9 +81,11 @@ Documentação completa: [`docs/ARQUITETURA.md`](docs/ARQUITETURA.md)
 | Backend | Next.js API Routes (serverless), TypeScript |
 | Banco | Aurora Serverless v2 (PostgreSQL) / PGlite (dev) |
 | ORM | Drizzle ORM |
-| IA | Salesforce Agentforce Builder |
+| IA Texto | Salesforce Agentforce (Agent API v62.0) |
+| IA Voz | Amazon Nova Sonic (Bedrock, speech-to-speech) |
 | CRM | Salesforce Education Cloud |
 | Auth | AWS Cognito |
+| Sala Virtual | PixiJS + Amazon Chime SDK + API Gateway WS + DynamoDB |
 | Storage | S3 + CloudFront |
 | IaC | AWS CDK (TypeScript) |
 | CI/CD | GitHub Actions |
@@ -145,6 +158,7 @@ vitru-ava/
 ├── docs/                       # Documentação
 │   ├── ARQUITETURA.md          # Arquitetura completa
 │   ├── BACKEND.md              # APIs e contratos
+│   ├── SALA-VIRTUAL.md         # Campus virtual (avatares + voz)
 │   └── APRESENTACAO.md         # Slides (Marp)
 └── .github/workflows/          # CI/CD
 ```
@@ -155,9 +169,10 @@ vitru-ava/
 
 | Documento | Conteúdo |
 |-----------|---------|
-| [ARQUITETURA.md](docs/ARQUITETURA.md) | Visão completa: AWS, Salesforce, fluxos, custos, decisões |
+| [ARQUITETURA.md](docs/ARQUITETURA.md) | AWS, Salesforce, Agentforce, Nova Sonic, fluxos, custos |
 | [BACKEND.md](docs/BACKEND.md) | APIs, schemas, contratos request/response |
-| [APRESENTACAO.md](docs/APRESENTACAO.md) | Slides para apresentação (formato Marp) |
+| [SALA-VIRTUAL.md](docs/SALA-VIRTUAL.md) | Campus 2D: Chime SDK, API GW WS, DynamoDB, avatares |
+| [APRESENTACAO.md](docs/APRESENTACAO.md) | Slides para banca (formato Marp) |
 
 ---
 
