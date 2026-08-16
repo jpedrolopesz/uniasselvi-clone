@@ -15,11 +15,11 @@
     "studyActivities": true
   },
   "subjects": [
+    "114480",
     "159490",
     "GTI03",
-    "MAT24",
-    "114480",
-    "GTI04"
+    "GTI04",
+    "MAT24"
   ],
   "screens": [
     "home",

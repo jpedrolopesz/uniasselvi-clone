@@ -1,6 +1,9 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Permite abrir o servidor de desenvolvimento pelo IP da rede local.
+  // Sem isso o Next bloqueia HMR e outros recursos internos vindos desse host.
+  allowedDevOrigins: ["192.168.0.18", "10.10.128.59"],
   // PGlite carrega um binário WASM relativo ao seu próprio pacote em
   // node_modules. Empacotado pelo Next (Turbopack ou webpack, testado nos
   // dois), essa resolução de asset quebra com

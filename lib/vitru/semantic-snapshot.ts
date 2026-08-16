@@ -39,6 +39,8 @@ export interface VitruSection {
 export interface VitruItem {
   id: string;
   name: string;
+  /** Vocabulário técnico somente para casamento de referências; não é fato falável. */
+  referenceCodes?: string[];
   status?: string;
   facts?: Record<string, string>;
   actionIds: string[];
@@ -56,6 +58,4 @@ export interface VitruDestination {
   href: string;
 }
 
-export type VitruPageSnapshot =
-  | { mode: "semantic"; snapshot: VitruSemanticSnapshot }
-  | { mode: "dom"; context: unknown };
+export type VitruPageSnapshot = { mode: "semantic"; snapshot: VitruSemanticSnapshot };

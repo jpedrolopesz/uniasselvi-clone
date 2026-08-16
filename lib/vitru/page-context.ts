@@ -3,6 +3,7 @@ export type VitruPageId =
   | "campus"
   | "universal-chat"
   | "study-calendar"
+  | "community"
   | "discipline"
   | "discipline-calendar"
   | "attendance"
@@ -38,11 +39,13 @@ const PAGE_DEFINITIONS: PageDefinition[] = [
   { id: "home", name: "Início", pattern: /^\/$/, capabilities: NAVIGATE },
   { id: "campus", name: "Campus Vitru", pattern: /^\/campus-vitru\/?$/, capabilities: NAVIGATE },
   { id: "universal-chat", name: "Chat com o Vitru", pattern: /^\/chat-ia\/?$/, capabilities: NAVIGATE },
+  { id: "community", name: "Comunidade do Calouro", pattern: /^\/comunidade\/?$/, capabilities: NAVIGATE },
+  { id: "community", name: "Introdução à Comunidade", pattern: /^\/introducao-comunitaria\/?$/, capabilities: NAVIGATE },
   {
     id: "study-calendar",
     name: "Calendário de Estudos",
     pattern: /^\/calendario-de-estudos\/?$/,
-    capabilities: [...NAVIGATE, "show_options", "prepare_calendar_event", "confirm_write"],
+    capabilities: [...NAVIGATE, "show_options", "select_option", "confirm_write"],
   },
   {
     id: "assessment-scheduling",
@@ -129,11 +132,14 @@ export function resolveVitruPage(pathname: string): VitruPageContext {
   return { id: "unknown", name: "Página não catalogada", pathname, params: {}, capabilities: READ };
 }
 
-export function isSafeInternalHref(href: string): boolean {
+export function isSafeInternalHref(href: string, knownSubjectCodes: ReadonlySet<string> = new Set()): boolean {
   if (!href.startsWith("/") || href.startsWith("//")) return false;
   try {
     const url = new URL(href, "https://vitru.local");
-    return url.origin === "https://vitru.local" && !url.pathname.includes("..") && resolveVitruPage(url.pathname).id !== "unknown";
+    const page = resolveVitruPage(url.pathname);
+    if (url.origin !== "https://vitru.local" || url.pathname.includes("..") || page.id === "unknown") return false;
+    const subjectCode = page.params.subjectCode;
+    return !subjectCode || knownSubjectCodes.has(subjectCode);
   } catch {
     return false;
   }

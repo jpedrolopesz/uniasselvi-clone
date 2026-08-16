@@ -23,7 +23,12 @@ export interface LearningPathLessonRaw {
   kind: LearningPathLessonKind;
   duration_min: number;
   points: number;
-  /** Estado de conclusão "de fábrica" — mesclado no servidor com o progresso salvo em trilha-progress.json (ver lib/data/load-trilha-progress.ts). */
+  /**
+   * @deprecated Campo inerte. O progresso real vem exclusivamente de
+   * `trilha_completions` no banco (ver lib/data/load-trilha-progress.ts); nem
+   * a página nem os selectors leem este valor. Mantido só porque as fixtures
+   * existentes o carregam — não use para decidir estado de conclusão.
+   */
   completed: boolean;
   /** Corpo em markdown simplificado (## títulos, parágrafos separados por linha em branco, **negrito**). */
   content: string;
@@ -40,9 +45,27 @@ export interface LearningPathSectionRaw {
   lessons: LearningPathLessonRaw[];
 }
 
+/**
+ * Procedência do conteúdo da trilha — nenhuma delas vem de endpoint real da
+ * UNIASSELVI, mas o grau de invenção difere e isso importa na hora de decidir
+ * o que pode ser mostrado como demonstração fiel.
+ *
+ * - `transcribed`: transcrito à mão das páginas reais da disciplina (MAT24).
+ * - `derived`: reconstruído a partir de outras fixtures reais do próprio
+ *   projeto — títulos de aulas gravadas, enunciados de avaliação, eventos de
+ *   calendário. O recorte de tópicos reflete o que a disciplina realmente cobra.
+ * - `synthetic`: ementa inventada a partir apenas do nome da disciplina, sem
+ *   nenhum material de origem. Substituir assim que houver conteúdo real.
+ */
+export type LearningPathSource = "transcribed" | "derived" | "synthetic";
+
 export interface LearningPathRaw {
   subject_code: string;
   title: string;
   subtitle: string;
+  /** Ausente equivale a `transcribed` (fixture MAT24, anterior a este campo). */
+  source?: LearningPathSource;
+  /** Fixtures de origem que embasaram uma trilha `derived`, para auditoria. */
+  derived_from?: string[];
   sections: LearningPathSectionRaw[];
 }

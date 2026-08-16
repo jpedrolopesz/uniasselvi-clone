@@ -11,9 +11,9 @@ const snapshot: VitruSemanticSnapshot = {
     id: "assessments",
     name: "Avaliações",
     items: [
-      { id: "av1", name: "Avaliação Virtual 1", status: "Disponível para agendamento", actionIds: ["av1:schedule"] },
-      { id: "av2", name: "Avaliação Virtual 2", status: "Disponível para responder", actionIds: ["av2:answer"] },
-      { id: "av4", name: "Avaliação Discursiva Individual", actionIds: ["av4:schedule"] },
+      { id: "av1", name: "Avaliação Virtual 1", referenceCodes: ["AV1"], status: "Disponível para agendamento", actionIds: ["av1:schedule"] },
+      { id: "av2", name: "Avaliação Virtual 2", referenceCodes: ["AV2"], status: "Disponível para responder", actionIds: ["av2:answer"] },
+      { id: "av4", name: "Avaliação Discursiva Individual", referenceCodes: ["AV4"], actionIds: ["av4:schedule"] },
       ...Array.from({ length: 7 }, (_, index) => ({
         id: `lesson:${index + 1}`,
         name: `Unidade ${index + 1} de fundamentos de processos`,
@@ -45,6 +45,13 @@ describe("resolveTarget", () => {
   it("resolve agendamento da AV1 num fixture com 10 ações", () => {
     expect(snapshot.actions).toHaveLength(10);
     expect(resolveTarget("Mostre onde eu agendo a AV1", snapshot).actionId).toBe("av1:schedule");
+  });
+
+  it.each([
+    ["AV1", "av1:schedule"], ["AV2", "av2:answer"], ["a AV4", "av4:schedule"],
+  ])("preserva resolução de %s pelo código fora de facts", (phrase, actionId) => {
+    const result = resolveTarget(phrase, snapshot);
+    expect(result).toMatchObject({ actionId, score: 1, ambiguous: false });
   });
 
   it("não escolhe quando os dois melhores ficam dentro da margem de 15%", () => {

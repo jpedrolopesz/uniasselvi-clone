@@ -3,11 +3,13 @@ import { afterEach, beforeEach, describe, expect, it } from "vitest";
 import { createTestStudent, deleteTestStudent } from "@/lib/db/test-helpers";
 import {
   applyStudySessionDecision,
+  createConfirmedVoiceStudySession,
   createStudyProgram,
   getActiveStudyProgram,
 } from "@/lib/vitru/study-programs";
 import { loadStudyActivities } from "@/lib/data/load-study-planner-data";
 import type { StudyProgram } from "@/lib/study-planner/study-program";
+import { buildVitruStudentContext } from "@/lib/vitru/build-student-context";
 
 let userId: string;
 
@@ -123,5 +125,22 @@ describe("applyStudySessionDecision", () => {
     await expect(
       applyStudySessionDecision(userId, randomUUID(), "accepted")
     ).rejects.toThrow();
+  });
+});
+
+describe("createConfirmedVoiceStudySession", () => {
+  it("revalida uma opção calculada e grava uma linha em studySessions", async () => {
+    const context = await buildVitruStudentContext(userId);
+    const slot = context.schedule.availableStudySlots[0];
+    expect(slot).toBeDefined();
+    const session = await createConfirmedVoiceStudySession(userId, slot);
+    expect(session).toMatchObject({ date: slot.date, startTime: slot.startTime, endTime: slot.endTime });
+    expect((await getActiveStudyProgram(userId))?.sessions).toContainEqual(expect.objectContaining({ id: session?.id }));
+  });
+
+  it("recusa uma opção inventada que não pertence ao recálculo atual", async () => {
+    await expect(createConfirmedVoiceStudySession(userId, { date: "2099-01-01", startTime: "03:00", endTime: "04:00" }))
+      .resolves.toBeNull();
+    await expect(getActiveStudyProgram(userId)).resolves.toBeNull();
   });
 });

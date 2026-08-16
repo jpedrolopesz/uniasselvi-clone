@@ -30,8 +30,11 @@ describe("buildAssessmentsSnapshot", () => {
     ]);
     expect(snapshot.sections[0].items[0]).toMatchObject({
       id: "assessment:GTI03:AV1",
+      referenceCodes: ["AV1"],
+      facts: { nota: "-", peso: "2,0" },
       actionIds: ["assessment:GTI03:AV1:schedule"],
     });
+    expect(snapshot.sections[0].items[0].facts).not.toHaveProperty("codigo");
     expect(snapshot.destinations.every((destination) => destination.href.startsWith("/"))).toBe(true);
   });
 

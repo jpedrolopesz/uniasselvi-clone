@@ -1,0 +1,1751 @@
+{
+  "database": {
+    "engine": "PostgreSQL",
+    "orm": "Drizzle ORM",
+    "schemas": [
+      "academic",
+      "vitru"
+    ]
+  },
+  "conventions": {
+    "uuidPrimaryKeys": "gen_random_uuid()",
+    "timestamps": "timestamp with time zone",
+    "jsonPayloads": "jsonb preserva os objetos brutos recebidos das APIs institucionais",
+    "studentDeletion": "As tabelas dependentes usam, em geral, ON DELETE CASCADE"
+  },
+  "schemas": {
+    "academic": {
+      "description": "Réplica consultável dos dados institucionais (SOFIA/AVA); o Vitru não é a fonte da verdade.",
+      "tables": {
+        "assessments": {
+          "columns": {
+            "id": {
+              "type": "uuid",
+              "nullable": false,
+              "primaryKey": true,
+              "default": "gen_random_uuid()"
+            },
+            "student_id": {
+              "type": "uuid",
+              "nullable": false
+            },
+            "subject_code": {
+              "type": "text",
+              "nullable": false
+            },
+            "ordinal": {
+              "type": "integer",
+              "nullable": false
+            },
+            "code": {
+              "type": "text",
+              "nullable": false
+            },
+            "test_code": {
+              "type": "text",
+              "nullable": true
+            },
+            "test_type_code": {
+              "type": "text",
+              "nullable": true
+            },
+            "description": {
+              "type": "text",
+              "nullable": true
+            },
+            "begin_date": {
+              "type": "text",
+              "nullable": true
+            },
+            "end_date": {
+              "type": "text",
+              "nullable": true
+            },
+            "weight": {
+              "type": "text",
+              "nullable": true
+            },
+            "exam_made": {
+              "type": "integer",
+              "nullable": true
+            },
+            "need_schedule": {
+              "type": "boolean",
+              "nullable": true
+            },
+            "has_schedule": {
+              "type": "boolean",
+              "nullable": true
+            },
+            "can_answer": {
+              "type": "boolean",
+              "nullable": true
+            },
+            "payload": {
+              "type": "jsonb",
+              "nullable": false
+            }
+          },
+          "primaryKey": [
+            "id"
+          ],
+          "uniqueConstraints": [
+            {
+              "name": "assessments_unq",
+              "columns": [
+                "student_id",
+                "subject_code",
+                "code"
+              ]
+            }
+          ],
+          "indexes": [
+            {
+              "name": "assessments_student_subject_idx",
+              "columns": [
+                "student_id",
+                "subject_code"
+              ],
+              "unique": false
+            },
+            {
+              "name": "assessments_end_date_idx",
+              "columns": [
+                "student_id",
+                "end_date"
+              ],
+              "unique": false
+            }
+          ],
+          "foreignKeys": [
+            {
+              "name": "assessments_student_id_students_id_fk",
+              "columns": [
+                "student_id"
+              ],
+              "references": "academic.students(id)",
+              "onDelete": "cascade",
+              "onUpdate": "no action"
+            }
+          ]
+        },
+        "attendances": {
+          "columns": {
+            "id": {
+              "type": "uuid",
+              "nullable": false,
+              "primaryKey": true,
+              "default": "gen_random_uuid()"
+            },
+            "student_id": {
+              "type": "uuid",
+              "nullable": false
+            },
+            "subject_code": {
+              "type": "text",
+              "nullable": false
+            },
+            "frequency": {
+              "type": "integer",
+              "nullable": true
+            },
+            "payload": {
+              "type": "jsonb",
+              "nullable": false
+            }
+          },
+          "primaryKey": [
+            "id"
+          ],
+          "uniqueConstraints": [
+            {
+              "name": "attendances_unq",
+              "columns": [
+                "student_id",
+                "subject_code"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "name": "attendances_student_id_students_id_fk",
+              "columns": [
+                "student_id"
+              ],
+              "references": "academic.students(id)",
+              "onDelete": "cascade",
+              "onUpdate": "no action"
+            }
+          ]
+        },
+        "calendar_events": {
+          "columns": {
+            "id": {
+              "type": "uuid",
+              "nullable": false,
+              "primaryKey": true,
+              "default": "gen_random_uuid()"
+            },
+            "student_id": {
+              "type": "uuid",
+              "nullable": false
+            },
+            "subject_code": {
+              "type": "text",
+              "nullable": false
+            },
+            "ordinal": {
+              "type": "integer",
+              "nullable": false
+            },
+            "code": {
+              "type": "text",
+              "nullable": false
+            },
+            "begin_date": {
+              "type": "text",
+              "nullable": true
+            },
+            "end_date": {
+              "type": "text",
+              "nullable": true
+            },
+            "payload": {
+              "type": "jsonb",
+              "nullable": false
+            }
+          },
+          "primaryKey": [
+            "id"
+          ],
+          "uniqueConstraints": [
+            {
+              "name": "calendar_events_unq",
+              "columns": [
+                "student_id",
+                "subject_code",
+                "code"
+              ]
+            }
+          ],
+          "indexes": [
+            {
+              "name": "calendar_events_student_subject_idx",
+              "columns": [
+                "student_id",
+                "subject_code"
+              ],
+              "unique": false
+            }
+          ],
+          "foreignKeys": [
+            {
+              "name": "calendar_events_student_id_students_id_fk",
+              "columns": [
+                "student_id"
+              ],
+              "references": "academic.students(id)",
+              "onDelete": "cascade",
+              "onUpdate": "no action"
+            }
+          ]
+        },
+        "classmates": {
+          "columns": {
+            "id": {
+              "type": "uuid",
+              "nullable": false,
+              "primaryKey": true,
+              "default": "gen_random_uuid()"
+            },
+            "class_code": {
+              "type": "text",
+              "nullable": false
+            },
+            "ordinal": {
+              "type": "integer",
+              "nullable": false
+            },
+            "payload": {
+              "type": "jsonb",
+              "nullable": false
+            }
+          },
+          "primaryKey": [
+            "id"
+          ],
+          "uniqueConstraints": [
+            {
+              "name": "classmates_unq",
+              "columns": [
+                "class_code",
+                "ordinal"
+              ]
+            }
+          ],
+          "indexes": [
+            {
+              "name": "classmates_class_idx",
+              "columns": [
+                "class_code"
+              ],
+              "unique": false
+            }
+          ]
+        },
+        "datasets": {
+          "columns": {
+            "id": {
+              "type": "uuid",
+              "nullable": false,
+              "primaryKey": true,
+              "default": "gen_random_uuid()"
+            },
+            "student_id": {
+              "type": "uuid",
+              "nullable": false
+            },
+            "subject_code": {
+              "type": "text",
+              "nullable": false,
+              "default": "''"
+            },
+            "kind": {
+              "type": "text",
+              "nullable": false
+            }
+          },
+          "primaryKey": [
+            "id"
+          ],
+          "uniqueConstraints": [
+            {
+              "name": "datasets_unq",
+              "columns": [
+                "student_id",
+                "subject_code",
+                "kind"
+              ]
+            }
+          ],
+          "indexes": [
+            {
+              "name": "datasets_student_idx",
+              "columns": [
+                "student_id"
+              ],
+              "unique": false
+            }
+          ],
+          "foreignKeys": [
+            {
+              "name": "datasets_student_id_students_id_fk",
+              "columns": [
+                "student_id"
+              ],
+              "references": "academic.students(id)",
+              "onDelete": "cascade",
+              "onUpdate": "no action"
+            }
+          ]
+        },
+        "disciplines": {
+          "columns": {
+            "id": {
+              "type": "uuid",
+              "nullable": false,
+              "primaryKey": true,
+              "default": "gen_random_uuid()"
+            },
+            "student_id": {
+              "type": "uuid",
+              "nullable": false
+            },
+            "ordinal": {
+              "type": "integer",
+              "nullable": false
+            },
+            "code": {
+              "type": "text",
+              "nullable": false
+            },
+            "class_code": {
+              "type": "text",
+              "nullable": true
+            },
+            "description": {
+              "type": "text",
+              "nullable": true
+            },
+            "current_subject": {
+              "type": "boolean",
+              "nullable": true
+            },
+            "payload": {
+              "type": "jsonb",
+              "nullable": false
+            }
+          },
+          "primaryKey": [
+            "id"
+          ],
+          "uniqueConstraints": [
+            {
+              "name": "disciplines_unq",
+              "columns": [
+                "student_id",
+                "code",
+                "class_code"
+              ]
+            }
+          ],
+          "indexes": [
+            {
+              "name": "disciplines_student_idx",
+              "columns": [
+                "student_id"
+              ],
+              "unique": false
+            }
+          ],
+          "foreignKeys": [
+            {
+              "name": "disciplines_student_id_students_id_fk",
+              "columns": [
+                "student_id"
+              ],
+              "references": "academic.students(id)",
+              "onDelete": "cascade",
+              "onUpdate": "no action"
+            }
+          ]
+        },
+        "exam_schedule_options": {
+          "columns": {
+            "id": {
+              "type": "uuid",
+              "nullable": false,
+              "primaryKey": true,
+              "default": "gen_random_uuid()"
+            },
+            "student_id": {
+              "type": "uuid",
+              "nullable": false
+            },
+            "subject_code": {
+              "type": "text",
+              "nullable": false
+            },
+            "test_code": {
+              "type": "text",
+              "nullable": false
+            },
+            "ordinal": {
+              "type": "integer",
+              "nullable": false
+            },
+            "payload": {
+              "type": "jsonb",
+              "nullable": false
+            }
+          },
+          "primaryKey": [
+            "id"
+          ],
+          "uniqueConstraints": [
+            {
+              "name": "exam_schedule_options_unq",
+              "columns": [
+                "student_id",
+                "subject_code",
+                "test_code",
+                "ordinal"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "name": "exam_schedule_options_student_id_students_id_fk",
+              "columns": [
+                "student_id"
+              ],
+              "references": "academic.students(id)",
+              "onDelete": "cascade",
+              "onUpdate": "no action"
+            }
+          ]
+        },
+        "financial_titles": {
+          "columns": {
+            "id": {
+              "type": "uuid",
+              "nullable": false,
+              "primaryKey": true,
+              "default": "gen_random_uuid()"
+            },
+            "student_id": {
+              "type": "uuid",
+              "nullable": false
+            },
+            "ordinal": {
+              "type": "integer",
+              "nullable": false
+            },
+            "our_number": {
+              "type": "text",
+              "nullable": true
+            },
+            "due_date": {
+              "type": "text",
+              "nullable": true
+            },
+            "status": {
+              "type": "text",
+              "nullable": true
+            },
+            "paid": {
+              "type": "text",
+              "nullable": true
+            },
+            "payload": {
+              "type": "jsonb",
+              "nullable": false
+            }
+          },
+          "primaryKey": [
+            "id"
+          ],
+          "uniqueConstraints": [
+            {
+              "name": "financial_titles_unq",
+              "columns": [
+                "student_id",
+                "ordinal"
+              ]
+            }
+          ],
+          "indexes": [
+            {
+              "name": "financial_titles_student_idx",
+              "columns": [
+                "student_id"
+              ],
+              "unique": false
+            }
+          ],
+          "foreignKeys": [
+            {
+              "name": "financial_titles_student_id_students_id_fk",
+              "columns": [
+                "student_id"
+              ],
+              "references": "academic.students(id)",
+              "onDelete": "cascade",
+              "onUpdate": "no action"
+            }
+          ]
+        },
+        "learning_paths": {
+          "columns": {
+            "id": {
+              "type": "uuid",
+              "nullable": false,
+              "primaryKey": true,
+              "default": "gen_random_uuid()"
+            },
+            "student_id": {
+              "type": "uuid",
+              "nullable": false
+            },
+            "subject_code": {
+              "type": "text",
+              "nullable": false
+            },
+            "payload": {
+              "type": "jsonb",
+              "nullable": false
+            }
+          },
+          "primaryKey": [
+            "id"
+          ],
+          "uniqueConstraints": [
+            {
+              "name": "learning_paths_unq",
+              "columns": [
+                "student_id",
+                "subject_code"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "name": "learning_paths_student_id_students_id_fk",
+              "columns": [
+                "student_id"
+              ],
+              "references": "academic.students(id)",
+              "onDelete": "cascade",
+              "onUpdate": "no action"
+            }
+          ]
+        },
+        "recordings": {
+          "columns": {
+            "id": {
+              "type": "uuid",
+              "nullable": false,
+              "primaryKey": true,
+              "default": "gen_random_uuid()"
+            },
+            "student_id": {
+              "type": "uuid",
+              "nullable": false
+            },
+            "subject_code": {
+              "type": "text",
+              "nullable": false
+            },
+            "ordinal": {
+              "type": "integer",
+              "nullable": false
+            },
+            "title": {
+              "type": "text",
+              "nullable": true
+            },
+            "date_recording": {
+              "type": "text",
+              "nullable": true
+            },
+            "payload": {
+              "type": "jsonb",
+              "nullable": false
+            }
+          },
+          "primaryKey": [
+            "id"
+          ],
+          "uniqueConstraints": [
+            {
+              "name": "recordings_unq",
+              "columns": [
+                "student_id",
+                "subject_code",
+                "ordinal"
+              ]
+            }
+          ],
+          "indexes": [
+            {
+              "name": "recordings_student_subject_idx",
+              "columns": [
+                "student_id",
+                "subject_code"
+              ],
+              "unique": false
+            }
+          ],
+          "foreignKeys": [
+            {
+              "name": "recordings_student_id_students_id_fk",
+              "columns": [
+                "student_id"
+              ],
+              "references": "academic.students(id)",
+              "onDelete": "cascade",
+              "onUpdate": "no action"
+            }
+          ]
+        },
+        "students": {
+          "columns": {
+            "id": {
+              "type": "uuid",
+              "nullable": false,
+              "primaryKey": true,
+              "default": "gen_random_uuid()"
+            },
+            "slug": {
+              "type": "text",
+              "nullable": false
+            },
+            "person_id": {
+              "type": "text",
+              "nullable": true
+            },
+            "subscription_code": {
+              "type": "text",
+              "nullable": true
+            },
+            "username": {
+              "type": "text",
+              "nullable": true
+            },
+            "email": {
+              "type": "text",
+              "nullable": true
+            },
+            "full_name": {
+              "type": "text",
+              "nullable": true
+            },
+            "first_name": {
+              "type": "text",
+              "nullable": true
+            },
+            "course_code": {
+              "type": "text",
+              "nullable": true
+            },
+            "course_name": {
+              "type": "text",
+              "nullable": true
+            },
+            "modality": {
+              "type": "text",
+              "nullable": true
+            },
+            "status_description": {
+              "type": "text",
+              "nullable": true
+            },
+            "pole": {
+              "type": "text",
+              "nullable": true
+            },
+            "headquarter": {
+              "type": "text",
+              "nullable": true
+            },
+            "display_label": {
+              "type": "text",
+              "nullable": false
+            },
+            "is_fictional": {
+              "type": "boolean",
+              "nullable": false,
+              "default": false
+            },
+            "is_default": {
+              "type": "boolean",
+              "nullable": false,
+              "default": false
+            },
+            "scenario": {
+              "type": "text",
+              "nullable": true
+            },
+            "scenario_code": {
+              "type": "text",
+              "nullable": true
+            },
+            "simulation_date": {
+              "type": "text",
+              "nullable": true
+            },
+            "cohort_base_slug": {
+              "type": "text",
+              "nullable": true
+            },
+            "notes": {
+              "type": "text",
+              "nullable": true
+            },
+            "subjects": {
+              "type": "jsonb",
+              "nullable": false,
+              "default": "'[]'::jsonb"
+            },
+            "screens": {
+              "type": "jsonb",
+              "nullable": false,
+              "default": "'[]'::jsonb"
+            },
+            "manifest_datasets": {
+              "type": "jsonb",
+              "nullable": true
+            },
+            "user_data": {
+              "type": "jsonb",
+              "nullable": true
+            },
+            "current_semester": {
+              "type": "text",
+              "nullable": true
+            },
+            "sofia": {
+              "type": "jsonb",
+              "nullable": true
+            },
+            "work_schedule": {
+              "type": "jsonb",
+              "nullable": true
+            },
+            "created_at": {
+              "type": "timestamp with time zone",
+              "nullable": false,
+              "default": "now()"
+            },
+            "updated_at": {
+              "type": "timestamp with time zone",
+              "nullable": false,
+              "default": "now()"
+            }
+          },
+          "primaryKey": [
+            "id"
+          ],
+          "uniqueConstraints": [
+            {
+              "name": "students_slug_unq",
+              "columns": [
+                "slug"
+              ]
+            }
+          ],
+          "indexes": [
+            {
+              "name": "students_subscription_idx",
+              "columns": [
+                "subscription_code"
+              ],
+              "unique": false
+            },
+            {
+              "name": "students_person_idx",
+              "columns": [
+                "person_id"
+              ],
+              "unique": false
+            }
+          ]
+        },
+        "test_contents": {
+          "columns": {
+            "id": {
+              "type": "uuid",
+              "nullable": false,
+              "primaryKey": true,
+              "default": "gen_random_uuid()"
+            },
+            "student_id": {
+              "type": "uuid",
+              "nullable": false
+            },
+            "subject_code": {
+              "type": "text",
+              "nullable": false
+            },
+            "test_code": {
+              "type": "text",
+              "nullable": false
+            },
+            "payload": {
+              "type": "jsonb",
+              "nullable": false
+            }
+          },
+          "primaryKey": [
+            "id"
+          ],
+          "uniqueConstraints": [
+            {
+              "name": "test_contents_unq",
+              "columns": [
+                "student_id",
+                "subject_code",
+                "test_code"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "name": "test_contents_student_id_students_id_fk",
+              "columns": [
+                "student_id"
+              ],
+              "references": "academic.students(id)",
+              "onDelete": "cascade",
+              "onUpdate": "no action"
+            }
+          ]
+        }
+      }
+    },
+    "vitru": {
+      "description": "Dados produzidos pelo Vitru: memória, preferências, planejamento, progresso e telemetria.",
+      "tables": {
+        "app_settings": {
+          "columns": {
+            "key": {
+              "type": "text",
+              "nullable": false,
+              "primaryKey": true
+            },
+            "value": {
+              "type": "text",
+              "nullable": false
+            },
+            "updated_at": {
+              "type": "timestamp with time zone",
+              "nullable": false,
+              "default": "now()"
+            }
+          },
+          "primaryKey": [
+            "key"
+          ]
+        },
+        "conversation_messages": {
+          "columns": {
+            "id": {
+              "type": "uuid",
+              "nullable": false,
+              "primaryKey": true,
+              "default": "gen_random_uuid()"
+            },
+            "conversation_id": {
+              "type": "text",
+              "nullable": false
+            },
+            "role": {
+              "type": "text",
+              "nullable": false
+            },
+            "text": {
+              "type": "text",
+              "nullable": false
+            },
+            "created_at": {
+              "type": "timestamp with time zone",
+              "nullable": false,
+              "default": "now()"
+            }
+          },
+          "primaryKey": [
+            "id"
+          ],
+          "indexes": [
+            {
+              "name": "conversation_messages_conv_idx",
+              "columns": [
+                "conversation_id",
+                "created_at"
+              ],
+              "unique": false
+            }
+          ],
+          "foreignKeys": [
+            {
+              "name": "conversation_messages_conversation_id_conversations_id_fk",
+              "columns": [
+                "conversation_id"
+              ],
+              "references": "vitru.conversations(id)",
+              "onDelete": "cascade",
+              "onUpdate": "no action"
+            }
+          ]
+        },
+        "conversations": {
+          "columns": {
+            "id": {
+              "type": "text",
+              "nullable": false,
+              "primaryKey": true
+            },
+            "student_id": {
+              "type": "uuid",
+              "nullable": false
+            },
+            "surface": {
+              "type": "text",
+              "nullable": false
+            },
+            "object_id": {
+              "type": "text",
+              "nullable": false
+            },
+            "expires_at": {
+              "type": "timestamp with time zone",
+              "nullable": false
+            },
+            "created_at": {
+              "type": "timestamp with time zone",
+              "nullable": false,
+              "default": "now()"
+            },
+            "updated_at": {
+              "type": "timestamp with time zone",
+              "nullable": false,
+              "default": "now()"
+            }
+          },
+          "primaryKey": [
+            "id"
+          ],
+          "uniqueConstraints": [
+            {
+              "name": "conversations_key_unq",
+              "columns": [
+                "student_id",
+                "surface",
+                "object_id"
+              ]
+            }
+          ],
+          "indexes": [
+            {
+              "name": "conversations_expires_idx",
+              "columns": [
+                "expires_at"
+              ],
+              "unique": false
+            }
+          ],
+          "foreignKeys": [
+            {
+              "name": "conversations_student_id_students_id_fk",
+              "columns": [
+                "student_id"
+              ],
+              "references": "academic.students(id)",
+              "onDelete": "cascade",
+              "onUpdate": "no action"
+            }
+          ]
+        },
+        "interactions": {
+          "columns": {
+            "id": {
+              "type": "uuid",
+              "nullable": false,
+              "primaryKey": true,
+              "default": "gen_random_uuid()"
+            },
+            "conversation_id": {
+              "type": "text",
+              "nullable": true
+            },
+            "student_id": {
+              "type": "uuid",
+              "nullable": true
+            },
+            "surface": {
+              "type": "text",
+              "nullable": false
+            },
+            "object_id": {
+              "type": "text",
+              "nullable": false
+            },
+            "lesson_id": {
+              "type": "text",
+              "nullable": true
+            },
+            "entry_event_id": {
+              "type": "text",
+              "nullable": true
+            },
+            "intent": {
+              "type": "text",
+              "nullable": true
+            },
+            "confidence": {
+              "type": "real",
+              "nullable": true
+            },
+            "resolution": {
+              "type": "text",
+              "nullable": false
+            },
+            "disclosure_level": {
+              "type": "text",
+              "nullable": true
+            },
+            "missing_fields": {
+              "type": "jsonb",
+              "nullable": true
+            },
+            "latency_ms": {
+              "type": "integer",
+              "nullable": false
+            },
+            "input_tokens": {
+              "type": "integer",
+              "nullable": true
+            },
+            "output_tokens": {
+              "type": "integer",
+              "nullable": true
+            },
+            "cache_read_tokens": {
+              "type": "integer",
+              "nullable": true
+            },
+            "action_returned": {
+              "type": "text",
+              "nullable": true
+            },
+            "action_clicked": {
+              "type": "text",
+              "nullable": true
+            },
+            "model": {
+              "type": "text",
+              "nullable": true
+            },
+            "created_at": {
+              "type": "timestamp with time zone",
+              "nullable": false,
+              "default": "now()"
+            },
+            "voice_metrics": {
+              "type": "jsonb",
+              "nullable": true
+            }
+          },
+          "primaryKey": [
+            "id"
+          ],
+          "indexes": [
+            {
+              "name": "interactions_student_idx",
+              "columns": [
+                "student_id",
+                "created_at"
+              ],
+              "unique": false
+            },
+            {
+              "name": "interactions_surface_idx",
+              "columns": [
+                "surface",
+                "created_at"
+              ],
+              "unique": false
+            }
+          ],
+          "foreignKeys": [
+            {
+              "name": "interactions_student_id_students_id_fk",
+              "columns": [
+                "student_id"
+              ],
+              "references": "academic.students(id)",
+              "onDelete": "set null",
+              "onUpdate": "no action"
+            }
+          ]
+        },
+        "memories": {
+          "columns": {
+            "id": {
+              "type": "uuid",
+              "nullable": false,
+              "primaryKey": true,
+              "default": "gen_random_uuid()"
+            },
+            "student_id": {
+              "type": "uuid",
+              "nullable": false
+            },
+            "kind": {
+              "type": "text",
+              "nullable": false
+            },
+            "source": {
+              "type": "text",
+              "nullable": false
+            },
+            "content": {
+              "type": "text",
+              "nullable": false
+            },
+            "subject_code": {
+              "type": "text",
+              "nullable": true
+            },
+            "confidence": {
+              "type": "real",
+              "nullable": true
+            },
+            "valid_until": {
+              "type": "timestamp with time zone",
+              "nullable": true
+            },
+            "superseded_by": {
+              "type": "uuid",
+              "nullable": true
+            },
+            "created_at": {
+              "type": "timestamp with time zone",
+              "nullable": false,
+              "default": "now()"
+            }
+          },
+          "primaryKey": [
+            "id"
+          ],
+          "indexes": [
+            {
+              "name": "memories_student_idx",
+              "columns": [
+                "student_id"
+              ],
+              "unique": false
+            },
+            {
+              "name": "memories_student_kind_idx",
+              "columns": [
+                "student_id",
+                "kind"
+              ],
+              "unique": false
+            }
+          ],
+          "foreignKeys": [
+            {
+              "name": "memories_student_id_students_id_fk",
+              "columns": [
+                "student_id"
+              ],
+              "references": "academic.students(id)",
+              "onDelete": "cascade",
+              "onUpdate": "no action"
+            }
+          ]
+        },
+        "student_profiles": {
+          "columns": {
+            "student_id": {
+              "type": "uuid",
+              "nullable": false,
+              "primaryKey": true
+            },
+            "work_schedule_override": {
+              "type": "jsonb",
+              "nullable": true
+            },
+            "preferred_windows": {
+              "type": "jsonb",
+              "nullable": false,
+              "default": "'[]'::jsonb"
+            },
+            "session_minutes": {
+              "type": "integer",
+              "nullable": true
+            },
+            "updated_at": {
+              "type": "timestamp with time zone",
+              "nullable": false,
+              "default": "now()"
+            }
+          },
+          "primaryKey": [
+            "student_id"
+          ],
+          "foreignKeys": [
+            {
+              "name": "student_profiles_student_id_students_id_fk",
+              "columns": [
+                "student_id"
+              ],
+              "references": "academic.students(id)",
+              "onDelete": "cascade",
+              "onUpdate": "no action"
+            }
+          ]
+        },
+        "study_activities": {
+          "columns": {
+            "id": {
+              "type": "uuid",
+              "nullable": false,
+              "primaryKey": true,
+              "default": "gen_random_uuid()"
+            },
+            "student_id": {
+              "type": "uuid",
+              "nullable": false
+            },
+            "external_id": {
+              "type": "text",
+              "nullable": false
+            },
+            "title": {
+              "type": "text",
+              "nullable": false
+            },
+            "category": {
+              "type": "text",
+              "nullable": false
+            },
+            "subject_code": {
+              "type": "text",
+              "nullable": true
+            },
+            "subject_name": {
+              "type": "text",
+              "nullable": true
+            },
+            "date": {
+              "type": "text",
+              "nullable": false
+            },
+            "start_time": {
+              "type": "text",
+              "nullable": false
+            },
+            "end_time": {
+              "type": "text",
+              "nullable": false
+            },
+            "notes": {
+              "type": "text",
+              "nullable": false,
+              "default": "''"
+            },
+            "source": {
+              "type": "text",
+              "nullable": false
+            },
+            "created_at": {
+              "type": "timestamp with time zone",
+              "nullable": false,
+              "default": "now()"
+            }
+          },
+          "primaryKey": [
+            "id"
+          ],
+          "uniqueConstraints": [
+            {
+              "name": "study_activities_unq",
+              "columns": [
+                "student_id",
+                "external_id"
+              ]
+            }
+          ],
+          "indexes": [
+            {
+              "name": "study_activities_student_date_idx",
+              "columns": [
+                "student_id",
+                "date"
+              ],
+              "unique": false
+            }
+          ],
+          "foreignKeys": [
+            {
+              "name": "study_activities_student_id_students_id_fk",
+              "columns": [
+                "student_id"
+              ],
+              "references": "academic.students(id)",
+              "onDelete": "cascade",
+              "onUpdate": "no action"
+            }
+          ]
+        },
+        "study_programs": {
+          "columns": {
+            "id": {
+              "type": "uuid",
+              "nullable": false,
+              "primaryKey": true,
+              "default": "gen_random_uuid()"
+            },
+            "student_id": {
+              "type": "uuid",
+              "nullable": false
+            },
+            "horizon_start": {
+              "type": "text",
+              "nullable": false
+            },
+            "horizon_end": {
+              "type": "text",
+              "nullable": false
+            },
+            "status": {
+              "type": "text",
+              "nullable": false,
+              "default": "'draft'"
+            },
+            "created_at": {
+              "type": "timestamp with time zone",
+              "nullable": false,
+              "default": "now()"
+            }
+          },
+          "primaryKey": [
+            "id"
+          ],
+          "indexes": [
+            {
+              "name": "study_programs_student_idx",
+              "columns": [
+                "student_id",
+                "status"
+              ],
+              "unique": false
+            }
+          ],
+          "foreignKeys": [
+            {
+              "name": "study_programs_student_id_students_id_fk",
+              "columns": [
+                "student_id"
+              ],
+              "references": "academic.students(id)",
+              "onDelete": "cascade",
+              "onUpdate": "no action"
+            }
+          ]
+        },
+        "study_sessions": {
+          "columns": {
+            "id": {
+              "type": "uuid",
+              "nullable": false,
+              "primaryKey": true,
+              "default": "gen_random_uuid()"
+            },
+            "program_id": {
+              "type": "uuid",
+              "nullable": false
+            },
+            "source_id": {
+              "type": "text",
+              "nullable": false
+            },
+            "assessment_code": {
+              "type": "text",
+              "nullable": true
+            },
+            "subject_code": {
+              "type": "text",
+              "nullable": true
+            },
+            "subject_name": {
+              "type": "text",
+              "nullable": true
+            },
+            "title": {
+              "type": "text",
+              "nullable": false
+            },
+            "category": {
+              "type": "text",
+              "nullable": false
+            },
+            "date": {
+              "type": "text",
+              "nullable": false
+            },
+            "start_time": {
+              "type": "text",
+              "nullable": false
+            },
+            "end_time": {
+              "type": "text",
+              "nullable": false
+            },
+            "notes": {
+              "type": "text",
+              "nullable": false,
+              "default": "''"
+            },
+            "status": {
+              "type": "text",
+              "nullable": false,
+              "default": "'proposed'"
+            },
+            "ordinal": {
+              "type": "integer",
+              "nullable": false
+            }
+          },
+          "primaryKey": [
+            "id"
+          ],
+          "uniqueConstraints": [
+            {
+              "name": "study_sessions_source_unq",
+              "columns": [
+                "program_id",
+                "source_id"
+              ]
+            }
+          ],
+          "indexes": [
+            {
+              "name": "study_sessions_program_date_idx",
+              "columns": [
+                "program_id",
+                "date"
+              ],
+              "unique": false
+            }
+          ],
+          "foreignKeys": [
+            {
+              "name": "study_sessions_program_id_study_programs_id_fk",
+              "columns": [
+                "program_id"
+              ],
+              "references": "vitru.study_programs(id)",
+              "onDelete": "cascade",
+              "onUpdate": "no action"
+            }
+          ]
+        },
+        "surface_visits": {
+          "columns": {
+            "student_id": {
+              "type": "uuid",
+              "nullable": false
+            },
+            "surface": {
+              "type": "text",
+              "nullable": false
+            },
+            "visit_count": {
+              "type": "integer",
+              "nullable": false,
+              "default": 0
+            },
+            "first_seen_at": {
+              "type": "timestamp with time zone",
+              "nullable": false,
+              "default": "now()"
+            },
+            "last_seen_at": {
+              "type": "timestamp with time zone",
+              "nullable": false,
+              "default": "now()"
+            },
+            "onboarded_at": {
+              "type": "timestamp with time zone",
+              "nullable": true
+            }
+          },
+          "uniqueConstraints": [
+            {
+              "name": "surface_visits_unq",
+              "columns": [
+                "student_id",
+                "surface"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "name": "surface_visits_student_id_students_id_fk",
+              "columns": [
+                "student_id"
+              ],
+              "references": "academic.students(id)",
+              "onDelete": "cascade",
+              "onUpdate": "no action"
+            }
+          ]
+        },
+        "trilha_completions": {
+          "columns": {
+            "id": {
+              "type": "uuid",
+              "nullable": false,
+              "primaryKey": true,
+              "default": "gen_random_uuid()"
+            },
+            "student_id": {
+              "type": "uuid",
+              "nullable": false
+            },
+            "subject_code": {
+              "type": "text",
+              "nullable": false
+            },
+            "lesson_id": {
+              "type": "text",
+              "nullable": false
+            },
+            "completed_at": {
+              "type": "timestamp with time zone",
+              "nullable": false,
+              "default": "now()"
+            }
+          },
+          "primaryKey": [
+            "id"
+          ],
+          "uniqueConstraints": [
+            {
+              "name": "trilha_completions_unq",
+              "columns": [
+                "student_id",
+                "subject_code",
+                "lesson_id"
+              ]
+            }
+          ],
+          "indexes": [
+            {
+              "name": "trilha_completions_student_subject_idx",
+              "columns": [
+                "student_id",
+                "subject_code"
+              ],
+              "unique": false
+            }
+          ],
+          "foreignKeys": [
+            {
+              "name": "trilha_completions_student_id_students_id_fk",
+              "columns": [
+                "student_id"
+              ],
+              "references": "academic.students(id)",
+              "onDelete": "cascade",
+              "onUpdate": "no action"
+            }
+          ]
+        },
+        "trilha_marks": {
+          "columns": {
+            "id": {
+              "type": "uuid",
+              "nullable": false,
+              "primaryKey": true,
+              "default": "gen_random_uuid()"
+            },
+            "student_id": {
+              "type": "uuid",
+              "nullable": false
+            },
+            "subject_code": {
+              "type": "text",
+              "nullable": false
+            },
+            "lesson_id": {
+              "type": "text",
+              "nullable": false
+            },
+            "paragraph_id": {
+              "type": "text",
+              "nullable": false
+            },
+            "excerpt": {
+              "type": "text",
+              "nullable": false
+            },
+            "marked_at": {
+              "type": "timestamp with time zone",
+              "nullable": false,
+              "default": "now()"
+            }
+          },
+          "primaryKey": [
+            "id"
+          ],
+          "uniqueConstraints": [
+            {
+              "name": "trilha_marks_unq",
+              "columns": [
+                "student_id",
+                "subject_code",
+                "lesson_id",
+                "paragraph_id"
+              ]
+            }
+          ],
+          "indexes": [
+            {
+              "name": "trilha_marks_student_subject_idx",
+              "columns": [
+                "student_id",
+                "subject_code"
+              ],
+              "unique": false
+            }
+          ],
+          "foreignKeys": [
+            {
+              "name": "trilha_marks_student_id_students_id_fk",
+              "columns": [
+                "student_id"
+              ],
+              "references": "academic.students(id)",
+              "onDelete": "cascade",
+              "onUpdate": "no action"
+            }
+          ]
+        },
+        "exam_schedule_overrides": {
+          "columns": {
+            "id": {
+              "type": "uuid",
+              "nullable": false,
+              "primaryKey": true,
+              "default": "gen_random_uuid()"
+            },
+            "student_id": {
+              "type": "uuid",
+              "nullable": false
+            },
+            "subject_code": {
+              "type": "text",
+              "nullable": false
+            },
+            "test_code": {
+              "type": "text",
+              "nullable": false
+            },
+            "kind": {
+              "type": "text",
+              "nullable": false
+            },
+            "schedule_option_id": {
+              "type": "text",
+              "nullable": true
+            },
+            "updated_at": {
+              "type": "timestamp with time zone",
+              "nullable": false,
+              "default": "now()"
+            }
+          },
+          "primaryKey": [
+            "id"
+          ],
+          "uniqueConstraints": [
+            {
+              "name": "exam_schedule_overrides_unq",
+              "columns": [
+                "student_id",
+                "subject_code",
+                "test_code"
+              ]
+            }
+          ],
+          "foreignKeys": [
+            {
+              "name": "exam_schedule_overrides_student_id_students_id_fk",
+              "columns": [
+                "student_id"
+              ],
+              "references": "academic.students(id)",
+              "onDelete": "cascade",
+              "onUpdate": "no action"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

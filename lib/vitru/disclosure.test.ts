@@ -30,6 +30,7 @@ describe("redactSemanticSnapshot", () => {
       sections: [{ id: "assessments", name: "Avaliações", items: [{
         id: "assessment:GTI03:AV1",
         name: "AV1",
+        referenceCodes: ["AV1"],
         facts: { nota: "8,5", cpf: "000.000.000-00", email: "aluno@example.com" },
         actionIds: [],
       }] }],
@@ -38,6 +39,7 @@ describe("redactSemanticSnapshot", () => {
     });
 
     expect(result.snapshot.sections[0].items[0].facts).toEqual({ nota: "8,5" });
+    expect(result.snapshot.sections[0].items[0]).not.toHaveProperty("referenceCodes");
     expect(result.removedFields).toEqual(["cpf", "email"]);
   });
 });

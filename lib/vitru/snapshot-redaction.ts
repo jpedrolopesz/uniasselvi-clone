@@ -2,7 +2,7 @@ import type { VitruSemanticSnapshot } from "@/lib/vitru/semantic-snapshot";
 
 /** Fatos acadêmicos permitidos no snapshot enviado ao orquestrador. */
 export const VITRU_DISCLOSED_SNAPSHOT_FACTS = new Set([
-  "codigo", "periodo", "avaliacoes", "aulasGravadas", "frequencia", "nota",
+  "periodo", "avaliacoes", "aulasGravadas", "frequencia", "nota",
   "peso", "resultadoPublicado", "duracao",
   "inicio", "fim", "categoria", "disciplina",
 ]);
@@ -34,7 +34,7 @@ export function redactSemanticSnapshot(snapshot: VitruSemanticSnapshot): Redacte
       },
       sections: snapshot.sections.map((section) => ({
         ...section,
-        items: section.items.map((item) => ({
+        items: section.items.map(({ referenceCodes: _referenceCodes, ...item }) => ({
           ...item,
           ...(item.facts ? {
             facts: Object.fromEntries(Object.entries(item.facts).filter(([key]) => {
