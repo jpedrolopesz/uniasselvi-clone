@@ -98,6 +98,9 @@ npm run db:migrate
 npm run db:seed
 
 # 5. Rode
+npm install
+npm run db:migrate   # cria os schemas em .vitru/pglite
+npm run db:seed      # carrega os fixtures de public/data
 npm run dev
 ```
 
