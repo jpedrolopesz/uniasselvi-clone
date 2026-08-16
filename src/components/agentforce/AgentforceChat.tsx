@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { VitruLogo } from "@/components/vitru/VitruLogo";
+import { VITRU_OPEN_ASSISTANT_EVENT } from "@/components/vitru/assistant-events";
 
 interface Message {
   id: string;
@@ -17,44 +17,27 @@ interface AgentforceChatProps {
 type AgentMode = "agentforce" | "sonic";
 
 /**
- * Widget Vitru — Assistente IA unificado (canto esquerdo).
- *
- * Dois modos:
- * - Agentforce (Salesforce): chat por escrita
- * - Nova Sonic (AWS Bedrock): conversa por voz, speech-to-speech
- *
- * Em produção:
- * - Agentforce conecta via Agent API v62.0 (OAuth Client Credentials → sessão → mensagem)
- * - Nova Sonic conecta via WebSocket bidirectional com Bedrock (áudio in → áudio out)
- *
- * Nesta demo: respostas simuladas que refletem o comportamento real do agente.
+ * Widget Vitru — Abre quando o botão Vitru no sidebar é clicado.
+ * Dois modos: Agentforce (texto) e Nova Sonic (voz).
+ * Respostas simuladas para demo/banca.
  */
 export function AgentforceChat({ studentId, studentName }: AgentforceChatProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [mode, setMode] = useState<AgentMode>("agentforce");
 
-  if (!isOpen) {
-    return (
-      <button
-        onClick={() => setIsOpen(true)}
-        className="fixed bottom-6 left-6 z-50 group"
-        aria-label="Abrir assistente Vitru"
-      >
-        <div className="relative">
-          <div className="absolute inset-0 bg-brand-yellow/30 rounded-full blur-xl group-hover:bg-brand-yellow/50 transition animate-pulse" />
-          <div className="relative">
-            <VitruLogo state="idle" size="large" />
-          </div>
-          <span className="absolute -bottom-6 left-1/2 -translate-x-1/2 px-3 py-1 bg-bg-card border border-border-subtle rounded-full text-[11px] text-text-primary font-medium shadow-lg whitespace-nowrap">
-            Fale com o Vitru
-          </span>
-        </div>
-      </button>
-    );
-  }
+  // Escuta o evento do sidebar para abrir/fechar
+  useEffect(() => {
+    function handleOpen() {
+      setIsOpen((prev) => !prev);
+    }
+    window.addEventListener(VITRU_OPEN_ASSISTANT_EVENT, handleOpen);
+    return () => window.removeEventListener(VITRU_OPEN_ASSISTANT_EVENT, handleOpen);
+  }, []);
+
+  if (!isOpen) return null;
 
   return (
-    <div className="fixed bottom-6 left-6 w-[23rem] h-[34rem] rounded-2xl bg-bg-card border border-border-subtle shadow-2xl flex flex-col z-50 overflow-hidden">
+    <div className="fixed bottom-6 left-20 w-[23rem] h-[34rem] rounded-2xl bg-bg-card border border-border-subtle shadow-2xl flex flex-col z-50 overflow-hidden">
       {/* Header */}
       <div className="border-b border-border-subtle bg-bg-sidebar shrink-0">
         <div className="flex items-center justify-between px-4 py-2.5">
@@ -306,7 +289,7 @@ function NovaSonicVoiceChat({ studentName }: { studentName?: string }) {
               <p className="text-[10px] text-accent-purple mb-0.5">🔊 Vitru respondeu:</p>
               <p className="text-xs text-text-primary">{response}</p>
             </div>
-            <p className="text-[10px] text-text-secondary text-center mt-1">Toque no mic para continuar a conversa</p>
+            <p className="text-[10px] text-text-secondary text-center mt-1">Toque no mic para continuar</p>
           </div>
         )}
 

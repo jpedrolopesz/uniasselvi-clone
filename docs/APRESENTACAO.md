@@ -52,7 +52,7 @@ AWS + Salesforce Agentforce + Amazon Nova Sonic + Sala Virtual
 
 ```
 ┌───────────────────────────────────────────────────────┐
-│     ASSISTENTE VITRU (canto esquerdo, logo animado)   │
+│  ASSISTENTE VITRU (abre pelo botão no menu lateral)   │
 │                                                       │
 │  ┌─────────────────┐ ┌─────────────────────────────┐ │
 │  │  AGENTFORCE     │ │  NOVA SONIC                  │ │
@@ -313,8 +313,8 @@ http://localhost:3000/comunidade   → Hub comunidade
 http://localhost:3000/risco        → Score engajamento
 http://localhost:3000/campus-virtual → Sala Virtual (futuro)
 
-Botão Vitru (canto esquerdo, logo animado):
-  → Clique para abrir assistente
+Assistente Vitru (botão no menu lateral):
+  → Clique no "Vitru" no sidebar para abrir
   → Tab "Agentforce": chat por escrita (Salesforce)
   → Tab "Nova Sonic": conversa por voz (AWS Bedrock)
 ```

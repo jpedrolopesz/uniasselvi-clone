@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { cookies } from "next/headers";
-import { VoiceAssistantWindow } from "@/components/vitru/VoiceAssistantWindow";
+import { AgentforceChat } from "@/components/agentforce/AgentforceChat";
 import { resolveActiveUserId } from "@/lib/data/resolve-active-user";
 import { loadDisciplines } from "@/lib/data/load-user-data";
 import { SemanticSnapshotProvider } from "@/components/vitru/SemanticSnapshotProvider";
@@ -8,8 +8,8 @@ import { ThemeProvider, type AppTheme } from "@/components/layout/ThemeProvider"
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "AVA Simulado — UNIASSELVI",
-  description: "Ambiente Virtual de Aprendizagem simulado com dados locais.",
+  title: "Vitru AVA — Plataforma Anti-Evasão",
+  description: "Ambiente Virtual de Aprendizagem com IA adaptativa e comunidade integrada.",
 };
 
 export default async function RootLayout({
@@ -30,7 +30,7 @@ export default async function RootLayout({
             id: code, name: description, href: `/disciplinas/${code}`,
           }))}>
             {children}
-            <VoiceAssistantWindow activeUserId={activeUserId} />
+            <AgentforceChat studentId={activeUserId} />
           </SemanticSnapshotProvider>
         </ThemeProvider>
       </body>

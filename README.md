@@ -42,7 +42,8 @@ http://localhost:3000/comunidade   → Hub de comunidade (matching)
 http://localhost:3000/risco        → Score de engajamento
 http://localhost:3000/campus-virtual → Sala Virtual (roadmap)
 
-Widget Vitru (canto inferior esquerdo, logo animado):
+Assistente Vitru (botão no menu lateral esquerdo):
+  → Clique no "Vitru" no sidebar para abrir
   → Tab "Agentforce": chat por escrita (Salesforce)
   → Tab "Nova Sonic": conversa por voz (AWS Bedrock)
 ```
@@ -134,19 +135,17 @@ vitru-ava/
 │   │   ├── community/          # Hub de comunidade
 │   │   ├── risk-score/         # Motor de risco
 │   │   ├── salesforce/         # Webhooks + sync SF
-│   │   └── agentforce/        # Proxy chat Agentforce
 │   ├── perfil/                 # Página de onboarding
 │   ├── recomendacoes/          # Página de recomendações
 │   ├── comunidade/             # Página de comunidade
 │   └── risco/                  # Página de risk score
 ├── components/                 # React components
-│   ├── agentforce/             # Chat widget (Agentforce)
+│   ├── agentforce/             # Chat Vitru (Agentforce + Nova Sonic)
 │   ├── profile/                # Onboarding UI
 │   ├── community/              # Community Hub UI
 │   ├── study-recommender/      # Recomendações UI
 │   └── risk-score/             # Dashboard de risco
 ├── lib/                        # Lógica de negócio
-│   ├── agentforce/             # Client Salesforce Agent API
 │   ├── profile/                # Learning Profile Engine
 │   ├── recommender/            # Study Recommender
 │   ├── community/              # Community Matcher
@@ -186,7 +185,7 @@ vitru-ava/
 | GET/POST | `/api/v1/risk-score` | Score de risco de evasão |
 | POST | `/api/v1/salesforce/sync` | Sync para Salesforce |
 | POST | `/api/v1/salesforce/webhook` | Webhooks do Salesforce |
-| POST | `/api/v1/agentforce/chat` | Chat com Agentforce |
+| POST | `/api/v1/vitru/chat` | Assistente IA conversacional |
 
 ---
 

@@ -75,7 +75,7 @@ Evasão em EAD no Brasil: **+30%** (INEP/MEC).
 
 ### 3.1 Salesforce Agentforce (Texto)
 
-**Canal:** Tab "Agentforce" no widget Vitru (canto esquerdo, logo animado)
+**Canal:** Painel aberto pelo botão "Vitru" no menu lateral (sidebar) → tab "Agentforce"
 **Protocolo:** REST API (Agent API v62.0)
 **Quando usar:** Interações textuais, recomendações detalhadas, ações no CRM
 
@@ -98,7 +98,7 @@ Aluno digita → POST /api/v1/agentforce/chat
 
 ### 3.2 Amazon Nova Sonic (Voz)
 
-**Canal:** Tab "Nova Sonic" no widget Vitru (canto esquerdo, botão mic grande)
+**Canal:** Painel aberto pelo botão "Vitru" no menu lateral (sidebar) → tab "Nova Sonic"
 **Protocolo:** WebSocket bidirectional (Bedrock Converse Stream)
 **Quando usar:** Interações por voz, hands-free, acessibilidade
 
