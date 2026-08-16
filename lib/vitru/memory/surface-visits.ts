@@ -30,7 +30,7 @@ function toSurfaceVisit(row: typeof s.surfaceVisits.$inferSelect): SurfaceVisit 
  * Devolve o registro já atualizado para quem chama decidir o nível sem uma
  * segunda consulta.
  */
-export async function recordSurfaceVisit(userId: string, surface: Surface): Promise<SurfaceVisit> {
+export async function recordSurfaceVisit(userId: string, surface: Surface | "assessments"): Promise<SurfaceVisit> {
   const student = await requireStudentBySlug(userId);
   const db = await getDb();
   const now = new Date();

@@ -1,8 +1,9 @@
 import type { VitruSemanticSnapshot } from "@/lib/vitru/semantic-snapshot";
 import { scoreOverlap } from "@/lib/vitru/trilha-resolution";
+import { isRelativelyAmbiguous, RELATIVE_AMBIGUITY_MARGIN } from "@/lib/vitru/resolution-ambiguity";
 
 export const TARGET_SCORE_THRESHOLD = 0.45;
-export const TARGET_AMBIGUITY_MARGIN = 0.15;
+export const TARGET_AMBIGUITY_MARGIN = RELATIVE_AMBIGUITY_MARGIN;
 
 export interface TargetResolution {
   actionId: string | null;
@@ -19,7 +20,7 @@ export function resolveTarget(
   const owners = new Map<string, string[]>();
   for (const section of snapshot.sections) {
     for (const item of section.items) {
-      const vocabulary = [item.name, item.status].filter(Boolean).join(" ");
+      const vocabulary = [item.name, ...(item.referenceCodes ?? []), item.status].filter(Boolean).join(" ");
       for (const actionId of item.actionIds) {
         owners.set(actionId, [...(owners.get(actionId) ?? []), vocabulary]);
       }
@@ -39,7 +40,7 @@ export function resolveTarget(
     best &&
       best.score >= TARGET_SCORE_THRESHOLD &&
       second &&
-      second.score >= best.score * (1 - TARGET_AMBIGUITY_MARGIN)
+      isRelativelyAmbiguous(best.score, second.score)
   );
 
   return {

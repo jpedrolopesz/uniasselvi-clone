@@ -3,6 +3,7 @@ import type { RecordingRaw } from "@/lib/types/raw/recordings";
 import type { AssessmentRaw } from "@/lib/types/raw/assessments";
 import { defaultSnapshotState, type VitruSemanticSnapshot } from "@/lib/vitru/semantic-snapshot";
 import { destinationsForPage } from "@/lib/vitru/destinations";
+import { sanitizeSnapshotText } from "@/lib/vitru/sanitize-snapshot-text";
 
 export interface DisciplineSnapshotInput {
   discipline: DisciplineRaw;
@@ -38,10 +39,10 @@ export function buildDisciplineSnapshot({
         name: "Resumo da disciplina",
         items: [{
           id: `discipline:${code}`,
-          name: discipline.description,
+          name: sanitizeSnapshotText(discipline.description),
+          referenceCodes: [code],
           status: discipline.current_subject ? "Em andamento" : discipline.situation,
           facts: {
-            codigo: code,
             periodo: `${discipline.begin_date} a ${discipline.end_date}`,
             avaliacoes: String(assessments?.length ?? 0),
             aulasGravadas: String(recordings?.length ?? 0),
@@ -55,7 +56,8 @@ export function buildDisciplineSnapshot({
         name: "Avaliações",
         items: (assessments ?? []).map((assessment) => ({
           id: `assessment:${code}:${assessment.code}`,
-          name: assessment.description,
+          name: sanitizeSnapshotText(assessment.description),
+          referenceCodes: [assessment.code],
           actionIds: [],
         })),
       },

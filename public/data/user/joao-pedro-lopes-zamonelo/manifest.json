@@ -10,7 +10,19 @@
     "disciplines": true,
     "financialTitles": true
   },
-  "subjects": ["GTI03"],
-  "screens": ["home", "calendario", "notas-avaliacoes", "frequencia", "gravacoes"],
+  "subjects": [
+    "114480",
+    "159490",
+    "GTI03",
+    "GTI04",
+    "MAT24"
+  ],
+  "screens": [
+    "home",
+    "calendario",
+    "notas-avaliacoes",
+    "frequencia",
+    "gravacoes"
+  ],
   "notes": "Dados de exemplo (mock) aguardando substituição pelos JSONs reais retornados pelos endpoints da UNIASSELVI."
 }

@@ -3,6 +3,7 @@ import { buildWeekDays, parseIsoDate, toIso } from "@/lib/study-planner/date-uti
 import { destinationsForPage } from "@/lib/vitru/destinations";
 import { VITRU_NAVIGATION_DESTINATIONS } from "@/lib/vitru/page-context";
 import type { VitruSemanticSnapshot, VitruSnapshotState } from "@/lib/vitru/semantic-snapshot";
+import type { FreeSlot } from "@/lib/study-planner/calendar-logic";
 
 export interface StudyCalendarSnapshotInput {
   activities: StudyActivity[];
@@ -10,6 +11,7 @@ export interface StudyCalendarSnapshotInput {
   view: "day" | "week" | "month";
   now: string;
   focusId?: string | null;
+  availableStudySlots?: FreeSlot[];
 }
 
 function visibleRange(date: string, view: StudyCalendarSnapshotInput["view"]) {
@@ -32,7 +34,7 @@ export function buildStudyCalendarSnapshot(input: StudyCalendarSnapshotInput): V
     focus: input.focusId ? { type: "calendar_activity", id: `calendar-activity:${input.focusId}` } : null,
     temporal: { view: input.view, ...range },
     filters: {},
-    permissions: ["read_calendar", "prepare_calendar_event", "confirm_write"],
+    permissions: ["read_calendar", "show_options", "select_option", "confirm_write"],
   };
   return {
     version: 0,
@@ -54,8 +56,20 @@ export function buildStudyCalendarSnapshot(input: StudyCalendarSnapshotInput): V
         },
         actionIds: [`calendar-activity:${activity.id}:show`],
       })),
+    }, {
+      id: "calendar:study-options",
+      name: "Horários livres calculados",
+      items: (input.availableStudySlots ?? []).map((slot) => ({
+        id: `study-slot:${slot.date}:${slot.startTime}`,
+        name: `${slot.date} ${slot.startTime} a ${slot.endTime}`,
+        actionIds: [`study-slot:${slot.date}:${slot.startTime}:select`],
+      })),
     }],
-    actions,
+    actions: [...actions, ...(input.availableStudySlots ?? []).map((slot) => ({
+      id: `study-slot:${slot.date}:${slot.startTime}:select`,
+      label: `Selecionar ${slot.date} ${slot.startTime} a ${slot.endTime}`,
+      kind: "read" as const,
+    }))],
     destinations: destinationsForPage("study-calendar", VITRU_NAVIGATION_DESTINATIONS),
   };
 }

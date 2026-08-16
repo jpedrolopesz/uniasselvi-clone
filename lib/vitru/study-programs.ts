@@ -5,6 +5,35 @@ import { requireStudentBySlug } from "@/lib/data/db-helpers";
 import { saveStudyActivities } from "@/lib/data/save-study-activities";
 import type { StudyProgram } from "@/lib/study-planner/study-program";
 import type { ActivityCategory } from "@/lib/types/study-activity";
+import type { FreeSlot } from "@/lib/study-planner/calendar-logic";
+import { buildVitruStudentContext } from "@/lib/vitru/build-student-context";
+
+export async function createConfirmedVoiceStudySession(userId: string, slot: FreeSlot): Promise<PersistedStudySession | null> {
+  const current = await buildVitruStudentContext(userId);
+  const stillAvailable = current.schedule.availableStudySlots.some((candidate) =>
+    candidate.date === slot.date && candidate.startTime === slot.startTime && candidate.endTime === slot.endTime
+  );
+  if (!stillAvailable) return null;
+  const program = await createStudyProgram(userId, {
+    horizonStart: slot.date,
+    horizonEnd: slot.date,
+    assessments: [],
+    sessions: [{
+      id: `voice-study-${slot.date}-${slot.startTime}`,
+      assessmentCode: "VOICE-STUDY",
+      subjectCode: "GENERAL",
+      subjectName: "Estudos",
+      title: "Sessão de estudo",
+      category: "estudo",
+      date: slot.date,
+      startTime: slot.startTime,
+      endTime: slot.endTime,
+      notes: "Agendada por voz após confirmação explícita.",
+    }],
+    replyText: "Sessão de estudo proposta por voz.",
+  });
+  return program.sessions[0] ?? null;
+}
 
 export type StudySessionStatus = "proposed" | "accepted" | "rejected" | "done";
 export type StudyProgramStatus = "draft" | "active" | "superseded";

@@ -2,6 +2,7 @@ import type { AssessmentRaw } from "@/lib/types/raw/assessments";
 import { deriveAssessmentUiState } from "@/lib/selectors/assessment-selectors";
 import { defaultSnapshotState, type VitruSemanticSnapshot } from "@/lib/vitru/semantic-snapshot";
 import { destinationsForPage } from "@/lib/vitru/destinations";
+import { sanitizeSnapshotText } from "@/lib/vitru/sanitize-snapshot-text";
 
 export interface AssessmentsSnapshotInput {
   subject: { code: string; name: string };
@@ -38,10 +39,10 @@ export function buildAssessmentsSnapshot({ subject, assessments }: AssessmentsSn
         const actionId = assessmentActionId(assessment, subject.code);
         return {
           id: assessmentItemId(subject.code, assessment.code),
-          name: assessment.description,
+          name: sanitizeSnapshotText(assessment.description),
+          referenceCodes: [assessment.code],
           status: state.actionLabel,
           facts: {
-            codigo: assessment.code,
             nota: state.gradeDisplay,
             peso: assessment.weight,
             periodo: `${assessment.begin_date} a ${assessment.end_date}`,

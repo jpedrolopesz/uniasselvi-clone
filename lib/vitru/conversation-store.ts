@@ -5,6 +5,8 @@ import * as s from "@/lib/db/schema";
 import { requireStudentBySlug } from "@/lib/data/db-helpers";
 import type { Surface } from "@/lib/vitru/surfaces";
 
+export type ConversationSurface = Surface | "portal";
+
 export interface ConversationMessage {
   role: "user" | "assistant";
   text: string;
@@ -14,6 +16,15 @@ export interface ConversationMessage {
 export const SESSION_TTL_MS = 24 * 60 * 60 * 1000;
 const HISTORY_LIMIT = 6;
 const STORED_HISTORY_CAP = 40;
+let lastMessageTimestamp = 0;
+
+function nextMessageTimestamp(): Date {
+  // PostgreSQL não garante ordem entre linhas com o mesmo created_at. As
+  // inserções rápidas do mesmo processo ganham timestamps estritamente
+  // crescentes para que o histórico preserve a ordem conversacional.
+  lastMessageTimestamp = Math.max(Date.now(), lastMessageTimestamp + 1);
+  return new Date(lastMessageTimestamp);
+}
 
 function isAlive(updatedAt: Date, now: number): boolean {
   return now - updatedAt.getTime() < SESSION_TTL_MS;
@@ -33,7 +44,7 @@ function isAlive(updatedAt: Date, now: number): boolean {
  */
 export async function resolveConversationId(
   userId: string,
-  surface: Surface,
+  surface: ConversationSurface,
   objectId: string
 ): Promise<string> {
   const student = await requireStudentBySlug(userId);
@@ -91,7 +102,7 @@ export async function appendMessage(
 
   await db
     .insert(s.conversationMessages)
-    .values({ conversationId, role: message.role, text: message.text });
+    .values({ conversationId, role: message.role, text: message.text, createdAt: nextMessageTimestamp() });
   await db
     .update(s.conversations)
     .set({ updatedAt: new Date() })

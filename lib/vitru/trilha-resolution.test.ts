@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { HIT_THRESHOLD, resolveLocally, scoreOverlap } from "@/lib/vitru/trilha-resolution";
+import { HIT_THRESHOLD, normalizeTokens, resolveLocally, scoreOverlap } from "@/lib/vitru/trilha-resolution";
 import type { LearningPathLessonRaw } from "@/lib/types/raw/learning-path";
 
 const currentLesson: LearningPathLessonRaw = {
@@ -118,5 +118,28 @@ describe("scoreOverlap", () => {
 
   it("é 1 quando todos os tokens da mensagem aparecem no candidato", () => {
     expect(scoreOverlap("fatorial zero", "o fatorial de zero é um por convenção")).toBe(1);
+  });
+});
+
+describe("normalizeTokens para transcrição de voz", () => {
+  it("normaliza avaliação e avaliações para o mesmo token", () => {
+    expect(normalizeTokens("avaliação")).toEqual(["avaliacao"]);
+    expect(normalizeTokens("avaliações")).toEqual(["avaliacao"]);
+  });
+
+  it.each([
+    ["AV um", ["avaliacao", "virtual", "1"]],
+    ["a vê dois", ["avaliacao", "virtual", "2"]],
+    ["avaliação três", ["avaliacao", "3"]],
+    ["unidade dez", ["unidade", "10"]],
+    ["dia sete", ["dia", "7"]],
+  ])("normaliza número falado em %s", (speech, expected) => {
+    expect(normalizeTokens(speech)).toEqual(expected);
+  });
+
+  it("remove fillers sem diluir o recall", () => {
+    expect(normalizeTokens("tipo né aí onde eu respondo a AV um")).toEqual([
+      "onde", "respondo", "avaliacao", "virtual", "1",
+    ]);
   });
 });

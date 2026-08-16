@@ -63,7 +63,11 @@ async function createConnection(): Promise<Connection> {
   if (driver === "pglite") {
     const { PGlite } = await import("@electric-sql/pglite");
     const { drizzle } = await import("drizzle-orm/pglite");
-    const client = new PGlite(pgliteLocation());
+    // Só exponha o Drizzle depois que o Postgres WASM estiver completamente
+    // inicializado. No App Router, layout e página podem consultar o banco em
+    // paralelo; devolver a instância criada com `new PGlite()` antes de
+    // `waitReady` pode fazer as primeiras queries disputarem o boot do WASM.
+    const client = await PGlite.create(pgliteLocation());
     return {
       db: drizzle(client, { schema }) as unknown as Database,
       close: () => client.close(),

@@ -2,13 +2,22 @@ import { defineConfig } from "vitest/config";
 
 export default defineConfig({
   resolve: {
-    alias: {
-      "@": import.meta.dirname,
-    },
+    // Espelha os paths de tsconfig.json: as entradas mais específicas
+    // (@/app, @/components) precisam vir antes do catch-all @, senão o Vite
+    // resolve tudo contra a raiz do repo em vez de src/.
+    alias: [
+      { find: "@/app", replacement: `${import.meta.dirname}/src/app` },
+      { find: "@/components", replacement: `${import.meta.dirname}/src/components` },
+      { find: "@", replacement: import.meta.dirname },
+    ],
   },
   test: {
     environment: "jsdom",
     setupFiles: ["./vitest.setup.ts"],
+    // vitru/ hospeda o serviço de voz (huggingface/speech-to-speech), que traz
+    // sua própria suíte em pytest e node:test. Ela é rodada pelas ferramentas
+    // dele, não por esta.
+    exclude: ["**/node_modules/**", "**/dist/**", "vitru/**"],
     // PGlite é single-writer sobre um diretório em disco (como o SQLite) —
     // vários arquivos de teste rodando em processos/threads paralelos abrem
     // handles concorrentes ao mesmo .vitru/pglite e derrubam o WASM. Os

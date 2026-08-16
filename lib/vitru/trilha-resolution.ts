@@ -6,21 +6,51 @@ const STOPWORDS = new Set([
   "uma", "uns", "umas", "para", "por", "com", "em", "no", "na", "nos", "nas",
   "se", "como", "isso", "essa", "esse", "isto", "voce", "você", "eu", "meu",
   "minha", "tem", "ha", "há", "ou", "mas", "ao", "aos", "sobre", "eh",
+  "tipo", "ne", "né", "ai", "aí",
 ]);
 
-/** Minúsculas, sem acento, tokenizado — mesma normalização usada em chat/route.ts para intents de WhatsApp. */
-export function normalizeTokens(text: string): string[] {
-  const normalized = text
+const SPOKEN_NUMBERS: Record<string, string> = {
+  um: "1", uma: "1", dois: "2", duas: "2", tres: "3", quatro: "4",
+  cinco: "5", seis: "6", sete: "7", oito: "8", nove: "9", dez: "10",
+};
+const SPOKEN_NUMBER_PATTERN = Object.keys(SPOKEN_NUMBERS).join("|");
+
+function singularizePtBr(token: string): string {
+  // Exceções frequentes que apenas terminam como os sufixos de plural.
+  if (["mais", "dois", "tres", "seis", "depois", "mes"].includes(token)) return token;
+  if (token.endsWith("oes") || token.endsWith("aes")) return `${token.slice(0, -3)}ao`;
+  if (token.endsWith("ais")) return `${token.slice(0, -3)}al`;
+  if (token.endsWith("eis")) return `${token.slice(0, -3)}el`;
+  if (token.endsWith("ois")) return `${token.slice(0, -3)}ol`;
+  if (token.endsWith("is")) return `${token.slice(0, -2)}il`;
+  if (token.endsWith("ns")) return `${token.slice(0, -2)}m`;
+  if (token.length > 3 && token.endsWith("s")) return token.slice(0, -1);
+  return token;
+}
+
+/** Minúsculas, sem acento e com abreviações expandidas, mas sem remover stopwords. */
+export function normalizeLexical(text: string): string {
+  const lexical = text
     .toLocaleLowerCase("pt-BR")
     .normalize("NFD")
     // Faixa U+0300–U+036F (marcas de combinação diacríticas), escrita com os
     // caracteres literais em vez de \u — mesmo efeito de [̀-ͯ].
-    .replace(/[̀-ͯ]/g, "")
+    .replace(/[̀-ͯ]/g, "");
+  return lexical
+    // Whisper pode separar foneticamente a sigla: "a vê um".
+    .replace(new RegExp(`\\ba\\s+ve\\s+(${SPOKEN_NUMBER_PATTERN})\\b`, "g"), (_, number: string) => `av ${number}`)
+    .replace(new RegExp(`\\bav\\s+(${SPOKEN_NUMBER_PATTERN})\\b`, "g"), (_, number: string) => `avaliacao virtual ${SPOKEN_NUMBERS[number]}`)
+    .replace(new RegExp(`\\b(avaliacao|unidade|dia)\\s+(${SPOKEN_NUMBER_PATTERN})\\b`, "g"), (_, marker: string, number: string) => `${marker} ${SPOKEN_NUMBERS[number]}`)
     // No portal, AV1/AV2 são abreviações visíveis de "Avaliação Virtual 1/2".
     // Expandir aqui mantém todos os resolvedores sobre a mesma normalização.
     .replace(/\bav\s*(\d+)\b/g, "avaliacao virtual $1");
-  return normalized
+}
+
+/** Minúsculas, sem acento, tokenizado — mesma normalização usada em chat/route.ts para intents de WhatsApp. */
+export function normalizeTokens(text: string): string[] {
+  return normalizeLexical(text)
     .split(/[^a-z0-9]+/)
+    .map(singularizePtBr)
     .filter((token) => (/^\d+$/.test(token) || token.length > 1) && !STOPWORDS.has(token));
 }
 
