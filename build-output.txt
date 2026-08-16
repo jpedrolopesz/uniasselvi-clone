@@ -1,0 +1,32 @@
+﻿
+> uniasselvi-clone@0.1.0 build
+> next build
+
+Ôû▓ Next.js 16.2.12 (Turbopack)
+- Environments: .env.local
+
+  Creating an optimized production build ...
+Ô£ô Compiled successfully in 13.0s
+  Running TypeScript ...
+node.exe : Failed to type check.
+No linha:1 caractere:1
++ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
++ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (Failed to type check.:String) [], Remote 
+   Exception
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+
+./src/lib/subjects.ts:1:33
+Type error: Cannot find module '@/lib/db/academic' or its corresponding type 
+declarations.
+
+[31m[1m>[0m [90m1 |[0m [36mimport[0m [36mtype[0m { [33mSubjectRow[0m } 
+[36mfrom[0m [32m"@/lib/db/academic"[0m;
+  [90m  |[0m                                 [31m[1m^[0m
+  [90m2 |[0m
+  [90m3 |[0m [36mexport[0m [36minterface[0m [33mSubjectSchedule[0m { day: 
+string; time: string }
+  [90m4 |[0m [36mexport[0m [36mtype[0m [33mSubjectStatus[0m = 
+[32m"em_andamento"[0m | [32m"em_breve"[0m;
+Next.js build worker exited with code: 1 and signal: null

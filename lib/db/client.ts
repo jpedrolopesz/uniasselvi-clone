@@ -42,6 +42,10 @@ function resolveDriver(): DatabaseDriver {
 
 /** Diretório do banco embarcado. `:memory:` isola cada execução de teste. */
 function pgliteLocation(): string {
+  // Na Vercel durante build, não há filesystem persistente — usa memória
+  if (process.env.VERCEL || process.env.NEXT_PHASE === "phase-production-build") {
+    return ":memory:";
+  }
   return (
     process.env.PGLITE_PATH ?? path.join(process.cwd(), ".vitru", "pglite")
   );

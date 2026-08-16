@@ -7,6 +7,9 @@ import { SemanticSnapshotProvider } from "@/components/vitru/SemanticSnapshotPro
 import { ThemeProvider, type AppTheme } from "@/components/layout/ThemeProvider";
 import "./globals.css";
 
+/** Força todas as páginas a serem dinâmicas (não pre-renderiza no build) */
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Vitru AVA — Plataforma Anti-Evasão",
   description: "Ambiente Virtual de Aprendizagem com IA adaptativa e comunidade integrada.",
