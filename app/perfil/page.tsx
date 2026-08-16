@@ -1,8 +1,8 @@
 import { AppShell } from "@/components/layout/AppShell";
 import { resolveActiveUserId } from "@/lib/data/resolve-active-user";
-import { CommunityHub } from "@/components/community/CommunityHub";
+import { ProfileOnboarding } from "@/components/profile/ProfileOnboarding";
 
-export default async function ComunidadePage({
+export default async function PerfilPage({
   searchParams,
 }: {
   searchParams: Promise<{ u?: string | string[] }>;
@@ -12,14 +12,14 @@ export default async function ComunidadePage({
 
   return (
     <AppShell activeUserId={activeUserId}>
-      <div className="flex flex-col gap-6 py-6">
+      <div className="flex flex-col gap-6 max-w-2xl mx-auto py-6">
         <div>
-          <h1 className="text-2xl font-bold text-text-primary">Hub de Comunidade</h1>
+          <h1 className="text-2xl font-bold text-text-primary">Seu Perfil de Aprendizagem</h1>
           <p className="text-text-secondary mt-1">
-            Conecte-se com colegas, participe de grupos e construa sua rede.
+            Responda as perguntas para receber recomendações personalizadas de estudo e comunidade.
           </p>
         </div>
-        <CommunityHub studentId={activeUserId} />
+        <ProfileOnboarding studentId={activeUserId} />
       </div>
     </AppShell>
   );

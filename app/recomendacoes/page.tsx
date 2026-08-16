@@ -1,8 +1,8 @@
 import { AppShell } from "@/components/layout/AppShell";
 import { resolveActiveUserId } from "@/lib/data/resolve-active-user";
-import { CommunityHub } from "@/components/community/CommunityHub";
+import { StudyRecommendations } from "@/components/study-recommender/StudyRecommendations";
 
-export default async function ComunidadePage({
+export default async function RecomendacoesPage({
   searchParams,
 }: {
   searchParams: Promise<{ u?: string | string[] }>;
@@ -14,12 +14,12 @@ export default async function ComunidadePage({
     <AppShell activeUserId={activeUserId}>
       <div className="flex flex-col gap-6 py-6">
         <div>
-          <h1 className="text-2xl font-bold text-text-primary">Hub de Comunidade</h1>
+          <h1 className="text-2xl font-bold text-text-primary">Recomendações de Estudo</h1>
           <p className="text-text-secondary mt-1">
-            Conecte-se com colegas, participe de grupos e construa sua rede.
+            Plano personalizado baseado no seu perfil, prazos e estilo de aprendizagem.
           </p>
         </div>
-        <CommunityHub studentId={activeUserId} />
+        <StudyRecommendations studentId={activeUserId} />
       </div>
     </AppShell>
   );
